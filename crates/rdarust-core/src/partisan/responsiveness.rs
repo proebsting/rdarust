@@ -59,7 +59,7 @@ pub fn calc_minimal_inverse_responsiveness(vf: f64, r: f64) -> Option<f64> {
         return None;
     }
     let ideal = if is_balanced(vf) { 0.1 } else { 0.2 };
-    Some(((1.0 / r) - ideal).max(0.0))
+    Some(crate::numeric::python_max((1.0 / r) - ideal, 0.0))
 }
 
 /// Is the statewide vote share within `[45%, 55%]`?

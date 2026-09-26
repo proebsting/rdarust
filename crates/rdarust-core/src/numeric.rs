@@ -145,3 +145,31 @@ pub fn erf(x: f64) -> f64 {
 pub fn approx_equal(x: f64, y: f64, places: i32) -> bool {
     (x - y).abs() <= 10f64.powi(-places) * 0.5
 }
+
+/// Python's `min(a, b)`, which is `b if b < a else a`.
+///
+/// This differs from `f64::min` for NaN. IEEE `minNum` *discards* NaN --
+/// `f64::NAN.min(1.0)` is `1.0` -- whereas Python's comparison is simply
+/// false, so the first argument survives and NaN propagates.
+///
+/// That matters wherever rdapy clamps a computed quantity: with `f64::min` a
+/// NaN silently becomes a plausible-looking bound and flows on into a score,
+/// where Python would have raised and skipped the plan.
+#[inline]
+pub fn python_min(a: f64, b: f64) -> f64 {
+    if b < a {
+        b
+    } else {
+        a
+    }
+}
+
+/// Python's `max(a, b)`, which is `b if b > a else a`. See [`python_min`].
+#[inline]
+pub fn python_max(a: f64, b: f64) -> f64 {
+    if b > a {
+        b
+    } else {
+        a
+    }
+}

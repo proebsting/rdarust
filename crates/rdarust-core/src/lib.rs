@@ -12,7 +12,9 @@
 
 pub mod equal;
 pub mod geometry;
+pub mod minority;
 pub mod numeric;
 pub mod partisan;
 pub mod rate;
 pub mod spline;
+pub mod splitting;

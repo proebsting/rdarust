@@ -10,7 +10,7 @@
 //! panic, the functions here return [`RateError`] so the caller decides.
 //! On finite inputs they cannot fail.
 
-use crate::numeric::python_round;
+use crate::numeric::{python_max, python_min, python_round};
 
 /// Ratings are reported on `[0, 100]`.
 pub const NORMALIZED_RANGE: i32 = 100;
@@ -96,10 +96,13 @@ impl Normalizer {
     }
 
     /// Constrain to a range. The endpoints may be given in either order.
+    ///
+    /// Uses Python's min/max semantics so a NaN survives to be caught by a
+    /// later invariant check, rather than being silently clamped to a bound.
     pub fn clip(&mut self, begin: f64, end: f64) -> f64 {
         let lo = begin.min(end);
         let hi = begin.max(end);
-        self.wip = self.wip.min(hi).max(lo);
+        self.wip = python_max(python_min(self.wip, hi), lo);
         self.wip
     }
 
@@ -175,9 +178,9 @@ pub fn extra_bonus(vf: f64) -> f64 {
 /// winner is left alone.
 pub fn adjust_deviation(vf: f64, disproportionality: f64, extra: f64) -> f64 {
     if vf > 0.5 && disproportionality < 0.0 {
-        (disproportionality + extra).min(0.0)
+        python_min(disproportionality + extra, 0.0)
     } else if vf < 0.5 && disproportionality > 0.0 {
-        (disproportionality - extra).max(0.0)
+        python_max(disproportionality - extra, 0.0)
     } else {
         disproportionality
     }
@@ -228,8 +231,8 @@ pub fn competitiveness(raw_cdf: f64) -> Rated {
 pub fn minority_opportunity(od: f64, pod: f64, cd: f64, pcd: f64) -> i32 {
     let cd_weight = 0.5;
 
-    let od_capped = od.min(pod);
-    let cd_capped = cd.min(pcd);
+    let od_capped = python_min(od, pod);
+    let cd_capped = python_min(cd, pcd);
 
     let opportunity_score = if pod > 0.0 {
         python_round((od_capped / pod) * 100.0)
@@ -242,9 +245,9 @@ pub fn minority_opportunity(od: f64, pod: f64, cd: f64, pcd: f64) -> i32 {
         0.0
     };
 
-    let combined =
-        opportunity_score + cd_weight * (coalition_score - opportunity_score).max(0.0);
-    python_round(combined.min(100.0)) as i32
+    let combined = opportunity_score
+        + cd_weight * python_max(coalition_score - opportunity_score, 0.0);
+    python_round(python_min(combined, 100.0)) as i32
 }
 
 // ---- COMPACTNESS ----

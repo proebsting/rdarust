@@ -2,7 +2,7 @@
 //!
 //! By convention `+` is Republican bias and `-` is Democratic.
 
-use crate::numeric::{isclose_default, python_round};
+use crate::numeric::{isclose_default, python_max, python_min, python_round};
 use crate::partisan::method::{
     est_seat_probability, est_seats, infer_geometric_seats_bias_points,
 };
@@ -148,8 +148,8 @@ pub fn key_rv_points(vf_array: &[f64]) -> KeyRvPoints {
         sb,
         ra,
         rb,
-        va: va.max(0.50),
-        vb: vb.min(0.50),
+        va: python_max(va, 0.50),
+        vb: python_min(vb, 0.50),
     }
 }
 

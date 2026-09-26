@@ -1,0 +1,186 @@
+{
+  "schema": "rdarust.cases/1",
+  "suite": "traced",
+  "function": "calc_proportional_districts",
+  "note": "Recorded by instrumenting rdapy and running its own test suite. Arguments are exactly what rdapy's tests exercise. Cases with a \"from\" field were asserted directly by that test; the rest are incidental interior calls, sampled.",
+  "source": {
+    "rdapy_commit": "2b702b4f8fa10ba6fdbfd364a1f2344ece1077b1",
+    "python": "3.13.15",
+    "numpy": "2.5.3",
+    "platform": "macOS-26.7-arm64-arm-64bit-Mach-O"
+  },
+  "cases": [
+    {
+      "input": [
+        0.0,
+        10
+      ],
+      "expect": 0,
+      "from": "test_minority.py::test_calc_proportional_districts"
+    },
+    {
+      "input": [
+        0.049999,
+        10
+      ],
+      "expect": 0,
+      "from": "test_minority.py::test_calc_proportional_districts"
+    },
+    {
+      "input": [
+        0.1,
+        10
+      ],
+      "expect": 1,
+      "from": "test_minority.py::test_calc_proportional_districts"
+    },
+    {
+      "input": [
+        0.14999900000000002,
+        10
+      ],
+      "expect": 1,
+      "from": "test_minority.py::test_calc_proportional_districts"
+    },
+    {
+      "input": [
+        0.2,
+        10
+      ],
+      "expect": 2,
+      "from": "test_minority.py::test_calc_proportional_districts"
+    },
+    {
+      "input": [
+        0.503566,
+        36
+      ],
+      "expect": 18,
+      "from": "test_minority.py::test_calc_minority_opportunity"
+    },
+    {
+      "input": [
+        0.120059,
+        36
+      ],
+      "expect": 4,
+      "from": "test_minority.py::test_calc_minority_opportunity"
+    },
+    {
+      "input": [
+        0.336063,
+        36
+      ],
+      "expect": 12,
+      "from": "test_minority.py::test_calc_minority_opportunity"
+    },
+    {
+      "input": [
+        0.001664,
+        36
+      ],
+      "expect": 0,
+      "from": "test_minority.py::test_calc_minority_opportunity"
+    },
+    {
+      "input": [
+        0.04389,
+        36
+      ],
+      "expect": 2,
+      "from": "test_minority.py::test_calc_minority_opportunity"
+    },
+    {
+      "input": [
+        0.01195,
+        36
+      ],
+      "expect": 0,
+      "from": "test_minority.py::test_calc_minority_opportunity"
+    },
+    {
+      "input": [
+        0.36363335380723155,
+        14
+      ],
+      "expect": 5
+    },
+    {
+      "input": [
+        0.2137376873045931,
+        14
+      ],
+      "expect": 3
+    },
+    {
+      "input": [
+        0.0888169475318448,
+        14
+      ],
+      "expect": 1
+    },
+    {
+      "input": [
+        0.0017180662061858476,
+        14
+      ],
+      "expect": 0
+    },
+    {
+      "input": [
+        0.03708170802095719,
+        14
+      ],
+      "expect": 1
+    },
+    {
+      "input": [
+        0.028369857925697774,
+        14
+      ],
+      "expect": 0
+    },
+    {
+      "input": [
+        0.4552634072714937,
+        12
+      ],
+      "expect": 5
+    },
+    {
+      "input": [
+        0.14527907752863153,
+        12
+      ],
+      "expect": 2
+    },
+    {
+      "input": [
+        0.1972171216443195,
+        12
+      ],
+      "expect": 2
+    },
+    {
+      "input": [
+        0.0014835242559374617,
+        12
+      ],
+      "expect": 0
+    },
+    {
+      "input": [
+        0.10902955649464176,
+        12
+      ],
+      "expect": 1
+    },
+    {
+      "input": [
+        0.014785388892932728,
+        12
+      ],
+      "expect": 0
+    }
+  ]
+}

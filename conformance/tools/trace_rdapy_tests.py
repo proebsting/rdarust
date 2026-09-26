@@ -74,6 +74,38 @@ TARGETS = [
     "calc_average_margin",
     # equal/population.py
     "calc_population_deviation",
+    # splitting/county.py
+    "calc_splitting_metrics",
+    "split_score",
+    "_county_totals",
+    "_district_totals",
+    "_reduce_county_splits",
+    "_reduce_district_splits",
+    "_calc_county_weights",
+    "_calc_district_weights",
+    "_calc_county_fractions",
+    "_calc_district_fractions",
+    "_county_split_score",
+    "_district_split_score",
+    "_county_splitting",
+    "_district_splitting",
+    "_calc_county_splitting",
+    "_calc_county_splitting_reduced",
+    "_calc_district_splitting",
+    "_calc_district_splitting_reduced",
+    "_population_weight",
+    "_reverse_weight",
+    # splitting/coi.py
+    "uncertainty_of_membership",
+    "effective_splits",
+    # minority/minority.py
+    "calc_proportional_districts",
+    "est_minority_opportunity",
+    "calc_minority_metrics",
+    # minority/majority_minority.py
+    "calculate_mmd_simple",
+    "_is_single_demo_mmd",
+    "_is_coalition_mmd",
 ]
 
 TRACE = defaultdict(list)
@@ -171,11 +203,24 @@ def sample(cases):
         return direct
 
     # Measure as it will be written -- indented -- not compact.
-    per_case = max(1, len(json.dumps(incidental[0], indent=2)))
-    cap = max(MIN_INCIDENTAL, min(MAX_INCIDENTAL, BUDGET_BYTES // per_case))
-    if len(incidental) > cap:
-        stride = len(incidental) / cap
-        incidental = [incidental[int(i * stride)] for i in range(cap)]
+    # Measure every case, not just the first. Case sizes vary hugely within a
+    # single function -- the splitting helpers are called both on tiny
+    # hand-built matrices and on a 15x100 state matrix -- so estimating from
+    # one sample lets a function blow the budget by an order of magnitude.
+    sizes = [len(json.dumps(c, indent=2)) for c in incidental]
+
+    def stride_pick(k):
+        step = len(incidental) / k
+        return [int(i * step) for i in range(k)]
+
+    cap = min(MAX_INCIDENTAL, len(incidental))
+    while cap > MIN_INCIDENTAL:
+        if sum(sizes[i] for i in stride_pick(cap)) <= BUDGET_BYTES:
+            break
+        cap = max(MIN_INCIDENTAL, cap * 3 // 4)
+
+    if cap < len(incidental):
+        incidental = [incidental[i] for i in stride_pick(cap)]
     return direct + incidental
 
 

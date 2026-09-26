@@ -1,0 +1,63 @@
+{
+  "schema": "rdarust.cases/1",
+  "suite": "traced",
+  "function": "est_minority_opportunity",
+  "note": "Recorded by instrumenting rdapy and running its own test suite. Arguments are exactly what rdapy's tests exercise. Cases with a \"from\" field were asserted directly by that test; the rest are incidental interior calls, sampled.",
+  "source": {
+    "rdapy_commit": "2b702b4f8fa10ba6fdbfd364a1f2344ece1077b1",
+    "python": "3.13.15",
+    "numpy": "2.5.3",
+    "platform": "macOS-26.7-arm64-arm-64bit-Mach-O"
+  },
+  "cases": [
+    {
+      "input": [
+        0.35
+      ],
+      "expect": 0.0,
+      "from": "test_minority.py::test_est_minority_opportunity"
+    },
+    {
+      "input": [
+        0.37
+      ],
+      "expect": 0.6914624612740132,
+      "from": "test_minority.py::test_est_minority_opportunity"
+    },
+    {
+      "input": [
+        0.38
+      ],
+      "expect": 0.773372647623132,
+      "from": "test_minority.py::test_est_minority_opportunity"
+    },
+    {
+      "input": [
+        0.49
+      ],
+      "expect": 0.9997673709209645,
+      "from": "test_minority.py::test_est_minority_opportunity"
+    },
+    {
+      "input": [
+        0.5
+      ],
+      "expect": 0.9999115827147992,
+      "from": "test_minority.py::test_est_minority_opportunity"
+    },
+    {
+      "input": [
+        0.51
+      ],
+      "expect": 0.9999683287581669,
+      "from": "test_minority.py::test_est_minority_opportunity"
+    },
+    {
+      "input": [
+        0.9
+      ],
+      "expect": 1.0,
+      "from": "test_minority.py::test_est_minority_opportunity"
+    }
+  ]
+}
