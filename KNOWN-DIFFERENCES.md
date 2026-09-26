@@ -133,3 +133,37 @@ relative measure and changing it would change every published score.
 
 For a disconnected graph the reduced Laplacian is singular. rdapy returns
 `float("-inf")`; this returns `None`.
+
+---
+
+# Deviations added with the pipeline layer
+
+## 11. County-district matrix columns are in sorted order
+
+rdapy derives its county ordering from a Python `set`, so the columns of the
+`CxD` matrix come out in whatever order set iteration produces. Columns here
+are sorted by FIPS code.
+
+Column order changes only the order the weighted sums accumulate in, so the
+splitting scores differ by floating-point noise (measured at ~1e-16). Counts
+-- counties split, total splits -- are order-independent. The matrix itself is
+not part of the published output: rdapy drops it from the aggregates before
+writing them.
+
+## 12. Boundary points are collected once per precinct, not once per neighbour
+
+Building a district's boundary, rdapy appends a precinct's entire convex hull
+once for *each* neighbour in another district, so a precinct bordering five
+others contributes its hull five times. The enclosing-circle routine dedupes
+its input, so the circle is identical either way; this appends it once.
+
+## 13. A district with no boundary is an error, not an infinite Reock
+
+If a district's boundary comes out empty its diameter is zero, and Reock --
+area over the area of the bounding circle -- is infinity, which then flows
+into the plan's average and its 0-100 compactness rating.
+
+In practice this means the adjacency graph was not loaded: input files written
+for the scoring pipeline carry no neighbour lists, because the graph is
+maintained separately. rdapy scores such a plan and reports the result.
+`AggregateError::DistrictHasNoBoundary` is returned instead.

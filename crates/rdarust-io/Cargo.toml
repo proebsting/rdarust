@@ -10,4 +10,5 @@ repository.workspace = true
 [dependencies]
 rdarust-core.workspace = true
 serde = { version = "1", features = ["derive"] }
-serde_json = { version = "1", features = ["float_roundtrip"] }
+csv = "1"
+serde_json = { version = "1", features = ["float_roundtrip", "preserve_order"] }

@@ -7,16 +7,39 @@ The goal is a library you can call from another Rust program -- pass a plan,
 get scores back, no JSON or CSV in the middle -- with a command-line interface
 on top for bulk ensemble scoring.
 
-**Status: in progress.** The numeric foundations and the whole formula layer
-are in place and verified against Python. The plan-scoring pipeline and the
-CLI are not written yet.
+**Status: in progress.** Scoring works end to end and matches rdapy. The CLI
+is not written yet.
 
-Ported so far: the five DRA ratings; the partisan suite (Nagle's method, bias,
+Ported: the five DRA ratings; the partisan suite (Nagle's method, bias,
 responsiveness); population deviation; county, district and COI splitting;
 minority opportunity and majority-minority counts; the Reock and
 Polsby-Popper formulas, population compactness and cut edges; contiguity and
-embeddedness. Still to come: the scoring pipeline (`Context` + `score`), the
-CLI, and the geometry-dependent shape compactness and preprocessing.
+embeddedness; and the pipeline that feeds them -- reading precinct data,
+aggregating by district, and scoring. Still to come: the command-line
+interface, and the geometry-dependent shape compactness and preprocessing.
+
+## Using it
+
+```rust
+use rdarust_core::aggregate::{Aggregates, Mode};
+use rdarust_core::score::ScoreOptions;
+use rdarust_io::{load_graph, load_input_data};
+
+// Built once per state.
+let ctx = load_input_data("NC_input_data.jsonl")?
+    .with_graph(load_graph("NC_graph.json")?)
+    .into_context("NC", "congress", None)?;
+
+// Then per plan. `plan` is a slice of district numbers indexed by precinct.
+let opts = ScoreOptions::default();
+let mut aggs = Aggregates::new(&ctx);          // reused across plans
+let scorecard = ctx.score_into(&plan, &opts, &mut aggs)?;
+
+println!("{}", scorecard.shapes.unwrap().reock);
+```
+
+Geoid-keyed plans convert once with `ctx.plan_from_assignments(...)`. Nothing
+goes through JSON or CSV on this path.
 
 ## Layout
 
@@ -57,8 +80,29 @@ Current margins against that bar:
 | minimum enclosing circle vs rdapy | 1.2e-16 (bit-identical in 10/11 cases) |
 | the five DRA ratings | 0 (bit-identical, all 2381 cases) |
 | the formula layer, 70 functions | 9.9e-14 |
+| whole scorecards, 28 real plans | 7.9e-12 |
 
-## Baseline to beat
+## Performance
 
-rdapy scores the 101-plan NC congressional ensemble (2,666 precincts, 7
-election datasets) in 10.3s wall / 13s CPU, about 100ms per plan.
+Scoring the 101-plan NC congressional ensemble -- 2,666 precincts, 7 election
+datasets, every metric -- on one core:
+
+| | rdapy | rdarust |
+| --- | --- | --- |
+| per plan | ~100 ms | 1.36 ms |
+| whole run | 10.3 s | 0.27 s |
+
+rdapy's figure covers its three-process pipeline, which serialises the full
+by-district aggregates to JSONL between stages; rdarust's covers loading
+(0.10s), reading the plans (0.03s), interning them (0.005s) and scoring
+(0.14s). Scoring alone is about 74x faster. Neither figure uses more than one
+core.
+
+Reproduce with:
+
+```bash
+cargo run --release -p rdarust-io --example score_ensemble -- \
+    vendor/rdapy/testdata/examples/NC_input_data.jsonl \
+    vendor/rdapy/testdata/plans/NC_congress_plans.tagged.jsonl \
+    NC congress vendor/rdapy/testdata/examples/NC_graph.json
+```

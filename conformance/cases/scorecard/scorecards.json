@@ -1,0 +1,4463 @@
+{
+  "schema": "rdarust.cases/1",
+  "suite": "scorecard",
+  "note": "End-to-end scorecards from rdapy on real data. Plans are referenced by file and index, relative to vendor/rdapy.",
+  "source": {
+    "rdapy_commit": "2b702b4f8fa10ba6fdbfd364a1f2344ece1077b1",
+    "python": "3.13.15",
+    "numpy": "2.5.3",
+    "platform": "macOS-26.7-arm64-arm-64bit-Mach-O"
+  },
+  "cases": [
+    {
+      "name": "NC baseline",
+      "state": "NC",
+      "plan_type": "congress",
+      "data": "testdata/score/NC_input_data.v1.jsonl",
+      "plan": {
+        "kind": "csv",
+        "path": "testdata/score/NC20C_baseline_100.csv"
+      },
+      "options": {
+        "mmd_scoring": false,
+        "reverse_weight_splitting": false
+      },
+      "expect": {
+        "census": {
+          "default": {
+            "population_deviation": 0.0091,
+            "county_splitting": 1.2739,
+            "district_splitting": 2.07,
+            "counties_split": 40,
+            "county_splits": 49,
+            "splitting": 14
+          }
+        },
+        "vap": {
+          "default": {
+            "opportunity_districts": 0.8023,
+            "proportional_opportunities": 5,
+            "coalition_districts": 8.4603,
+            "proportional_coalitions": 5,
+            "minority": 58
+          }
+        },
+        "cvap": {
+          "N/A": {}
+        },
+        "election": {
+          "default": {
+            "pr_deviation": 0.0447,
+            "estimated_seats": 6.3746,
+            "fptp_seats": 7,
+            "disproportionality": 0.039,
+            "efficiency_gap": 0.0332,
+            "efficiency_gap_FPTP": -0.0114,
+            "seats_bias": 0.0188,
+            "votes_bias": 0.0041,
+            "geometric_seats_bias": 0.0185,
+            "declination": 2.3489,
+            "mean_median_statewide": -0.007,
+            "mean_median_average_district": -0.0071,
+            "turnout_bias": 0.0,
+            "lopsided_outcomes": -0.0004,
+            "competitive_district_count": 6,
+            "competitive_districts": 5.85,
+            "average_margin": 0.0683,
+            "responsiveness": 4.4657,
+            "responsive_districts": 5.85,
+            "overall_responsiveness": 7.8116,
+            "estimated_vote_pct": 0.4943,
+            "efficiency_gap_wasted_votes": -0.0035,
+            "proportionality": 81,
+            "competitiveness": 56
+          }
+        },
+        "shapes": {
+          "default": {
+            "reock": 0.4947,
+            "polsby_popper": 0.3323,
+            "cut_score": 512,
+            "population_compactness": 1445082.1009,
+            "compactness": 78
+          }
+        }
+      },
+      "by_district": {
+        "reock": [
+          0.4947364171041912,
+          0.3170400239979848,
+          0.4884016448908412,
+          0.7252357837842692,
+          0.607737175743759,
+          0.4762391625902106,
+          0.5192669777832146,
+          0.5073262540432146,
+          0.5074996948618129,
+          0.4279844216869213,
+          0.3435480534275682,
+          0.4836348235195547,
+          0.5852116786205196,
+          0.5065234006347369,
+          0.43066074387406883
+        ],
+        "polsby_popper": [
+          0.33229216341606665,
+          0.329239724546122,
+          0.25941830121540443,
+          0.5591137672919698,
+          0.4367546775154748,
+          0.29215510041971915,
+          0.29959942338629275,
+          0.2182434921842191,
+          0.3930536265179898,
+          0.2782299420180276,
+          0.21429082283913914,
+          0.4194036724962775,
+          0.3497382671290046,
+          0.2700129650690311,
+          0.33283650519626157
+        ],
+        "district_splitting": [
+          2.0700024487358384,
+          1.3329998899697222,
+          2.7550392256397527,
+          1.8833374501385434,
+          2.717816984132044,
+          2.2980930212109607,
+          2.434663730775103,
+          2.1007591328188036,
+          2.147255338065785,
+          2.3408205312077746,
+          1.874414679542044,
+          1.6851584742853891,
+          2.000904971007123,
+          1.5893090911440257,
+          1.8239899191883053
+        ]
+      }
+    },
+    {
+      "name": "NJ baseline",
+      "state": "NJ",
+      "plan_type": "congress",
+      "data": "testdata/score/NJ_input_data.v1.jsonl",
+      "plan": {
+        "kind": "csv",
+        "path": "testdata/score/NJ20C_baseline_100.csv"
+      },
+      "options": {
+        "mmd_scoring": false,
+        "reverse_weight_splitting": false
+      },
+      "expect": {
+        "census": {
+          "default": {
+            "population_deviation": 0.0109,
+            "county_splitting": 1.4492,
+            "district_splitting": 1.7135,
+            "counties_split": 17,
+            "county_splits": 34,
+            "splitting": 3
+          }
+        },
+        "vap": {
+          "default": {
+            "opportunity_districts": 1.0605,
+            "proportional_opportunities": 5,
+            "coalition_districts": 8.6575,
+            "proportional_coalitions": 5,
+            "minority": 60
+          }
+        },
+        "cvap": {
+          "N/A": {}
+        },
+        "election": {
+          "default": {
+            "pr_deviation": -0.1159,
+            "estimated_seats": 8.3912,
+            "fptp_seats": 8,
+            "disproportionality": -0.1389,
+            "efficiency_gap": -0.0785,
+            "efficiency_gap_FPTP": -0.0459,
+            "seats_bias": -0.0523,
+            "votes_bias": -0.0157,
+            "geometric_seats_bias": -0.0059,
+            "declination": 0.4513,
+            "mean_median_statewide": -0.0324,
+            "mean_median_average_district": -0.0175,
+            "turnout_bias": -0.0149,
+            "lopsided_outcomes": 0.0762,
+            "competitive_district_count": 3,
+            "competitive_districts": 2.926,
+            "average_margin": 0.1126,
+            "responsiveness": 3.029,
+            "responsive_districts": 2.926,
+            "overall_responsiveness": 3.3007,
+            "estimated_vote_pct": 0.5604,
+            "efficiency_gap_wasted_votes": -0.0035,
+            "proportionality": 72,
+            "competitiveness": 33
+          }
+        },
+        "shapes": {
+          "default": {
+            "reock": 0.4867,
+            "polsby_popper": 0.3219,
+            "cut_score": 772,
+            "population_compactness": 251391.7744,
+            "compactness": 75
+          }
+        }
+      },
+      "by_district": {
+        "reock": [
+          0.4867441281188143,
+          0.32602152895587594,
+          0.5851723233618464,
+          0.4414042741789743,
+          0.619382997132865,
+          0.37283045442317614,
+          0.48846604111372405,
+          0.6197197032597838,
+          0.5325013313942256,
+          0.5132848799727767,
+          0.537413810792331,
+          0.3377198167202258,
+          0.4670123761199663
+        ],
+        "polsby_popper": [
+          0.3218530451532823,
+          0.2883446586097359,
+          0.7247182856028519,
+          0.2435246045562157,
+          0.324650004669638,
+          0.16425208977637326,
+          0.2538777106678481,
+          0.3143520750132941,
+          0.25966493505334054,
+          0.2827249219016207,
+          0.27022143829633716,
+          0.21180979195210844,
+          0.5240960257400235
+        ],
+        "district_splitting": [
+          1.7135378871162057,
+          1.8485944776552627,
+          2.019317357895877,
+          1.9564546930896092,
+          2.1685693160772175,
+          1.5373337150701523,
+          1.4667270953464804,
+          1.2444608884168378,
+          1.8574398441309716,
+          1.4072280205256615,
+          1.795399945661062,
+          1.9148721208844672,
+          1.3505925940746688
+        ]
+      }
+    },
+    {
+      "name": "NC baseline, reverse-weighted splitting",
+      "state": "NC",
+      "plan_type": "congress",
+      "data": "testdata/score/NC_input_data.v1.jsonl",
+      "plan": {
+        "kind": "csv",
+        "path": "testdata/score/NC20C_baseline_100.csv"
+      },
+      "options": {
+        "mmd_scoring": false,
+        "reverse_weight_splitting": true
+      },
+      "expect": {
+        "census": {
+          "default": {
+            "population_deviation": 0.0091,
+            "county_splitting": 1.2739,
+            "district_splitting": 2.07,
+            "counties_split": 40,
+            "county_splits": 49,
+            "splitting": 14,
+            "county_splitting_reverse": 1.1461,
+            "splitting_reverse": 32
+          }
+        },
+        "vap": {
+          "default": {
+            "opportunity_districts": 0.8023,
+            "proportional_opportunities": 5,
+            "coalition_districts": 8.4603,
+            "proportional_coalitions": 5,
+            "minority": 58
+          }
+        },
+        "cvap": {
+          "N/A": {}
+        },
+        "election": {
+          "default": {
+            "pr_deviation": 0.0447,
+            "estimated_seats": 6.3746,
+            "fptp_seats": 7,
+            "disproportionality": 0.039,
+            "efficiency_gap": 0.0332,
+            "efficiency_gap_FPTP": -0.0114,
+            "seats_bias": 0.0188,
+            "votes_bias": 0.0041,
+            "geometric_seats_bias": 0.0185,
+            "declination": 2.3489,
+            "mean_median_statewide": -0.007,
+            "mean_median_average_district": -0.0071,
+            "turnout_bias": 0.0,
+            "lopsided_outcomes": -0.0004,
+            "competitive_district_count": 6,
+            "competitive_districts": 5.85,
+            "average_margin": 0.0683,
+            "responsiveness": 4.4657,
+            "responsive_districts": 5.85,
+            "overall_responsiveness": 7.8116,
+            "estimated_vote_pct": 0.4943,
+            "efficiency_gap_wasted_votes": -0.0035,
+            "proportionality": 81,
+            "competitiveness": 56
+          }
+        },
+        "shapes": {
+          "default": {
+            "reock": 0.4947,
+            "polsby_popper": 0.3323,
+            "cut_score": 512,
+            "population_compactness": 1445082.1009,
+            "compactness": 78
+          }
+        }
+      },
+      "by_district": {
+        "reock": [
+          0.4947364171040665,
+          0.31704002399817455,
+          0.4884016448908412,
+          0.7252357837843189,
+          0.607737175743759,
+          0.4762391625902106,
+          0.5192669777829052,
+          0.5073262540428561,
+          0.5074996948618129,
+          0.4279844216864194,
+          0.3435480534275682,
+          0.4836348235198727,
+          0.5852116786186112,
+          0.5065234006355118,
+          0.43066074387406883
+        ],
+        "polsby_popper": [
+          0.33229216341606665,
+          0.329239724546122,
+          0.25941830121540443,
+          0.5591137672919698,
+          0.4367546775154748,
+          0.29215510041971915,
+          0.29959942338629275,
+          0.2182434921842191,
+          0.3930536265179898,
+          0.2782299420180276,
+          0.21429082283913914,
+          0.4194036724962775,
+          0.3497382671290046,
+          0.2700129650690311,
+          0.33283650519626157
+        ],
+        "district_splitting": [
+          2.0700024487358384,
+          1.3329998899697222,
+          2.7550392256397527,
+          1.8833374501385434,
+          2.717816984132044,
+          2.2980930212109607,
+          2.434663730775103,
+          2.1007591328188036,
+          2.147255338065785,
+          2.3408205312077746,
+          1.874414679542044,
+          1.6851584742853891,
+          2.000904971007123,
+          1.5893090911440257,
+          1.8239899191883053
+        ]
+      }
+    },
+    {
+      "name": "NC ensemble plan 0",
+      "state": "NC",
+      "plan_type": "congress",
+      "data": "testdata/score/NC_input_data.v1.jsonl",
+      "plan": {
+        "kind": "jsonl",
+        "path": "testdata/plans/NC_congress_plans.tagged.jsonl",
+        "index": 0
+      },
+      "options": {
+        "mmd_scoring": false,
+        "reverse_weight_splitting": false
+      },
+      "expect": {
+        "census": {
+          "default": {
+            "population_deviation": 0.0073,
+            "county_splitting": 1.1473,
+            "district_splitting": 1.3818,
+            "counties_split": 12,
+            "county_splits": 12,
+            "splitting": 59
+          }
+        },
+        "vap": {
+          "default": {
+            "opportunity_districts": 1.7621,
+            "proportional_opportunities": 5,
+            "coalition_districts": 8.2976,
+            "proportional_coalitions": 5,
+            "minority": 68
+          }
+        },
+        "cvap": {
+          "N/A": {}
+        },
+        "election": {
+          "default": {
+            "pr_deviation": 0.0178,
+            "estimated_seats": 6.7509,
+            "fptp_seats": 7,
+            "disproportionality": 0.0121,
+            "efficiency_gap": 0.0064,
+            "efficiency_gap_FPTP": -0.0114,
+            "seats_bias": 0.0029,
+            "votes_bias": 0.0011,
+            "geometric_seats_bias": 0.0026,
+            "declination": 0.1875,
+            "mean_median_statewide": 0.0074,
+            "mean_median_average_district": 0.007,
+            "turnout_bias": 0.0004,
+            "lopsided_outcomes": -0.0056,
+            "competitive_district_count": 3,
+            "competitive_districts": 3.1582,
+            "average_margin": 0.0971,
+            "responsiveness": 2.619,
+            "responsive_districts": 3.1582,
+            "overall_responsiveness": 3.1114,
+            "estimated_vote_pct": 0.4943,
+            "efficiency_gap_wasted_votes": -0.0125,
+            "proportionality": 94,
+            "competitiveness": 30
+          }
+        },
+        "shapes": {
+          "default": {
+            "reock": 0.4145,
+            "polsby_popper": 0.3195,
+            "cut_score": 604,
+            "population_compactness": 2150659.9743,
+            "compactness": 60
+          }
+        }
+      },
+      "by_district": {
+        "reock": [
+          0.41445670380171745,
+          0.3785000391802877,
+          0.3448683973265277,
+          0.33804008527383855,
+          0.4101208335978393,
+          0.2546687589608979,
+          0.41434697205320103,
+          0.4559646789499786,
+          0.5352703195478979,
+          0.5173804455632648,
+          0.413621774023464,
+          0.30605532064631835,
+          0.6082767984128242,
+          0.4566342322109303,
+          0.3686451974767742
+        ],
+        "polsby_popper": [
+          0.3194781684236042,
+          0.3736393366836973,
+          0.29242722008023414,
+          0.1903513289876139,
+          0.4645274131495258,
+          0.22730701827289695,
+          0.5795992266787683,
+          0.3425387320266243,
+          0.28293732768035856,
+          0.2750225347019917,
+          0.3372746836296174,
+          0.29500538132995746,
+          0.29688738822138083,
+          0.26372359581968036,
+          0.25145317066811207
+        ],
+        "district_splitting": [
+          1.3818461633005767,
+          1.3445690230561769,
+          1.0,
+          1.3582917454128929,
+          1.0,
+          1.6487002705510296,
+          1.2864167574317877,
+          1.3237580917914242,
+          1.4103794664715212,
+          1.7021396880622544,
+          1.5108780146314886,
+          1.1465085261772976,
+          1.362025248122131,
+          1.8815027522044838,
+          1.3720864463596376
+        ]
+      }
+    },
+    {
+      "name": "NC ensemble plan 1",
+      "state": "NC",
+      "plan_type": "congress",
+      "data": "testdata/score/NC_input_data.v1.jsonl",
+      "plan": {
+        "kind": "jsonl",
+        "path": "testdata/plans/NC_congress_plans.tagged.jsonl",
+        "index": 1
+      },
+      "options": {
+        "mmd_scoring": false,
+        "reverse_weight_splitting": false
+      },
+      "expect": {
+        "census": {
+          "default": {
+            "population_deviation": 0.0084,
+            "county_splitting": 1.3175,
+            "district_splitting": 2.1439,
+            "counties_split": 40,
+            "county_splits": 47,
+            "splitting": 7
+          }
+        },
+        "vap": {
+          "default": {
+            "opportunity_districts": 0.527,
+            "proportional_opportunities": 5,
+            "coalition_districts": 8.3748,
+            "proportional_coalitions": 5,
+            "minority": 56
+          }
+        },
+        "cvap": {
+          "N/A": {}
+        },
+        "election": {
+          "default": {
+            "pr_deviation": 0.1311,
+            "estimated_seats": 5.1639,
+            "fptp_seats": 4,
+            "disproportionality": 0.1254,
+            "efficiency_gap": 0.1197,
+            "efficiency_gap_FPTP": 0.2028,
+            "seats_bias": 0.1114,
+            "votes_bias": 0.0242,
+            "geometric_seats_bias": 0.11,
+            "declination": 16.1906,
+            "mean_median_statewide": 0.0332,
+            "mean_median_average_district": 0.0322,
+            "turnout_bias": 0.001,
+            "lopsided_outcomes": 0.0311,
+            "competitive_district_count": 5,
+            "competitive_districts": 3.7575,
+            "average_margin": 0.0867,
+            "responsiveness": 2.8608,
+            "responsive_districts": 3.7575,
+            "overall_responsiveness": 22.9343,
+            "estimated_vote_pct": 0.4943,
+            "efficiency_gap_wasted_votes": 0.1959,
+            "proportionality": 37,
+            "competitiveness": 36
+          }
+        },
+        "shapes": {
+          "default": {
+            "reock": 0.3613,
+            "polsby_popper": 0.1838,
+            "cut_score": 806,
+            "population_compactness": 2107799.4678,
+            "compactness": 33
+          }
+        }
+      },
+      "by_district": {
+        "reock": [
+          0.36133777883109747,
+          0.26949245539245986,
+          0.29938139172945966,
+          0.3207487064655221,
+          0.2334265786161498,
+          0.2834529571358292,
+          0.5065554916668163,
+          0.4265148201980426,
+          0.22428638401012663,
+          0.3716167588822351,
+          0.2641365220003552,
+          0.6213694607866315,
+          0.30534260914353956,
+          0.3958049011190601,
+          0.5365998664891374
+        ],
+        "polsby_popper": [
+          0.18377885789564988,
+          0.13489832373253313,
+          0.2453028782969795,
+          0.16500560442024587,
+          0.1330846372147538,
+          0.11983707067765963,
+          0.16484257344415928,
+          0.1861143108870647,
+          0.11451688361626328,
+          0.2140139922165688,
+          0.17361676257631922,
+          0.29909592057008944,
+          0.10287500776423837,
+          0.14667538309799433,
+          0.37302466202422885
+        ],
+        "district_splitting": [
+          2.1439046503768866,
+          1.5619799789222513,
+          1.496336871529313,
+          2.594966838097994,
+          2.510530705669205,
+          2.2690659802548527,
+          2.417998241097254,
+          2.0684808178472256,
+          2.4356844698061018,
+          1.1148908441776588,
+          2.2648676828596277,
+          2.126206774434881,
+          2.923327501540155,
+          2.259964069020395,
+          1.9707481467398327
+        ]
+      }
+    },
+    {
+      "name": "NC ensemble plan 2",
+      "state": "NC",
+      "plan_type": "congress",
+      "data": "testdata/score/NC_input_data.v1.jsonl",
+      "plan": {
+        "kind": "jsonl",
+        "path": "testdata/plans/NC_congress_plans.tagged.jsonl",
+        "index": 2
+      },
+      "options": {
+        "mmd_scoring": false,
+        "reverse_weight_splitting": false
+      },
+      "expect": {
+        "census": {
+          "default": {
+            "population_deviation": 0.0087,
+            "county_splitting": 1.3175,
+            "district_splitting": 2.1439,
+            "counties_split": 40,
+            "county_splits": 47,
+            "splitting": 7
+          }
+        },
+        "vap": {
+          "default": {
+            "opportunity_districts": 0.5265,
+            "proportional_opportunities": 5,
+            "coalition_districts": 8.4053,
+            "proportional_coalitions": 5,
+            "minority": 56
+          }
+        },
+        "cvap": {
+          "N/A": {}
+        },
+        "election": {
+          "default": {
+            "pr_deviation": 0.1259,
+            "estimated_seats": 5.2368,
+            "fptp_seats": 4,
+            "disproportionality": 0.1202,
+            "efficiency_gap": 0.1145,
+            "efficiency_gap_FPTP": 0.2028,
+            "seats_bias": 0.1054,
+            "votes_bias": 0.0227,
+            "geometric_seats_bias": 0.1041,
+            "declination": 14.8026,
+            "mean_median_statewide": 0.0317,
+            "mean_median_average_district": 0.0305,
+            "turnout_bias": 0.0012,
+            "lopsided_outcomes": 0.0275,
+            "competitive_district_count": 5,
+            "competitive_districts": 3.9614,
+            "average_margin": 0.0846,
+            "responsiveness": 2.9948,
+            "responsive_districts": 3.9614,
+            "overall_responsiveness": 22.0243,
+            "estimated_vote_pct": 0.4943,
+            "efficiency_gap_wasted_votes": 0.1946,
+            "proportionality": 40,
+            "competitiveness": 38
+          }
+        },
+        "shapes": {
+          "default": {
+            "reock": 0.3565,
+            "polsby_popper": 0.1843,
+            "cut_score": 803,
+            "population_compactness": 2114036.7968,
+            "compactness": 32
+          }
+        }
+      },
+      "by_district": {
+        "reock": [
+          0.3564847430982554,
+          0.2999198198840423,
+          0.2993813917295752,
+          0.2223788417140734,
+          0.2334265786161498,
+          0.2834529571358292,
+          0.506555491666962,
+          0.4265148201980426,
+          0.22428638401012663,
+          0.3716167588822351,
+          0.2641365220003552,
+          0.6213694607865194,
+          0.30534260914353956,
+          0.39580490111892225,
+          0.5365998664892025
+        ],
+        "polsby_popper": [
+          0.18429967395177055,
+          0.16784712052131082,
+          0.2453028782969795,
+          0.13934823241715752,
+          0.1330846372147538,
+          0.11983707067765963,
+          0.16484257344415928,
+          0.1861143108870647,
+          0.11451688361626328,
+          0.2140139922165688,
+          0.17361676257631922,
+          0.29909592057008944,
+          0.10287500776423837,
+          0.14667538309799433,
+          0.37302466202422885
+        ],
+        "district_splitting": [
+          2.1439249383661196,
+          2.594924656013598,
+          1.496336871529313,
+          1.5620251582386342,
+          2.510530705669205,
+          2.2690659802548527,
+          2.417998241097254,
+          2.0684808178472256,
+          2.4356844698061018,
+          1.1148908441776588,
+          2.2648676828596277,
+          2.126206774434881,
+          2.923327501540155,
+          2.259964069020395,
+          1.9707481467398327
+        ]
+      }
+    },
+    {
+      "name": "NC ensemble plan 3",
+      "state": "NC",
+      "plan_type": "congress",
+      "data": "testdata/score/NC_input_data.v1.jsonl",
+      "plan": {
+        "kind": "jsonl",
+        "path": "testdata/plans/NC_congress_plans.tagged.jsonl",
+        "index": 3
+      },
+      "options": {
+        "mmd_scoring": false,
+        "reverse_weight_splitting": false
+      },
+      "expect": {
+        "census": {
+          "default": {
+            "population_deviation": 0.0091,
+            "county_splitting": 1.3118,
+            "district_splitting": 2.0986,
+            "counties_split": 38,
+            "county_splits": 45,
+            "splitting": 8
+          }
+        },
+        "vap": {
+          "default": {
+            "opportunity_districts": 0.5265,
+            "proportional_opportunities": 5,
+            "coalition_districts": 8.5948,
+            "proportional_coalitions": 5,
+            "minority": 56
+          }
+        },
+        "cvap": {
+          "N/A": {}
+        },
+        "election": {
+          "default": {
+            "pr_deviation": 0.1248,
+            "estimated_seats": 5.2525,
+            "fptp_seats": 4,
+            "disproportionality": 0.1191,
+            "efficiency_gap": 0.1134,
+            "efficiency_gap_FPTP": 0.2028,
+            "seats_bias": 0.1038,
+            "votes_bias": 0.0219,
+            "geometric_seats_bias": 0.1025,
+            "declination": 14.6686,
+            "mean_median_statewide": 0.0317,
+            "mean_median_average_district": 0.0307,
+            "turnout_bias": 0.001,
+            "lopsided_outcomes": 0.0274,
+            "competitive_district_count": 5,
+            "competitive_districts": 4.0223,
+            "average_margin": 0.0843,
+            "responsiveness": 3.0465,
+            "responsive_districts": 4.0223,
+            "overall_responsiveness": 21.8278,
+            "estimated_vote_pct": 0.4943,
+            "efficiency_gap_wasted_votes": 0.1946,
+            "proportionality": 40,
+            "competitiveness": 38
+          }
+        },
+        "shapes": {
+          "default": {
+            "reock": 0.3782,
+            "polsby_popper": 0.193,
+            "cut_score": 791,
+            "population_compactness": 1985569.433,
+            "compactness": 37
+          }
+        }
+      },
+      "by_district": {
+        "reock": [
+          0.37817400303114246,
+          0.2999198198839682,
+          0.29938139172944334,
+          0.2223788417140734,
+          0.3428480174464345,
+          0.2834529571358292,
+          0.5065554916668163,
+          0.4265148201980426,
+          0.41851458424362137,
+          0.3716167588786173,
+          0.2641365220003552,
+          0.6213694607864099,
+          0.30534260914353956,
+          0.39580490111914884,
+          0.5365998664896946
+        ],
+        "polsby_popper": [
+          0.19298153710052918,
+          0.16784712052131082,
+          0.2453028782969795,
+          0.13934823241715752,
+          0.20330976175934604,
+          0.11983707067765963,
+          0.16484257344415928,
+          0.1861143108870647,
+          0.165837843154292,
+          0.2140139922165688,
+          0.17361676257631922,
+          0.29909592057008944,
+          0.10287500776423837,
+          0.14667538309799433,
+          0.37302466202422885
+        ],
+        "district_splitting": [
+          2.0986287308474543,
+          2.594924656013598,
+          1.496336871529313,
+          1.5620251582386342,
+          1.9507320474323202,
+          2.2690659802548527,
+          2.417998241097254,
+          2.0684808178472256,
+          2.3595441680231044,
+          1.1148908441776588,
+          2.2648676828596277,
+          2.126206774434881,
+          2.923327501540155,
+          2.259964069020395,
+          1.9707481467398327
+        ]
+      }
+    },
+    {
+      "name": "NC ensemble plan 4",
+      "state": "NC",
+      "plan_type": "congress",
+      "data": "testdata/score/NC_input_data.v1.jsonl",
+      "plan": {
+        "kind": "jsonl",
+        "path": "testdata/plans/NC_congress_plans.tagged.jsonl",
+        "index": 4
+      },
+      "options": {
+        "mmd_scoring": false,
+        "reverse_weight_splitting": false
+      },
+      "expect": {
+        "census": {
+          "default": {
+            "population_deviation": 0.0086,
+            "county_splitting": 1.3105,
+            "district_splitting": 2.0763,
+            "counties_split": 36,
+            "county_splits": 44,
+            "splitting": 8
+          }
+        },
+        "vap": {
+          "default": {
+            "opportunity_districts": 0.4787,
+            "proportional_opportunities": 5,
+            "coalition_districts": 8.6571,
+            "proportional_coalitions": 5,
+            "minority": 55
+          }
+        },
+        "cvap": {
+          "N/A": {}
+        },
+        "election": {
+          "default": {
+            "pr_deviation": 0.1275,
+            "estimated_seats": 5.215,
+            "fptp_seats": 4,
+            "disproportionality": 0.1218,
+            "efficiency_gap": 0.1161,
+            "efficiency_gap_FPTP": 0.2028,
+            "seats_bias": 0.1062,
+            "votes_bias": 0.022,
+            "geometric_seats_bias": 0.1048,
+            "declination": 14.9985,
+            "mean_median_statewide": 0.0302,
+            "mean_median_average_district": 0.0292,
+            "turnout_bias": 0.0011,
+            "lopsided_outcomes": 0.028,
+            "competitive_district_count": 5,
+            "competitive_districts": 4.0657,
+            "average_margin": 0.0844,
+            "responsiveness": 3.0678,
+            "responsive_districts": 4.0657,
+            "overall_responsiveness": 22.2969,
+            "estimated_vote_pct": 0.4943,
+            "efficiency_gap_wasted_votes": 0.1946,
+            "proportionality": 39,
+            "competitiveness": 39
+          }
+        },
+        "shapes": {
+          "default": {
+            "reock": 0.3789,
+            "polsby_popper": 0.1965,
+            "cut_score": 785,
+            "population_compactness": 1979841.9294,
+            "compactness": 38
+          }
+        }
+      },
+      "by_district": {
+        "reock": [
+          0.3788520594544195,
+          0.29991981988387667,
+          0.2993813917295827,
+          0.22237884171394462,
+          0.3428480174464345,
+          0.2834529571358292,
+          0.506555491666962,
+          0.4265148201980426,
+          0.41851458424362137,
+          0.37161675888240675,
+          0.2641365220003552,
+          0.32890242662134395,
+          0.6073024332309822,
+          0.39580490111935523,
+          0.5365998664891374
+        ],
+        "polsby_popper": [
+          0.19648333835347062,
+          0.16784712052131082,
+          0.2453028782969795,
+          0.13934823241715752,
+          0.20330976175934604,
+          0.11983707067765963,
+          0.16484257344415928,
+          0.1861143108870647,
+          0.165837843154292,
+          0.2140139922165688,
+          0.17361676257631922,
+          0.10176470988205807,
+          0.3492314359934502,
+          0.14667538309799433,
+          0.37302466202422885
+        ],
+        "district_splitting": [
+          2.076332099653204,
+          2.594924656013598,
+          1.496336871529313,
+          1.5620251582386342,
+          1.9507320474323202,
+          2.2690659802548527,
+          2.417998241097254,
+          2.0684808178472256,
+          2.3595441680231044,
+          1.1148908441776588,
+          2.2648676828596277,
+          2.924475737536747,
+          1.8151125656798763,
+          2.259964069020395,
+          1.9707481467398327
+        ]
+      }
+    },
+    {
+      "name": "NC ensemble plan 5",
+      "state": "NC",
+      "plan_type": "congress",
+      "data": "testdata/score/NC_input_data.v1.jsonl",
+      "plan": {
+        "kind": "jsonl",
+        "path": "testdata/plans/NC_congress_plans.tagged.jsonl",
+        "index": 5
+      },
+      "options": {
+        "mmd_scoring": false,
+        "reverse_weight_splitting": false
+      },
+      "expect": {
+        "census": {
+          "default": {
+            "population_deviation": 0.0089,
+            "county_splitting": 1.2971,
+            "district_splitting": 2.0155,
+            "counties_split": 34,
+            "county_splits": 41,
+            "splitting": 10
+          }
+        },
+        "vap": {
+          "default": {
+            "opportunity_districts": 0.461,
+            "proportional_opportunities": 5,
+            "coalition_districts": 8.659,
+            "proportional_coalitions": 5,
+            "minority": 54
+          }
+        },
+        "cvap": {
+          "N/A": {}
+        },
+        "election": {
+          "default": {
+            "pr_deviation": 0.1266,
+            "estimated_seats": 5.2269,
+            "fptp_seats": 4,
+            "disproportionality": 0.1209,
+            "efficiency_gap": 0.1152,
+            "efficiency_gap_FPTP": 0.2028,
+            "seats_bias": 0.1052,
+            "votes_bias": 0.0218,
+            "geometric_seats_bias": 0.1038,
+            "declination": 14.7766,
+            "mean_median_statewide": 0.0302,
+            "mean_median_average_district": 0.0291,
+            "turnout_bias": 0.0011,
+            "lopsided_outcomes": 0.0274,
+            "competitive_district_count": 5,
+            "competitive_districts": 4.1056,
+            "average_margin": 0.0841,
+            "responsiveness": 3.1,
+            "responsive_districts": 4.1056,
+            "overall_responsiveness": 22.1479,
+            "estimated_vote_pct": 0.4943,
+            "efficiency_gap_wasted_votes": 0.1939,
+            "proportionality": 40,
+            "competitiveness": 39
+          }
+        },
+        "shapes": {
+          "default": {
+            "reock": 0.3905,
+            "polsby_popper": 0.2033,
+            "cut_score": 770,
+            "population_compactness": 1942440.8993,
+            "compactness": 41
+          }
+        }
+      },
+      "by_district": {
+        "reock": [
+          0.3905120436833007,
+          0.2999198198839682,
+          0.299381391729446,
+          0.22237884171328992,
+          0.3428480174464345,
+          0.3762194127719539,
+          0.5065554916669306,
+          0.4265148201980426,
+          0.41851458424362137,
+          0.37161675887997575,
+          0.2641365220003552,
+          0.3993757501929227,
+          0.6073024332308672,
+          0.39580490111914884,
+          0.5365998664892534
+        ],
+        "polsby_popper": [
+          0.2033270471181237,
+          0.16784712052131082,
+          0.2453028782969795,
+          0.13934823241715752,
+          0.20330976175934604,
+          0.2053267034923134,
+          0.16484257344415928,
+          0.1861143108870647,
+          0.165837843154292,
+          0.2140139922165688,
+          0.17361676257631922,
+          0.1120869997725475,
+          0.3492314359934502,
+          0.14667538309799433,
+          0.37302466202422885
+        ],
+        "district_splitting": [
+          2.015546322380021,
+          2.594924656013598,
+          1.496336871529313,
+          1.5620251582386342,
+          1.9507320474323202,
+          1.898445742908323,
+          2.417998241097254,
+          2.0684808178472256,
+          2.3595441680231044,
+          1.1148908441776588,
+          2.2648676828596277,
+          2.4472483333103283,
+          1.8151125656798763,
+          2.259964069020395,
+          1.9707481467398327
+        ]
+      }
+    },
+    {
+      "name": "NC ensemble plan 6",
+      "state": "NC",
+      "plan_type": "congress",
+      "data": "testdata/score/NC_input_data.v1.jsonl",
+      "plan": {
+        "kind": "jsonl",
+        "path": "testdata/plans/NC_congress_plans.tagged.jsonl",
+        "index": 6
+      },
+      "options": {
+        "mmd_scoring": false,
+        "reverse_weight_splitting": false
+      },
+      "expect": {
+        "census": {
+          "default": {
+            "population_deviation": 0.0089,
+            "county_splitting": 1.2976,
+            "district_splitting": 2.0069,
+            "counties_split": 33,
+            "county_splits": 41,
+            "splitting": 10
+          }
+        },
+        "vap": {
+          "default": {
+            "opportunity_districts": 0.461,
+            "proportional_opportunities": 5,
+            "coalition_districts": 8.659,
+            "proportional_coalitions": 5,
+            "minority": 54
+          }
+        },
+        "cvap": {
+          "N/A": {}
+        },
+        "election": {
+          "default": {
+            "pr_deviation": 0.1267,
+            "estimated_seats": 5.2262,
+            "fptp_seats": 4,
+            "disproportionality": 0.121,
+            "efficiency_gap": 0.1153,
+            "efficiency_gap_FPTP": 0.2028,
+            "seats_bias": 0.1053,
+            "votes_bias": 0.0218,
+            "geometric_seats_bias": 0.1039,
+            "declination": 14.7845,
+            "mean_median_statewide": 0.0302,
+            "mean_median_average_district": 0.0291,
+            "turnout_bias": 0.0011,
+            "lopsided_outcomes": 0.0274,
+            "competitive_district_count": 5,
+            "competitive_districts": 4.1033,
+            "average_margin": 0.0841,
+            "responsiveness": 3.0984,
+            "responsive_districts": 4.1033,
+            "overall_responsiveness": 22.1572,
+            "estimated_vote_pct": 0.4943,
+            "efficiency_gap_wasted_votes": 0.1939,
+            "proportionality": 40,
+            "competitiveness": 39
+          }
+        },
+        "shapes": {
+          "default": {
+            "reock": 0.3838,
+            "polsby_popper": 0.1985,
+            "cut_score": 778,
+            "population_compactness": 1953281.1875,
+            "compactness": 40
+          }
+        }
+      },
+      "by_district": {
+        "reock": [
+          0.3838331626556603,
+          0.2999198198838221,
+          0.2881384159577814,
+          0.2223788417140734,
+          0.2605866588311249,
+          0.3762194127719539,
+          0.5065554916668824,
+          0.4265148201980426,
+          0.41851458424362137,
+          0.37161675887997575,
+          0.2641365220003552,
+          0.3993757501925659,
+          0.6073024332309822,
+          0.3958049011188603,
+          0.5365998664892025
+        ],
+        "polsby_popper": [
+          0.198529801355164,
+          0.16784712052131082,
+          0.1659231032938616,
+          0.13934823241715752,
+          0.21552809608102774,
+          0.2053267034923134,
+          0.16484257344415928,
+          0.1861143108870647,
+          0.165837843154292,
+          0.2140139922165688,
+          0.17361676257631922,
+          0.1120869997725475,
+          0.3492314359934502,
+          0.14667538309799433,
+          0.37302466202422885
+        ],
+        "district_splitting": [
+          2.0069260947762713,
+          2.594924656013598,
+          1.9816111145942163,
+          1.5620251582386342,
+          1.3450343476447326,
+          1.898445742908323,
+          2.417998241097254,
+          2.0684808178472256,
+          2.3595441680231044,
+          1.1148908441776588,
+          2.2648676828596277,
+          2.4472483333103283,
+          1.8151125656798763,
+          2.259964069020395,
+          1.9707481467398327
+        ]
+      }
+    },
+    {
+      "name": "NC ensemble plan 7",
+      "state": "NC",
+      "plan_type": "congress",
+      "data": "testdata/score/NC_input_data.v1.jsonl",
+      "plan": {
+        "kind": "jsonl",
+        "path": "testdata/plans/NC_congress_plans.tagged.jsonl",
+        "index": 7
+      },
+      "options": {
+        "mmd_scoring": false,
+        "reverse_weight_splitting": false
+      },
+      "expect": {
+        "census": {
+          "default": {
+            "population_deviation": 0.0089,
+            "county_splitting": 1.2984,
+            "district_splitting": 1.9824,
+            "counties_split": 32,
+            "county_splits": 40,
+            "splitting": 10
+          }
+        },
+        "vap": {
+          "default": {
+            "opportunity_districts": 0.461,
+            "proportional_opportunities": 5,
+            "coalition_districts": 8.5958,
+            "proportional_coalitions": 5,
+            "minority": 54
+          }
+        },
+        "cvap": {
+          "N/A": {}
+        },
+        "election": {
+          "default": {
+            "pr_deviation": 0.1271,
+            "estimated_seats": 5.2209,
+            "fptp_seats": 4,
+            "disproportionality": 0.1214,
+            "efficiency_gap": 0.1156,
+            "efficiency_gap_FPTP": 0.2028,
+            "seats_bias": 0.1058,
+            "votes_bias": 0.0221,
+            "geometric_seats_bias": 0.1044,
+            "declination": 14.8133,
+            "mean_median_statewide": 0.0302,
+            "mean_median_average_district": 0.029,
+            "turnout_bias": 0.0013,
+            "lopsided_outcomes": 0.0273,
+            "competitive_district_count": 5,
+            "competitive_districts": 4.0828,
+            "average_margin": 0.0843,
+            "responsiveness": 3.0803,
+            "responsive_districts": 4.0828,
+            "overall_responsiveness": 22.2223,
+            "estimated_vote_pct": 0.4943,
+            "efficiency_gap_wasted_votes": 0.1939,
+            "proportionality": 39,
+            "competitiveness": 39
+          }
+        },
+        "shapes": {
+          "default": {
+            "reock": 0.4103,
+            "polsby_popper": 0.2096,
+            "cut_score": 773,
+            "population_compactness": 2003027.8301,
+            "compactness": 46
+          }
+        }
+      },
+      "by_district": {
+        "reock": [
+          0.41026263293370063,
+          0.2999198198839396,
+          0.30057016842827555,
+          0.22237884171394462,
+          0.2605866588311249,
+          0.37621941277196125,
+          0.5065554916668163,
+          0.4265148201980426,
+          0.41851458424362137,
+          0.37161675887997575,
+          0.6217173534217088,
+          0.3993757501929227,
+          0.6073024332308672,
+          0.39580490111935523,
+          0.5365998664892534
+        ],
+        "polsby_popper": [
+          0.20955234552322236,
+          0.16784712052131082,
+          0.1751336049924064,
+          0.13934823241715752,
+          0.21552809608102774,
+          0.2053267034923134,
+          0.16484257344415928,
+          0.1861143108870647,
+          0.165837843154292,
+          0.2140139922165688,
+          0.3187218792305916,
+          0.1120869997725475,
+          0.3492314359934502,
+          0.14667538309799433,
+          0.37302466202422885
+        ],
+        "district_splitting": [
+          1.9823802238331076,
+          2.594924656013598,
+          1.96148537478027,
+          1.5620251582386342,
+          1.3450343476447326,
+          1.898445742908323,
+          2.417998241097254,
+          2.0684808178472256,
+          2.3595441680231044,
+          1.1148908441776588,
+          1.9416617810411523,
+          2.4472483333103283,
+          1.8151125656798763,
+          2.259964069020395,
+          1.9707481467398327
+        ]
+      }
+    },
+    {
+      "name": "NC ensemble plan 8",
+      "state": "NC",
+      "plan_type": "congress",
+      "data": "testdata/score/NC_input_data.v1.jsonl",
+      "plan": {
+        "kind": "jsonl",
+        "path": "testdata/plans/NC_congress_plans.tagged.jsonl",
+        "index": 8
+      },
+      "options": {
+        "mmd_scoring": false,
+        "reverse_weight_splitting": false
+      },
+      "expect": {
+        "census": {
+          "default": {
+            "population_deviation": 0.0094,
+            "county_splitting": 1.2977,
+            "district_splitting": 2.0056,
+            "counties_split": 33,
+            "county_splits": 41,
+            "splitting": 10
+          }
+        },
+        "vap": {
+          "default": {
+            "opportunity_districts": 0.4692,
+            "proportional_opportunities": 5,
+            "coalition_districts": 8.5953,
+            "proportional_coalitions": 5,
+            "minority": 54
+          }
+        },
+        "cvap": {
+          "N/A": {}
+        },
+        "election": {
+          "default": {
+            "pr_deviation": 0.1289,
+            "estimated_seats": 5.1949,
+            "fptp_seats": 4,
+            "disproportionality": 0.1232,
+            "efficiency_gap": 0.1175,
+            "efficiency_gap_FPTP": 0.2028,
+            "seats_bias": 0.1079,
+            "votes_bias": 0.0225,
+            "geometric_seats_bias": 0.1065,
+            "declination": 15.2482,
+            "mean_median_statewide": 0.0302,
+            "mean_median_average_district": 0.029,
+            "turnout_bias": 0.0012,
+            "lopsided_outcomes": 0.0284,
+            "competitive_district_count": 5,
+            "competitive_districts": 4.0038,
+            "average_margin": 0.0849,
+            "responsiveness": 3.0184,
+            "responsive_districts": 4.0038,
+            "overall_responsiveness": 22.5476,
+            "estimated_vote_pct": 0.4943,
+            "efficiency_gap_wasted_votes": 0.1947,
+            "proportionality": 38,
+            "competitiveness": 38
+          }
+        },
+        "shapes": {
+          "default": {
+            "reock": 0.4014,
+            "polsby_popper": 0.2095,
+            "cut_score": 777,
+            "population_compactness": 2023786.2902,
+            "compactness": 44
+          }
+        }
+      },
+      "by_district": {
+        "reock": [
+          0.4014407808173767,
+          0.2999198198840706,
+          0.30057016842827555,
+          0.2223788417140734,
+          0.2605866588311249,
+          0.3251576397046793,
+          0.5065554916671697,
+          0.4265148201980426,
+          0.41851458424362137,
+          0.37161675888046186,
+          0.6217173534217088,
+          0.32693159363021995,
+          0.6073024332309822,
+          0.3958049011190601,
+          0.5365998664897834
+        ],
+        "polsby_popper": [
+          0.20954790349933525,
+          0.16784712052131082,
+          0.1751336049924064,
+          0.13934823241715752,
+          0.21552809608102774,
+          0.11481427574460792,
+          0.16484257344415928,
+          0.1861143108870647,
+          0.165837843154292,
+          0.2140139922165688,
+          0.3187218792305916,
+          0.20253723918583355,
+          0.3492314359934502,
+          0.14667538309799433,
+          0.37302466202422885
+        ],
+        "district_splitting": [
+          2.005587447261408,
+          2.594924656013598,
+          1.96148537478027,
+          1.5620251582386342,
+          1.3450343476447326,
+          2.814781166000337,
+          2.417998241097254,
+          2.0684808178472256,
+          2.3595441680231044,
+          1.1148908441776588,
+          1.9416617810411523,
+          1.8528100871462134,
+          1.8151125656798763,
+          2.259964069020395,
+          1.9707481467398327
+        ]
+      }
+    },
+    {
+      "name": "NC ensemble plan 9",
+      "state": "NC",
+      "plan_type": "congress",
+      "data": "testdata/score/NC_input_data.v1.jsonl",
+      "plan": {
+        "kind": "jsonl",
+        "path": "testdata/plans/NC_congress_plans.tagged.jsonl",
+        "index": 9
+      },
+      "options": {
+        "mmd_scoring": false,
+        "reverse_weight_splitting": false
+      },
+      "expect": {
+        "census": {
+          "default": {
+            "population_deviation": 0.0094,
+            "county_splitting": 1.2965,
+            "district_splitting": 2.0008,
+            "counties_split": 33,
+            "county_splits": 40,
+            "splitting": 10
+          }
+        },
+        "vap": {
+          "default": {
+            "opportunity_districts": 0.438,
+            "proportional_opportunities": 5,
+            "coalition_districts": 8.9553,
+            "proportional_coalitions": 5,
+            "minority": 54
+          }
+        },
+        "cvap": {
+          "N/A": {}
+        },
+        "election": {
+          "default": {
+            "pr_deviation": 0.1216,
+            "estimated_seats": 5.2974,
+            "fptp_seats": 4,
+            "disproportionality": 0.1159,
+            "efficiency_gap": 0.1102,
+            "efficiency_gap_FPTP": 0.2028,
+            "seats_bias": 0.0984,
+            "votes_bias": 0.0192,
+            "geometric_seats_bias": 0.0968,
+            "declination": 12.4803,
+            "mean_median_statewide": 0.0302,
+            "mean_median_average_district": 0.0288,
+            "turnout_bias": 0.0014,
+            "lopsided_outcomes": 0.0212,
+            "competitive_district_count": 6,
+            "competitive_districts": 4.4229,
+            "average_margin": 0.0776,
+            "responsiveness": 3.357,
+            "responsive_districts": 4.4229,
+            "overall_responsiveness": 21.2673,
+            "estimated_vote_pct": 0.4943,
+            "efficiency_gap_wasted_votes": 0.1945,
+            "proportionality": 42,
+            "competitiveness": 42
+          }
+        },
+        "shapes": {
+          "default": {
+            "reock": 0.3983,
+            "polsby_popper": 0.2148,
+            "cut_score": 772,
+            "population_compactness": 2030007.0603,
+            "compactness": 44
+          }
+        }
+      },
+      "by_district": {
+        "reock": [
+          0.3982884628594138,
+          0.2999198198838221,
+          0.30057016842827555,
+          0.2223788417134035,
+          0.2605866588311249,
+          0.3251576397046793,
+          0.5065554916668163,
+          0.4265148201980426,
+          0.41851458424362137,
+          0.3449774036366384,
+          0.6042242572559716,
+          0.3269315936302722,
+          0.6073024332310838,
+          0.39580490111892225,
+          0.5365998664891192
+        ],
+        "polsby_popper": [
+          0.21481479111014304,
+          0.16784712052131082,
+          0.1751336049924064,
+          0.13934823241715752,
+          0.21552809608102774,
+          0.11481427574460792,
+          0.16484257344415928,
+          0.1861143108870647,
+          0.165837843154292,
+          0.19719325497940918,
+          0.40927904301906015,
+          0.20253723918583355,
+          0.3492314359934502,
+          0.14667538309799433,
+          0.37302466202422885
+        ],
+        "district_splitting": [
+          2.0007560907578155,
+          2.594924656013598,
+          1.96148537478027,
+          1.5620251582386342,
+          1.3450343476447326,
+          2.814781166000337,
+          2.417998241097254,
+          2.0684808178472256,
+          2.3595441680231044,
+          1.2683284888928896,
+          1.7190078231998003,
+          1.8528100871462134,
+          1.8151125656798763,
+          2.259964069020395,
+          1.9707481467398327
+        ]
+      }
+    },
+    {
+      "name": "NC ensemble plan 10",
+      "state": "NC",
+      "plan_type": "congress",
+      "data": "testdata/score/NC_input_data.v1.jsonl",
+      "plan": {
+        "kind": "jsonl",
+        "path": "testdata/plans/NC_congress_plans.tagged.jsonl",
+        "index": 10
+      },
+      "options": {
+        "mmd_scoring": false,
+        "reverse_weight_splitting": false
+      },
+      "expect": {
+        "census": {
+          "default": {
+            "population_deviation": 0.0094,
+            "county_splitting": 1.295,
+            "district_splitting": 1.9811,
+            "counties_split": 32,
+            "county_splits": 39,
+            "splitting": 10
+          }
+        },
+        "vap": {
+          "default": {
+            "opportunity_districts": 0.4381,
+            "proportional_opportunities": 5,
+            "coalition_districts": 8.941,
+            "proportional_coalitions": 5,
+            "minority": 54
+          }
+        },
+        "cvap": {
+          "N/A": {}
+        },
+        "election": {
+          "default": {
+            "pr_deviation": 0.1205,
+            "estimated_seats": 5.3133,
+            "fptp_seats": 4,
+            "disproportionality": 0.1148,
+            "efficiency_gap": 0.109,
+            "efficiency_gap_FPTP": 0.2028,
+            "seats_bias": 0.0972,
+            "votes_bias": 0.019,
+            "geometric_seats_bias": 0.0957,
+            "declination": 12.3199,
+            "mean_median_statewide": 0.0287,
+            "mean_median_average_district": 0.0273,
+            "turnout_bias": 0.0014,
+            "lopsided_outcomes": 0.0209,
+            "competitive_district_count": 6,
+            "competitive_districts": 4.4539,
+            "average_margin": 0.0776,
+            "responsiveness": 3.3743,
+            "responsive_districts": 4.4539,
+            "overall_responsiveness": 21.0685,
+            "estimated_vote_pct": 0.4943,
+            "efficiency_gap_wasted_votes": 0.1945,
+            "proportionality": 43,
+            "competitiveness": 42
+          }
+        },
+        "shapes": {
+          "default": {
+            "reock": 0.3951,
+            "polsby_popper": 0.2094,
+            "cut_score": 776,
+            "population_compactness": 2031676.4433,
+            "compactness": 42
+          }
+        }
+      },
+      "by_district": {
+        "reock": [
+          0.39511744270261834,
+          0.4402927728588123,
+          0.30057016842827555,
+          0.2223788417134035,
+          0.2605866588311249,
+          0.3251576397046793,
+          0.3217882564995626,
+          0.4265148201980426,
+          0.41851458424362137,
+          0.3449774036366384,
+          0.6042242572531252,
+          0.32693159363021995,
+          0.6073024332309742,
+          0.39580490111892225,
+          0.5365998664892534
+        ],
+        "polsby_popper": [
+          0.2093575610834138,
+          0.1294937733492613,
+          0.1751336049924064,
+          0.13934823241715752,
+          0.21552809608102774,
+          0.11481427574460792,
+          0.1267947002419996,
+          0.1861143108870647,
+          0.165837843154292,
+          0.19719325497940918,
+          0.40927904301906015,
+          0.20253723918583355,
+          0.3492314359934502,
+          0.14667538309799433,
+          0.37302466202422885
+        ],
+        "district_splitting": [
+          1.9811087506174097,
+          2.295853956154787,
+          1.96148537478027,
+          1.5620251582386342,
+          1.3450343476447326,
+          2.814781166000337,
+          2.441592448138537,
+          2.0684808178472256,
+          2.3595441680231044,
+          1.2683284888928896,
+          1.7190078231998003,
+          1.8528100871462134,
+          1.8151125656798763,
+          2.259964069020395,
+          1.9707481467398327
+        ]
+      }
+    },
+    {
+      "name": "NC ensemble plan 11",
+      "state": "NC",
+      "plan_type": "congress",
+      "data": "testdata/score/NC_input_data.v1.jsonl",
+      "plan": {
+        "kind": "jsonl",
+        "path": "testdata/plans/NC_congress_plans.tagged.jsonl",
+        "index": 11
+      },
+      "options": {
+        "mmd_scoring": false,
+        "reverse_weight_splitting": false
+      },
+      "expect": {
+        "census": {
+          "default": {
+            "population_deviation": 0.0094,
+            "county_splitting": 1.2951,
+            "district_splitting": 1.9812,
+            "counties_split": 32,
+            "county_splits": 39,
+            "splitting": 10
+          }
+        },
+        "vap": {
+          "default": {
+            "opportunity_districts": 0.4387,
+            "proportional_opportunities": 5,
+            "coalition_districts": 8.9184,
+            "proportional_coalitions": 5,
+            "minority": 54
+          }
+        },
+        "cvap": {
+          "N/A": {}
+        },
+        "election": {
+          "default": {
+            "pr_deviation": 0.1203,
+            "estimated_seats": 5.3155,
+            "fptp_seats": 4,
+            "disproportionality": 0.1146,
+            "efficiency_gap": 0.1089,
+            "efficiency_gap_FPTP": 0.2028,
+            "seats_bias": 0.0971,
+            "votes_bias": 0.019,
+            "geometric_seats_bias": 0.0955,
+            "declination": 12.3003,
+            "mean_median_statewide": 0.0287,
+            "mean_median_average_district": 0.0273,
+            "turnout_bias": 0.0014,
+            "lopsided_outcomes": 0.0208,
+            "competitive_district_count": 6,
+            "competitive_districts": 4.4571,
+            "average_margin": 0.0776,
+            "responsiveness": 3.376,
+            "responsive_districts": 4.4571,
+            "overall_responsiveness": 21.0418,
+            "estimated_vote_pct": 0.4943,
+            "efficiency_gap_wasted_votes": 0.1945,
+            "proportionality": 43,
+            "competitiveness": 42
+          }
+        },
+        "shapes": {
+          "default": {
+            "reock": 0.3951,
+            "polsby_popper": 0.211,
+            "cut_score": 771,
+            "population_compactness": 2031535.8172,
+            "compactness": 43
+          }
+        }
+      },
+      "by_district": {
+        "reock": [
+          0.3950690800497941,
+          0.4402927728582965,
+          0.30057016842827555,
+          0.2223788417134035,
+          0.2605866588311249,
+          0.3251576397046793,
+          0.32178825649949505,
+          0.4268432550496675,
+          0.41851458424362137,
+          0.3449774036366384,
+          0.6032187452626799,
+          0.32693159363001034,
+          0.6073024332308105,
+          0.3958049011192111,
+          0.5365998664892025
+        ],
+        "polsby_popper": [
+          0.21096868374703767,
+          0.1294937733492613,
+          0.1751336049924064,
+          0.13934823241715752,
+          0.21552809608102774,
+          0.11481427574460792,
+          0.1267947002419996,
+          0.19018986718894978,
+          0.165837843154292,
+          0.19719325497940918,
+          0.42775920400790896,
+          0.20253723918583355,
+          0.3492314359934502,
+          0.14667538309799433,
+          0.37302466202422885
+        ],
+        "district_splitting": [
+          1.9812021276500964,
+          2.295853956154787,
+          1.96148537478027,
+          1.5620251582386342,
+          1.3450343476447326,
+          2.814781166000337,
+          2.441592448138537,
+          2.0686915926021556,
+          2.3595441680231044,
+          1.2683284888928896,
+          1.7191786703059084,
+          1.8528100871462134,
+          1.8151125656798763,
+          2.259964069020395,
+          1.9707481467398327
+        ]
+      }
+    },
+    {
+      "name": "NC ensemble plan 12",
+      "state": "NC",
+      "plan_type": "congress",
+      "data": "testdata/score/NC_input_data.v1.jsonl",
+      "plan": {
+        "kind": "jsonl",
+        "path": "testdata/plans/NC_congress_plans.tagged.jsonl",
+        "index": 12
+      },
+      "options": {
+        "mmd_scoring": false,
+        "reverse_weight_splitting": false
+      },
+      "expect": {
+        "census": {
+          "default": {
+            "population_deviation": 0.0082,
+            "county_splitting": 1.2914,
+            "district_splitting": 1.9434,
+            "counties_split": 30,
+            "county_splits": 36,
+            "splitting": 11
+          }
+        },
+        "vap": {
+          "default": {
+            "opportunity_districts": 0.4076,
+            "proportional_opportunities": 5,
+            "coalition_districts": 8.9262,
+            "proportional_coalitions": 5,
+            "minority": 54
+          }
+        },
+        "cvap": {
+          "N/A": {}
+        },
+        "election": {
+          "default": {
+            "pr_deviation": 0.1225,
+            "estimated_seats": 5.2852,
+            "fptp_seats": 4,
+            "disproportionality": 0.1168,
+            "efficiency_gap": 0.1111,
+            "efficiency_gap_FPTP": 0.2028,
+            "seats_bias": 0.0992,
+            "votes_bias": 0.0192,
+            "geometric_seats_bias": 0.0977,
+            "declination": 12.6001,
+            "mean_median_statewide": 0.0287,
+            "mean_median_average_district": 0.0273,
+            "turnout_bias": 0.0014,
+            "lopsided_outcomes": 0.0215,
+            "competitive_district_count": 6,
+            "competitive_districts": 4.4111,
+            "average_margin": 0.0776,
+            "responsiveness": 3.3509,
+            "responsive_districts": 4.4111,
+            "overall_responsiveness": 21.4201,
+            "estimated_vote_pct": 0.4943,
+            "efficiency_gap_wasted_votes": 0.1945,
+            "proportionality": 42,
+            "competitiveness": 42
+          }
+        },
+        "shapes": {
+          "default": {
+            "reock": 0.3953,
+            "polsby_popper": 0.2177,
+            "cut_score": 762,
+            "population_compactness": 2053919.9063,
+            "compactness": 44
+          }
+        }
+      },
+      "by_district": {
+        "reock": [
+          0.395273868837438,
+          0.40581668092597656,
+          0.30057016842827555,
+          0.2223788417134035,
+          0.2605866588311249,
+          0.36250077466103464,
+          0.32178825649970316,
+          0.4268432550496675,
+          0.41851458424362137,
+          0.3449774036366384,
+          0.6032187452650032,
+          0.3269315936299544,
+          0.6073024332310838,
+          0.3958049011188603,
+          0.5365998664897834
+        ],
+        "polsby_popper": [
+          0.21768707158736392,
+          0.1950496506619442,
+          0.1751336049924064,
+          0.13934823241715752,
+          0.21552809608102774,
+          0.14331582819649236,
+          0.1267947002419996,
+          0.19018986718894978,
+          0.165837843154292,
+          0.19719325497940918,
+          0.42775920400790896,
+          0.20253723918583355,
+          0.3492314359934502,
+          0.14667538309799433,
+          0.37302466202422885
+        ],
+        "district_splitting": [
+          1.9433903687127148,
+          1.976887012069302,
+          1.96148537478027,
+          1.5620251582386342,
+          1.3450343476447326,
+          2.606654827543508,
+          2.441592448138537,
+          2.0686915926021556,
+          2.3595441680231044,
+          1.2683284888928896,
+          1.7191786703059084,
+          1.8528100871462134,
+          1.8151125656798763,
+          2.259964069020395,
+          1.9707481467398327
+        ]
+      }
+    },
+    {
+      "name": "NC ensemble plan 13",
+      "state": "NC",
+      "plan_type": "congress",
+      "data": "testdata/score/NC_input_data.v1.jsonl",
+      "plan": {
+        "kind": "jsonl",
+        "path": "testdata/plans/NC_congress_plans.tagged.jsonl",
+        "index": 13
+      },
+      "options": {
+        "mmd_scoring": false,
+        "reverse_weight_splitting": false
+      },
+      "expect": {
+        "census": {
+          "default": {
+            "population_deviation": 0.0082,
+            "county_splitting": 1.2898,
+            "district_splitting": 1.9107,
+            "counties_split": 28,
+            "county_splits": 34,
+            "splitting": 11
+          }
+        },
+        "vap": {
+          "default": {
+            "opportunity_districts": 0.4076,
+            "proportional_opportunities": 5,
+            "coalition_districts": 8.9262,
+            "proportional_coalitions": 5,
+            "minority": 54
+          }
+        },
+        "cvap": {
+          "N/A": {}
+        },
+        "election": {
+          "default": {
+            "pr_deviation": 0.1225,
+            "estimated_seats": 5.2845,
+            "fptp_seats": 4,
+            "disproportionality": 0.1168,
+            "efficiency_gap": 0.1111,
+            "efficiency_gap_FPTP": 0.2028,
+            "seats_bias": 0.0993,
+            "votes_bias": 0.0193,
+            "geometric_seats_bias": 0.0977,
+            "declination": 12.6229,
+            "mean_median_statewide": 0.0287,
+            "mean_median_average_district": 0.0273,
+            "turnout_bias": 0.0013,
+            "lopsided_outcomes": 0.0216,
+            "competitive_district_count": 6,
+            "competitive_districts": 4.409,
+            "average_margin": 0.0775,
+            "responsiveness": 3.3495,
+            "responsive_districts": 4.409,
+            "overall_responsiveness": 21.4285,
+            "estimated_vote_pct": 0.4943,
+            "efficiency_gap_wasted_votes": 0.1945,
+            "proportionality": 42,
+            "competitiveness": 42
+          }
+        },
+        "shapes": {
+          "default": {
+            "reock": 0.3986,
+            "polsby_popper": 0.218,
+            "cut_score": 765,
+            "population_compactness": 2049139.0024,
+            "compactness": 44
+          }
+        }
+      },
+      "by_district": {
+        "reock": [
+          0.39861338957457226,
+          0.40581668092591877,
+          0.29703884949149645,
+          0.22237884171328992,
+          0.3108712680901187,
+          0.36250077466103464,
+          0.32178825649943654,
+          0.4268432550496675,
+          0.41851458424362137,
+          0.3449774036366384,
+          0.6032187452632667,
+          0.32693159363021995,
+          0.6073024332308105,
+          0.39580490111935523,
+          0.5365998664891374
+        ],
+        "polsby_popper": [
+          0.21795333579605197,
+          0.1950496506619442,
+          0.2397207204782243,
+          0.13934823241715752,
+          0.15466867951684293,
+          0.14331582819649236,
+          0.1267947002419996,
+          0.19018986718894978,
+          0.165837843154292,
+          0.19719325497940918,
+          0.42775920400790896,
+          0.20253723918583355,
+          0.3492314359934502,
+          0.14667538309799433,
+          0.37302466202422885
+        ],
+        "district_splitting": [
+          1.9107232928614932,
+          1.976887012069302,
+          1.1497379140330728,
+          1.5620251582386342,
+          1.699243933493672,
+          2.606654827543508,
+          2.441592448138537,
+          2.0686915926021556,
+          2.3595441680231044,
+          1.2683284888928896,
+          1.7191786703059084,
+          1.8528100871462134,
+          1.8151125656798763,
+          2.259964069020395,
+          1.9707481467398327
+        ]
+      }
+    },
+    {
+      "name": "NC ensemble plan 14",
+      "state": "NC",
+      "plan_type": "congress",
+      "data": "testdata/score/NC_input_data.v1.jsonl",
+      "plan": {
+        "kind": "jsonl",
+        "path": "testdata/plans/NC_congress_plans.tagged.jsonl",
+        "index": 14
+      },
+      "options": {
+        "mmd_scoring": false,
+        "reverse_weight_splitting": false
+      },
+      "expect": {
+        "census": {
+          "default": {
+            "population_deviation": 0.0084,
+            "county_splitting": 1.284,
+            "district_splitting": 1.8825,
+            "counties_split": 28,
+            "county_splits": 33,
+            "splitting": 12
+          }
+        },
+        "vap": {
+          "default": {
+            "opportunity_districts": 0.4303,
+            "proportional_opportunities": 5,
+            "coalition_districts": 8.8027,
+            "proportional_coalitions": 5,
+            "minority": 54
+          }
+        },
+        "cvap": {
+          "N/A": {}
+        },
+        "election": {
+          "default": {
+            "pr_deviation": 0.0978,
+            "estimated_seats": 5.6315,
+            "fptp_seats": 5,
+            "disproportionality": 0.092,
+            "efficiency_gap": 0.0863,
+            "efficiency_gap_FPTP": 0.1314,
+            "seats_bias": 0.0731,
+            "votes_bias": 0.0146,
+            "geometric_seats_bias": 0.0719,
+            "declination": 8.4527,
+            "mean_median_statewide": 0.0259,
+            "mean_median_average_district": 0.0248,
+            "turnout_bias": 0.0011,
+            "lopsided_outcomes": 0.0123,
+            "competitive_district_count": 6,
+            "competitive_districts": 4.9427,
+            "average_margin": 0.0726,
+            "responsiveness": 3.805,
+            "responsive_districts": 4.9427,
+            "overall_responsiveness": 17.0942,
+            "estimated_vote_pct": 0.4943,
+            "efficiency_gap_wasted_votes": 0.1234,
+            "proportionality": 54,
+            "competitiveness": 47
+          }
+        },
+        "shapes": {
+          "default": {
+            "reock": 0.394,
+            "polsby_popper": 0.2205,
+            "cut_score": 763,
+            "population_compactness": 2072846.6137,
+            "compactness": 44
+          }
+        }
+      },
+      "by_district": {
+        "reock": [
+          0.39401038761484436,
+          0.4058166809257893,
+          0.2970388494914098,
+          0.2223788417134035,
+          0.3108712680901475,
+          0.36250077466103464,
+          0.32178825649970316,
+          0.4268432550496675,
+          0.41851458424362137,
+          0.3449774036366384,
+          0.6032187452626799,
+          0.32693159363001034,
+          0.6073024332310838,
+          0.5212601318133981,
+          0.3467026083592329
+        ],
+        "polsby_popper": [
+          0.22054007391292282,
+          0.1950496506619442,
+          0.2397207204782243,
+          0.13934823241715752,
+          0.15466867951684293,
+          0.14331582819649236,
+          0.1267947002419996,
+          0.19018986718894978,
+          0.165837843154292,
+          0.19719325497940918,
+          0.42775920400790896,
+          0.20253723918583355,
+          0.3492314359934502,
+          0.3851033162298789,
+          0.17081106252853587
+        ],
+        "district_splitting": [
+          1.882504687179893,
+          1.976887012069302,
+          1.1497379140330728,
+          1.5620251582386342,
+          1.699243933493672,
+          2.606654827543508,
+          2.441592448138537,
+          2.0686915926021556,
+          2.3595441680231044,
+          1.2683284888928896,
+          1.7191786703059084,
+          1.8528100871462134,
+          1.8151125656798763,
+          1.8385144493067955,
+          1.9955215529572656
+        ]
+      }
+    },
+    {
+      "name": "NC ensemble plan 15",
+      "state": "NC",
+      "plan_type": "congress",
+      "data": "testdata/score/NC_input_data.v1.jsonl",
+      "plan": {
+        "kind": "jsonl",
+        "path": "testdata/plans/NC_congress_plans.tagged.jsonl",
+        "index": 15
+      },
+      "options": {
+        "mmd_scoring": false,
+        "reverse_weight_splitting": false
+      },
+      "expect": {
+        "census": {
+          "default": {
+            "population_deviation": 0.0084,
+            "county_splitting": 1.2613,
+            "district_splitting": 1.8099,
+            "counties_split": 26,
+            "county_splits": 30,
+            "splitting": 16
+          }
+        },
+        "vap": {
+          "default": {
+            "opportunity_districts": 0.447,
+            "proportional_opportunities": 5,
+            "coalition_districts": 8.5778,
+            "proportional_coalitions": 5,
+            "minority": 54
+          }
+        },
+        "cvap": {
+          "N/A": {}
+        },
+        "election": {
+          "default": {
+            "pr_deviation": 0.0907,
+            "estimated_seats": 5.7307,
+            "fptp_seats": 5,
+            "disproportionality": 0.0849,
+            "efficiency_gap": 0.0792,
+            "efficiency_gap_FPTP": 0.1314,
+            "seats_bias": 0.0667,
+            "votes_bias": 0.0139,
+            "geometric_seats_bias": 0.0657,
+            "declination": 7.7307,
+            "mean_median_statewide": 0.0265,
+            "mean_median_average_district": 0.0255,
+            "turnout_bias": 0.001,
+            "lopsided_outcomes": 0.0109,
+            "competitive_district_count": 5,
+            "competitive_districts": 4.871,
+            "average_margin": 0.0725,
+            "responsiveness": 3.7652,
+            "responsive_districts": 4.871,
+            "overall_responsiveness": 15.8548,
+            "estimated_vote_pct": 0.4943,
+            "efficiency_gap_wasted_votes": 0.1234,
+            "proportionality": 58,
+            "competitiveness": 46
+          }
+        },
+        "shapes": {
+          "default": {
+            "reock": 0.3995,
+            "polsby_popper": 0.2328,
+            "cut_score": 718,
+            "population_compactness": 1961082.2518,
+            "compactness": 46
+          }
+        }
+      },
+      "by_district": {
+        "reock": [
+          0.3995087642481013,
+          0.4058166809257893,
+          0.29703884949149645,
+          0.22237884171394462,
+          0.3108712680900686,
+          0.2899223873937301,
+          0.4713439166321539,
+          0.4268432550496675,
+          0.41851458424362137,
+          0.3449774036366384,
+          0.6032187452623694,
+          0.32693159363001034,
+          0.6073024332308105,
+          0.5212601318139194,
+          0.346702608359198
+        ],
+        "polsby_popper": [
+          0.23283315883691444,
+          0.1950496506619442,
+          0.2397207204782243,
+          0.13934823241715752,
+          0.15466867951684293,
+          0.14646523895916677,
+          0.295748478415208,
+          0.19018986718894978,
+          0.165837843154292,
+          0.19719325497940918,
+          0.42775920400790896,
+          0.20253723918583355,
+          0.3492314359934502,
+          0.3851033162298789,
+          0.17081106252853587
+        ],
+        "district_splitting": [
+          1.809858535289989,
+          1.976887012069302,
+          1.1497379140330728,
+          1.5620251582386342,
+          1.699243933493672,
+          2.3585468071283637,
+          1.674734228925986,
+          2.0686915926021556,
+          2.3595441680231044,
+          1.2683284888928896,
+          1.7191786703059084,
+          1.8528100871462134,
+          1.8151125656798763,
+          1.8385144493067955,
+          1.9955215529572656
+        ]
+      }
+    },
+    {
+      "name": "NC ensemble plan 16",
+      "state": "NC",
+      "plan_type": "congress",
+      "data": "testdata/score/NC_input_data.v1.jsonl",
+      "plan": {
+        "kind": "jsonl",
+        "path": "testdata/plans/NC_congress_plans.tagged.jsonl",
+        "index": 16
+      },
+      "options": {
+        "mmd_scoring": false,
+        "reverse_weight_splitting": false
+      },
+      "expect": {
+        "census": {
+          "default": {
+            "population_deviation": 0.0084,
+            "county_splitting": 1.2408,
+            "district_splitting": 1.7474,
+            "counties_split": 25,
+            "county_splits": 27,
+            "splitting": 18
+          }
+        },
+        "vap": {
+          "default": {
+            "opportunity_districts": 0.434,
+            "proportional_opportunities": 5,
+            "coalition_districts": 8.6489,
+            "proportional_coalitions": 5,
+            "minority": 54
+          }
+        },
+        "cvap": {
+          "N/A": {}
+        },
+        "election": {
+          "default": {
+            "pr_deviation": 0.1005,
+            "estimated_seats": 5.5933,
+            "fptp_seats": 4,
+            "disproportionality": 0.0948,
+            "efficiency_gap": 0.089,
+            "efficiency_gap_FPTP": 0.2028,
+            "seats_bias": 0.0755,
+            "votes_bias": 0.0148,
+            "geometric_seats_bias": 0.0743,
+            "declination": 8.771,
+            "mean_median_statewide": 0.0265,
+            "mean_median_average_district": 0.0255,
+            "turnout_bias": 0.001,
+            "lopsided_outcomes": 0.0131,
+            "competitive_district_count": 5,
+            "competitive_districts": 4.993,
+            "average_margin": 0.0714,
+            "responsiveness": 3.831,
+            "responsive_districts": 4.993,
+            "overall_responsiveness": 17.5708,
+            "estimated_vote_pct": 0.4943,
+            "efficiency_gap_wasted_votes": 0.1944,
+            "proportionality": 53,
+            "competitiveness": 48
+          }
+        },
+        "shapes": {
+          "default": {
+            "reock": 0.4085,
+            "polsby_popper": 0.2352,
+            "cut_score": 699,
+            "population_compactness": 1970025.0585,
+            "compactness": 48
+          }
+        }
+      },
+      "by_district": {
+        "reock": [
+          0.40846871862425477,
+          0.40581668092557044,
+          0.29703884949150616,
+          0.22237884171328992,
+          0.3108712680900978,
+          0.2899223873937557,
+          0.4713439166321429,
+          0.4268432550496675,
+          0.4672876044584992,
+          0.3449774036366384,
+          0.6032187452650032,
+          0.32693159363022267,
+          0.6073024332310838,
+          0.5212601318134646,
+          0.42336894940862435
+        ],
+        "polsby_popper": [
+          0.23524104405006366,
+          0.1950496506619442,
+          0.2397207204782243,
+          0.13934823241715752,
+          0.15466867951684293,
+          0.14646523895916677,
+          0.295748478415208,
+          0.19018986718894978,
+          0.20683819065539363,
+          0.19719325497940918,
+          0.42775920400790896,
+          0.20253723918583355,
+          0.3492314359934502,
+          0.3851033162298789,
+          0.1635211080115237
+        ],
+        "district_splitting": [
+          1.7474120665281405,
+          1.976887012069302,
+          1.1497379140330728,
+          1.5620251582386342,
+          1.699243933493672,
+          2.3585468071283637,
+          1.674734228925986,
+          2.0686915926021556,
+          1.7726679745037426,
+          1.2683284888928896,
+          1.7191786703059084,
+          1.8528100871462134,
+          1.8151125656798763,
+          1.8385144493067955,
+          1.7055390126900059
+        ]
+      }
+    },
+    {
+      "name": "NC ensemble plan 17",
+      "state": "NC",
+      "plan_type": "congress",
+      "data": "testdata/score/NC_input_data.v1.jsonl",
+      "plan": {
+        "kind": "jsonl",
+        "path": "testdata/plans/NC_congress_plans.tagged.jsonl",
+        "index": 17
+      },
+      "options": {
+        "mmd_scoring": false,
+        "reverse_weight_splitting": false
+      },
+      "expect": {
+        "census": {
+          "default": {
+            "population_deviation": 0.0084,
+            "county_splitting": 1.2399,
+            "district_splitting": 1.7444,
+            "counties_split": 25,
+            "county_splits": 27,
+            "splitting": 18
+          }
+        },
+        "vap": {
+          "default": {
+            "opportunity_districts": 0.434,
+            "proportional_opportunities": 5,
+            "coalition_districts": 8.6489,
+            "proportional_coalitions": 5,
+            "minority": 54
+          }
+        },
+        "cvap": {
+          "N/A": {}
+        },
+        "election": {
+          "default": {
+            "pr_deviation": 0.1007,
+            "estimated_seats": 5.5903,
+            "fptp_seats": 4,
+            "disproportionality": 0.095,
+            "efficiency_gap": 0.0893,
+            "efficiency_gap_FPTP": 0.2028,
+            "seats_bias": 0.0758,
+            "votes_bias": 0.0149,
+            "geometric_seats_bias": 0.0745,
+            "declination": 8.7895,
+            "mean_median_statewide": 0.0265,
+            "mean_median_average_district": 0.0255,
+            "turnout_bias": 0.001,
+            "lopsided_outcomes": 0.0131,
+            "competitive_district_count": 5,
+            "competitive_districts": 4.9833,
+            "average_margin": 0.0715,
+            "responsiveness": 3.8244,
+            "responsive_districts": 4.9833,
+            "overall_responsiveness": 17.6087,
+            "estimated_vote_pct": 0.4943,
+            "efficiency_gap_wasted_votes": 0.1944,
+            "proportionality": 53,
+            "competitiveness": 47
+          }
+        },
+        "shapes": {
+          "default": {
+            "reock": 0.4098,
+            "polsby_popper": 0.2423,
+            "cut_score": 686,
+            "population_compactness": 1966384.0128,
+            "compactness": 50
+          }
+        }
+      },
+      "by_district": {
+        "reock": [
+          0.4097542407943389,
+          0.40581668092557044,
+          0.3164809760191637,
+          0.22237884171350192,
+          0.30942645194369633,
+          0.2899223873939038,
+          0.4713439166321539,
+          0.4268432550496675,
+          0.46728760445835366,
+          0.3449774036366384,
+          0.6032187452650032,
+          0.3269315936299544,
+          0.6073024332310961,
+          0.5212601318133981,
+          0.42336894940864356
+        ],
+        "polsby_popper": [
+          0.24234273062875195,
+          0.1950496506619442,
+          0.1966714629695336,
+          0.13934823241715752,
+          0.2971415491271695,
+          0.14646523895916677,
+          0.295748478415208,
+          0.19018986718894978,
+          0.20683819065539363,
+          0.19719325497940918,
+          0.42775920400790896,
+          0.20253723918583355,
+          0.3492314359934502,
+          0.3851033162298789,
+          0.1635211080115237
+        ],
+        "district_splitting": [
+          1.7444421527853367,
+          1.976887012069302,
+          1.7242772277434701,
+          1.5620251582386342,
+          1.0839323584172949,
+          2.3585468071283637,
+          1.674734228925986,
+          2.0686915926021556,
+          1.7726679745037426,
+          1.2683284888928896,
+          1.7191786703059084,
+          1.8528100871462134,
+          1.8151125656798763,
+          1.8385144493067955,
+          1.7055390126900059
+        ]
+      }
+    },
+    {
+      "name": "NC ensemble plan 18",
+      "state": "NC",
+      "plan_type": "congress",
+      "data": "testdata/score/NC_input_data.v1.jsonl",
+      "plan": {
+        "kind": "jsonl",
+        "path": "testdata/plans/NC_congress_plans.tagged.jsonl",
+        "index": 18
+      },
+      "options": {
+        "mmd_scoring": false,
+        "reverse_weight_splitting": false
+      },
+      "expect": {
+        "census": {
+          "default": {
+            "population_deviation": 0.0084,
+            "county_splitting": 1.2394,
+            "district_splitting": 1.7434,
+            "counties_split": 25,
+            "county_splits": 27,
+            "splitting": 18
+          }
+        },
+        "vap": {
+          "default": {
+            "opportunity_districts": 0.4323,
+            "proportional_opportunities": 5,
+            "coalition_districts": 8.6594,
+            "proportional_coalitions": 5,
+            "minority": 54
+          }
+        },
+        "cvap": {
+          "N/A": {}
+        },
+        "election": {
+          "default": {
+            "pr_deviation": 0.1021,
+            "estimated_seats": 5.5712,
+            "fptp_seats": 4,
+            "disproportionality": 0.0963,
+            "efficiency_gap": 0.0906,
+            "efficiency_gap_FPTP": 0.2028,
+            "seats_bias": 0.077,
+            "votes_bias": 0.015,
+            "geometric_seats_bias": 0.0758,
+            "declination": 8.9316,
+            "mean_median_statewide": 0.0265,
+            "mean_median_average_district": 0.0255,
+            "turnout_bias": 0.001,
+            "lopsided_outcomes": 0.0134,
+            "competitive_district_count": 5,
+            "competitive_districts": 4.9852,
+            "average_margin": 0.0715,
+            "responsiveness": 3.8253,
+            "responsive_districts": 4.9852,
+            "overall_responsiveness": 17.8467,
+            "estimated_vote_pct": 0.4943,
+            "efficiency_gap_wasted_votes": 0.1944,
+            "proportionality": 52,
+            "competitiveness": 47
+          }
+        },
+        "shapes": {
+          "default": {
+            "reock": 0.4106,
+            "polsby_popper": 0.2442,
+            "cut_score": 692,
+            "population_compactness": 1965203.4898,
+            "compactness": 50
+          }
+        }
+      },
+      "by_district": {
+        "reock": [
+          0.4105988127260241,
+          0.40581668092591877,
+          0.3164809760191557,
+          0.2223788417134035,
+          0.3094264519436551,
+          0.2899223873941406,
+          0.4713439166319036,
+          0.4268432550496675,
+          0.4040146667696412,
+          0.3449774036366384,
+          0.6032187452632667,
+          0.32693159363001034,
+          0.6073024332309822,
+          0.5212601318134646,
+          0.49846589414248804
+        ],
+        "polsby_popper": [
+          0.24415977243119197,
+          0.1950496506619442,
+          0.1966714629695336,
+          0.13934823241715752,
+          0.2971415491271695,
+          0.14646523895916677,
+          0.295748478415208,
+          0.19018986718894978,
+          0.17317649895593204,
+          0.19719325497940918,
+          0.42775920400790896,
+          0.20253723918583355,
+          0.3492314359934502,
+          0.3851033162298789,
+          0.22262138494514488
+        ],
+        "district_splitting": [
+          1.7434051197112597,
+          1.976887012069302,
+          1.7242772277434701,
+          1.5620251582386342,
+          1.0839323584172949,
+          2.3585468071283637,
+          1.674734228925986,
+          2.0686915926021556,
+          1.6896487705321261,
+          1.2683284888928896,
+          1.7191786703059084,
+          1.8528100871462134,
+          1.8151125656798763,
+          1.8385144493067955,
+          1.773638729179395
+        ]
+      }
+    },
+    {
+      "name": "NC ensemble plan 19",
+      "state": "NC",
+      "plan_type": "congress",
+      "data": "testdata/score/NC_input_data.v1.jsonl",
+      "plan": {
+        "kind": "jsonl",
+        "path": "testdata/plans/NC_congress_plans.tagged.jsonl",
+        "index": 19
+      },
+      "options": {
+        "mmd_scoring": false,
+        "reverse_weight_splitting": false
+      },
+      "expect": {
+        "census": {
+          "default": {
+            "population_deviation": 0.0084,
+            "county_splitting": 1.2369,
+            "district_splitting": 1.72,
+            "counties_split": 24,
+            "county_splits": 26,
+            "splitting": 19
+          }
+        },
+        "vap": {
+          "default": {
+            "opportunity_districts": 0.5567,
+            "proportional_opportunities": 5,
+            "coalition_districts": 8.6604,
+            "proportional_coalitions": 5,
+            "minority": 56
+          }
+        },
+        "cvap": {
+          "N/A": {}
+        },
+        "election": {
+          "default": {
+            "pr_deviation": 0.1024,
+            "estimated_seats": 5.5662,
+            "fptp_seats": 4,
+            "disproportionality": 0.0967,
+            "efficiency_gap": 0.091,
+            "efficiency_gap_FPTP": 0.2028,
+            "seats_bias": 0.0773,
+            "votes_bias": 0.015,
+            "geometric_seats_bias": 0.076,
+            "declination": 8.8302,
+            "mean_median_statewide": 0.0265,
+            "mean_median_average_district": 0.0252,
+            "turnout_bias": 0.0013,
+            "lopsided_outcomes": 0.013,
+            "competitive_district_count": 5,
+            "competitive_districts": 5.0045,
+            "average_margin": 0.0713,
+            "responsiveness": 3.8468,
+            "responsive_districts": 5.0045,
+            "overall_responsiveness": 17.9098,
+            "estimated_vote_pct": 0.4943,
+            "efficiency_gap_wasted_votes": 0.1944,
+            "proportionality": 52,
+            "competitiveness": 48
+          }
+        },
+        "shapes": {
+          "default": {
+            "reock": 0.4282,
+            "polsby_popper": 0.2518,
+            "cut_score": 681,
+            "population_compactness": 1967296.8562,
+            "compactness": 54
+          }
+        }
+      },
+      "by_district": {
+        "reock": [
+          0.42819948773014094,
+          0.40581668092557044,
+          0.316480976019117,
+          0.342859173000889,
+          0.3094264519436551,
+          0.2899223873937557,
+          0.4713439166319036,
+          0.4268432550496675,
+          0.4040146667695955,
+          0.3449774036366384,
+          0.6032187452650032,
+          0.4528607123991919,
+          0.6073024332308672,
+          0.5212601318133981,
+          0.49846589414271997
+        ],
+        "polsby_popper": [
+          0.25178726646607086,
+          0.1950496506619442,
+          0.1966714629695336,
+          0.25387404145429315,
+          0.2971415491271695,
+          0.14646523895916677,
+          0.295748478415208,
+          0.19018986718894978,
+          0.17317649895593204,
+          0.19719325497940918,
+          0.42775920400790896,
+          0.19479634663700265,
+          0.3492314359934502,
+          0.3851033162298789,
+          0.22262138494514488
+        ],
+        "district_splitting": [
+          1.720002231948775,
+          1.976887012069302,
+          1.7242772277434701,
+          1.702664215865048,
+          1.0839323584172949,
+          2.3585468071283637,
+          1.674734228925986,
+          2.0686915926021556,
+          1.6896487705321261,
+          1.2683284888928896,
+          1.7191786703059084,
+          1.3841905732483153,
+          1.8151125656798763,
+          1.8385144493067955,
+          1.773638729179395
+        ]
+      }
+    },
+    {
+      "name": "NC multi-dataset plan 0",
+      "state": "NC",
+      "plan_type": "congress",
+      "data": "testdata/examples/NC_input_data.jsonl",
+      "graph": "testdata/examples/NC_graph.json",
+      "precomputed": "testdata/examples/NC_congress_precomputed.json",
+      "plan": {
+        "kind": "jsonl",
+        "path": "testdata/plans/NC_congress_plans.tagged.jsonl",
+        "index": 0
+      },
+      "options": {
+        "mmd_scoring": true,
+        "reverse_weight_splitting": false
+      },
+      "expect": {
+        "census": {
+          "T_20_CENS": {
+            "population_deviation": 0.0073,
+            "county_splitting": 1.1473,
+            "district_splitting": 1.3818,
+            "counties_split": 12,
+            "county_splits": 12,
+            "splitting": 59
+          }
+        },
+        "vap": {
+          "V_20_VAP": {
+            "opportunity_districts": 1.7621,
+            "proportional_opportunities": 5,
+            "coalition_districts": 8.2976,
+            "proportional_coalitions": 5,
+            "minority": 68
+          }
+        },
+        "cvap": {
+          "V_20_CVAP": {
+            "mmd_black": 0,
+            "mmd_hispanic": 0,
+            "mmd_coalition": 0
+          }
+        },
+        "election": {
+          "E_16-20_COMP": {
+            "pr_deviation": 0.0177,
+            "estimated_seats": 6.7525,
+            "fptp_seats": 7,
+            "disproportionality": 0.012,
+            "efficiency_gap": 0.0063,
+            "efficiency_gap_FPTP": -0.0113,
+            "seats_bias": 0.0029,
+            "votes_bias": 0.0011,
+            "geometric_seats_bias": 0.0026,
+            "declination": 0.1921,
+            "mean_median_statewide": 0.0074,
+            "mean_median_average_district": 0.007,
+            "turnout_bias": 0.0004,
+            "lopsided_outcomes": -0.0056,
+            "competitive_district_count": 4,
+            "competitive_districts": 3.1662,
+            "average_margin": 0.097,
+            "responsiveness": 2.625,
+            "responsive_districts": 3.1662,
+            "overall_responsiveness": 3.119,
+            "estimated_vote_pct": 0.4943,
+            "efficiency_gap_wasted_votes": -0.0124,
+            "geographic_advantage": -0.4767,
+            "proportionality": 94,
+            "competitiveness": 30
+          },
+          "E_20_PRES": {
+            "pr_deviation": 0.0256,
+            "estimated_seats": 6.641,
+            "fptp_seats": 7,
+            "disproportionality": 0.0188,
+            "efficiency_gap": 0.0119,
+            "efficiency_gap_FPTP": -0.0137,
+            "seats_bias": 0.0089,
+            "votes_bias": 0.0035,
+            "geometric_seats_bias": 0.0085,
+            "declination": 1.2299,
+            "mean_median_statewide": 0.0093,
+            "mean_median_average_district": 0.0092,
+            "turnout_bias": 0.0001,
+            "lopsided_outcomes": -0.0039,
+            "competitive_district_count": 3,
+            "competitive_districts": 2.953,
+            "average_margin": 0.1024,
+            "responsiveness": 2.4291,
+            "responsive_districts": 2.953,
+            "overall_responsiveness": 3.7398,
+            "estimated_vote_pct": 0.4931,
+            "efficiency_gap_wasted_votes": -0.0134,
+            "geographic_advantage": -0.3615,
+            "proportionality": 91,
+            "competitiveness": 28
+          },
+          "E_20_GOV": {
+            "pr_deviation": -0.0611,
+            "estimated_seats": 7.8556,
+            "fptp_seats": 7,
+            "disproportionality": -0.0382,
+            "efficiency_gap": -0.0154,
+            "efficiency_gap_FPTP": 0.0458,
+            "seats_bias": 0.0018,
+            "votes_bias": 0.0006,
+            "geometric_seats_bias": 0.0039,
+            "declination": 0.0591,
+            "mean_median_statewide": 0.0046,
+            "mean_median_average_district": 0.0044,
+            "turnout_bias": 0.0002,
+            "lopsided_outcomes": 0.0228,
+            "competitive_district_count": 4,
+            "competitive_districts": 3.6138,
+            "average_margin": 0.0977,
+            "responsiveness": 2.817,
+            "responsive_districts": 3.6138,
+            "overall_responsiveness": 2.6718,
+            "estimated_vote_pct": 0.5229,
+            "efficiency_gap_wasted_votes": 0.0457,
+            "geographic_advantage": -1.1548,
+            "proportionality": 81,
+            "competitiveness": 34
+          },
+          "E_20_SEN": {
+            "pr_deviation": 0.0287,
+            "estimated_seats": 6.5984,
+            "fptp_seats": 7,
+            "disproportionality": 0.0195,
+            "efficiency_gap": 0.0104,
+            "efficiency_gap_FPTP": -0.0183,
+            "seats_bias": 0.0042,
+            "votes_bias": 0.0015,
+            "geometric_seats_bias": 0.0034,
+            "declination": 0.2925,
+            "mean_median_statewide": 0.0091,
+            "mean_median_average_district": 0.0085,
+            "turnout_bias": 0.0005,
+            "lopsided_outcomes": -0.0089,
+            "competitive_district_count": 4,
+            "competitive_districts": 3.2347,
+            "average_margin": 0.0953,
+            "responsiveness": 2.649,
+            "responsive_districts": 3.2347,
+            "overall_responsiveness": 3.1362,
+            "estimated_vote_pct": 0.4909,
+            "efficiency_gap_wasted_votes": -0.0199,
+            "geographic_advantage": 0.1701,
+            "proportionality": 90,
+            "competitiveness": 31
+          },
+          "E_16_PRES": {
+            "pr_deviation": 0.05,
+            "estimated_seats": 6.3001,
+            "fptp_seats": 6,
+            "disproportionality": 0.0309,
+            "efficiency_gap": 0.0119,
+            "efficiency_gap_FPTP": 0.0333,
+            "seats_bias": 0.0053,
+            "votes_bias": 0.0021,
+            "geometric_seats_bias": 0.0019,
+            "declination": 0.0061,
+            "mean_median_statewide": 0.0087,
+            "mean_median_average_district": 0.0085,
+            "turnout_bias": 0.0002,
+            "lopsided_outcomes": -0.0193,
+            "competitive_district_count": 2,
+            "competitive_districts": 2.767,
+            "average_margin": 0.1019,
+            "responsiveness": 2.2655,
+            "responsive_districts": 2.767,
+            "overall_responsiveness": 2.623,
+            "estimated_vote_pct": 0.4809,
+            "efficiency_gap_wasted_votes": 0.0295,
+            "geographic_advantage": 0.1593,
+            "proportionality": 85,
+            "competitiveness": 26
+          },
+          "E_20_AG": {
+            "pr_deviation": -0.0013,
+            "estimated_seats": 7.0181,
+            "fptp_seats": 7,
+            "disproportionality": -0.0,
+            "efficiency_gap": 0.0012,
+            "efficiency_gap_FPTP": 0.0025,
+            "seats_bias": 0.0019,
+            "votes_bias": 0.0007,
+            "geometric_seats_bias": 0.0019,
+            "declination": 0.1618,
+            "mean_median_statewide": 0.0063,
+            "mean_median_average_district": 0.0059,
+            "turnout_bias": 0.0004,
+            "lopsided_outcomes": 0.0013,
+            "competitive_district_count": 4,
+            "competitive_districts": 3.1891,
+            "average_margin": 0.0969,
+            "responsiveness": 2.6318,
+            "responsive_districts": 3.1891,
+            "overall_responsiveness": 1.0387,
+            "estimated_vote_pct": 0.5012,
+            "efficiency_gap_wasted_votes": 0.0015,
+            "geographic_advantage": -1.4527,
+            "proportionality": 100,
+            "competitiveness": 30
+          },
+          "E_16_SEN": {
+            "pr_deviation": 0.0905,
+            "estimated_seats": 5.7332,
+            "fptp_seats": 6,
+            "disproportionality": 0.0609,
+            "efficiency_gap": 0.0314,
+            "efficiency_gap_FPTP": 0.0123,
+            "seats_bias": 0.0017,
+            "votes_bias": 0.0005,
+            "geometric_seats_bias": -0.0044,
+            "declination": -0.1245,
+            "mean_median_statewide": 0.0076,
+            "mean_median_average_district": 0.0063,
+            "turnout_bias": 0.0013,
+            "lopsided_outcomes": -0.0312,
+            "competitive_district_count": 5,
+            "competitive_districts": 3.6357,
+            "average_margin": 0.0927,
+            "responsiveness": 2.833,
+            "responsive_districts": 3.6357,
+            "overall_responsiveness": 3.0615,
+            "estimated_vote_pct": 0.4704,
+            "efficiency_gap_wasted_votes": 0.0051,
+            "geographic_advantage": 0.3937,
+            "proportionality": 70,
+            "competitiveness": 35
+          }
+        },
+        "shapes": {
+          "S_20_DRA": {
+            "reock": 0.4145,
+            "polsby_popper": 0.3315,
+            "cut_score": 604,
+            "population_compactness": 2152136.4519,
+            "compactness": 62
+          }
+        }
+      },
+      "by_district": {
+        "reock": [
+          0.4144638218869872,
+          0.37849872773157467,
+          0.34499517457455303,
+          0.3380404414783614,
+          0.4101371811821997,
+          0.2546626804267322,
+          0.4143618637676886,
+          0.45594996586126607,
+          0.5352578204706201,
+          0.5173856188376073,
+          0.4136187926989375,
+          0.3060542309824387,
+          0.6082449485841088,
+          0.4566353849047193,
+          0.3686506749170139
+        ],
+        "polsby_popper": [
+          0.33145505542268333,
+          0.3830627329983628,
+          0.3165797550634314,
+          0.20092421465242372,
+          0.4949904575704284,
+          0.22163446459321887,
+          0.42957436377789515,
+          0.3690967518531263,
+          0.32920048959144854,
+          0.32235433532077945,
+          0.3449759547720839,
+          0.30392604758845077,
+          0.3716971269045202,
+          0.3118596532994715,
+          0.24049442793192505
+        ],
+        "district_splitting": [
+          1.3818461633005767,
+          1.3445690230561769,
+          1.0,
+          1.3582917454128929,
+          1.0,
+          1.6487002705510296,
+          1.2864167574317877,
+          1.3237580917914242,
+          1.4103794664715212,
+          1.7021396880622544,
+          1.5108780146314886,
+          1.1465085261772976,
+          1.362025248122131,
+          1.8815027522044838,
+          1.3720864463596376
+        ]
+      }
+    },
+    {
+      "name": "NC multi-dataset plan 1",
+      "state": "NC",
+      "plan_type": "congress",
+      "data": "testdata/examples/NC_input_data.jsonl",
+      "graph": "testdata/examples/NC_graph.json",
+      "precomputed": "testdata/examples/NC_congress_precomputed.json",
+      "plan": {
+        "kind": "jsonl",
+        "path": "testdata/plans/NC_congress_plans.tagged.jsonl",
+        "index": 1
+      },
+      "options": {
+        "mmd_scoring": true,
+        "reverse_weight_splitting": false
+      },
+      "expect": {
+        "census": {
+          "T_20_CENS": {
+            "population_deviation": 0.0084,
+            "county_splitting": 1.3175,
+            "district_splitting": 2.1439,
+            "counties_split": 40,
+            "county_splits": 47,
+            "splitting": 7
+          }
+        },
+        "vap": {
+          "V_20_VAP": {
+            "opportunity_districts": 0.527,
+            "proportional_opportunities": 5,
+            "coalition_districts": 8.3748,
+            "proportional_coalitions": 5,
+            "minority": 56
+          }
+        },
+        "cvap": {
+          "V_20_CVAP": {
+            "mmd_black": 0,
+            "mmd_hispanic": 0,
+            "mmd_coalition": 0
+          }
+        },
+        "election": {
+          "E_16-20_COMP": {
+            "pr_deviation": 0.131,
+            "estimated_seats": 5.1664,
+            "fptp_seats": 4,
+            "disproportionality": 0.1253,
+            "efficiency_gap": 0.1196,
+            "efficiency_gap_FPTP": 0.203,
+            "seats_bias": 0.1113,
+            "votes_bias": 0.0242,
+            "geometric_seats_bias": 0.11,
+            "declination": 16.1702,
+            "mean_median_statewide": 0.0332,
+            "mean_median_average_district": 0.0322,
+            "turnout_bias": 0.001,
+            "lopsided_outcomes": 0.0311,
+            "competitive_district_count": 5,
+            "competitive_districts": 3.7651,
+            "average_margin": 0.0866,
+            "responsiveness": 2.8598,
+            "responsive_districts": 3.7651,
+            "overall_responsiveness": 23.1098,
+            "estimated_vote_pct": 0.4943,
+            "efficiency_gap_wasted_votes": 0.196,
+            "geographic_advantage": -2.0629,
+            "proportionality": 37,
+            "competitiveness": 36
+          },
+          "E_20_PRES": {
+            "pr_deviation": 0.1451,
+            "estimated_seats": 4.9689,
+            "fptp_seats": 4,
+            "disproportionality": 0.1382,
+            "efficiency_gap": 0.1314,
+            "efficiency_gap_FPTP": 0.2006,
+            "seats_bias": 0.1229,
+            "votes_bias": 0.0267,
+            "geometric_seats_bias": 0.1208,
+            "declination": 19.2466,
+            "mean_median_statewide": 0.0362,
+            "mean_median_average_district": 0.0354,
+            "turnout_bias": 0.0008,
+            "lopsided_outcomes": 0.038,
+            "competitive_district_count": 4,
+            "competitive_districts": 3.3441,
+            "average_margin": 0.092,
+            "responsiveness": 2.7229,
+            "responsive_districts": 3.3441,
+            "overall_responsiveness": 21.1603,
+            "estimated_vote_pct": 0.4931,
+            "efficiency_gap_wasted_votes": 0.1943,
+            "geographic_advantage": -2.0336,
+            "proportionality": 31,
+            "competitiveness": 32
+          },
+          "E_20_GOV": {
+            "pr_deviation": 0.0209,
+            "estimated_seats": 6.7076,
+            "fptp_seats": 5,
+            "disproportionality": 0.0438,
+            "efficiency_gap": 0.0666,
+            "efficiency_gap_FPTP": 0.1886,
+            "seats_bias": 0.1113,
+            "votes_bias": 0.0268,
+            "geometric_seats_bias": 0.0978,
+            "declination": 11.8367,
+            "mean_median_statewide": 0.035,
+            "mean_median_average_district": 0.0342,
+            "turnout_bias": 0.0008,
+            "lopsided_outcomes": 0.0501,
+            "competitive_district_count": 7,
+            "competitive_districts": 6.4433,
+            "average_margin": 0.0769,
+            "responsiveness": 4.7889,
+            "responsive_districts": 6.4433,
+            "overall_responsiveness": -0.9132,
+            "estimated_vote_pct": 0.5229,
+            "efficiency_gap_wasted_votes": 0.1866,
+            "geographic_advantage": -2.3028,
+            "proportionality": 0,
+            "competitiveness": 61
+          },
+          "E_20_SEN": {
+            "pr_deviation": 0.1403,
+            "estimated_seats": 5.0363,
+            "fptp_seats": 4,
+            "disproportionality": 0.1311,
+            "efficiency_gap": 0.122,
+            "efficiency_gap_FPTP": 0.196,
+            "seats_bias": 0.1087,
+            "votes_bias": 0.0231,
+            "geometric_seats_bias": 0.1053,
+            "declination": 15.8194,
+            "mean_median_statewide": 0.0335,
+            "mean_median_average_district": 0.0323,
+            "turnout_bias": 0.0013,
+            "lopsided_outcomes": 0.0261,
+            "competitive_district_count": 5,
+            "competitive_districts": 3.5553,
+            "average_margin": 0.0859,
+            "responsiveness": 3.1702,
+            "responsive_districts": 3.5553,
+            "overall_responsiveness": 15.3331,
+            "estimated_vote_pct": 0.4909,
+            "efficiency_gap_wasted_votes": 0.1877,
+            "geographic_advantage": -1.3919,
+            "proportionality": 34,
+            "competitiveness": 34
+          },
+          "E_16_PRES": {
+            "pr_deviation": 0.1635,
+            "estimated_seats": 4.7117,
+            "fptp_seats": 4,
+            "disproportionality": 0.1444,
+            "efficiency_gap": 0.1253,
+            "efficiency_gap_FPTP": 0.1762,
+            "seats_bias": 0.1082,
+            "votes_bias": 0.0244,
+            "geometric_seats_bias": 0.0953,
+            "declination": 18.2787,
+            "mean_median_statewide": 0.0343,
+            "mean_median_average_district": 0.0337,
+            "turnout_bias": 0.0006,
+            "lopsided_outcomes": 0.0232,
+            "competitive_district_count": 2,
+            "competitive_districts": 2.588,
+            "average_margin": 0.0964,
+            "responsiveness": 2.3456,
+            "responsive_districts": 2.588,
+            "overall_responsiveness": 8.576,
+            "estimated_vote_pct": 0.4809,
+            "efficiency_gap_wasted_votes": 0.1719,
+            "geographic_advantage": -1.4292,
+            "proportionality": 28,
+            "competitiveness": 25
+          },
+          "E_20_AG": {
+            "pr_deviation": 0.1054,
+            "estimated_seats": 5.5246,
+            "fptp_seats": 5,
+            "disproportionality": 0.1066,
+            "efficiency_gap": 0.1079,
+            "efficiency_gap_FPTP": 0.1453,
+            "seats_bias": 0.1095,
+            "votes_bias": 0.0242,
+            "geometric_seats_bias": 0.1094,
+            "declination": 14.5621,
+            "mean_median_statewide": 0.0338,
+            "mean_median_average_district": 0.0328,
+            "turnout_bias": 0.0009,
+            "lopsided_outcomes": 0.0346,
+            "competitive_district_count": 6,
+            "competitive_districts": 4.4449,
+            "average_margin": 0.0826,
+            "responsiveness": 3.7362,
+            "responsive_districts": 4.4449,
+            "overall_responsiveness": -84.7621,
+            "estimated_vote_pct": 0.5012,
+            "efficiency_gap_wasted_votes": 0.1427,
+            "geographic_advantage": -2.9462,
+            "proportionality": 47,
+            "competitiveness": 42
+          },
+          "E_16_SEN": {
+            "pr_deviation": 0.179,
+            "estimated_seats": 4.494,
+            "fptp_seats": 4,
+            "disproportionality": 0.1494,
+            "efficiency_gap": 0.1199,
+            "efficiency_gap_FPTP": 0.1552,
+            "seats_bias": 0.0889,
+            "votes_bias": 0.019,
+            "geometric_seats_bias": 0.0604,
+            "declination": 13.5483,
+            "mean_median_statewide": 0.0336,
+            "mean_median_average_district": 0.0319,
+            "turnout_bias": 0.0017,
+            "lopsided_outcomes": -0.0015,
+            "competitive_district_count": 1,
+            "competitive_districts": 2.4648,
+            "average_margin": 0.0903,
+            "responsiveness": 2.2652,
+            "responsive_districts": 2.4648,
+            "overall_responsiveness": 6.0564,
+            "estimated_vote_pct": 0.4704,
+            "efficiency_gap_wasted_votes": 0.1467,
+            "geographic_advantage": -0.8455,
+            "proportionality": 25,
+            "competitiveness": 23
+          }
+        },
+        "shapes": {
+          "S_20_DRA": {
+            "reock": 0.3613,
+            "polsby_popper": 0.1803,
+            "cut_score": 806,
+            "population_compactness": 2111584.6861,
+            "compactness": 32
+          }
+        }
+      },
+      "by_district": {
+        "reock": [
+          0.36134398159720194,
+          0.26948719850866787,
+          0.29938017129565037,
+          0.3207423651723651,
+          0.23342018193235306,
+          0.2834524938916297,
+          0.5065537254645665,
+          0.4266117479154313,
+          0.22428480666024947,
+          0.3716069350920189,
+          0.26413662187837544,
+          0.621373058012451,
+          0.3053490328830445,
+          0.395798264743544,
+          0.5366191389104795
+        ],
+        "polsby_popper": [
+          0.18026478200944315,
+          0.14664859754651455,
+          0.24051240317322276,
+          0.16169317139875516,
+          0.15647087961884693,
+          0.13623451741149767,
+          0.1488401172151487,
+          0.1814695548614428,
+          0.11065364161786818,
+          0.23522373454539883,
+          0.18829492861097125,
+          0.26935913627290553,
+          0.10564310953146659,
+          0.13064299730801168,
+          0.3120201590201533
+        ],
+        "district_splitting": [
+          2.1439046503768866,
+          1.5619799789222513,
+          1.496336871529313,
+          2.594966838097994,
+          2.510530705669205,
+          2.2690659802548527,
+          2.417998241097254,
+          2.0684808178472256,
+          2.4356844698061018,
+          1.1148908441776588,
+          2.2648676828596277,
+          2.126206774434881,
+          2.923327501540155,
+          2.259964069020395,
+          1.9707481467398327
+        ]
+      }
+    },
+    {
+      "name": "NC multi-dataset plan 2",
+      "state": "NC",
+      "plan_type": "congress",
+      "data": "testdata/examples/NC_input_data.jsonl",
+      "graph": "testdata/examples/NC_graph.json",
+      "precomputed": "testdata/examples/NC_congress_precomputed.json",
+      "plan": {
+        "kind": "jsonl",
+        "path": "testdata/plans/NC_congress_plans.tagged.jsonl",
+        "index": 2
+      },
+      "options": {
+        "mmd_scoring": true,
+        "reverse_weight_splitting": false
+      },
+      "expect": {
+        "census": {
+          "T_20_CENS": {
+            "population_deviation": 0.0087,
+            "county_splitting": 1.3175,
+            "district_splitting": 2.1439,
+            "counties_split": 40,
+            "county_splits": 47,
+            "splitting": 7
+          }
+        },
+        "vap": {
+          "V_20_VAP": {
+            "opportunity_districts": 0.5265,
+            "proportional_opportunities": 5,
+            "coalition_districts": 8.4053,
+            "proportional_coalitions": 5,
+            "minority": 56
+          }
+        },
+        "cvap": {
+          "V_20_CVAP": {
+            "mmd_black": 0,
+            "mmd_hispanic": 0,
+            "mmd_coalition": 0
+          }
+        },
+        "election": {
+          "E_16-20_COMP": {
+            "pr_deviation": 0.1258,
+            "estimated_seats": 5.2393,
+            "fptp_seats": 4,
+            "disproportionality": 0.1201,
+            "efficiency_gap": 0.1144,
+            "efficiency_gap_FPTP": 0.203,
+            "seats_bias": 0.1054,
+            "votes_bias": 0.0227,
+            "geometric_seats_bias": 0.1041,
+            "declination": 14.7831,
+            "mean_median_statewide": 0.0317,
+            "mean_median_average_district": 0.0305,
+            "turnout_bias": 0.0012,
+            "lopsided_outcomes": 0.0275,
+            "competitive_district_count": 5,
+            "competitive_districts": 3.969,
+            "average_margin": 0.0845,
+            "responsiveness": 2.9938,
+            "responsive_districts": 3.969,
+            "overall_responsiveness": 22.1908,
+            "estimated_vote_pct": 0.4943,
+            "efficiency_gap_wasted_votes": 0.1947,
+            "geographic_advantage": -1.99,
+            "proportionality": 40,
+            "competitiveness": 38
+          },
+          "E_20_PRES": {
+            "pr_deviation": 0.1406,
+            "estimated_seats": 5.0315,
+            "fptp_seats": 4,
+            "disproportionality": 0.1338,
+            "efficiency_gap": 0.1269,
+            "efficiency_gap_FPTP": 0.2006,
+            "seats_bias": 0.1175,
+            "votes_bias": 0.0252,
+            "geometric_seats_bias": 0.1154,
+            "declination": 17.8795,
+            "mean_median_statewide": 0.0348,
+            "mean_median_average_district": 0.0338,
+            "turnout_bias": 0.001,
+            "lopsided_outcomes": 0.0342,
+            "competitive_district_count": 5,
+            "competitive_districts": 3.5391,
+            "average_margin": 0.0898,
+            "responsiveness": 2.8581,
+            "responsive_districts": 3.5391,
+            "overall_responsiveness": 20.5088,
+            "estimated_vote_pct": 0.4931,
+            "efficiency_gap_wasted_votes": 0.1933,
+            "geographic_advantage": -1.9711,
+            "proportionality": 33,
+            "competitiveness": 34
+          },
+          "E_20_GOV": {
+            "pr_deviation": 0.0114,
+            "estimated_seats": 6.8397,
+            "fptp_seats": 5,
+            "disproportionality": 0.0343,
+            "efficiency_gap": 0.0572,
+            "efficiency_gap_FPTP": 0.1886,
+            "seats_bias": 0.1042,
+            "votes_bias": 0.025,
+            "geometric_seats_bias": 0.091,
+            "declination": 10.6223,
+            "mean_median_statewide": 0.0292,
+            "mean_median_average_district": 0.0282,
+            "turnout_bias": 0.001,
+            "lopsided_outcomes": 0.0469,
+            "competitive_district_count": 7,
+            "competitive_districts": 6.5149,
+            "average_margin": 0.0748,
+            "responsiveness": 4.832,
+            "responsive_districts": 6.5149,
+            "overall_responsiveness": -0.5004,
+            "estimated_vote_pct": 0.5229,
+            "efficiency_gap_wasted_votes": 0.1855,
+            "geographic_advantage": -2.1707,
+            "proportionality": 0,
+            "competitiveness": 62
+          },
+          "E_20_SEN": {
+            "pr_deviation": 0.1358,
+            "estimated_seats": 5.0988,
+            "fptp_seats": 4,
+            "disproportionality": 0.1267,
+            "efficiency_gap": 0.1175,
+            "efficiency_gap_FPTP": 0.196,
+            "seats_bias": 0.103,
+            "votes_bias": 0.0216,
+            "geometric_seats_bias": 0.0996,
+            "declination": 14.5029,
+            "mean_median_statewide": 0.0333,
+            "mean_median_average_district": 0.0319,
+            "turnout_bias": 0.0014,
+            "lopsided_outcomes": 0.0227,
+            "competitive_district_count": 6,
+            "competitive_districts": 3.7489,
+            "average_margin": 0.0838,
+            "responsiveness": 3.3086,
+            "responsive_districts": 3.7489,
+            "overall_responsiveness": 14.8451,
+            "estimated_vote_pct": 0.4909,
+            "efficiency_gap_wasted_votes": 0.1867,
+            "geographic_advantage": -1.3294,
+            "proportionality": 37,
+            "competitiveness": 36
+          },
+          "E_16_PRES": {
+            "pr_deviation": 0.1605,
+            "estimated_seats": 4.7532,
+            "fptp_seats": 4,
+            "disproportionality": 0.1414,
+            "efficiency_gap": 0.1224,
+            "efficiency_gap_FPTP": 0.1762,
+            "seats_bias": 0.1031,
+            "votes_bias": 0.0231,
+            "geometric_seats_bias": 0.0905,
+            "declination": 16.9816,
+            "mean_median_statewide": 0.0315,
+            "mean_median_average_district": 0.0305,
+            "turnout_bias": 0.001,
+            "lopsided_outcomes": 0.0194,
+            "competitive_district_count": 2,
+            "competitive_districts": 2.7261,
+            "average_margin": 0.0944,
+            "responsiveness": 2.4514,
+            "responsive_districts": 2.7261,
+            "overall_responsiveness": 8.4206,
+            "estimated_vote_pct": 0.4809,
+            "efficiency_gap_wasted_votes": 0.1699,
+            "geographic_advantage": -1.3877,
+            "proportionality": 29,
+            "competitiveness": 26
+          },
+          "E_20_AG": {
+            "pr_deviation": 0.0991,
+            "estimated_seats": 5.613,
+            "fptp_seats": 5,
+            "disproportionality": 0.1003,
+            "efficiency_gap": 0.1016,
+            "efficiency_gap_FPTP": 0.1453,
+            "seats_bias": 0.1033,
+            "votes_bias": 0.0226,
+            "geometric_seats_bias": 0.1032,
+            "declination": 13.2274,
+            "mean_median_statewide": 0.0309,
+            "mean_median_average_district": 0.0298,
+            "turnout_bias": 0.0011,
+            "lopsided_outcomes": 0.0311,
+            "competitive_district_count": 6,
+            "competitive_districts": 4.6599,
+            "average_margin": 0.0805,
+            "responsiveness": 3.8677,
+            "responsive_districts": 4.6599,
+            "overall_responsiveness": -79.6815,
+            "estimated_vote_pct": 0.5012,
+            "efficiency_gap_wasted_votes": 0.1417,
+            "geographic_advantage": -2.8577,
+            "proportionality": 50,
+            "competitiveness": 44
+          },
+          "E_16_SEN": {
+            "pr_deviation": 0.1768,
+            "estimated_seats": 4.5246,
+            "fptp_seats": 4,
+            "disproportionality": 0.1473,
+            "efficiency_gap": 0.1177,
+            "efficiency_gap_FPTP": 0.1552,
+            "seats_bias": 0.0837,
+            "votes_bias": 0.0177,
+            "geometric_seats_bias": 0.056,
+            "declination": 12.3118,
+            "mean_median_statewide": 0.0304,
+            "mean_median_average_district": 0.0284,
+            "turnout_bias": 0.002,
+            "lopsided_outcomes": -0.0047,
+            "competitive_district_count": 1,
+            "competitive_districts": 2.5727,
+            "average_margin": 0.0885,
+            "responsiveness": 2.355,
+            "responsive_districts": 2.5727,
+            "overall_responsiveness": 5.9824,
+            "estimated_vote_pct": 0.4704,
+            "efficiency_gap_wasted_votes": 0.1447,
+            "geographic_advantage": -0.8149,
+            "proportionality": 26,
+            "competitiveness": 25
+          }
+        },
+        "shapes": {
+          "S_20_DRA": {
+            "reock": 0.3565,
+            "polsby_popper": 0.181,
+            "cut_score": 803,
+            "population_compactness": 2118384.0179,
+            "compactness": 32
+          }
+        }
+      },
+      "by_district": {
+        "reock": [
+          0.356491344965666,
+          0.29991249241370876,
+          0.2993801712957897,
+          0.2223801584254521,
+          0.23342018193235306,
+          0.2834524938916297,
+          0.5065537254647874,
+          0.4266117479154313,
+          0.22428480666024947,
+          0.3716069350927549,
+          0.26413662187837544,
+          0.6213730580124806,
+          0.3053490328830445,
+          0.3957982647429206,
+          0.5366191389103453
+        ],
+        "polsby_popper": [
+          0.18097819301027682,
+          0.16922245358290391,
+          0.24051240317322276,
+          0.14910706937403706,
+          0.15647087961884693,
+          0.13623451741149767,
+          0.1488401172151487,
+          0.1814695548614428,
+          0.11065364161786818,
+          0.23522373454539883,
+          0.18829492861097125,
+          0.26935913627290553,
+          0.10564310953146659,
+          0.13064299730801168,
+          0.3120201590201533
+        ],
+        "district_splitting": [
+          2.1439249383661196,
+          2.594924656013598,
+          1.496336871529313,
+          1.5620251582386342,
+          2.510530705669205,
+          2.2690659802548527,
+          2.417998241097254,
+          2.0684808178472256,
+          2.4356844698061018,
+          1.1148908441776588,
+          2.2648676828596277,
+          2.126206774434881,
+          2.923327501540155,
+          2.259964069020395,
+          1.9707481467398327
+        ]
+      }
+    },
+    {
+      "name": "NC multi-dataset plan 3",
+      "state": "NC",
+      "plan_type": "congress",
+      "data": "testdata/examples/NC_input_data.jsonl",
+      "graph": "testdata/examples/NC_graph.json",
+      "precomputed": "testdata/examples/NC_congress_precomputed.json",
+      "plan": {
+        "kind": "jsonl",
+        "path": "testdata/plans/NC_congress_plans.tagged.jsonl",
+        "index": 3
+      },
+      "options": {
+        "mmd_scoring": true,
+        "reverse_weight_splitting": false
+      },
+      "expect": {
+        "census": {
+          "T_20_CENS": {
+            "population_deviation": 0.0091,
+            "county_splitting": 1.3118,
+            "district_splitting": 2.0986,
+            "counties_split": 38,
+            "county_splits": 45,
+            "splitting": 8
+          }
+        },
+        "vap": {
+          "V_20_VAP": {
+            "opportunity_districts": 0.5265,
+            "proportional_opportunities": 5,
+            "coalition_districts": 8.5948,
+            "proportional_coalitions": 5,
+            "minority": 56
+          }
+        },
+        "cvap": {
+          "V_20_CVAP": {
+            "mmd_black": 0,
+            "mmd_hispanic": 0,
+            "mmd_coalition": 0
+          }
+        },
+        "election": {
+          "E_16-20_COMP": {
+            "pr_deviation": 0.1246,
+            "estimated_seats": 5.2552,
+            "fptp_seats": 4,
+            "disproportionality": 0.119,
+            "efficiency_gap": 0.1133,
+            "efficiency_gap_FPTP": 0.203,
+            "seats_bias": 0.1038,
+            "votes_bias": 0.0218,
+            "geometric_seats_bias": 0.1025,
+            "declination": 14.6479,
+            "mean_median_statewide": 0.0317,
+            "mean_median_average_district": 0.0308,
+            "turnout_bias": 0.0009,
+            "lopsided_outcomes": 0.0274,
+            "competitive_district_count": 5,
+            "competitive_districts": 4.0304,
+            "average_margin": 0.0843,
+            "responsiveness": 3.0456,
+            "responsive_districts": 4.0304,
+            "overall_responsiveness": 21.9908,
+            "estimated_vote_pct": 0.4943,
+            "efficiency_gap_wasted_votes": 0.1947,
+            "geographic_advantage": -1.9741,
+            "proportionality": 41,
+            "competitiveness": 38
+          },
+          "E_20_PRES": {
+            "pr_deviation": 0.1396,
+            "estimated_seats": 5.0457,
+            "fptp_seats": 4,
+            "disproportionality": 0.1327,
+            "efficiency_gap": 0.1259,
+            "efficiency_gap_FPTP": 0.2006,
+            "seats_bias": 0.1159,
+            "votes_bias": 0.0243,
+            "geometric_seats_bias": 0.1138,
+            "declination": 17.7438,
+            "mean_median_statewide": 0.0348,
+            "mean_median_average_district": 0.0341,
+            "turnout_bias": 0.0007,
+            "lopsided_outcomes": 0.0341,
+            "competitive_district_count": 5,
+            "competitive_districts": 3.5946,
+            "average_margin": 0.0896,
+            "responsiveness": 2.9126,
+            "responsive_districts": 3.5946,
+            "overall_responsiveness": 20.3605,
+            "estimated_vote_pct": 0.4931,
+            "efficiency_gap_wasted_votes": 0.1933,
+            "geographic_advantage": -1.9568,
+            "proportionality": 34,
+            "competitiveness": 34
+          },
+          "E_20_GOV": {
+            "pr_deviation": 0.0073,
+            "estimated_seats": 6.8977,
+            "fptp_seats": 5,
+            "disproportionality": 0.0302,
+            "efficiency_gap": 0.0531,
+            "efficiency_gap_FPTP": 0.1886,
+            "seats_bias": 0.1023,
+            "votes_bias": 0.0242,
+            "geometric_seats_bias": 0.0886,
+            "declination": 10.2627,
+            "mean_median_statewide": 0.0292,
+            "mean_median_average_district": 0.0285,
+            "turnout_bias": 0.0007,
+            "lopsided_outcomes": 0.0463,
+            "competitive_district_count": 8,
+            "competitive_districts": 6.7037,
+            "average_margin": 0.0745,
+            "responsiveness": 4.9675,
+            "responsive_districts": 6.7037,
+            "overall_responsiveness": -0.3195,
+            "estimated_vote_pct": 0.5229,
+            "efficiency_gap_wasted_votes": 0.1855,
+            "geographic_advantage": -2.1127,
+            "proportionality": 0,
+            "competitiveness": 64
+          },
+          "E_20_SEN": {
+            "pr_deviation": 0.1347,
+            "estimated_seats": 5.1147,
+            "fptp_seats": 4,
+            "disproportionality": 0.1255,
+            "efficiency_gap": 0.1164,
+            "efficiency_gap_FPTP": 0.196,
+            "seats_bias": 0.1011,
+            "votes_bias": 0.0208,
+            "geometric_seats_bias": 0.0976,
+            "declination": 14.3596,
+            "mean_median_statewide": 0.0333,
+            "mean_median_average_district": 0.0321,
+            "turnout_bias": 0.0012,
+            "lopsided_outcomes": 0.0226,
+            "competitive_district_count": 6,
+            "competitive_districts": 3.8101,
+            "average_margin": 0.0835,
+            "responsiveness": 3.3786,
+            "responsive_districts": 3.8101,
+            "overall_responsiveness": 14.7214,
+            "estimated_vote_pct": 0.4909,
+            "efficiency_gap_wasted_votes": 0.1867,
+            "geographic_advantage": -1.3136,
+            "proportionality": 37,
+            "competitiveness": 36
+          },
+          "E_16_PRES": {
+            "pr_deviation": 0.16,
+            "estimated_seats": 4.7603,
+            "fptp_seats": 4,
+            "disproportionality": 0.1409,
+            "efficiency_gap": 0.1219,
+            "efficiency_gap_FPTP": 0.1762,
+            "seats_bias": 0.1015,
+            "votes_bias": 0.0222,
+            "geometric_seats_bias": 0.0882,
+            "declination": 16.944,
+            "mean_median_statewide": 0.0315,
+            "mean_median_average_district": 0.0308,
+            "turnout_bias": 0.0007,
+            "lopsided_outcomes": 0.0196,
+            "competitive_district_count": 2,
+            "competitive_districts": 2.7544,
+            "average_margin": 0.0941,
+            "responsiveness": 2.489,
+            "responsive_districts": 2.7544,
+            "overall_responsiveness": 8.3937,
+            "estimated_vote_pct": 0.4809,
+            "efficiency_gap_wasted_votes": 0.1699,
+            "geographic_advantage": -1.3805,
+            "proportionality": 30,
+            "competitiveness": 26
+          },
+          "E_20_AG": {
+            "pr_deviation": 0.0977,
+            "estimated_seats": 5.6325,
+            "fptp_seats": 5,
+            "disproportionality": 0.0989,
+            "efficiency_gap": 0.1002,
+            "efficiency_gap_FPTP": 0.1453,
+            "seats_bias": 0.102,
+            "votes_bias": 0.0219,
+            "geometric_seats_bias": 0.1019,
+            "declination": 13.0636,
+            "mean_median_statewide": 0.0309,
+            "mean_median_average_district": 0.03,
+            "turnout_bias": 0.0009,
+            "lopsided_outcomes": 0.0309,
+            "competitive_district_count": 6,
+            "competitive_districts": 4.735,
+            "average_margin": 0.0803,
+            "responsiveness": 3.9506,
+            "responsive_districts": 4.735,
+            "overall_responsiveness": -78.5605,
+            "estimated_vote_pct": 0.5012,
+            "efficiency_gap_wasted_votes": 0.1417,
+            "geographic_advantage": -2.8382,
+            "proportionality": 51,
+            "competitiveness": 45
+          },
+          "E_16_SEN": {
+            "pr_deviation": 0.1766,
+            "estimated_seats": 4.5278,
+            "fptp_seats": 4,
+            "disproportionality": 0.147,
+            "efficiency_gap": 0.1175,
+            "efficiency_gap_FPTP": 0.1552,
+            "seats_bias": 0.0821,
+            "votes_bias": 0.0171,
+            "geometric_seats_bias": 0.0532,
+            "declination": 12.3214,
+            "mean_median_statewide": 0.0304,
+            "mean_median_average_district": 0.0287,
+            "turnout_bias": 0.0018,
+            "lopsided_outcomes": -0.0045,
+            "competitive_district_count": 1,
+            "competitive_districts": 2.5855,
+            "average_margin": 0.0882,
+            "responsiveness": 2.3753,
+            "responsive_districts": 2.5855,
+            "overall_responsiveness": 5.9746,
+            "estimated_vote_pct": 0.4704,
+            "efficiency_gap_wasted_votes": 0.1447,
+            "geographic_advantage": -0.8116,
+            "proportionality": 26,
+            "competitiveness": 25
+          }
+        },
+        "shapes": {
+          "S_20_DRA": {
+            "reock": 0.3782,
+            "polsby_popper": 0.1897,
+            "cut_score": 791,
+            "population_compactness": 1990423.8984,
+            "compactness": 36
+          }
+        }
+      },
+      "by_district": {
+        "reock": [
+          0.37818079688647666,
+          0.29991249241348467,
+          0.29938017129566663,
+          0.2223801584254521,
+          0.3428308586225233,
+          0.2834524938916297,
+          0.5065537254647874,
+          0.4266117479154313,
+          0.41852645686049395,
+          0.3716069350927241,
+          0.26413662187837544,
+          0.6213730580124248,
+          0.3053490328830445,
+          0.39579826474371427,
+          0.5366191389109208
+        ],
+        "polsby_popper": [
+          0.18968843248539455,
+          0.16922245358290391,
+          0.24051240317322276,
+          0.14910706937403706,
+          0.2091721900413184,
+          0.13623451741149767,
+          0.1488401172151487,
+          0.1814695548614428,
+          0.17989568384704482,
+          0.23522373454539883,
+          0.18829492861097125,
+          0.26935913627290553,
+          0.10564310953146659,
+          0.13064299730801168,
+          0.3120201590201533
+        ],
+        "district_splitting": [
+          2.0986287308474543,
+          2.594924656013598,
+          1.496336871529313,
+          1.5620251582386342,
+          1.9507320474323202,
+          2.2690659802548527,
+          2.417998241097254,
+          2.0684808178472256,
+          2.3595441680231044,
+          1.1148908441776588,
+          2.2648676828596277,
+          2.126206774434881,
+          2.923327501540155,
+          2.259964069020395,
+          1.9707481467398327
+        ]
+      }
+    },
+    {
+      "name": "NC multi-dataset plan 4",
+      "state": "NC",
+      "plan_type": "congress",
+      "data": "testdata/examples/NC_input_data.jsonl",
+      "graph": "testdata/examples/NC_graph.json",
+      "precomputed": "testdata/examples/NC_congress_precomputed.json",
+      "plan": {
+        "kind": "jsonl",
+        "path": "testdata/plans/NC_congress_plans.tagged.jsonl",
+        "index": 4
+      },
+      "options": {
+        "mmd_scoring": true,
+        "reverse_weight_splitting": false
+      },
+      "expect": {
+        "census": {
+          "T_20_CENS": {
+            "population_deviation": 0.0086,
+            "county_splitting": 1.3105,
+            "district_splitting": 2.0763,
+            "counties_split": 36,
+            "county_splits": 44,
+            "splitting": 8
+          }
+        },
+        "vap": {
+          "V_20_VAP": {
+            "opportunity_districts": 0.4787,
+            "proportional_opportunities": 5,
+            "coalition_districts": 8.6571,
+            "proportional_coalitions": 5,
+            "minority": 55
+          }
+        },
+        "cvap": {
+          "V_20_CVAP": {
+            "mmd_black": 0,
+            "mmd_hispanic": 0,
+            "mmd_coalition": 0
+          }
+        },
+        "election": {
+          "E_16-20_COMP": {
+            "pr_deviation": 0.1273,
+            "estimated_seats": 5.2175,
+            "fptp_seats": 4,
+            "disproportionality": 0.1217,
+            "efficiency_gap": 0.116,
+            "efficiency_gap_FPTP": 0.203,
+            "seats_bias": 0.1062,
+            "votes_bias": 0.022,
+            "geometric_seats_bias": 0.1048,
+            "declination": 14.9781,
+            "mean_median_statewide": 0.0303,
+            "mean_median_average_district": 0.0293,
+            "turnout_bias": 0.001,
+            "lopsided_outcomes": 0.028,
+            "competitive_district_count": 5,
+            "competitive_districts": 4.0738,
+            "average_margin": 0.0844,
+            "responsiveness": 3.0666,
+            "responsive_districts": 4.0738,
+            "overall_responsiveness": 22.4652,
+            "estimated_vote_pct": 0.4943,
+            "efficiency_gap_wasted_votes": 0.1947,
+            "geographic_advantage": -2.0117,
+            "proportionality": 39,
+            "competitiveness": 39
+          },
+          "E_20_PRES": {
+            "pr_deviation": 0.142,
+            "estimated_seats": 5.0122,
+            "fptp_seats": 4,
+            "disproportionality": 0.1351,
+            "efficiency_gap": 0.1283,
+            "efficiency_gap_FPTP": 0.2006,
+            "seats_bias": 0.1182,
+            "votes_bias": 0.0245,
+            "geometric_seats_bias": 0.1159,
+            "declination": 18.0985,
+            "mean_median_statewide": 0.0321,
+            "mean_median_average_district": 0.0313,
+            "turnout_bias": 0.0008,
+            "lopsided_outcomes": 0.0348,
+            "competitive_district_count": 5,
+            "competitive_districts": 3.584,
+            "average_margin": 0.0897,
+            "responsiveness": 2.9126,
+            "responsive_districts": 3.584,
+            "overall_responsiveness": 20.7096,
+            "estimated_vote_pct": 0.4931,
+            "efficiency_gap_wasted_votes": 0.1933,
+            "geographic_advantage": -1.9903,
+            "proportionality": 32,
+            "competitiveness": 34
+          },
+          "E_20_GOV": {
+            "pr_deviation": 0.0088,
+            "estimated_seats": 6.8772,
+            "fptp_seats": 4,
+            "disproportionality": 0.0316,
+            "efficiency_gap": 0.0545,
+            "efficiency_gap_FPTP": 0.26,
+            "seats_bias": 0.1053,
+            "votes_bias": 0.0244,
+            "geometric_seats_bias": 0.0907,
+            "declination": 10.399,
+            "mean_median_statewide": 0.0286,
+            "mean_median_average_district": 0.0278,
+            "turnout_bias": 0.0008,
+            "lopsided_outcomes": 0.0465,
+            "competitive_district_count": 8,
+            "competitive_districts": 6.895,
+            "average_margin": 0.0729,
+            "responsiveness": 5.0743,
+            "responsive_districts": 6.895,
+            "overall_responsiveness": -0.3834,
+            "estimated_vote_pct": 0.5229,
+            "efficiency_gap_wasted_votes": 0.2522,
+            "geographic_advantage": -2.1332,
+            "proportionality": 0,
+            "competitiveness": 66
+          },
+          "E_20_SEN": {
+            "pr_deviation": 0.1372,
+            "estimated_seats": 5.0788,
+            "fptp_seats": 4,
+            "disproportionality": 0.1281,
+            "efficiency_gap": 0.1189,
+            "efficiency_gap_FPTP": 0.196,
+            "seats_bias": 0.1033,
+            "votes_bias": 0.0209,
+            "geometric_seats_bias": 0.0996,
+            "declination": 14.687,
+            "mean_median_statewide": 0.0303,
+            "mean_median_average_district": 0.0291,
+            "turnout_bias": 0.0013,
+            "lopsided_outcomes": 0.0232,
+            "competitive_district_count": 6,
+            "competitive_districts": 3.8267,
+            "average_margin": 0.0836,
+            "responsiveness": 3.4094,
+            "responsive_districts": 3.8267,
+            "overall_responsiveness": 15.0017,
+            "estimated_vote_pct": 0.4909,
+            "efficiency_gap_wasted_votes": 0.1867,
+            "geographic_advantage": -1.3495,
+            "proportionality": 36,
+            "competitiveness": 36
+          },
+          "E_16_PRES": {
+            "pr_deviation": 0.1625,
+            "estimated_seats": 4.7249,
+            "fptp_seats": 4,
+            "disproportionality": 0.1434,
+            "efficiency_gap": 0.1244,
+            "efficiency_gap_FPTP": 0.1762,
+            "seats_bias": 0.1034,
+            "votes_bias": 0.0223,
+            "geometric_seats_bias": 0.0898,
+            "declination": 17.3367,
+            "mean_median_statewide": 0.0315,
+            "mean_median_average_district": 0.0307,
+            "turnout_bias": 0.0008,
+            "lopsided_outcomes": 0.0203,
+            "competitive_district_count": 2,
+            "competitive_districts": 2.7452,
+            "average_margin": 0.0942,
+            "responsiveness": 2.501,
+            "responsive_districts": 2.7452,
+            "overall_responsiveness": 8.5264,
+            "estimated_vote_pct": 0.4809,
+            "efficiency_gap_wasted_votes": 0.1699,
+            "geographic_advantage": -1.4159,
+            "proportionality": 28,
+            "competitiveness": 26
+          },
+          "E_20_AG": {
+            "pr_deviation": 0.1002,
+            "estimated_seats": 5.5972,
+            "fptp_seats": 4,
+            "disproportionality": 0.1014,
+            "efficiency_gap": 0.1027,
+            "efficiency_gap_FPTP": 0.2168,
+            "seats_bias": 0.1046,
+            "votes_bias": 0.0219,
+            "geometric_seats_bias": 0.1045,
+            "declination": 13.316,
+            "mean_median_statewide": 0.0293,
+            "mean_median_average_district": 0.0283,
+            "turnout_bias": 0.001,
+            "lopsided_outcomes": 0.0314,
+            "competitive_district_count": 6,
+            "competitive_districts": 4.8608,
+            "average_margin": 0.0804,
+            "responsiveness": 4.0386,
+            "responsive_districts": 4.8608,
+            "overall_responsiveness": -80.5908,
+            "estimated_vote_pct": 0.5012,
+            "efficiency_gap_wasted_votes": 0.2083,
+            "geographic_advantage": -2.8735,
+            "proportionality": 50,
+            "competitiveness": 46
+          },
+          "E_16_SEN": {
+            "pr_deviation": 0.1793,
+            "estimated_seats": 4.4894,
+            "fptp_seats": 4,
+            "disproportionality": 0.1498,
+            "efficiency_gap": 0.1202,
+            "efficiency_gap_FPTP": 0.1552,
+            "seats_bias": 0.0837,
+            "votes_bias": 0.0171,
+            "geometric_seats_bias": 0.0544,
+            "declination": 12.7306,
+            "mean_median_statewide": 0.0304,
+            "mean_median_average_district": 0.0286,
+            "turnout_bias": 0.0019,
+            "lopsided_outcomes": -0.0038,
+            "competitive_district_count": 2,
+            "competitive_districts": 2.5532,
+            "average_margin": 0.0883,
+            "responsiveness": 2.3803,
+            "responsive_districts": 2.5532,
+            "overall_responsiveness": 6.0675,
+            "estimated_vote_pct": 0.4704,
+            "efficiency_gap_wasted_votes": 0.1447,
+            "geographic_advantage": -0.8501,
+            "proportionality": 25,
+            "competitiveness": 24
+          }
+        },
+        "shapes": {
+          "S_20_DRA": {
+            "reock": 0.3789,
+            "polsby_popper": 0.1935,
+            "cut_score": 785,
+            "population_compactness": 1984986.1258,
+            "compactness": 38
+          }
+        }
+      },
+      "by_district": {
+        "reock": [
+          0.3788587718849848,
+          0.29991249241354057,
+          0.29938017129565037,
+          0.22238015842556572,
+          0.3428308586225233,
+          0.2834524938916297,
+          0.5065537254647059,
+          0.4266117479154313,
+          0.41852645686049395,
+          0.3716069350914977,
+          0.26413662187837544,
+          0.3289060211793519,
+          0.6073077196965107,
+          0.39579826474358926,
+          0.5366191389109208
+        ],
+        "polsby_popper": [
+          0.1935240624897998,
+          0.16922245358290391,
+          0.24051240317322276,
+          0.14910706937403706,
+          0.2091721900413184,
+          0.13623451741149767,
+          0.1488401172151487,
+          0.1814695548614428,
+          0.17989568384704482,
+          0.23522373454539883,
+          0.18829492861097125,
+          0.1081288255579979,
+          0.3205722403080479,
+          0.13064299730801168,
+          0.3120201590201533
+        ],
+        "district_splitting": [
+          2.076332099653204,
+          2.594924656013598,
+          1.496336871529313,
+          1.5620251582386342,
+          1.9507320474323202,
+          2.2690659802548527,
+          2.417998241097254,
+          2.0684808178472256,
+          2.3595441680231044,
+          1.1148908441776588,
+          2.2648676828596277,
+          2.924475737536747,
+          1.8151125656798763,
+          2.259964069020395,
+          1.9707481467398327
+        ]
+      }
+    }
+  ]
+}

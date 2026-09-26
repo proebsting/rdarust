@@ -13,6 +13,7 @@
 
 pub mod bias;
 pub mod method;
+pub mod metrics;
 pub mod more;
 pub mod responsiveness;
 
