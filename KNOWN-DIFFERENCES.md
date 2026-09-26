@@ -253,3 +253,56 @@ index. The sets are identical -- verified for all 2,667 North Carolina nodes
 Order reaches one thing: the order per-neighbour arc lengths are summed when
 computing the leftover state border. That is floating-point noise. It does not
 reach the graph's meaning, and scores from the two orderings are byte-identical.
+
+---
+
+# Deviations added with shape compactness
+
+## 19. The minimum bounding rectangle is the real minimum
+
+rdapy's `minimum_bounding_rectangle` builds its list of candidate edge
+directions like this:
+
+```python
+hull_points = points[ConvexHull(points).vertices]
+edges = hull_points[1:] - hull_points[:-1]
+```
+
+`ConvexHull.vertices` is an *unclosed* list, so the hull's closing edge --
+from the last vertex back to the first -- never appears. A minimum-area
+rectangle always has a side flush with some hull edge, so dropping one edge
+can drop the answer.
+
+It does. For shape 16 of the `first20` set, the omitted edge is exactly the
+one giving the true minimum, and rdapy's rectangle comes out 0.77% too large.
+
+This computes the true minimum over every hull edge. Reproducing rdapy's
+result instead would mean reproducing which vertex qhull happens to start
+from, which is not a property worth depending on.
+
+**Effect:** the `bbox` feature differs by up to 0.5%, which moves a KIWYSI
+rank by under a tenth of a point on a 1-100 scale. Measured against the model
+authors' published predictions -- which is what rdapy's own tests check, to
+within one whole rank -- the ranks here are within 0.02 and 0.09.
+
+## 20. The geodesic diameter is rdapy's approximation, reproduced
+
+`_get_geodesic_attributes_poly` finds the enclosing circle in *degree* space,
+then measures geodesically across it along each axis and keeps the larger.
+That is not a geodesic diameter; at 35N a degree of longitude is about 82% of
+a degree of latitude, so the circle is not a circle on the ellipsoid.
+Reproduced as-is, since it feeds the published Reock figures.
+
+---
+
+# Dependencies
+
+`rdarust-core` depends only on `libm`, for `erf`. `rdarust-geo` needs no
+dependencies for extraction; its `shapes` feature -- shape-based compactness
+and the KIWYSI model -- adds `geo` for polygon union and `geographiclib-rs`
+for geodesic measurement. Both are pure Rust: there is no C dependency
+anywhere, and nothing links GEOS.
+
+The union is the only operation needing a clipping engine, and `i_overlay`
+(under `geo`) agrees with GEOS to 6e-9 relative on the symmetry features
+across all 53 test shapes.

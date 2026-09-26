@@ -1,0 +1,96 @@
+{
+ "schema": "rdarust.cases/1",
+ "suite": "shapes",
+ "set": "first20-published",
+ "note": "Published KIWYSI predictions from the model's authors. rdapy's tests assert its ranks match these to within 1.",
+ "source": {
+  "rdapy_commit": "2b702b4f8fa10ba6fdbfd364a1f2344ece1077b1",
+  "python": "3.13.15",
+  "numpy": "2.5.3",
+  "shapely": "2.1.2",
+  "platform": "macOS-26.7-arm64-arm-64bit-Mach-O"
+ },
+ "revised_model": false,
+ "cases": [
+  {
+   "index": 1,
+   "expect": 77.6086471426305
+  },
+  {
+   "index": 2,
+   "expect": 77.2586455094345
+  },
+  {
+   "index": 3,
+   "expect": 77.7517039712972
+  },
+  {
+   "index": 4,
+   "expect": 80.0972052039998
+  },
+  {
+   "index": 5,
+   "expect": 77.9291827386486
+  },
+  {
+   "index": 6,
+   "expect": 78.0022895729303
+  },
+  {
+   "index": 7,
+   "expect": 78.4148947105883
+  },
+  {
+   "index": 8,
+   "expect": 80.1886677326974
+  },
+  {
+   "index": 9,
+   "expect": 79.9714762594175
+  },
+  {
+   "index": 10,
+   "expect": 76.9328112427028
+  },
+  {
+   "index": 11,
+   "expect": 77.5739125441668
+  },
+  {
+   "index": 12,
+   "expect": 77.3723066196064
+  },
+  {
+   "index": 13,
+   "expect": 79.6761852689638
+  },
+  {
+   "index": 14,
+   "expect": 76.8694477537116
+  },
+  {
+   "index": 15,
+   "expect": 83.1868598042022
+  },
+  {
+   "index": 16,
+   "expect": 78.7285652014488
+  },
+  {
+   "index": 17,
+   "expect": 78.0619760725304
+  },
+  {
+   "index": 18,
+   "expect": 82.8416871824488
+  },
+  {
+   "index": 19,
+   "expect": 77.282187736073
+  },
+  {
+   "index": 20,
+   "expect": 77.1360955799917
+  }
+ ]
+}

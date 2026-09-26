@@ -7,4 +7,17 @@ rust-version.workspace = true
 license.workspace = true
 repository.workspace = true
 
+[features]
+# Shape-based compactness (the KIWYSI model). The only part of this crate
+# that needs a geometry library: it unions a district with its own
+# reflection, which segment matching cannot do. Extraction does not need it.
+default = ["shapes"]
+shapes = ["dep:geo", "dep:geographiclib-rs", "dep:rdarust-core"]
+
+[dev-dependencies]
+serde_json = { version = "1", features = ["float_roundtrip"] }
+
 [dependencies]
+geo = { version = "0.30", optional = true }
+rdarust-core = { workspace = true, optional = true }
+geographiclib-rs = { version = "0.2", optional = true }

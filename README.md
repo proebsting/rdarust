@@ -7,17 +7,21 @@ The goal is a library you can call from another Rust program -- pass a plan,
 get scores back, no JSON or CSV in the middle -- with a command-line interface
 on top for bulk ensemble scoring.
 
-**Status: in progress.** The whole pipeline works, from a DRA GeoJSON to a
-scores CSV, with no Python involved -- and the CSV is byte-identical to the
-one rdapy produces from the same input. Still to come: shape-based compactness
-(the KIWYSI model), which is the only part needing a geometry library.
+**Status: the analytics are ported.** The whole pipeline works, from a DRA
+GeoJSON to a scores CSV, with no Python involved -- and the CSV is
+byte-identical to the one rdapy produces from the same input. Shape-based
+compactness, including the KIWYSI model, is in too.
+
+Not ported: the geographic-baseline precomputation, the ensemble format
+converters, and the contiguity-repair tooling.
 
 Ported: the five DRA ratings; the partisan suite (Nagle's method, bias,
 responsiveness); population deviation; county, district and COI splitting;
 minority opportunity and majority-minority counts; the Reock and
 Polsby-Popper formulas, population compactness and cut edges; contiguity and
-embeddedness; the pipeline that feeds them -- reading precinct data,
-aggregating by district, and scoring -- and the CLI.
+embeddedness; shape-based compactness and the KIWYSI model; the pipeline that
+feeds them -- reading a GeoJSON, building the adjacency graph, aggregating by
+district, and scoring -- and the CLI.
 
 ## The command line
 
@@ -64,6 +68,13 @@ rdarust score-all     --state NC --plan-type congress ...
 
 The first three are once per state.
 
+Compactness measured from district shapes, rather than from aggregates, is a
+separate command, and is the only way to get a KIWYSI rank:
+
+```bash
+rdarust compactness --geojson NC_districts.geojson
+```
+
 ## Using it as a library
 
 ```rust
@@ -91,8 +102,10 @@ goes through JSON or CSV on this path.
 
 ```
 crates/
-  rdarust-core/   scoring formulas and types; almost no dependencies
-  rdarust-io/     JSONL and CSV
+  rdarust-core/   scoring formulas and types; libm is its only dependency
+  rdarust-geo/    planar geometry; no dependencies unless shape compactness
+                  is enabled, which adds geo and geographiclib-rs
+  rdarust-io/     GeoJSON, JSONL and CSV
   rdarust-cli/    the `rdarust` binary
 conformance/      language-neutral test corpus shared with rdapy
 vendor/rdapy/     rdapy pinned as a submodule, for test data and reference values
@@ -127,6 +140,7 @@ Current margins against that bar:
 | the five DRA ratings | 0 (bit-identical, all 2381 cases) |
 | the formula layer, 70 functions | 9.9e-14 |
 | whole scorecards, 28 real plans | 7.9e-12 |
+| shape compactness, 53 shapes | 6.1e-9 |
 
 The scores CSV and the metadata JSON the CLI writes are **byte-identical** to
 rdapy's, checked by a test against golden files recorded from rdapy's own

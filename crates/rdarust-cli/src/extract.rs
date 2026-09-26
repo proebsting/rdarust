@@ -269,3 +269,48 @@ pub fn map_data(
     eprintln!("rdarust: wrote a data map with {} election(s)", implied.len());
     Ok(())
 }
+
+/// Measure shape-based compactness for a set of district shapes.
+///
+/// rdapy offers this only as a library call; it is exposed here because the
+/// model is otherwise unreachable from a command line. Reock and
+/// Polsby-Popper are planar, as DRA reports them; the KIWYSI rank is
+/// geodesic, and is most of the cost.
+pub fn compactness(geojson_path: &str, output: Option<&str>, kiwysi: bool) -> Result<()> {
+    let features = load_geojson(expand(geojson_path))
+        .map_err(|e| anyhow!("{e}"))
+        .with_context(|| format!("reading {geojson_path}"))?;
+    let shapes: Vec<Geometry> = features.iter().map(|f| f.geometry.clone()).collect();
+
+    let m = rdarust_geo::shapes::calc_compactness_metrics(&shapes, kiwysi);
+
+    let mut out = Map::new();
+    out.insert("avgReock".into(), json!(m.avg_reock));
+    out.insert("avgPolsby".into(), json!(m.avg_polsby));
+    if let Some(k) = m.avg_kiwysi {
+        out.insert("avgKIWYSI".into(), json!(k));
+    }
+    out.insert(
+        "byDistrict".into(),
+        Value::Array(
+            m.by_district
+                .iter()
+                .map(|d| {
+                    let mut e = Map::new();
+                    e.insert("reock".into(), json!(d.reock));
+                    e.insert("polsby".into(), json!(d.polsby));
+                    if let Some(k) = d.kiwysi_rank {
+                        e.insert("kiwysiRank".into(), json!(k));
+                    }
+                    Value::Object(e)
+                })
+                .collect(),
+        ),
+    );
+
+    match output {
+        Some(path) => write_json_pretty(path, &Value::Object(out))?,
+        None => println!("{}", serde_json::to_string_pretty(&Value::Object(out))?),
+    }
+    Ok(())
+}

@@ -18,6 +18,9 @@
 
 use std::collections::HashMap;
 
+#[cfg(feature = "shapes")]
+pub mod shapes;
+
 pub mod segments;
 
 pub use segments::{shared_border, BoundarySegments, SegmentKey};

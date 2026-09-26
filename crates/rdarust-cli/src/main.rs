@@ -113,6 +113,22 @@ enum Command {
         #[arg(long)]
         prefixes: bool,
     },
+    /// Measure compactness from district shapes.
+    ///
+    /// Works from the shapes themselves, unlike `score-all`, which computes
+    /// Reock and Polsby-Popper from aggregated area, perimeter and diameter.
+    /// This is the only way to get the KIWYSI rank.
+    Compactness {
+        /// A GeoJSON of district shapes.
+        #[arg(long)]
+        geojson: String,
+        /// Where to write the result. Defaults to stdout.
+        #[arg(long)]
+        output: Option<String>,
+        /// Skip the KIWYSI rank, which is most of the cost.
+        #[arg(long = "no-kiwysi")]
+        no_kiwysi: bool,
+    },
     /// Write the data map naming which datasets and fields to extract.
     MapData {
         #[arg(long)]
@@ -208,6 +224,9 @@ fn main() {
         ),
         Command::Write { input, data, scores, by_district, prefixes } => {
             stages::write(input.as_deref(), &data, &scores, &by_district, prefixes)
+        }
+        Command::Compactness { geojson, output, no_kiwysi } => {
+            extract::compactness(&geojson, output.as_deref(), !no_kiwysi)
         }
         Command::MapData {
             geojson, data_map, census, vap, cvap, elections, expand_composites, version,
