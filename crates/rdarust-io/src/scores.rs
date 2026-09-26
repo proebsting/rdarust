@@ -145,3 +145,93 @@ pub fn scorecard_to_value(card: &Scorecard, keys: &DatasetKeys, mode: Mode) -> V
 
     Value::Object(out)
 }
+
+/// The order dataset types appear as CSV columns.
+///
+/// Not the order they are computed in: rdapy puts the partisan scores first
+/// because those are what people look at.
+pub const DATASET_TYPE_ORDER: [&str; 5] = ["election", "vap", "cvap", "shapes", "census"];
+
+/// Flatten a nested scorecard into CSV columns, in order.
+///
+/// A metric is prefixed with its dataset when `prefixes` is set, or whenever
+/// there is more than one dataset of that type -- otherwise scoring against
+/// seven elections would produce seven columns all called `efficiency_gap`.
+pub fn flatten_scores(scores: &Value, prefixes: bool) -> Vec<(String, Value)> {
+    let mut out = Vec::new();
+    for ty in DATASET_TYPE_ORDER {
+        let Some(datasets) = scores.get(ty).and_then(|d| d.as_object()) else {
+            continue;
+        };
+        let prefix_mode = prefixes || datasets.len() > 1;
+        for (dataset, metrics) in datasets {
+            let Some(metrics) = metrics.as_object() else {
+                continue;
+            };
+            for (metric, value) in metrics {
+                let key = if prefix_mode {
+                    format!("{dataset}.{metric}")
+                } else {
+                    metric.clone()
+                };
+                out.push((key, value.clone()));
+            }
+        }
+    }
+    out
+}
+
+/// Render one score for the CSV.
+///
+/// Floats get a fixed six decimals, as rdapy's `format_scores` does; integers
+/// and nulls are written as they are. Both languages round half to even when
+/// formatting, so the text agrees.
+pub fn format_score(v: &Value) -> String {
+    match v {
+        Value::Number(n) if n.is_f64() => format!("{:.6}", n.as_f64().unwrap()),
+        Value::Number(n) => n.to_string(),
+        Value::String(s) => s.clone(),
+        Value::Null => String::new(),
+        other => other.to_string(),
+    }
+}
+
+/// Writes the scores CSV, byte-compatible with rdapy's.
+///
+/// Columns come from the first row written, and lines end CRLF, because
+/// Python's `csv` module does both.
+pub struct ScoresCsv<W: std::io::Write> {
+    writer: csv::Writer<W>,
+    columns: Option<Vec<String>>,
+}
+
+impl<W: std::io::Write> ScoresCsv<W> {
+    pub fn new(inner: W) -> Self {
+        ScoresCsv {
+            writer: csv::WriterBuilder::new()
+                .terminator(csv::Terminator::CRLF)
+                .from_writer(inner),
+            columns: None,
+        }
+    }
+
+    /// Write one plan's scores, emitting the header first.
+    pub fn write(&mut self, name: &str, scores: &Value, prefixes: bool) -> csv::Result<()> {
+        let flat = flatten_scores(scores, prefixes);
+
+        if self.columns.is_none() {
+            let mut cols = vec!["name".to_string()];
+            cols.extend(flat.iter().map(|(k, _)| k.clone()));
+            self.writer.write_record(&cols)?;
+            self.columns = Some(cols);
+        }
+
+        let mut row = vec![name.to_string()];
+        row.extend(flat.iter().map(|(_, v)| format_score(v)));
+        self.writer.write_record(&row)
+    }
+
+    pub fn flush(&mut self) -> std::io::Result<()> {
+        self.writer.flush()
+    }
+}

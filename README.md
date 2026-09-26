@@ -7,18 +7,45 @@ The goal is a library you can call from another Rust program -- pass a plan,
 get scores back, no JSON or CSV in the middle -- with a command-line interface
 on top for bulk ensemble scoring.
 
-**Status: in progress.** Scoring works end to end and matches rdapy. The CLI
-is not written yet.
+**Status: in progress.** Scoring and the command-line interface work, and
+match rdapy byte for byte. Still to come: the geometry-dependent shape
+compactness (KIWYSI) and the GeoJSON preprocessing steps.
 
 Ported: the five DRA ratings; the partisan suite (Nagle's method, bias,
 responsiveness); population deviation; county, district and COI splitting;
 minority opportunity and majority-minority counts; the Reock and
 Polsby-Popper formulas, population compactness and cut edges; contiguity and
-embeddedness; and the pipeline that feeds them -- reading precinct data,
-aggregating by district, and scoring. Still to come: the command-line
-interface, and the geometry-dependent shape compactness and preprocessing.
+embeddedness; the pipeline that feeds them -- reading precinct data,
+aggregating by district, and scoring -- and the CLI.
 
-## Using it
+## The command line
+
+```bash
+cargo build --release
+
+target/release/rdarust score-all \
+    --state NC --plan-type congress \
+    --data NC_input_data.jsonl --graph NC_graph.json \
+    --plans NC_congress_plans.jsonl \
+    --scores scores.csv --by-district by-district.jsonl
+```
+
+The three stages rdapy uses are also available separately, with the same
+arguments, so an existing pipeline works unchanged:
+
+```bash
+cat plans.jsonl | rdarust aggregate ... | rdarust score ... | rdarust write ...
+```
+
+`scripts/score/{aggregate,score,write}` are drop-in replacements for rdapy's
+scripts of the same name. `score-all` does the same work in one process,
+skipping the JSONL round-trip between stages, and scores across cores.
+
+Note that `rdarust` starts from extracted precinct data and an adjacency
+graph. Producing those from a DRA GeoJSON needs a geometry library and is not
+ported yet; use rdapy's `scripts/data/extract_data.py` for that step.
+
+## Using it as a library
 
 ```rust
 use rdarust_core::aggregate::{Aggregates, Mode};
@@ -82,21 +109,28 @@ Current margins against that bar:
 | the formula layer, 70 functions | 9.9e-14 |
 | whole scorecards, 28 real plans | 7.9e-12 |
 
+The scores CSV and the metadata JSON the CLI writes are **byte-identical** to
+rdapy's, checked by a test against golden files recorded from rdapy's own
+pipeline.
+
 ## Performance
 
 Scoring the 101-plan NC congressional ensemble -- 2,666 precincts, 7 election
 datasets, every metric -- on one core:
 
-| | rdapy | rdarust |
-| --- | --- | --- |
-| per plan | ~100 ms | 1.36 ms |
-| whole run | 10.3 s | 0.27 s |
+| | rdapy | rdarust, 1 core | rdarust, 10 cores |
+| --- | --- | --- | --- |
+| per plan | ~100 ms | 1.4 ms | 0.45 ms |
+| whole 101-plan run | 10.3 s | 0.30 s | 0.18 s |
 
 rdapy's figure covers its three-process pipeline, which serialises the full
-by-district aggregates to JSONL between stages; rdarust's covers loading
-(0.10s), reading the plans (0.03s), interning them (0.005s) and scoring
-(0.14s). Scoring alone is about 74x faster. Neither figure uses more than one
-core.
+by-district aggregates to JSONL between stages. Both rdarust figures are the
+complete `score-all` run: loading the precinct data, reading the plans,
+scoring and writing. Per-plan figures come from a 1,010-plan run, where the
+fixed loading cost no longer dominates.
+
+Extrapolating to 100,000 plans: roughly 3 hours for rdapy against about a
+minute.
 
 Reproduce with:
 

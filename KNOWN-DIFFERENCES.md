@@ -167,3 +167,43 @@ In practice this means the adjacency graph was not loaded: input files written
 for the scoring pipeline carry no neighbour lists, because the graph is
 maintained separately. rdapy scores such a plan and reports the result.
 `AggregateError::DistrictHasNoBoundary` is returned instead.
+
+---
+
+# Deviations added with the CLI
+
+## 14. A bad record stops the run
+
+rdapy's `score_plans` and `aggregate_plans` wrap each input line in a bare
+`except Exception`, log to stderr, and continue. A real data error -- the
+`ValueError` raised when a populated precinct is missing from the plan --
+therefore drops that plan from the output, and the only evidence is that the
+CSV has fewer rows than the input.
+
+`rdarust` stops, naming the line and the cause. `--continue-on-error`
+restores rdapy's behaviour for diffing against it, and reports how many
+records were skipped at exit so a silent drop stays visible.
+
+## 15. Scoring runs in parallel
+
+`score-all` scores plans across cores. Results are collected in input order,
+so the output does not depend on the thread count, and no scoring state is
+shared: the enclosing-circle routine here is deterministic and
+order-independent, unlike rdapy's, whose shared RNG would make parallel
+results depend on scheduling.
+
+---
+
+# Byte compatibility
+
+These outputs are byte-identical to rdapy's, and a test checks it:
+
+* the scores CSV, including column order, six-decimal float formatting and
+  CRLF line endings;
+* the `_metadata.json` written beside it, including its four-space indent and
+  absence of a trailing newline.
+
+The by-district JSONL is semantically identical and compared structurally
+rather than byte for byte, which was a deliberate choice: matching it exactly
+would mean reimplementing CPython's float `repr`, and the file is read by
+programs rather than diffed by people.

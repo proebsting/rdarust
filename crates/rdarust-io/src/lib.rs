@@ -19,11 +19,15 @@ use rdarust_core::context::{
 };
 use serde_json::{Map, Value};
 
+pub mod aggregates;
 pub mod plans;
+pub mod records;
 pub mod scores;
 
+pub use aggregates::{aggregates_from_value, aggregates_to_value, scored_aggregates_to_value};
 pub use plans::{read_plan_csv, read_plan_jsonl, read_plans_jsonl, Assignments};
-pub use scores::scorecard_to_value;
+pub use records::{smart_reader, smart_writer, write_record};
+pub use scores::{flatten_scores, format_score, scorecard_to_value, ScoresCsv};
 
 #[derive(Debug)]
 pub enum LoadError {

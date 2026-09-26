@@ -1,0 +1,7 @@
+#!/bin/sh
+# Drop-in replacement for rdapy's scripts/score/write.py.
+#
+# Takes the same arguments. Point an existing SCORE.sh at this directory and
+# the pipeline runs unchanged -- though `rdarust score-all` does the same work
+# in one process, without serialising the aggregates between stages.
+exec "$(dirname "$0")/../../target/release/rdarust" write "$@"
