@@ -12,9 +12,44 @@ case means editing one JSON file; both implementations pick it up.
 conformance/
   cases/
     primitives/     numeric behaviours inherited from CPython / NumPy / SciPy
+    rate/           the five DRA ratings, incl. rdapy's own test values
+    traced/         recorded by running rdapy's test suite instrumented
+    supplement/     functions rdapy's tests never call
   tools/
-    gen_primitives.py    records the primitive reference values
+    gen_primitives.py      records the primitive reference values
+    gen_rate.py            transcribes and verifies rdapy's rating tests
+    trace_rdapy_tests.py   instruments rdapy and runs its pytest suite
+    gen_supplement.py      covers what that suite leaves untouched
 ```
+
+## Where the expected values come from
+
+Three sources, in descending order of authority:
+
+1. **rdapy's own test suite.** `trace_rdapy_tests.py` wraps each ported
+   function, runs rdapy's pytest suite, and records every call: the real
+   arguments the tests pass and the value rdapy returns. Nothing is
+   transcribed, so nothing can be transcribed wrong. A case carrying a `from`
+   field was called *directly* by that test -- a published reference value --
+   which the tracer distinguishes by walking the stack. Those are always kept;
+   incidental interior calls are sampled under a size budget.
+
+2. **Transcribed test tables.** `gen_rate.py` carries over the
+   state-by-state splitting table and the 116th-Congress values from
+   `test_rate.py`, which encode the spreadsheet DRA used to develop the
+   ratings. Each transcription is checked against live rdapy before being
+   recorded, so a typo fails the generator.
+
+3. **Purpose-built cases.** `gen_supplement.py` covers functions rdapy's
+   tests never reach -- `calculate_mmd_simple` runs on every plan in
+   production but is never called by a test -- and functions whose real
+   arguments are too large to check in, such as `calc_energy`, which rdapy
+   only ever calls with the entire NC precinct set including geometry.
+
+The tracer reports both gaps -- "not exercised by rdapy's tests" and "too
+large to record as data" -- on every run. Those reports have already caught
+three defects in the tracer itself, each of which had silently dropped a
+whole category of call from the corpus.
 
 ## Case file format
 

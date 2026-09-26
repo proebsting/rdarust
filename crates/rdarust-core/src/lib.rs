@@ -10,8 +10,10 @@
 //! Later milestones add the formula layer (pure functions on slices) and the
 //! pipeline layer (`Context` + plan scoring).
 
+pub mod compactness;
 pub mod equal;
 pub mod geometry;
+pub mod graph;
 pub mod minority;
 pub mod numeric;
 pub mod partisan;

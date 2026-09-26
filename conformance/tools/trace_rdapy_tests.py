@@ -106,7 +106,25 @@ TARGETS = [
     "calculate_mmd_simple",
     "_is_single_demo_mmd",
     "_is_coalition_mmd",
+    # compactness
+    "reock_formula",
+    "polsby_formula",
+    "calc_cut_score",
+    "calc_spanning_tree_score",
+    "calc_energy",
+    # graph
+    "is_consistent",
+    "is_connected",
+    "connected_subsets",
+    "is_embedded",
 ]
+
+# Some functions take the whole precinct dataset -- calc_energy is handed
+# every precinct's geometry -- and one call would be megabytes. Recording
+# those as data is not useful; they are covered by supplementary generators
+# with purpose-built inputs instead.
+MAX_CASE_BYTES = 120_000
+OVERSIZED = defaultdict(int)
 
 TRACE = defaultdict(list)
 SEEN = defaultdict(set)
@@ -117,6 +135,10 @@ def jsonable(v, depth=0):
     if depth > 6:
         raise ValueError("too deep")
     if isinstance(v, bool) or v is None:
+        return v
+    # Geoids, demographic names, county ids -- without this every call taking
+    # a string silently fails to serialise and is dropped from the corpus.
+    if isinstance(v, str):
         return v
     if isinstance(v, (int,)):
         return int(v)
@@ -134,6 +156,10 @@ def jsonable(v, depth=0):
         return [jsonable(x, depth + 1) for x in v.tolist()]
     if isinstance(v, (list, tuple)):
         return [jsonable(x, depth + 1) for x in v]
+    # Sorted, because Python set iteration order is not a property worth
+    # reproducing -- is_embedded takes its members as a set.
+    if isinstance(v, (set, frozenset)):
+        return sorted((jsonable(x, depth + 1) for x in v), key=repr)
     if isinstance(v, dict):
         return {str(k): jsonable(x, depth + 1) for k, x in v.items()}
     raise ValueError(f"unsupported type {type(v).__name__}")
@@ -170,9 +196,13 @@ def make_wrapper(name, orig):
             if origin:
                 rec["from"] = origin
             key = json.dumps([rec["input"], rec.get("kwargs")], sort_keys=True)
-            if key not in SEEN[name]:
-                SEEN[name].add(key)
-                TRACE[name].append(rec)
+            if key in SEEN[name]:
+                return result
+            if len(key) > MAX_CASE_BYTES:
+                OVERSIZED[name] += 1
+                return result
+            SEEN[name].add(key)
+            TRACE[name].append(rec)
         except Exception:
             # A call we cannot represent as data -- skip it rather than
             # recording something misleading.
@@ -303,6 +333,10 @@ def main():
         total += len(cases)
         print(f"  {name}: {len(cases)} cases ({n_direct} asserted directly by a test)")
 
+    if OVERSIZED:
+        print("\ntoo large to record as data (use a supplementary generator):")
+        for n in sorted(OVERSIZED):
+            print(f"  {n}: {OVERSIZED[n]} calls skipped")
     missed = [n for n in originals if n not in TRACE]
     if missed:
         print(f"\nnot exercised by rdapy's tests: {', '.join(sorted(missed))}")

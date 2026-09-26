@@ -6,12 +6,15 @@
 //! asserted directly by that test -- a published reference value -- while the
 //! rest are interior calls, sampled under a size budget.
 
+use rdarust_core::compactness::{self, discrete, energy};
 use rdarust_core::equal::calc_population_deviation;
+use rdarust_core::graph;
 use rdarust_core::minority::majority_minority as mmd;
 use rdarust_core::minority::opportunity::{self as opp, DemoShares, DEMOGRAPHICS};
 use rdarust_core::partisan::{bias, method, more, responsiveness};
 use rdarust_core::splitting::{coi, county};
 use serde_json::Value;
+use std::collections::HashMap;
 
 const FLOAT_TOL: f64 = 1e-9;
 
@@ -21,6 +24,7 @@ enum Out {
     F(f64),
     I(i64),
     B(bool),
+    S(String),
     Null,
     List(Vec<Out>),
     Map(Vec<(String, Out)>),
@@ -75,6 +79,77 @@ fn shares(v: &Value) -> DemoShares {
 
 fn kwarg_bool(kw: Option<&Value>, name: &str, default: bool) -> bool {
     kw.and_then(|k| k.get(name)).and_then(|v| v.as_bool()).unwrap_or(default)
+}
+
+
+/// rdapy identifies graph nodes by geoid string; the library works in dense
+/// indices. This interns one so the traced cases can drive it.
+struct Interned {
+    names: Vec<String>,
+    index: HashMap<String, u32>,
+    adjacency: Vec<Vec<u32>>,
+}
+
+/// Keys are sorted so the interning -- and therefore which vertex the
+/// spanning-tree reduction drops -- is deterministic.
+fn intern_graph(v: &Value) -> Interned {
+    let obj = v.as_object().expect("graph object");
+    let mut names: Vec<String> = obj.keys().cloned().collect();
+    names.sort();
+    let index: HashMap<String, u32> = names
+        .iter()
+        .enumerate()
+        .map(|(i, n)| (n.clone(), i as u32))
+        .collect();
+    let adjacency = names
+        .iter()
+        .map(|n| {
+            obj[n]
+                .as_array()
+                .expect("neighbour list")
+                .iter()
+                .map(|x| index[x.as_str().expect("geoid")])
+                .collect()
+        })
+        .collect();
+    Interned { names, index, adjacency }
+}
+
+const OUT_OF_STATE: &str = "OUT_OF_STATE";
+
+/// A district label may be an integer or a string in rdapy; both are interned
+/// to a dense id here.
+fn district_key(v: &Value) -> String {
+    match v {
+        Value::String(s) => s.clone(),
+        other => other.to_string(),
+    }
+}
+
+/// Map each node to its district, with UNASSIGNED for nodes absent from the plan.
+fn district_of(plan: &Value, g: &Interned) -> (Vec<u32>, HashMap<String, u32>) {
+    let obj = plan.as_object().expect("plan object");
+    let mut labels: Vec<String> = obj.values().map(district_key).collect();
+    labels.sort();
+    labels.dedup();
+    let ids: HashMap<String, u32> = labels
+        .iter()
+        .enumerate()
+        .map(|(i, l)| (l.clone(), i as u32))
+        .collect();
+
+    let mut out = vec![energy::UNASSIGNED; g.names.len()];
+    for (geoid, d) in obj {
+        if let Some(&i) = g.index.get(geoid) {
+            out[i as usize] = ids[&district_key(d)];
+        }
+    }
+    (out, ids)
+}
+
+/// rdapy's lexical test for a water-only precinct.
+fn is_water_only(geoid: &str) -> bool {
+    geoid.ends_with("ZZZZZZ")
 }
 
 fn call(function: &str, a: &[Value], kw: Option<&Value>) -> Out {
@@ -237,7 +312,7 @@ fn call(function: &str, a: &[Value], kw: Option<&Value>) -> Out {
                         .into_iter()
                         .map(|r| {
                             map(vec![
-                                ("name", Out::Null),
+                                ("name", Out::S(r.name)),
                                 ("effectiveSplits", Out::F(r.effective_splits)),
                                 ("uncertainty", Out::F(r.uncertainty)),
                             ])
@@ -289,6 +364,115 @@ fn call(function: &str, a: &[Value], kw: Option<&Value>) -> Out {
         "_is_single_demo_mmd" => Out::B(mmd::is_single_demo_mmd(f(&a[0]), f(&a[1]))),
         "_is_coalition_mmd" => Out::B(mmd::is_coalition_mmd(&farr(&a[0]), f(&a[1]))),
 
+        // ---------------- compactness ----------------
+        "reock_formula" => Out::F(compactness::reock_formula(f(&a[0]), f(&a[1]))),
+        "polsby_formula" => Out::F(compactness::polsby_formula(f(&a[0]), f(&a[1]))),
+        "calc_cut_score" => {
+            let g = intern_graph(&a[1]);
+            let (districts, _) = district_of(&a[0], &g);
+            // rdapy skips the virtual border node, and water-only precincts
+            // that the plan does not mention.
+            let skip: Vec<bool> = g
+                .names
+                .iter()
+                .enumerate()
+                .map(|(i, n)| {
+                    n == OUT_OF_STATE
+                        || (is_water_only(n) && districts[i] == energy::UNASSIGNED)
+                })
+                .collect();
+            Out::I(discrete::cut_score(&g.adjacency, &districts, &skip).expect("cut score") as i64)
+        }
+        "calc_spanning_tree_score" => {
+            let g = intern_graph(&a[0]);
+            Out::F(discrete::spanning_tree_score(&g.adjacency).expect("spanning tree score"))
+        }
+        "calc_energy" => {
+            let precincts = a[1].as_array().expect("precinct list");
+            let pop_field = a[2].as_str().expect("population field");
+            let assignments = a[0].as_object().expect("assignments");
+
+            let mut districts = Vec::with_capacity(precincts.len());
+            let mut pops = Vec::with_capacity(precincts.len());
+            let mut centers = Vec::with_capacity(precincts.len());
+            let mut labels: Vec<String> = assignments.values().map(district_key).collect();
+            labels.sort();
+            labels.dedup();
+
+            for p in precincts {
+                let geoid = p["geoid"].as_str().expect("geoid");
+                // Districts are 1-based in rdapy and the centroid table is
+                // indexed by them directly, so keep the numeric label.
+                districts.push(match assignments.get(geoid) {
+                    Some(d) => d.as_u64().expect("numeric district") as u32,
+                    None => energy::UNASSIGNED,
+                });
+                pops.push(p[pop_field].as_i64().expect("population"));
+                centers.push((f(&p["center"][0]), f(&p["center"][1])));
+            }
+            Out::F(energy::calc_energy(&districts, &pops, &centers).expect("energy"))
+        }
+
+        // ---------------- graph ----------------
+        "is_consistent" => Out::B(graph::is_consistent(&intern_graph(&a[0]).adjacency)),
+        "is_connected" => {
+            let g = intern_graph(&a[1]);
+            let ids: Vec<u32> = a[0]
+                .as_array()
+                .expect("id list")
+                .iter()
+                .map(|x| g.index[x.as_str().expect("geoid")])
+                .collect();
+            Out::B(graph::is_connected(&ids, &g.adjacency, g.index.get(OUT_OF_STATE).copied()))
+        }
+        "connected_subsets" => {
+            let g = intern_graph(&a[1]);
+            let ids: Vec<u32> = a[0]
+                .as_array()
+                .expect("id list")
+                .iter()
+                .map(|x| g.index[x.as_str().expect("geoid")])
+                .collect();
+            let subsets =
+                graph::connected_subsets(&ids, &g.adjacency, g.index.get(OUT_OF_STATE).copied());
+            // Back to names, sorted within and across components, matching
+            // how the generator normalises rdapy's sets.
+            let mut named: Vec<Vec<String>> = subsets
+                .into_iter()
+                .map(|c| {
+                    let mut v: Vec<String> =
+                        c.into_iter().map(|i| g.names[i as usize].clone()).collect();
+                    v.sort();
+                    v
+                })
+                .collect();
+            named.sort();
+            Out::List(
+                named
+                    .into_iter()
+                    .map(|c| Out::List(c.into_iter().map(Out::S).collect()))
+                    .collect(),
+            )
+        }
+        "is_embedded" => {
+            let g = intern_graph(&a[3]);
+            let (districts, ids) = district_of(&a[1], &g);
+            let want = ids[&district_key(&a[0])];
+            let members: Vec<u32> = a[2][district_key(&a[0])]
+                .as_array()
+                .expect("district members")
+                .iter()
+                .map(|x| g.index[x.as_str().expect("geoid")])
+                .collect();
+            Out::B(graph::is_embedded(
+                want,
+                &districts,
+                &members,
+                &g.adjacency,
+                g.index.get(OUT_OF_STATE).copied(),
+            ))
+        }
+
         other => panic!("no Rust binding for traced function {other}"),
     }
 }
@@ -300,19 +484,13 @@ fn expected(v: &Value) -> Out {
         Value::Number(n) if n.is_i64() || n.is_u64() => Out::I(n.as_i64().unwrap()),
         Value::Number(n) => Out::F(n.as_f64().unwrap()),
         Value::Array(xs) => Out::List(xs.iter().map(expected).collect()),
+        Value::String(x) => Out::S(x.clone()),
         Value::Object(m) => {
-            // String fields carry labels, not results; normalise them away so
-            // the numeric comparison is what decides.
-            let mut kv: Vec<(String, Out)> = m
-                .iter()
-                .map(|(k, x)| {
-                    (k.clone(), if x.is_string() { Out::Null } else { expected(x) })
-                })
-                .collect();
+            let mut kv: Vec<(String, Out)> =
+                m.iter().map(|(k, x)| (k.clone(), expected(x))).collect();
             kv.sort_by(|a, b| a.0.cmp(&b.0));
             Out::Map(kv)
         }
-        other => panic!("unsupported expected value: {other}"),
     }
 }
 

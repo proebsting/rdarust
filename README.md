@@ -7,8 +7,16 @@ The goal is a library you can call from another Rust program -- pass a plan,
 get scores back, no JSON or CSV in the middle -- with a command-line interface
 on top for bulk ensemble scoring.
 
-**Status: early.** The numeric foundations are in place and verified against
-Python. The scoring formulas and the plan-scoring pipeline are not written yet.
+**Status: in progress.** The numeric foundations and the whole formula layer
+are in place and verified against Python. The plan-scoring pipeline and the
+CLI are not written yet.
+
+Ported so far: the five DRA ratings; the partisan suite (Nagle's method, bias,
+responsiveness); population deviation; county, district and COI splitting;
+minority opportunity and majority-minority counts; the Reock and
+Polsby-Popper formulas, population compactness and cut edges; contiguity and
+embeddedness. Still to come: the scoring pipeline (`Context` + `score`), the
+CLI, and the geometry-dependent shape compactness and preprocessing.
 
 ## Layout
 
@@ -47,6 +55,8 @@ Current margins against that bar:
 | `erf` vs CPython | 1.1e-16 |
 | not-a-knot cubic spline vs SciPy | 3.3e-16 |
 | minimum enclosing circle vs rdapy | 1.2e-16 (bit-identical in 10/11 cases) |
+| the five DRA ratings | 0 (bit-identical, all 2381 cases) |
+| the formula layer, 70 functions | 9.9e-14 |
 
 ## Baseline to beat
 

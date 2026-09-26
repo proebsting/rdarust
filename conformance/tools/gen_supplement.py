@@ -26,7 +26,13 @@ sys.path.insert(0, RDAPY)
 
 import numpy as np  # noqa: E402
 
-from rdapy import calc_coi_splitting, calculate_mmd_simple  # noqa: E402
+from rdapy import (  # noqa: E402
+    calc_coi_splitting,
+    calc_energy,
+    calculate_mmd_simple,
+    connected_subsets,
+    is_consistent,
+)
 
 SCHEMA = "rdarust.cases/1"
 
@@ -113,6 +119,118 @@ def gen_coi(outdir):
          "tests call only through its parts.")
 
 
+def gen_energy(outdir):
+    """Population compactness on small synthetic states.
+
+    rdapy's tests do call calc_energy, but only with the full NC precinct set
+    -- every record carrying its geometry -- which is megabytes per call and
+    useless as a checked-in case. These are the same shape, small.
+    """
+    rng = np.random.default_rng(17)
+    cases = []
+
+    def add(pops, centers, districts):
+        precincts = [
+            {"geoid": f"p{i:04d}", "TOTAL_POP": int(p), "center": [float(c[0]), float(c[1])]}
+            for i, (p, c) in enumerate(zip(pops, centers))
+        ]
+        assignments = {f"p{i:04d}": int(d) for i, d in enumerate(districts)}
+        cases.append({
+            "input": [assignments, precincts, "TOTAL_POP"],
+            "expect": calc_energy(assignments, precincts, "TOTAL_POP"),
+        })
+
+    # Two compact districts side by side.
+    add([100, 100, 100, 100],
+        [(-80.0, 35.0), (-80.1, 35.0), (-81.0, 35.0), (-81.1, 35.0)],
+        [1, 1, 2, 2])
+    # The same populations, interleaved: strictly less compact.
+    add([100, 100, 100, 100],
+        [(-80.0, 35.0), (-80.1, 35.0), (-81.0, 35.0), (-81.1, 35.0)],
+        [1, 2, 1, 2])
+    # A district whose precincts share one point: zero energy contribution.
+    add([50, 50], [(-79.0, 36.0), (-79.0, 36.0)], [1, 1])
+    # Lopsided populations, so the centroid sits near the heavy precinct.
+    add([1, 10_000], [(-79.0, 36.0), (-79.5, 36.5)], [1, 1])
+
+    for _ in range(25):
+        n = int(rng.integers(6, 60))
+        d = int(rng.integers(2, 6))
+        pops = [int(x) for x in rng.integers(1, 20000, n)]
+        centers = [(float(x), float(y)) for x, y in
+                   zip(rng.uniform(-84, -75, n), rng.uniform(33, 37, n))]
+        # Every district must be non-empty, or rdapy divides by zero.
+        districts = [1 + (i % d) for i in range(n)]
+        rng.shuffle(districts)
+        add(pops, centers, districts)
+
+    emit(outdir, "calc_energy", cases,
+         "Population compactness. rdapy's tests only ever call this with the "
+         "entire NC precinct set including geometry, which is far too large to "
+         "check in, so these are small synthetic states of the same shape.")
+
+
+def grid_graph(rows, cols, prefix="n"):
+    g = {}
+    for r in range(rows):
+        for c in range(cols):
+            nbrs = []
+            for dr, dc in ((0, 1), (1, 0), (0, -1), (-1, 0)):
+                rr, cc = r + dr, c + dc
+                if 0 <= rr < rows and 0 <= cc < cols:
+                    nbrs.append(f"{prefix}{rr}_{cc}")
+            g[f"{prefix}{r}_{c}"] = nbrs
+    return g
+
+
+def norm_subsets(subsets):
+    """Sets to sorted lists, then order the components deterministically.
+
+    rdapy returns a list of Python sets, whose iteration order is not a
+    property worth reproducing.
+    """
+    return sorted((sorted(s) for s in subsets), key=lambda c: c[0] if c else "")
+
+
+def gen_graph(outdir):
+    """Connectivity helpers rdapy's tests never call."""
+    g4 = grid_graph(4, 4)
+
+    subsets_cases = []
+    # One connected block.
+    subsets_cases.append({"input": [sorted(g4.keys()), g4],
+                          "expect": norm_subsets(connected_subsets(sorted(g4.keys()), g4))})
+    # Two disjoint blocks: opposite corners of the grid.
+    left = [f"n{r}_{c}" for r in range(2) for c in range(2)]
+    right = [f"n{r}_{c}" for r in range(2, 4) for c in range(2, 4)]
+    subsets_cases.append({"input": [left + right, g4],
+                          "expect": norm_subsets(connected_subsets(left + right, g4))})
+    # Isolated singletons.
+    single = ["n0_0", "n2_2", "n0_3"]
+    subsets_cases.append({"input": [single, g4],
+                          "expect": norm_subsets(connected_subsets(single, g4))})
+    # A chain, and the whole grid minus a cut column.
+    chain = [f"n0_{c}" for c in range(4)]
+    subsets_cases.append({"input": [chain, g4], "expect": norm_subsets(connected_subsets(chain, g4))})
+    split = [k for k in sorted(g4.keys()) if not k.endswith("_1")]
+    subsets_cases.append({"input": [split, g4], "expect": norm_subsets(connected_subsets(split, g4))})
+    emit(outdir, "connected_subsets", subsets_cases,
+         "Connected components of a node set. Only reachable in rdapy through "
+         "generate_contiguity_mods, which has no test.")
+
+    consistent_cases = []
+    consistent_cases.append({"input": [g4], "expect": is_consistent(g4)})
+    broken = {k: list(v) for k, v in g4.items()}
+    broken["n0_0"] = [n for n in broken["n0_0"] if n != "n0_1"]
+    consistent_cases.append({"input": [broken], "expect": is_consistent(broken)})
+    tri = {"a": ["b", "c"], "b": ["a", "c"], "c": ["a", "b"]}
+    consistent_cases.append({"input": [tri], "expect": is_consistent(tri)})
+    one_way = {"a": ["b"], "b": []}
+    consistent_cases.append({"input": [one_way], "expect": is_consistent(one_way)})
+    emit(outdir, "is_consistent", consistent_cases,
+         "Is every edge reciprocated? Not imported by any rdapy test.")
+
+
 def main():
     outdir = os.path.abspath(
         sys.argv[1] if len(sys.argv) > 1 else os.path.join(REPO, "conformance/cases/supplement")
@@ -121,6 +239,8 @@ def main():
     print(f"recording supplementary cases into {outdir}/")
     gen_mmd(outdir)
     gen_coi(outdir)
+    gen_energy(outdir)
+    gen_graph(outdir)
     print("done")
 
 

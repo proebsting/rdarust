@@ -58,6 +58,4566 @@
       ],
       "expect": 1.0,
       "from": "test_minority.py::test_est_minority_opportunity"
+    },
+    {
+      "input": [
+        0.317533,
+        "minority"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.176965,
+        "black"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.123495,
+        "hispanic"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.000776,
+        "pacific"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.010633,
+        "asian"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.010566,
+        "native"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.450297,
+        "minority"
+      ],
+      "expect": 0.9939192806328963,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.095892,
+        "black"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.272778,
+        "hispanic"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.001947,
+        "pacific"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.079461,
+        "asian"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.010738,
+        "native"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.346513,
+        "minority"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.085947,
+        "black"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.127593,
+        "hispanic"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.001584,
+        "pacific"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.126713,
+        "asian"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.010772,
+        "native"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.22876,
+        "minority"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.106844,
+        "black"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.097385,
+        "hispanic"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.001045,
+        "pacific"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.010697,
+        "asian"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.017517,
+        "native"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.377448,
+        "minority"
+      ],
+      "expect": 0.7537065011046311,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.139366,
+        "black"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.210006,
+        "hispanic"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.001096,
+        "pacific"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.020852,
+        "asian"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.013725,
+        "native"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.411114,
+        "minority"
+      ],
+      "expect": 0.9367251076122536,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.174874,
+        "black"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.177203,
+        "hispanic"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.002054,
+        "pacific"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.053281,
+        "asian"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.01219,
+        "native"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.490957,
+        "minority"
+      ],
+      "expect": 0.9997873977069233,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.116032,
+        "black"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.270427,
+        "hispanic"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.001725,
+        "pacific"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.104678,
+        "asian"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.011221,
+        "native"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.284166,
+        "minority"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.087073,
+        "black"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.167315,
+        "hispanic"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.001355,
+        "pacific"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.022863,
+        "asian"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.011928,
+        "native"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.860574,
+        "minority"
+      ],
+      "expect": 1.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.39578,
+        "black"
+      ],
+      "expect": 0.8737918310544734,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.340024,
+        "hispanic"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.001773,
+        "pacific"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.131394,
+        "asian"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.010431,
+        "native"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.383797,
+        "minority"
+      ],
+      "expect": 0.8009236424139276,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.104706,
+        "black"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.22766,
+        "hispanic"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.001388,
+        "pacific"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.047968,
+        "asian"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.011841,
+        "native"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.343168,
+        "minority"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.038241,
+        "black"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.287947,
+        "hispanic"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.001106,
+        "pacific"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.009485,
+        "asian"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.013162,
+        "native"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.293657,
+        "minority"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.077499,
+        "black"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.172375,
+        "hispanic"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.00179,
+        "pacific"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.035149,
+        "asian"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.01374,
+        "native"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.286394,
+        "minority"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.055877,
+        "black"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.20156,
+        "hispanic"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.00105,
+        "pacific"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.018573,
+        "asian"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.015532,
+        "native"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.430545,
+        "minority"
+      ],
+      "expect": 0.9779755401788128,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.202859,
+        "black"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.192412,
+        "hispanic"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.001034,
+        "pacific"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.030648,
+        "asian"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.010993,
+        "native"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.805623,
+        "minority"
+      ],
+      "expect": 1.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.02062,
+        "black"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.771844,
+        "hispanic"
+      ],
+      "expect": 1.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.000805,
+        "pacific"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.013437,
+        "asian"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.0067,
+        "native"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.829729,
+        "minority"
+      ],
+      "expect": 1.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.037891,
+        "black"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.776387,
+        "hispanic"
+      ],
+      "expect": 1.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.002228,
+        "pacific"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.017381,
+        "asian"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.010525,
+        "native"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.377841,
+        "minority"
+      ],
+      "expect": 0.7567934132319536,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.129761,
+        "black"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.198079,
+        "hispanic"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.001249,
+        "pacific"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.04647,
+        "asian"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.010665,
+        "native"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.797613,
+        "minority"
+      ],
+      "expect": 1.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.414353,
+        "black"
+      ],
+      "expect": 0.9461726936400228,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.345093,
+        "hispanic"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.001791,
+        "pacific"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.04072,
+        "asian"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.010406,
+        "native"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.378951,
+        "minority"
+      ],
+      "expect": 0.7653980600581317,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.06234,
+        "black"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.294744,
+        "hispanic"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.001366,
+        "pacific"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.016552,
+        "asian"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.012471,
+        "native"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.736756,
+        "minority"
+      ],
+      "expect": 1.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.054682,
+        "black"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.649223,
+        "hispanic"
+      ],
+      "expect": 0.9999999896217642,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.002721,
+        "pacific"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.033913,
+        "asian"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.014551,
+        "native"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.316782,
+        "minority"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.036026,
+        "black"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.238611,
+        "hispanic"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.001694,
+        "pacific"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.036852,
+        "asian"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.012611,
+        "native"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.520242,
+        "minority"
+      ],
+      "expect": 0.999989596490286,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.126559,
+        "black"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.222652,
+        "hispanic"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.001414,
+        "pacific"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.169183,
+        "asian"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.008548,
+        "native"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.711161,
+        "minority"
+      ],
+      "expect": 1.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.035671,
+        "black"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.657734,
+        "hispanic"
+      ],
+      "expect": 0.9999999970284321,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.001316,
+        "pacific"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.015998,
+        "asian"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.011863,
+        "native"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.425213,
+        "minority"
+      ],
+      "expect": 0.9699681009329667,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.103193,
+        "black"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.202817,
+        "hispanic"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.003521,
+        "pacific"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.112332,
+        "asian"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.011551,
+        "native"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.264942,
+        "minority"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.074964,
+        "black"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.14798,
+        "hispanic"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.00335,
+        "pacific"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.033648,
+        "asian"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.013112,
+        "native"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.285987,
+        "minority"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.072247,
+        "black"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.149572,
+        "hispanic"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.001931,
+        "pacific"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.055759,
+        "asian"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.013323,
+        "native"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.527582,
+        "minority"
+      ],
+      "expect": 0.9999954926414947,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.055581,
+        "black"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.451274,
+        "hispanic"
+      ],
+      "expect": 0.7443613146479346,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.001239,
+        "pacific"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.017217,
+        "asian"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.011158,
+        "native"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.788733,
+        "minority"
+      ],
+      "expect": 1.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.048373,
+        "black"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.727179,
+        "hispanic"
+      ],
+      "expect": 0.9999999999999789,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.001406,
+        "pacific"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.013997,
+        "asian"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.008187,
+        "native"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.851633,
+        "minority"
+      ],
+      "expect": 1.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.10731,
+        "black"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.727323,
+        "hispanic"
+      ],
+      "expect": 0.9999999999999796,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.001326,
+        "pacific"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.020655,
+        "asian"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.013487,
+        "native"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.786349,
+        "minority"
+      ],
+      "expect": 1.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.463823,
+        "black"
+      ],
+      "expect": 0.9977834340773638,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.300831,
+        "hispanic"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.001126,
+        "pacific"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.022148,
+        "asian"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.010945,
+        "native"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.364265,
+        "minority"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.116099,
+        "black"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.195458,
+        "hispanic"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.004989,
+        "pacific"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.04769,
+        "asian"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.013748,
+        "native"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.420479,
+        "minority"
+      ],
+      "expect": 0.960963239255314,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.11795,
+        "black"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.218577,
+        "hispanic"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.001336,
+        "pacific"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.07973,
+        "asian"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.011411,
+        "native"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.815791,
+        "minority"
+      ],
+      "expect": 1.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.178147,
+        "black"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.612556,
+        "hispanic"
+      ],
+      "expect": 0.9999986266121592,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.001238,
+        "pacific"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.025519,
+        "asian"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.013835,
+        "native"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.814477,
+        "minority"
+      ],
+      "expect": 1.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.016827,
+        "black"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.789602,
+        "hispanic"
+      ],
+      "expect": 1.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.000685,
+        "pacific"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.008404,
+        "asian"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.006534,
+        "native"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.70631,
+        "minority"
+      ],
+      "expect": 1.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.103913,
+        "black"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.583147,
+        "hispanic"
+      ],
+      "expect": 0.9999615200357257,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.002078,
+        "pacific"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.021189,
+        "asian"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.017433,
+        "native"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.305293,
+        "minority"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.093584,
+        "black"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.179973,
+        "hispanic"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.001243,
+        "pacific"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.024142,
+        "asian"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.011785,
+        "native"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": true
+      }
+    },
+    {
+      "input": [
+        0.1529318464255347,
+        "minority"
+      ],
+      "expect": 4.181418177262586e-07,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.040583098960036625,
+        "black"
+      ],
+      "expect": 5.162537064506978e-15,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.061009549349205314,
+        "hispanic"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.0021960232847145007,
+        "pacific"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.012731375498724573,
+        "asian"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.03509876381712342,
+        "native"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.465824536813981,
+        "minority"
+      ],
+      "expect": 0.9981079087383736,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.33368840611449346,
+        "black"
+      ],
+      "expect": 0.34171398405141956,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.09899347378564233,
+        "hispanic"
+      ],
+      "expect": 2.220446049250313e-16,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.001464675222285489,
+        "pacific"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.016207787657132846,
+        "asian"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.02453330997328194,
+        "native"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.37901947881905046,
+        "minority"
+      ],
+      "expect": 0.7659233323019267,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.2958584848016867,
+        "black"
+      ],
+      "expect": 0.08794192853361882,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.049957698531534735,
+        "hispanic"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.001728988592032552,
+        "pacific"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.0163263524719501,
+        "asian"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.019010481363853058,
+        "native"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.18625098979356816,
+        "minority"
+      ],
+      "expect": 2.1224864088564832e-05,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.08249036264691395,
+        "black"
+      ],
+      "expect": 1.1332101923500204e-11,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.0607998036384055,
+        "hispanic"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.0011398387077793152,
+        "pacific"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.019985844480944686,
+        "asian"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.023316258168423778,
+        "native"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.36705120585461337,
+        "minority"
+      ],
+      "expect": 0.6650481385370997,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.2044779935554551,
+        "black"
+      ],
+      "expect": 0.00013735496504163613,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.0963735465485449,
+        "hispanic"
+      ],
+      "expect": 1.1102230246251565e-16,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.0011751219570013732,
+        "pacific"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.04911298611358045,
+        "asian"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.021494233605440102,
+        "native"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.5250483861336406,
+        "minority"
+      ],
+      "expect": 0.9999939619566764,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.3194784484121269,
+        "black"
+      ],
+      "expect": 0.22272013138566565,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.0896170909308052,
+        "hispanic"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.0042959158941862875,
+        "pacific"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.026242671827854256,
+        "asian"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.1021553344175574,
+        "native"
+      ],
+      "expect": 3.3306690738754696e-16,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.3703576809930401,
+        "minority"
+      ],
+      "expect": 0.6946035690606015,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.17590944966635574,
+        "black"
+      ],
+      "expect": 6.736951269681324e-06,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.10639664203200115,
+        "hispanic"
+      ],
+      "expect": 8.326672684688674e-16,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.0016897467173710267,
+        "pacific"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.0691002367797948,
+        "asian"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.022476142641888498,
+        "native"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.2839019059320059,
+        "minority"
+      ],
+      "expect": 0.04922118543396464,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.153138309551785,
+        "black"
+      ],
+      "expect": 4.2932427579689403e-07,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.085197892764297,
+        "hispanic"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.003063973007537575,
+        "pacific"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.02016054011742995,
+        "asian"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.02658180958782188,
+        "native"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.3339789653440834,
+        "minority"
+      ],
+      "expect": 0.3443846178729819,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.18827084350334977,
+        "black"
+      ],
+      "expect": 2.6360051714302557e-05,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.08394440915922616,
+        "hispanic"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.0012842653005163307,
+        "pacific"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.044641341794787,
+        "asian"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.02043451559227551,
+        "native"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.41689438103043813,
+        "minority"
+      ],
+      "expect": 0.9527732759016685,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.27429927570577195,
+        "black"
+      ],
+      "expect": 0.029210991696996258,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.08348290901748881,
+        "hispanic"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.0011104818190684615,
+        "pacific"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.043813555406882934,
+        "asian"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.02175449283148909,
+        "native"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.2926233913844279,
+        "minority"
+      ],
+      "expect": 0.07572690409222987,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.16444424664240548,
+        "black"
+      ],
+      "expect": 1.7513946086733512e-06,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.09026562911889462,
+        "hispanic"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.001051013526235968,
+        "pacific"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.01983060537694412,
+        "asian"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.022620755291870222,
+        "native"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.4060040362369139,
+        "minority"
+      ],
+      "expect": 0.9192584480871808,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.20922767266868061,
+        "black"
+      ],
+      "expect": 0.00021633689266670197,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.12011998080021698,
+        "hispanic"
+      ],
+      "expect": 1.2490009027033011e-14,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.0012811751123704774,
+        "pacific"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.06075946204920212,
+        "asian"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.019965276228848566,
+        "native"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.4774741747040584,
+        "minority"
+      ],
+      "expect": 0.999280854123589,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.2997515974851387,
+        "black"
+      ],
+      "expect": 0.10451990964213842,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.1193394206225481,
+        "hispanic"
+      ],
+      "expect": 1.0769163338864018e-14,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.0012146026416322614,
+        "pacific"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.04608294930875576,
+        "asian"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.0205882856800233,
+        "native"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.4559087997424031,
+        "minority"
+      ],
+      "expect": 0.9959481692726726,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.26402138876233605,
+        "black"
+      ],
+      "expect": 0.015798767712189243,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.10277327706394362,
+        "hispanic"
+      ],
+      "expect": 3.885780586188048e-16,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.0013530687256147898,
+        "pacific"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.07810289488197472,
+        "asian"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.01821333269390845,
+        "native"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.34618140774955686,
+        "minority"
+      ],
+      "expect": 0.46197282154495006,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.1571624567018789,
+        "black"
+      ],
+      "expect": 7.144217356591653e-07,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.12388765409828198,
+        "hispanic"
+      ],
+      "expect": 2.581268532253489e-14,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.001592079981331952,
+        "pacific"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.05984367164757109,
+        "asian"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.015824811623176845,
+        "native"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.35372419859998794,
+        "minority"
+      ],
+      "expect": 0.5370899134636093,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.15077793862992056,
+        "black"
+      ],
+      "expect": 3.1701657615679224e-07,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.14792993084808612,
+        "hispanic"
+      ],
+      "expect": 2.153055511655566e-12,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.0017724564189525534,
+        "pacific"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.04620300991171992,
+        "asian"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.01987893110758941,
+        "native"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.42049094963252226,
+        "minority"
+      ],
+      "expect": 0.9609884708427114,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.09194123656721467,
+        "black"
+      ],
+      "expect": 5.538552949602149e-11,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.24331599786758917,
+        "hispanic"
+      ],
+      "expect": 2.7848297081689566e-06,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.0012906697123390995,
+        "pacific"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.08902980258695103,
+        "asian"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.013390285647323676,
+        "native"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.2525662883400718,
+        "minority"
+      ],
+      "expect": 0.007428569989632816,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.0406059720395538,
+        "black"
+      ],
+      "expect": 5.162537064506978e-15,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.11773913325864224,
+        "hispanic"
+      ],
+      "expect": 7.882583474838611e-15,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.0008329679964927663,
+        "pacific"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.08144251221848767,
+        "asian"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.012106451036744768,
+        "native"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.7494110098633745,
+        "minority"
+      ],
+      "expect": 1.0,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.4217674587791106,
+        "black"
+      ],
+      "expect": 0.963608294478851,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.2680726087168856,
+        "hispanic"
+      ],
+      "expect": 4.3693038066838774e-05,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.001889483726358298,
+        "pacific"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.05919877133036831,
+        "asian"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.016045455387470466,
+        "native"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.6785329191173289,
+        "minority"
+      ],
+      "expect": 0.9999999999999999,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.13293738213989884,
+        "black"
+      ],
+      "expect": 2.8724383149825172e-08,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.3729642346163028,
+        "hispanic"
+      ],
+      "expect": 0.09664734703868333,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.0022895100704797395,
+        "pacific"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.17765092101110147,
+        "asian"
+      ],
+      "expect": 3.1302804792687766e-10,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.01976444802619879,
+        "native"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.5217500698909701,
+        "minority"
+      ],
+      "expect": 0.9999912160547707,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.08657271127629133,
+        "black"
+      ],
+      "expect": 2.264005649621481e-11,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.25641928004078346,
+        "hispanic"
+      ],
+      "expect": 1.251560953619002e-05,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.0014997779933891365,
+        "pacific"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.1856649509118716,
+        "asian"
+      ],
+      "expect": 1.0927956317630105e-09,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.013915703267608413,
+        "native"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.5538566397056108,
+        "minority"
+      ],
+      "expect": 0.9999998269279697,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.19367472812310088,
+        "black"
+      ],
+      "expect": 4.650628260782774e-05,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.2323183486269335,
+        "hispanic"
+      ],
+      "expect": 7.285127543443792e-07,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.0013497315645806262,
+        "pacific"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.1253823400047677,
+        "asian"
+      ],
+      "expect": 3.430589146091734e-14,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.01226341925281278,
+        "native"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.3711498990164365,
+        "minority"
+      ],
+      "expect": 0.7015096807190954,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.07825815668051428,
+        "black"
+      ],
+      "expect": 5.470512931537996e-12,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.18005779872251687,
+        "hispanic"
+      ],
+      "expect": 4.575511081128525e-10,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.0013546575589891792,
+        "pacific"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.10444820282097174,
+        "asian"
+      ],
+      "expect": 5.551115123125783e-16,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.012303574653946568,
+        "native"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.5827696501679938,
+        "minority"
+      ],
+      "expect": 0.9999999970442321,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.13730383578917563,
+        "black"
+      ],
+      "expect": 5.2629062885500844e-08,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.19467358505785537,
+        "hispanic"
+      ],
+      "expect": 4.251777374619792e-09,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.0014437093287986264,
+        "pacific"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.24829166550061485,
+        "asian"
+      ],
+      "expect": 4.987644560472404e-06,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.0136139978895834,
+        "native"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.4409601941715815,
+        "minority"
+      ],
+      "expect": 0.9885171526694143,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.20295935023175635,
+        "black"
+      ],
+      "expect": 0.00011845222220135954,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.13039197406684133,
+        "hispanic"
+      ],
+      "expect": 8.842926391139372e-14,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.0016682531426945233,
+        "pacific"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.10091786633694134,
+        "asian"
+      ],
+      "expect": 2.7755575615628914e-16,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.01577316990994704,
+        "native"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.19111308230913482,
+        "minority"
+      ],
+      "expect": 3.5609991109297745e-05,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.055930682784021156,
+        "black"
+      ],
+      "expect": 9.781064846947629e-14,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.09553040216936713,
+        "hispanic"
+      ],
+      "expect": 1.1102230246251565e-16,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.0007926014867180227,
+        "pacific"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.026216558962805066,
+        "asian"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.012324109925394277,
+        "native"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.4992855927878891,
+        "minority"
+      ],
+      "expect": 0.9999050699693313,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.4123439360435448,
+        "black"
+      ],
+      "expect": 0.9404542691396469,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.05863242047967342,
+        "hispanic"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.001318251403299881,
+        "pacific"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.012680728014968532,
+        "asian"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.021697567613539716,
+        "native"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.3987982476912148,
+        "minority"
+      ],
+      "expect": 0.8887592588767457,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.18181422462425653,
+        "black"
+      ],
+      "expect": 1.3074648427591207e-05,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.09311752169491998,
+        "hispanic"
+      ],
+      "expect": 5.551115123125783e-17,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.001511331503948963,
+        "pacific"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.11103411291108914,
+        "asian"
+      ],
+      "expect": 2.1094237467877974e-15,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.01721141925868145,
+        "native"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.32604107386083014,
+        "minority"
+      ],
+      "expect": 0.2745953936426577,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.18888780652868284,
+        "black"
+      ],
+      "expect": 2.8150023175133043e-05,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.09340141948692708,
+        "hispanic"
+      ],
+      "expect": 5.551115123125783e-17,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.003359873944912423,
+        "pacific"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.02195368295846642,
+        "asian"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.024677812698136004,
+        "native"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.44351667204193046,
+        "minority"
+      ],
+      "expect": 0.9903042177345824,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.2662072645423399,
+        "black"
+      ],
+      "expect": 0.01809357000852685,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.10919777987535016,
+        "hispanic"
+      ],
+      "expect": 1.4432899320127035e-15,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.0011347153671192583,
+        "pacific"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.05362880961266018,
+        "asian"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.02158492044328196,
+        "native"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.2428642813305923,
+        "minority"
+      ],
+      "expect": 0.003698818555484207,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.12493669994600631,
+        "black"
+      ],
+      "expect": 9.190744609810508e-09,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.08140303102457216,
+        "hispanic"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.0011989281749797943,
+        "pacific"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.017910142429313543,
+        "asian"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.021290616835969858,
+        "native"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.45311108870588757,
+        "minority"
+      ],
+      "expect": 0.9950280957753715,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.31662511257200765,
+        "black"
+      ],
+      "expect": 0.20203564292885118,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.07950018883046442,
+        "hispanic"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.0012355151653932715,
+        "pacific"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.043340436548691776,
+        "asian"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.021169518490860094,
+        "native"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.35171519795013545,
+        "minority"
+      ],
+      "expect": 0.517101383688106,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.19090540729120956,
+        "black"
+      ],
+      "expect": 3.484160695332861e-05,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.06258375072086568,
+        "hispanic"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.002027671154108052,
+        "pacific"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.01597253396685447,
+        "asian"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.0857775513601033,
+        "native"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.27258838820122533,
+        "minority"
+      ],
+      "expect": 0.026477341304280533,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.14443799364001353,
+        "black"
+      ],
+      "expect": 1.3806534493454592e-07,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.08166250677480631,
+        "hispanic"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.001026087170051585,
+        "pacific"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.02339478747717614,
+        "asian"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.023849072224258805,
+        "native"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.40972844347368476,
+        "minority"
+      ],
+      "expect": 0.9323090295563368,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.24491304523830057,
+        "black"
+      ],
+      "expect": 0.004304866451943834,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.10758770717867396,
+        "hispanic"
+      ],
+      "expect": 1.0547118733938987e-15,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.00383160644104131,
+        "pacific"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.02778926692586185,
+        "asian"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.03824390278244677,
+        "native"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.21499392179894233,
+        "minority"
+      ],
+      "expect": 0.00036887471676960715,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.10530077264108521,
+        "black"
+      ],
+      "expect": 4.753313853633756e-10,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.06287304852131302,
+        "hispanic"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.0010788593157193735,
+        "pacific"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.02419141118559971,
+        "asian"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.023228815631320773,
+        "native"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.15337247201977602,
+        "minority"
+      ],
+      "expect": 4.4235556040383983e-07,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.04008516683152157,
+        "black"
+      ],
+      "expect": 4.6629367034256575e-15,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.061631128542535024,
+        "hispanic"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.002184942596046435,
+        "pacific"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.012927577026608074,
+        "asian"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.03521005467277532,
+        "native"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.5627237800839038,
+        "minority"
+      ],
+      "expect": 0.9999999475701971,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.3597562375800397,
+        "black"
+      ],
+      "expect": 0.5963481654863605,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.13272510487966438,
+        "hispanic"
+      ],
+      "expect": 1.3672396548258803e-13,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.001409582689335394,
+        "pacific"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.06115610510046368,
+        "asian"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.0204336498123206,
+        "native"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.38251284085913123,
+        "minority"
+      ],
+      "expect": 0.791839659384714,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.22060184936966304,
+        "black"
+      ],
+      "expect": 0.000608312148261847,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.11215780048682672,
+        "hispanic"
+      ],
+      "expect": 2.609024107869118e-15,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.001499440613930679,
+        "pacific"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.032889398829757194,
+        "asian"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.021932223139639204,
+        "native"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.39644169539507446,
+        "minority"
+      ],
+      "expect": 0.8771876684060709,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.20676015883566431,
+        "black"
+      ],
+      "expect": 0.00017114342847490693,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.11162062659498627,
+        "hispanic"
+      ],
+      "expect": 2.3314683517128287e-15,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.0012467153184117811,
+        "pacific"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.06345333255270127,
+        "asian"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": false
+      }
+    },
+    {
+      "input": [
+        0.019243154258634883,
+        "native"
+      ],
+      "expect": 0.0,
+      "kwargs": {
+        "clip": false
+      }
     }
   ]
 }

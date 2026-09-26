@@ -87,3 +87,49 @@ test that fails if someone "simplifies" it back.
 
 Supplied by the `libm` crate. `est_seat_probability` -- the most-used formula
 in the partisan suite -- is built on it.
+
+---
+
+# Deviations added with the formula layer
+
+## 5. Normalizer invariants return an error rather than raising
+
+rdapy's `Normalizer` asserts that a value is in `[0, 1]` before inverting,
+decaying or rescaling it, and `score_plans` catches the resulting
+`AssertionError` and skips the plan. `rate::*` returns `RateError` instead.
+Same observable outcome, no panic. On finite inputs the ratings cannot fail.
+
+## 6. Undefined metrics are `Option`, not a None-or-float union
+
+`calc_declination` (sweep, fewer than five districts, or a winning average
+sitting exactly at 50%), `calc_lopsided_outcomes` (sweep), `calc_big_R` (tied
+statewide vote) and `calc_minimal_inverse_responsiveness` (unresponsive plan)
+all return `None` in rdapy. They return `Option<f64>` here.
+
+## 7. `est_minority_opportunity` does not raise on a negative share
+
+rdapy asserts `mf >= 0.0`. Here that is a `debug_assert!`. A negative share is
+unreachable from the pipeline -- shares are counts over counts -- and the
+realistic bad input is NaN, which propagates through
+[`numeric::python_min`]/[`python_max`] exactly as it does in Python.
+
+## 8. `connected_subsets` returns a deterministic order
+
+rdapy returns a list of Python sets, so both the order of the components and
+the order within each is whatever set iteration produces. Components come out
+here ordered by first appearance with members sorted, so the result is stable
+across runs.
+
+## 9. `calc_energy` measures distance in degrees
+
+Reproduced from rdapy, and worth knowing about: the population-compactness
+metric squares raw differences in longitude and latitude, so a degree of
+longitude counts the same as a degree of latitude regardless of the state's
+latitude. At North Carolina's latitude a degree of longitude is about 82% of a
+degree of latitude, so the metric is not isotropic. Not corrected -- it is a
+relative measure and changing it would change every published score.
+
+## 10. `spanning_tree_score` returns `None` where rdapy returns `-inf`
+
+For a disconnected graph the reduced Laplacian is singular. rdapy returns
+`float("-inf")`; this returns `None`.
