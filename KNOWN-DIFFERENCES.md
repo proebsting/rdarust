@@ -207,3 +207,49 @@ The by-district JSONL is semantically identical and compared structurally
 rather than byte for byte, which was a deliberate choice: matching it exactly
 would mean reimplementing CPython's float `repr`, and the file is read by
 programs rather than diffed by people.
+
+---
+
+# Deviations added with extraction
+
+## 16. Shared borders are found by matching segments, not by clipping polygons
+
+rdapy computes the border two precincts share as
+`a.intersection(b).length` -- a full polygon clip, then the length of what
+comes back. This matches their boundary *segments* instead and sums the ones
+they both carry.
+
+The two agree because precincts form a coverage: adjacent ones are cut from
+the same boundary and carry bit-identical vertices. Measured against rdapy's
+own output for all 15,058 adjacent pairs in North Carolina, the largest
+disagreement is 7.8e-16 degrees.
+
+It is also the more robust of the two. A clipping engine has to decide where
+near-coincident edges intersect, which is where such engines go wrong;
+segment matching has no such decision to make, and it needs no geometry
+library at all.
+
+**Where this would break:** a coverage with T-junctions, where one side of a
+shared edge carries a vertex the other does not. The segments then differ and
+part of the shared border is missed. `Coverage::overshared_segments` reports
+the related pathology of overlapping shapes, and `extract-data` warns when it
+finds any. Before relying on this for a state other than North Carolina, check
+that the extracted arcs still sum to each precinct's perimeter.
+
+## 17. The centroid calculation is skipped
+
+`abstract_shape` computes a centre -- a centroid, falling back to a
+representative point when the centroid falls outside the shape -- and
+`extract_data.py` then overwrites it unconditionally with DRA's label
+coordinates. Nothing can observe the result, so it is not computed. This also
+removes the only need for point-in-polygon testing.
+
+## 18. Neighbour order within the graph may differ
+
+rdapy's neighbour lists come out of `libpysal`; these come out of the segment
+index. The sets are identical -- verified for all 2,667 North Carolina nodes
+-- but the order within a list can differ.
+
+Order reaches one thing: the order per-neighbour arc lengths are summed when
+computing the leftover state border. That is floating-point noise. It does not
+reach the graph's meaning, and scores from the two orderings are byte-identical.

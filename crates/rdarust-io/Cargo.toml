@@ -9,6 +9,7 @@ repository.workspace = true
 
 [dependencies]
 rdarust-core.workspace = true
+rdarust-geo.workspace = true
 serde = { version = "1", features = ["derive"] }
 csv = "1"
 serde_json = { version = "1", features = ["float_roundtrip", "preserve_order"] }

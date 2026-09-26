@@ -2,6 +2,7 @@
 resolver = "2"
 members = [
     "crates/rdarust-core",
+    "crates/rdarust-geo",
     "crates/rdarust-io",
     "crates/rdarust-cli",
 ]
@@ -15,6 +16,7 @@ repository = "https://github.com/proebsting/rdarust"
 
 [workspace.dependencies]
 rdarust-core = { path = "crates/rdarust-core" }
+rdarust-geo = { path = "crates/rdarust-geo" }
 rdarust-io = { path = "crates/rdarust-io" }
 
 [profile.release]

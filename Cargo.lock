@@ -260,6 +260,7 @@ dependencies = [
  "clap",
  "rayon",
  "rdarust-core",
+ "rdarust-geo",
  "rdarust-io",
  "serde",
  "serde_json",
@@ -274,11 +275,16 @@ dependencies = [
 ]
 
 [[package]]
+name = "rdarust-geo"
+version = "0.1.0"
+
+[[package]]
 name = "rdarust-io"
 version = "0.1.0"
 dependencies = [
  "csv",
  "rdarust-core",
+ "rdarust-geo",
  "serde",
  "serde_json",
 ]

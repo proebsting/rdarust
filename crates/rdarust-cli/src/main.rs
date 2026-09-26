@@ -10,6 +10,7 @@
 //! `rdarust score-all` does the same work in one process. The stages exist to
 //! be diffed against Python stage by stage; `score-all` is what you run.
 
+mod extract;
 mod fused;
 mod stages;
 
@@ -112,6 +113,35 @@ enum Command {
         #[arg(long)]
         prefixes: bool,
     },
+    /// Build the adjacency graph from a DRA GeoJSON.
+    ExtractGraph {
+        /// The GeoJSON to read.
+        #[arg(long)]
+        geojson: String,
+        /// Where to write the graph. Gains a _NOT_CONNECTED suffix if the
+        /// graph turns out inconsistent or disconnected.
+        #[arg(long)]
+        graph: String,
+        /// Also write each precinct's label coordinates here.
+        #[arg(long)]
+        locations: Option<String>,
+        /// Property holding the geoid.
+        #[arg(long = "geoid-field", default_value = "id")]
+        geoid_field: String,
+    },
+    /// Extract precinct data and shape summaries from a DRA GeoJSON.
+    ExtractData {
+        #[arg(long)]
+        geojson: String,
+        /// The data map naming which datasets and fields to pull.
+        #[arg(long = "data-map")]
+        data_map: String,
+        #[arg(long)]
+        graph: String,
+        /// Where to write the precinct JSONL. Defaults to stdout.
+        #[arg(long)]
+        data: Option<String>,
+    },
     /// Aggregate, score and write in one pass.
     ///
     /// Skips serialising the aggregates between stages, which for a large
@@ -154,6 +184,12 @@ fn main() {
         ),
         Command::Write { input, data, scores, by_district, prefixes } => {
             stages::write(input.as_deref(), &data, &scores, &by_district, prefixes)
+        }
+        Command::ExtractGraph { geojson, graph, locations, geoid_field } => {
+            extract::extract_graph(&geojson, &graph, locations.as_deref(), &geoid_field)
+        }
+        Command::ExtractData { geojson, data_map, graph, data } => {
+            extract::extract_data(&geojson, &data_map, &graph, data.as_deref())
         }
         Command::ScoreAll {
             data, resilience, precomputed, plans, scores, by_district, prefixes,

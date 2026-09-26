@@ -7,9 +7,10 @@ The goal is a library you can call from another Rust program -- pass a plan,
 get scores back, no JSON or CSV in the middle -- with a command-line interface
 on top for bulk ensemble scoring.
 
-**Status: in progress.** Scoring and the command-line interface work, and
-match rdapy byte for byte. Still to come: the geometry-dependent shape
-compactness (KIWYSI) and the GeoJSON preprocessing steps.
+**Status: in progress.** The whole pipeline works, from a DRA GeoJSON to a
+scores CSV, with no Python involved -- and the CSV is byte-identical to the
+one rdapy produces from the same input. Still to come: shape-based compactness
+(the KIWYSI model), which is the only part needing a geometry library.
 
 Ported: the five DRA ratings; the partisan suite (Nagle's method, bias,
 responsiveness); population deviation; county, district and COI splitting;
@@ -41,9 +42,13 @@ cat plans.jsonl | rdarust aggregate ... | rdarust score ... | rdarust write ...
 scripts of the same name. `score-all` does the same work in one process,
 skipping the JSONL round-trip between stages, and scores across cores.
 
-Note that `rdarust` starts from extracted precinct data and an adjacency
-graph. Producing those from a DRA GeoJSON needs a geometry library and is not
-ported yet; use rdapy's `scripts/data/extract_data.py` for that step.
+Starting from a DRA GeoJSON instead, the two preprocessing steps run first:
+
+```bash
+rdarust extract-graph --geojson NC.geojson --graph NC_graph.json
+rdarust extract-data  --geojson NC.geojson --data-map NC_data_map.json \
+                      --graph NC_graph.json --data NC_input_data.jsonl
+```
 
 ## Using it as a library
 
@@ -131,6 +136,13 @@ fixed loading cost no longer dominates.
 
 Extrapolating to 100,000 plans: roughly 3 hours for rdapy against about a
 minute.
+
+The once-per-state preprocessing, on North Carolina's 2,666 precincts:
+
+| | rdapy | rdarust |
+| --- | --- | --- |
+| extract the adjacency graph | 4.2 s | 0.76 s |
+| extract the precinct data | 3.6 s | 0.40 s |
 
 Reproduce with:
 

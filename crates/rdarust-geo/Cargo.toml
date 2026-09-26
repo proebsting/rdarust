@@ -1,0 +1,10 @@
+[package]
+name = "rdarust-geo"
+description = "Planar geometry for redistricting preprocessing"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+repository.workspace = true
+
+[dependencies]
