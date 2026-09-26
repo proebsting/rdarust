@@ -1,0 +1,74 @@
+{
+  "schema": "rdarust.cases/1",
+  "suite": "traced",
+  "function": "calc_population_deviation",
+  "note": "Recorded by instrumenting rdapy and running its own test suite. Arguments are exactly what rdapy's tests exercise. Cases with a \"from\" field were asserted directly by that test; the rest are incidental interior calls, sampled.",
+  "source": {
+    "rdapy_commit": "2b702b4f8fa10ba6fdbfd364a1f2344ece1077b1",
+    "python": "3.13.15",
+    "numpy": "2.5.3",
+    "platform": "macOS-26.7-arm64-arm-64bit-Mach-O"
+  },
+  "cases": [
+    {
+      "input": [
+        100,
+        100,
+        100
+      ],
+      "expect": 0.0,
+      "from": "test_population.py::test_calc_population_deviation"
+    },
+    {
+      "input": [
+        105,
+        95,
+        100
+      ],
+      "expect": 0.1,
+      "from": "test_population.py::test_calc_population_deviation"
+    },
+    {
+      "input": [
+        733447,
+        721754,
+        729294
+      ],
+      "expect": 0.01603331441092344,
+      "from": "test_population.py::test_calc_population_deviation"
+    },
+    {
+      "input": [
+        1827462,
+        167134,
+        721694
+      ],
+      "expect": 2.3005983145211126,
+      "from": "test_population.py::test_calc_population_deviation"
+    },
+    {
+      "input": [
+        748038,
+        741264,
+        745670
+      ],
+      "expect": 0.009084447543819651
+    },
+    {
+      "input": [
+        776166,
+        767698,
+        773584
+      ],
+      "expect": 0.010946451839748496
+    },
+    {
+      "input": [
+        747640,
+        742227,
+        745670
+      ],
+      "expect": 0.007259243365027425
+    }
+  ]
+}

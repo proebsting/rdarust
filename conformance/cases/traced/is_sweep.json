@@ -1,0 +1,242 @@
+{
+  "schema": "rdarust.cases/1",
+  "suite": "traced",
+  "function": "is_sweep",
+  "note": "Recorded by instrumenting rdapy and running its own test suite. Arguments are exactly what rdapy's tests exercise. Cases with a \"from\" field were asserted directly by that test; the rest are incidental interior calls, sampled.",
+  "source": {
+    "rdapy_commit": "2b702b4f8fa10ba6fdbfd364a1f2344ece1077b1",
+    "python": "3.13.15",
+    "numpy": "2.5.3",
+    "platform": "macOS-26.7-arm64-arm-64bit-Mach-O"
+  },
+  "cases": [
+    {
+      "input": [
+        1.0,
+        10
+      ],
+      "expect": true,
+      "from": "test_bias.py::test_sweeps"
+    },
+    {
+      "input": [
+        9.900000000001,
+        10
+      ],
+      "expect": true,
+      "from": "test_bias.py::test_sweeps"
+    },
+    {
+      "input": [
+        0.0,
+        10
+      ],
+      "expect": true,
+      "from": "test_bias.py::test_sweeps"
+    },
+    {
+      "input": [
+        0.099999999999,
+        10
+      ],
+      "expect": true,
+      "from": "test_bias.py::test_sweeps"
+    },
+    {
+      "input": [
+        0.45554166732779516,
+        14
+      ],
+      "expect": false
+    },
+    {
+      "input": [
+        0.6994718321894249,
+        12
+      ],
+      "expect": false
+    },
+    {
+      "input": [
+        0.6003285897362384,
+        23
+      ],
+      "expect": false
+    },
+    {
+      "input": [
+        0.6919995604399231,
+        25
+      ],
+      "expect": false
+    },
+    {
+      "input": [
+        0.7976743903495831,
+        25
+      ],
+      "expect": false
+    },
+    {
+      "input": [
+        0.9838409605130842,
+        10
+      ],
+      "expect": true
+    },
+    {
+      "input": [
+        0.6664785074005246,
+        12
+      ],
+      "expect": false
+    },
+    {
+      "input": [
+        0.5657371130626935,
+        10
+      ],
+      "expect": false
+    },
+    {
+      "input": [
+        0.5993213309631833,
+        10
+      ],
+      "expect": false
+    },
+    {
+      "input": [
+        0.5999999708845891,
+        10
+      ],
+      "expect": false
+    },
+    {
+      "input": [
+        0.739835443817315,
+        10
+      ],
+      "expect": false
+    },
+    {
+      "input": [
+        0.5559839475813126,
+        10
+      ],
+      "expect": false
+    },
+    {
+      "input": [
+        0.3388205732976416,
+        10
+      ],
+      "expect": false
+    },
+    {
+      "input": [
+        0.17961189817237755,
+        10
+      ],
+      "expect": false
+    },
+    {
+      "input": [
+        0.729296011822473,
+        53
+      ],
+      "expect": false
+    },
+    {
+      "input": [
+        0.507669835385318,
+        7
+      ],
+      "expect": false
+    },
+    {
+      "input": [
+        0.7464708680488555,
+        18
+      ],
+      "expect": false
+    },
+    {
+      "input": [
+        0.9580038036706987,
+        9
+      ],
+      "expect": true
+    },
+    {
+      "input": [
+        0.8495800244808352,
+        8
+      ],
+      "expect": false
+    },
+    {
+      "input": [
+        0.3224951692995666,
+        13
+      ],
+      "expect": false
+    },
+    {
+      "input": [
+        0.38981827342454217,
+        16
+      ],
+      "expect": false
+    },
+    {
+      "input": [
+        0.41672192832842403,
+        18
+      ],
+      "expect": false
+    },
+    {
+      "input": [
+        0.15832935000114126,
+        7
+      ],
+      "expect": false
+    },
+    {
+      "input": [
+        0.21067894495584585,
+        9
+      ],
+      "expect": false
+    },
+    {
+      "input": [
+        0.28937224560261476,
+        36
+      ],
+      "expect": false
+    },
+    {
+      "input": [
+        0.4553302920565733,
+        14
+      ],
+      "expect": false
+    },
+    {
+      "input": [
+        0.6992628092244423,
+        12
+      ],
+      "expect": false
+    },
+    {
+      "input": [
+        0.4822076667995278,
+        14
+      ],
+      "expect": false
+    }
+  ]
+}

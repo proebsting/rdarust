@@ -1,0 +1,9763 @@
+{
+  "schema": "rdarust.cases/1",
+  "suite": "traced",
+  "function": "est_seat_probability",
+  "note": "Recorded by instrumenting rdapy and running its own test suite. Arguments are exactly what rdapy's tests exercise. Cases with a \"from\" field were asserted directly by that test; the rest are incidental interior calls, sampled.",
+  "source": {
+    "rdapy_commit": "2b702b4f8fa10ba6fdbfd364a1f2344ece1077b1",
+    "python": "3.13.15",
+    "numpy": "2.5.3",
+    "platform": "macOS-26.7-arm64-arm-64bit-Mach-O"
+  },
+  "cases": [
+    {
+      "input": [
+        0.35
+      ],
+      "expect": 8.841728520081471e-05,
+      "from": "test_method.py::test_seat_probabilities"
+    },
+    {
+      "input": [
+        0.35303
+      ],
+      "expect": 0.00011927454029259099,
+      "from": "test_method.py::test_seat_probabilities"
+    },
+    {
+      "input": [
+        0.356061
+      ],
+      "expect": 0.00016004430642968526,
+      "from": "test_method.py::test_seat_probabilities"
+    },
+    {
+      "input": [
+        0.359091
+      ],
+      "expect": 0.000213567154741634,
+      "from": "test_method.py::test_seat_probabilities"
+    },
+    {
+      "input": [
+        0.362121
+      ],
+      "expect": 0.00028345051916228714,
+      "from": "test_method.py::test_seat_probabilities"
+    },
+    {
+      "input": [
+        0.365152
+      ],
+      "expect": 0.0003742075134798295,
+      "from": "test_method.py::test_seat_probabilities"
+    },
+    {
+      "input": [
+        0.368182
+      ],
+      "expect": 0.0004913209407648722,
+      "from": "test_method.py::test_seat_probabilities"
+    },
+    {
+      "input": [
+        0.371212
+      ],
+      "expect": 0.0006416240595593647,
+      "from": "test_method.py::test_seat_probabilities"
+    },
+    {
+      "input": [
+        0.374242
+      ],
+      "expect": 0.0008334195858463733,
+      "from": "test_method.py::test_seat_probabilities"
+    },
+    {
+      "input": [
+        0.377273
+      ],
+      "expect": 0.0010768522690359772,
+      "from": "test_method.py::test_seat_probabilities"
+    },
+    {
+      "input": [
+        0.380303
+      ],
+      "expect": 0.001383853316122452,
+      "from": "test_method.py::test_seat_probabilities"
+    },
+    {
+      "input": [
+        0.383333
+      ],
+      "expect": 0.0017689209823418262,
+      "from": "test_method.py::test_seat_probabilities"
+    },
+    {
+      "input": [
+        0.386364
+      ],
+      "expect": 0.002249320824262213,
+      "from": "test_method.py::test_seat_probabilities"
+    },
+    {
+      "input": [
+        0.389394
+      ],
+      "expect": 0.002844831296171524,
+      "from": "test_method.py::test_seat_probabilities"
+    },
+    {
+      "input": [
+        0.392424
+      ],
+      "expect": 0.0035790294970200476,
+      "from": "test_method.py::test_seat_probabilities"
+    },
+    {
+      "input": [
+        0.395455
+      ],
+      "expect": 0.004479365292430315,
+      "from": "test_method.py::test_seat_probabilities"
+    },
+    {
+      "input": [
+        0.398485
+      ],
+      "expect": 0.005576390570188661,
+      "from": "test_method.py::test_seat_probabilities"
+    },
+    {
+      "input": [
+        0.401515
+      ],
+      "expect": 0.006905826053309694,
+      "from": "test_method.py::test_seat_probabilities"
+    },
+    {
+      "input": [
+        0.404545
+      ],
+      "expect": 0.008507695351852362,
+      "from": "test_method.py::test_seat_probabilities"
+    },
+    {
+      "input": [
+        0.407576
+      ],
+      "expect": 0.010427479627337422,
+      "from": "test_method.py::test_seat_probabilities"
+    },
+    {
+      "input": [
+        0.410606
+      ],
+      "expect": 0.012713599015849009,
+      "from": "test_method.py::test_seat_probabilities"
+    },
+    {
+      "input": [
+        0.413636
+      ],
+      "expect": 0.015421204832458624,
+      "from": "test_method.py::test_seat_probabilities"
+    },
+    {
+      "input": [
+        0.416667
+      ],
+      "expect": 0.018610804726121533,
+      "from": "test_method.py::test_seat_probabilities"
+    },
+    {
+      "input": [
+        0.419697
+      ],
+      "expect": 0.022344236693305375,
+      "from": "test_method.py::test_seat_probabilities"
+    },
+    {
+      "input": [
+        0.422727
+      ],
+      "expect": 0.026690554649513087,
+      "from": "test_method.py::test_seat_probabilities"
+    },
+    {
+      "input": [
+        0.425758
+      ],
+      "expect": 0.031723215788812875,
+      "from": "test_method.py::test_seat_probabilities"
+    },
+    {
+      "input": [
+        0.428788
+      ],
+      "expect": 0.0375134385693256,
+      "from": "test_method.py::test_seat_probabilities"
+    },
+    {
+      "input": [
+        0.431818
+      ],
+      "expect": 0.0441391916589331,
+      "from": "test_method.py::test_seat_probabilities"
+    },
+    {
+      "input": [
+        0.434848
+      ],
+      "expect": 0.05167768235751097,
+      "from": "test_method.py::test_seat_probabilities"
+    },
+    {
+      "input": [
+        0.437879
+      ],
+      "expect": 0.060208581070019696,
+      "from": "test_method.py::test_seat_probabilities"
+    },
+    {
+      "input": [
+        0.440909
+      ],
+      "expect": 0.06980096829390942,
+      "from": "test_method.py::test_seat_probabilities"
+    },
+    {
+      "input": [
+        0.443939
+      ],
+      "expect": 0.08052856851062024,
+      "from": "test_method.py::test_seat_probabilities"
+    },
+    {
+      "input": [
+        0.44697
+      ],
+      "expect": 0.09246125983895781,
+      "from": "test_method.py::test_seat_probabilities"
+    },
+    {
+      "input": [
+        0.45
+      ],
+      "expect": 0.10564977366685535,
+      "from": "test_method.py::test_seat_probabilities"
+    },
+    {
+      "input": [
+        0.45303
+      ],
+      "expect": 0.12014745204496757,
+      "from": "test_method.py::test_seat_probabilities"
+    },
+    {
+      "input": [
+        0.456061
+      ],
+      "expect": 0.13599856419666068,
+      "from": "test_method.py::test_seat_probabilities"
+    },
+    {
+      "input": [
+        0.459091
+      ],
+      "expect": 0.15321894380509027,
+      "from": "test_method.py::test_seat_probabilities"
+    },
+    {
+      "input": [
+        0.462121
+      ],
+      "expect": 0.17182575911785358,
+      "from": "test_method.py::test_seat_probabilities"
+    },
+    {
+      "input": [
+        0.465152
+      ],
+      "expect": 0.19182247996604562,
+      "from": "test_method.py::test_seat_probabilities"
+    },
+    {
+      "input": [
+        0.468182
+      ],
+      "expect": 0.21317589243716695,
+      "from": "test_method.py::test_seat_probabilities"
+    },
+    {
+      "input": [
+        0.471212
+      ],
+      "expect": 0.23585486313110576,
+      "from": "test_method.py::test_seat_probabilities"
+    },
+    {
+      "input": [
+        0.474242
+      ],
+      "expect": 0.25980392868643454,
+      "from": "test_method.py::test_seat_probabilities"
+    },
+    {
+      "input": [
+        0.477273
+      ],
+      "expect": 0.28495807259208494,
+      "from": "test_method.py::test_seat_probabilities"
+    },
+    {
+      "input": [
+        0.480303
+      ],
+      "expect": 0.3112094648135404,
+      "from": "test_method.py::test_seat_probabilities"
+    },
+    {
+      "input": [
+        0.483333
+      ],
+      "expect": 0.3384580714129282,
+      "from": "test_method.py::test_seat_probabilities"
+    },
+    {
+      "input": [
+        0.486364
+      ],
+      "expect": 0.36658943240793995,
+      "from": "test_method.py::test_seat_probabilities"
+    },
+    {
+      "input": [
+        0.489394
+      ],
+      "expect": 0.39544695543218417,
+      "from": "test_method.py::test_seat_probabilities"
+    },
+    {
+      "input": [
+        0.492424
+      ],
+      "expect": 0.42488966223408076,
+      "from": "test_method.py::test_seat_probabilities"
+    },
+    {
+      "input": [
+        0.495455
+      ],
+      "expect": 0.45476753428005423,
+      "from": "test_method.py::test_seat_probabilities"
+    },
+    {
+      "input": [
+        0.498485
+      ],
+      "expect": 0.4848936729264849,
+      "from": "test_method.py::test_seat_probabilities"
+    },
+    {
+      "input": [
+        0.501515
+      ],
+      "expect": 0.5151063270735157,
+      "from": "test_method.py::test_seat_probabilities"
+    },
+    {
+      "input": [
+        0.504545
+      ],
+      "expect": 0.5452324657199458,
+      "from": "test_method.py::test_seat_probabilities"
+    },
+    {
+      "input": [
+        0.507576
+      ],
+      "expect": 0.5751103377659192,
+      "from": "test_method.py::test_seat_probabilities"
+    },
+    {
+      "input": [
+        0.510606
+      ],
+      "expect": 0.6045530445678158,
+      "from": "test_method.py::test_seat_probabilities"
+    },
+    {
+      "input": [
+        0.513636
+      ],
+      "expect": 0.63341056759206,
+      "from": "test_method.py::test_seat_probabilities"
+    },
+    {
+      "input": [
+        0.516667
+      ],
+      "expect": 0.6615419285870718,
+      "from": "test_method.py::test_seat_probabilities"
+    },
+    {
+      "input": [
+        0.519697
+      ],
+      "expect": 0.6887905351864592,
+      "from": "test_method.py::test_seat_probabilities"
+    },
+    {
+      "input": [
+        0.522727
+      ],
+      "expect": 0.7150419274079156,
+      "from": "test_method.py::test_seat_probabilities"
+    },
+    {
+      "input": [
+        0.525758
+      ],
+      "expect": 0.740196071313565,
+      "from": "test_method.py::test_seat_probabilities"
+    },
+    {
+      "input": [
+        0.528788
+      ],
+      "expect": 0.7641451368688946,
+      "from": "test_method.py::test_seat_probabilities"
+    },
+    {
+      "input": [
+        0.531818
+      ],
+      "expect": 0.786824107562833,
+      "from": "test_method.py::test_seat_probabilities"
+    },
+    {
+      "input": [
+        0.534848
+      ],
+      "expect": 0.8081775200339544,
+      "from": "test_method.py::test_seat_probabilities"
+    },
+    {
+      "input": [
+        0.537879
+      ],
+      "expect": 0.8281742408821464,
+      "from": "test_method.py::test_seat_probabilities"
+    },
+    {
+      "input": [
+        0.540909
+      ],
+      "expect": 0.8467810561949097,
+      "from": "test_method.py::test_seat_probabilities"
+    },
+    {
+      "input": [
+        0.543939
+      ],
+      "expect": 0.864001435803339,
+      "from": "test_method.py::test_seat_probabilities"
+    },
+    {
+      "input": [
+        0.54697
+      ],
+      "expect": 0.8798525479550322,
+      "from": "test_method.py::test_seat_probabilities"
+    },
+    {
+      "input": [
+        0.55
+      ],
+      "expect": 0.8943502263331449,
+      "from": "test_method.py::test_seat_probabilities"
+    },
+    {
+      "input": [
+        0.55303
+      ],
+      "expect": 0.9075387401610422,
+      "from": "test_method.py::test_seat_probabilities"
+    },
+    {
+      "input": [
+        0.556061
+      ],
+      "expect": 0.9194714314893797,
+      "from": "test_method.py::test_seat_probabilities"
+    },
+    {
+      "input": [
+        0.559091
+      ],
+      "expect": 0.9301990317060906,
+      "from": "test_method.py::test_seat_probabilities"
+    },
+    {
+      "input": [
+        0.562121
+      ],
+      "expect": 0.9397914189299803,
+      "from": "test_method.py::test_seat_probabilities"
+    },
+    {
+      "input": [
+        0.565152
+      ],
+      "expect": 0.9483223176424891,
+      "from": "test_method.py::test_seat_probabilities"
+    },
+    {
+      "input": [
+        0.568182
+      ],
+      "expect": 0.9558608083410668,
+      "from": "test_method.py::test_seat_probabilities"
+    },
+    {
+      "input": [
+        0.571212
+      ],
+      "expect": 0.9624865614306746,
+      "from": "test_method.py::test_seat_probabilities"
+    },
+    {
+      "input": [
+        0.574242
+      ],
+      "expect": 0.9682767842111872,
+      "from": "test_method.py::test_seat_probabilities"
+    },
+    {
+      "input": [
+        0.577273
+      ],
+      "expect": 0.973309445350487,
+      "from": "test_method.py::test_seat_probabilities"
+    },
+    {
+      "input": [
+        0.580303
+      ],
+      "expect": 0.9776557633066947,
+      "from": "test_method.py::test_seat_probabilities"
+    },
+    {
+      "input": [
+        0.583333
+      ],
+      "expect": 0.9813891952738785,
+      "from": "test_method.py::test_seat_probabilities"
+    },
+    {
+      "input": [
+        0.586364
+      ],
+      "expect": 0.9845787951675413,
+      "from": "test_method.py::test_seat_probabilities"
+    },
+    {
+      "input": [
+        0.589394
+      ],
+      "expect": 0.987286400984151,
+      "from": "test_method.py::test_seat_probabilities"
+    },
+    {
+      "input": [
+        0.592424
+      ],
+      "expect": 0.9895725203726625,
+      "from": "test_method.py::test_seat_probabilities"
+    },
+    {
+      "input": [
+        0.595455
+      ],
+      "expect": 0.9914923046481476,
+      "from": "test_method.py::test_seat_probabilities"
+    },
+    {
+      "input": [
+        0.598485
+      ],
+      "expect": 0.9930941739466903,
+      "from": "test_method.py::test_seat_probabilities"
+    },
+    {
+      "input": [
+        0.601515
+      ],
+      "expect": 0.9944236094298113,
+      "from": "test_method.py::test_seat_probabilities"
+    },
+    {
+      "input": [
+        0.604545
+      ],
+      "expect": 0.9955206347075697,
+      "from": "test_method.py::test_seat_probabilities"
+    },
+    {
+      "input": [
+        0.607576
+      ],
+      "expect": 0.99642097050298,
+      "from": "test_method.py::test_seat_probabilities"
+    },
+    {
+      "input": [
+        0.610606
+      ],
+      "expect": 0.9971551687038285,
+      "from": "test_method.py::test_seat_probabilities"
+    },
+    {
+      "input": [
+        0.613636
+      ],
+      "expect": 0.9977506791757378,
+      "from": "test_method.py::test_seat_probabilities"
+    },
+    {
+      "input": [
+        0.616667
+      ],
+      "expect": 0.9982310790176581,
+      "from": "test_method.py::test_seat_probabilities"
+    },
+    {
+      "input": [
+        0.619697
+      ],
+      "expect": 0.9986161466838777,
+      "from": "test_method.py::test_seat_probabilities"
+    },
+    {
+      "input": [
+        0.622727
+      ],
+      "expect": 0.998923147730964,
+      "from": "test_method.py::test_seat_probabilities"
+    },
+    {
+      "input": [
+        0.625758
+      ],
+      "expect": 0.9991665804141536,
+      "from": "test_method.py::test_seat_probabilities"
+    },
+    {
+      "input": [
+        0.628788
+      ],
+      "expect": 0.9993583759404406,
+      "from": "test_method.py::test_seat_probabilities"
+    },
+    {
+      "input": [
+        0.631818
+      ],
+      "expect": 0.9995086790592351,
+      "from": "test_method.py::test_seat_probabilities"
+    },
+    {
+      "input": [
+        0.634848
+      ],
+      "expect": 0.9996257924865202,
+      "from": "test_method.py::test_seat_probabilities"
+    },
+    {
+      "input": [
+        0.637879
+      ],
+      "expect": 0.9997165494808378,
+      "from": "test_method.py::test_seat_probabilities"
+    },
+    {
+      "input": [
+        0.640909
+      ],
+      "expect": 0.9997864328452584,
+      "from": "test_method.py::test_seat_probabilities"
+    },
+    {
+      "input": [
+        0.643939
+      ],
+      "expect": 0.9998399556935703,
+      "from": "test_method.py::test_seat_probabilities"
+    },
+    {
+      "input": [
+        0.64697
+      ],
+      "expect": 0.9998807254597074,
+      "from": "test_method.py::test_seat_probabilities"
+    },
+    {
+      "input": [
+        0.65
+      ],
+      "expect": 0.9999115827147992,
+      "from": "test_method.py::test_seat_probabilities"
+    },
+    {
+      "input": [
+        0.678999
+      ],
+      "expect": 0.9999961789873051,
+      "from": "test_method.py::test_seat_probabilities_2"
+    },
+    {
+      "input": [
+        0.575848
+      ],
+      "expect": 0.9710331984032442,
+      "from": "test_method.py::test_seat_probabilities_2"
+    },
+    {
+      "input": [
+        0.480675
+      ],
+      "expect": 0.3145034920338179,
+      "from": "test_method.py::test_seat_probabilities_2"
+    },
+    {
+      "input": [
+        0.389881
+      ],
+      "expect": 0.0029528202902014966,
+      "from": "test_method.py::test_seat_probabilities_2"
+    },
+    {
+      "input": [
+        0.361222
+      ],
+      "expect": 0.0002607625652328305,
+      "from": "test_method.py::test_seat_probabilities_2"
+    },
+    {
+      "input": [
+        0.491961
+      ],
+      "expect": 0.4203590611657488,
+      "from": "test_method.py::test_seat_probabilities_2"
+    },
+    {
+      "input": [
+        0.540539
+      ],
+      "expect": 0.8445833342516753,
+      "from": "test_method.py::test_seat_probabilities_2"
+    },
+    {
+      "input": [
+        0.4200838345179516
+      ],
+      "expect": 0.022863527026040997
+    },
+    {
+      "input": [
+        0.22121377802077638
+      ],
+      "expect": 1.5886181259361365e-12
+    },
+    {
+      "input": [
+        0.27335520320758155
+      ],
+      "expect": 7.30336580101465e-09
+    },
+    {
+      "input": [
+        0.18255877528704212
+      ],
+      "expect": 1.0547118733938987e-15
+    },
+    {
+      "input": [
+        0.24290140331693094
+      ],
+      "expect": 6.48747722209464e-11
+    },
+    {
+      "input": [
+        0.27800255148532904
+      ],
+      "expect": 1.4288692340436171e-08
+    },
+    {
+      "input": [
+        0.4335702569710225
+      ],
+      "expect": 0.04838247883304431
+    },
+    {
+      "input": [
+        0.25236012392928747
+      ],
+      "expect": 2.9892444075585445e-10
+    },
+    {
+      "input": [
+        0.30196828868234016
+      ],
+      "expect": 3.695588494112556e-07
+    },
+    {
+      "input": [
+        0.4697011117186078
+      ],
+      "expect": 0.2243835053537656
+    },
+    {
+      "input": [
+        0.2730453799890652
+      ],
+      "expect": 6.980538036494011e-09
+    },
+    {
+      "input": [
+        0.32593402587935133
+      ],
+      "expect": 6.7558616112517456e-06
+    },
+    {
+      "input": [
+        0.4363039912520505
+      ],
+      "expect": 0.05564740356755726
+    },
+    {
+      "input": [
+        0.27367413887370157
+      ],
+      "expect": 7.650823641291993e-09
+    },
+    {
+      "input": [
+        0.34989976307636245
+      ],
+      "expect": 8.753784706605483e-05
+    },
+    {
+      "input": [
+        0.46746856205576837
+      ],
+      "expect": 0.20802706568265106
+    },
+    {
+      "input": [
+        0.2929469655549482
+      ],
+      "expect": 1.1314903558545808e-07
+    },
+    {
+      "input": [
+        0.3738655002733736
+      ],
+      "expect": 0.0008070062391608568
+    },
+    {
+      "input": [
+        0.5780936759613635
+      ],
+      "expect": 0.9745511869448804
+    },
+    {
+      "input": [
+        0.2900765445598689
+      ],
+      "expect": 7.684361646997928e-08
+    },
+    {
+      "input": [
+        0.38799890650628777
+      ],
+      "expect": 0.002554913951296034
+    },
+    {
+      "input": [
+        0.4810005467468564
+      ],
+      "expect": 0.3173983579306735
+    },
+    {
+      "input": [
+        0.3056314926189176
+      ],
+      "expect": 5.892673807794679e-07
+    },
+    {
+      "input": [
+        0.39693821760524894
+      ],
+      "expect": 0.004989667099775441
+    },
+    {
+      "input": [
+        0.49207217058501934
+      ],
+      "expect": 0.42144596199199746
+    },
+    {
+      "input": [
+        0.32340076544559887
+      ],
+      "expect": 5.050946300932946e-06
+    },
+    {
+      "input": [
+        0.3847457627118646
+      ],
+      "expect": 0.0019798410395283073
+    },
+    {
+      "input": [
+        0.4778567523236744
+      ],
+      "expect": 0.2899327503713838
+    },
+    {
+      "input": [
+        0.8149626389648263
+      ],
+      "expect": 0.9999999999999982
+    },
+    {
+      "input": [
+        0.4054310187716423
+      ],
+      "expect": 0.00903392927598523
+    },
+    {
+      "input": [
+        0.5030071077091309
+      ],
+      "expect": 0.5299633336281083
+    },
+    {
+      "input": [
+        0.8569710224166215
+      ],
+      "expect": 1.0
+    },
+    {
+      "input": [
+        0.4467650811007839
+      ],
+      "expect": 0.09161540588570372
+    },
+    {
+      "input": [
+        0.5032804811372338
+      ],
+      "expect": 0.5326814258127126
+    },
+    {
+      "input": [
+        0.7732002915983237
+      ],
+      "expect": 0.9999999999957545
+    },
+    {
+      "input": [
+        0.4162930563149264
+      ],
+      "expect": 0.018189151090934774
+    },
+    {
+      "input": [
+        0.527365388876579
+      ],
+      "expect": 0.7530549509488483
+    },
+    {
+      "input": [
+        0.6919122534899182
+      ],
+      "expect": 0.9999991979361901
+    },
+    {
+      "input": [
+        0.4438400177265681
+      ],
+      "expect": 0.08015949076611739
+    },
+    {
+      "input": [
+        0.5536228672723247
+      ],
+      "expect": 0.9099702217128731
+    },
+    {
+      "input": [
+        0.7094172390870821
+      ],
+      "expect": 0.9999999176998355
+    },
+    {
+      "input": [
+        0.47580323509860456
+      ],
+      "expect": 0.2726163683021266
+    },
+    {
+      "input": [
+        0.5798803456680703
+      ],
+      "expect": 0.9770878778798667
+    },
+    {
+      "input": [
+        0.8211167737646801
+      ],
+      "expect": 0.9999999999999996
+    },
+    {
+      "input": [
+        0.5077664524706409
+      ],
+      "expect": 0.5769752124519094
+    },
+    {
+      "input": [
+        0.606137824063816
+      ],
+      "expect": 0.9960162694041487
+    },
+    {
+      "input": [
+        0.8325836472413031
+      ],
+      "expect": 1.0
+    },
+    {
+      "input": [
+        0.5397296698426772
+      ],
+      "expect": 0.8397039206250163
+    },
+    {
+      "input": [
+        0.6323953024595617
+      ],
+      "expect": 0.9995333243865201
+    },
+    {
+      "input": [
+        0.8440505207179262
+      ],
+      "expect": 1.0
+    },
+    {
+      "input": [
+        0.5947041879016179
+      ],
+      "expect": 0.9910481731873875
+    },
+    {
+      "input": [
+        0.6586527808553073
+      ],
+      "expect": 0.9999635045008637
+    },
+    {
+      "input": [
+        0.779437181475737
+      ],
+      "expect": 0.9999999999985851
+    },
+    {
+      "input": [
+        0.6036561045867499
+      ],
+      "expect": 0.9952207204578482
+    },
+    {
+      "input": [
+        0.684910259251053
+      ],
+      "expect": 0.9999981066291608
+    },
+    {
+      "input": [
+        0.7969421670729009
+      ],
+      "expect": 0.9999999999999429
+    },
+    {
+      "input": [
+        0.6356193219587862
+      ],
+      "expect": 0.9996511521546705
+    },
+    {
+      "input": [
+        0.7111677376467986
+      ],
+      "expect": 0.9999999351231167
+    },
+    {
+      "input": [
+        0.8144471526700646
+      ],
+      "expect": 0.9999999999999981
+    },
+    {
+      "input": [
+        0.6675825393308227
+      ],
+      "expect": 0.9999860254207683
+    },
+    {
+      "input": [
+        0.7302237979171289
+      ],
+      "expect": 0.9999999956831411
+    },
+    {
+      "input": [
+        0.2616682479219473
+      ],
+      "expect": 1.2744248989449147e-09
+    },
+    {
+      "input": [
+        0.22187938090315637
+      ],
+      "expect": 1.7877921365538896e-12
+    },
+    {
+      "input": [
+        0.23041320324558545
+      ],
+      "expect": 7.937317469952632e-12
+    },
+    {
+      "input": [
+        0.23894702558801453
+      ],
+      "expect": 3.3701597068613864e-11
+    },
+    {
+      "input": [
+        0.29029919103114704
+      ],
+      "expect": 7.919901190422962e-08
+    },
+    {
+      "input": [
+        0.30030950796325556
+      ],
+      "expect": 2.9838067183707295e-07
+    },
+    {
+      "input": [
+        0.310319824895364
+      ],
+      "expect": 1.058070251525045e-06
+    },
+    {
+      "input": [
+        0.3203301418274726
+      ],
+      "expect": 3.5320746004652293e-06
+    },
+    {
+      "input": [
+        0.33902082199650846
+      ],
+      "expect": 2.8550739885613297e-05
+    },
+    {
+      "input": [
+        0.34929418023882697
+      ],
+      "expect": 8.239724885983346e-05
+    },
+    {
+      "input": [
+        0.35956753848114537
+      ],
+      "expect": 0.00022337049788812013
+    },
+    {
+      "input": [
+        0.3698408967234638
+      ],
+      "expect": 0.0005690063001240198
+    },
+    {
+      "input": [
+        0.23226934070757976
+      ],
+      "expect": 1.0912160064435739e-11
+    },
+    {
+      "input": [
+        0.23854689045643326
+      ],
+      "expect": 3.152383909466039e-11
+    },
+    {
+      "input": [
+        0.24482444020528676
+      ],
+      "expect": 8.889794456123923e-11
+    },
+    {
+      "input": [
+        0.36318352203878773
+      ],
+      "expect": 0.0003126318659284477
+    },
+    {
+      "input": [
+        0.37226311008975743
+      ],
+      "expect": 0.0007029859717361253
+    },
+    {
+      "input": [
+        0.38134269814072713
+      ],
+      "expect": 0.0015063822022244322
+    },
+    {
+      "input": [
+        0.39042228619169683
+      ],
+      "expect": 0.003077170719677891
+    },
+    {
+      "input": [
+        0.3874518593741467
+      ],
+      "expect": 0.0024487187312719483
+    },
+    {
+      "input": [
+        0.3962575834508319
+      ],
+      "expect": 0.004749392458455848
+    },
+    {
+      "input": [
+        0.405063307527517
+      ],
+      "expect": 0.008812169386523572
+    },
+    {
+      "input": [
+        0.5004181796481321
+      ],
+      "expect": 0.5041706625878852
+    },
+    {
+      "input": [
+        0.5110653749597944
+      ],
+      "expect": 0.6089695661524689
+    },
+    {
+      "input": [
+        0.5217125702714568
+      ],
+      "expect": 0.7063711519161753
+    },
+    {
+      "input": [
+        0.5316344550860548
+      ],
+      "expect": 0.785487555628487
+    },
+    {
+      "input": [
+        0.6135210721680475
+      ],
+      "expect": 0.9977303314754373
+    },
+    {
+      "input": [
+        0.6214083972258425
+      ],
+      "expect": 0.9987981584305233
+    },
+    {
+      "input": [
+        0.6292957222836375
+      ],
+      "expect": 0.9993862096247459
+    },
+    {
+      "input": [
+        0.6371830473414324
+      ],
+      "expect": 0.9996977376513563
+    },
+    {
+      "input": [
+        0.5684511941653304
+      ],
+      "expect": 0.9564852682519694
+    },
+    {
+      "input": [
+        0.5781489201391432
+      ],
+      "expect": 0.9746330078351113
+    },
+    {
+      "input": [
+        0.5878466461129561
+      ],
+      "expect": 0.9859599734771027
+    },
+    {
+      "input": [
+        0.722780456308203
+      ],
+      "expect": 0.9999999872272667
+    },
+    {
+      "input": [
+        0.7294604453128246
+      ],
+      "expect": 0.999999995167665
+    },
+    {
+      "input": [
+        0.7361404343174462
+      ],
+      "expect": 0.999999998220769
+    },
+    {
+      "input": [
+        0.7428204233220679
+      ],
+      "expect": 0.999999999362479
+    },
+    {
+      "input": [
+        0.5996344926601898
+      ],
+      "expect": 0.9936283254124736
+    },
+    {
+      "input": [
+        0.6103109061892514
+      ],
+      "expect": 0.9970901671422574
+    },
+    {
+      "input": [
+        0.620987319718313
+      ],
+      "expect": 0.9987555307336575
+    },
+    {
+      "input": [
+        0.7362423294381483
+      ],
+      "expect": 0.9999999982480492
+    },
+    {
+      "input": [
+        0.7438874793095063
+      ],
+      "expect": 0.9999999994602439
+    },
+    {
+      "input": [
+        0.7515326291808644
+      ],
+      "expect": 0.9999999998395357
+    },
+    {
+      "input": [
+        0.7591777790522224
+      ],
+      "expect": 0.9999999999539695
+    },
+    {
+      "input": [
+        0.644702778706145
+      ],
+      "expect": 0.9998513087355896
+    },
+    {
+      "input": [
+        0.6563518679288944
+      ],
+      "expect": 0.999953621510068
+    },
+    {
+      "input": [
+        0.6680009571516436
+      ],
+      "expect": 0.9999866556613496
+    },
+    {
+      "input": [
+        0.6796500463743931
+      ],
+      "expect": 0.9999964597003064
+    },
+    {
+      "input": [
+        0.7470911192543714
+      ],
+      "expect": 0.9999999996739191
+    },
+    {
+      "input": [
+        0.7566348506032631
+      ],
+      "expect": 0.9999999999299901
+    },
+    {
+      "input": [
+        0.482595
+      ],
+      "expect": 0.33173584896256064
+    },
+    {
+      "input": [
+        0.23284625555613048
+      ],
+      "expect": 1.2041756480840604e-11
+    },
+    {
+      "input": [
+        0.27869645281995364
+      ],
+      "expect": 1.5776941031386826e-08
+    },
+    {
+      "input": [
+        0.29257267356272204
+      ],
+      "expect": 1.07612221800224e-07
+    },
+    {
+      "input": [
+        0.2654447313339888
+      ],
+      "expect": 2.2608482308505984e-09
+    },
+    {
+      "input": [
+        0.2587839055560413
+      ],
+      "expect": 8.177598043168643e-10
+    },
+    {
+      "input": [
+        0.26426366437848964
+      ],
+      "expect": 1.891549361587863e-09
+    },
+    {
+      "input": [
+        0.45055592531989574
+      ],
+      "expect": 0.10821035049643424
+    },
+    {
+      "input": [
+        0.37066529923253577
+      ],
+      "expect": 0.0006117003210845962
+    },
+    {
+      "input": [
+        0.2730563847991764
+      ],
+      "expect": 6.9917635014959956e-09
+    },
+    {
+      "input": [
+        0.4087158758567282
+      ],
+      "expect": 0.011241626908494173
+    },
+    {
+      "input": [
+        0.4093915245254873
+      ],
+      "expect": 0.011749840022417968
+    },
+    {
+      "input": [
+        0.49751435092083224
+      ],
+      "expect": 0.4752251830189297
+    },
+    {
+      "input": [
+        0.4393483959266048
+      ],
+      "expect": 0.06472300669461534
+    },
+    {
+      "input": [
+        0.2684257704530734
+      ],
+      "expect": 3.532845571641019e-09
+    },
+    {
+      "input": [
+        0.5433380411372247
+      ],
+      "expect": 0.8606958617967093
+    },
+    {
+      "input": [
+        0.45222443287766084
+      ],
+      "expect": 0.1161628840403901
+    },
+    {
+      "input": [
+        0.46811627770035535
+      ],
+      "expect": 0.21269849403790758
+    },
+    {
+      "input": [
+        0.41912326000103506
+      ],
+      "expect": 0.02159238610934605
+    },
+    {
+      "input": [
+        0.4011150536118641
+      ],
+      "expect": 0.006715652373408987
+    },
+    {
+      "input": [
+        0.40492013090252454
+      ],
+      "expect": 0.008727121490160084
+    },
+    {
+      "input": [
+        0.6828738243129672
+      ],
+      "expect": 0.9999975827644851
+    },
+    {
+      "input": [
+        0.43130650926006897
+      ],
+      "expect": 0.04295878315863155
+    },
+    {
+      "input": [
+        0.40364856883356515
+      ],
+      "expect": 0.008002844873452597
+    },
+    {
+      "input": [
+        0.5986824097056301
+      ],
+      "expect": 0.9931886281730353
+    },
+    {
+      "input": [
+        0.5919580151922588
+      ],
+      "expect": 0.989246121434894
+    },
+    {
+      "input": [
+        0.4313499412044961
+      ],
+      "expect": 0.04305801323438552
+    },
+    {
+      "input": [
+        0.6252265634340146
+      ],
+      "expect": 0.9991279423299521
+    },
+    {
+      "input": [
+        0.38513589015043836
+      ],
+      "expect": 0.002041979981631359
+    },
+    {
+      "input": [
+        0.7455872952320723
+      ],
+      "expect": 0.9999999995865668
+    },
+    {
+      "input": [
+        0.6216862572028492
+      ],
+      "expect": 0.998825551044592
+    },
+    {
+      "input": [
+        0.6371790082873998
+      ],
+      "expect": 0.9996976251596112
+    },
+    {
+      "input": [
+        0.58132170716338
+      ],
+      "expect": 0.978975894343423
+    },
+    {
+      "input": [
+        0.6543800374445784
+      ],
+      "expect": 0.99994319058904
+    },
+    {
+      "input": [
+        0.5722869173739662
+      ],
+      "expect": 0.9646323402061434
+    },
+    {
+      "input": [
+        0.8320476451546126
+      ],
+      "expect": 1.0
+    },
+    {
+      "input": [
+        0.6063239592977894
+      ],
+      "expect": 0.9960708595284857
+    },
+    {
+      "input": [
+        0.5885973752397162
+      ],
+      "expect": 0.9866177155852273
+    },
+    {
+      "input": [
+        0.7457652479736481
+      ],
+      "expect": 0.9999999995979881
+    },
+    {
+      "input": [
+        0.7407185901183625
+      ],
+      "expect": 0.9999999991168818
+    },
+    {
+      "input": [
+        0.6329022732908238
+      ],
+      "expect": 0.9995540175035694
+    },
+    {
+      "input": [
+        0.7651686257202852
+      ],
+      "expect": 0.9999999999831263
+    },
+    {
+      "input": [
+        0.6210721183485264
+      ],
+      "expect": 0.9987642249492525
+    },
+    {
+      "input": [
+        0.8455351435337584
+      ],
+      "expect": 1.0
+    },
+    {
+      "input": [
+        0.36867099999999997
+      ],
+      "expect": 0.0005131335963778905
+    },
+    {
+      "input": [
+        0.526274
+      ],
+      "expect": 0.7443613146479346
+    },
+    {
+      "input": [
+        0.393
+      ],
+      "expect": 0.003736462509317806
+    },
+    {
+      "input": [
+        0.3222083333333333
+      ],
+      "expect": 4.398853953202497e-06
+    },
+    {
+      "input": [
+        0.31633333333333336
+      ],
+      "expect": 2.1986014121511133e-06
+    },
+    {
+      "input": [
+        0.30901500000000004
+      ],
+      "expect": 9.002121301726618e-07
+    },
+    {
+      "input": [
+        0.28
+      ],
+      "expect": 1.8989562478033406e-08
+    },
+    {
+      "input": [
+        0.248095
+      ],
+      "expect": 1.511203384652049e-10
+    },
+    {
+      "input": [
+        0.23500000000000004
+      ],
+      "expect": 1.7362444815205436e-11
+    },
+    {
+      "input": [
+        0.19803833333333337
+      ],
+      "expect": 2.1926904736346842e-14
+    },
+    {
+      "input": [
+        0.16000000000000003
+      ],
+      "expect": 0.0
+    },
+    {
+      "input": [
+        0.48750000000000016
+      ],
+      "expect": 0.3773302815298444
+    },
+    {
+      "input": [
+        0.4559908333333334
+      ],
+      "expect": 0.13561614278161638
+    },
+    {
+      "input": [
+        0.4197500000000001
+      ],
+      "expect": 0.022414790845793897
+    },
+    {
+      "input": [
+        0.3806191666666668
+      ],
+      "expect": 0.0014201142968111036
+    },
+    {
+      "input": [
+        0.3650000000000001
+      ],
+      "expect": 0.0003690784542750847
+    },
+    {
+      "input": [
+        0.3208125000000001
+      ],
+      "expect": 3.737620006272202e-06
+    },
+    {
+      "input": [
+        0.2737991666666668
+      ],
+      "expect": 7.79136855033613e-09
+    },
+    {
+      "input": [
+        0.2238333333333334
+      ],
+      "expect": 2.5249802249049935e-12
+    },
+    {
+      "input": [
+        0.20250000000000007
+      ],
+      "expect": 5.129230373768223e-14
+    },
+    {
+      "input": [
+        0.5876666666666669
+      ],
+      "expect": 0.9857982078471567
+    },
+    {
+      "input": [
+        0.5413100000000002
+      ],
+      "expect": 0.8491395459762735
+    },
+    {
+      "input": [
+        0.5541983333333336
+      ],
+      "expect": 0.9122845836983844
+    },
+    {
+      "input": [
+        0.5035800000000001
+      ],
+      "expect": 0.5356577232076345
+    },
+    {
+      "input": [
+        0.4500000000000002
+      ],
+      "expect": 0.10564977366685613
+    },
+    {
+      "input": [
+        0.42680333333333353
+      ],
+      "expect": 0.03363120041658951
+    },
+    {
+      "input": [
+        0.40208500000000014
+      ],
+      "expect": 0.007185075005300634
+    },
+    {
+      "input": [
+        0.34136000000000016
+      ],
+      "expect": 3.654443102873994e-05
+    },
+    {
+      "input": [
+        0.27766666666666684
+      ],
+      "expect": 1.3618143002158689e-08
+    },
+    {
+      "input": [
+        0.2500000000000001
+      ],
+      "expect": 2.052263359253459e-10
+    },
+    {
+      "input": [
+        0.7238333333333337
+      ],
+      "expect": 0.9999999890217723
+    },
+    {
+      "input": [
+        0.738166666666667
+      ],
+      "expect": 0.9999999986929984
+    },
+    {
+      "input": [
+        0.6766375000000003
+      ],
+      "expect": 0.9999949713428636
+    },
+    {
+      "input": [
+        0.650916666666667
+      ],
+      "expect": 0.9999193249040196
+    },
+    {
+      "input": [
+        0.5843308333333336
+      ],
+      "expect": 0.9824962153359429
+    },
+    {
+      "input": [
+        0.5149475000000002
+      ],
+      "expect": 0.6456815868740232
+    },
+    {
+      "input": [
+        0.4833575000000003
+      ],
+      "expect": 0.3386821347862182
+    },
+    {
+      "input": [
+        0.45041666666666685
+      ],
+      "expect": 0.10756477418263088
+    },
+    {
+      "input": [
+        0.3737175000000002
+      ],
+      "expect": 0.000796835920209571
+    },
+    {
+      "input": [
+        0.3371666666666669
+      ],
+      "expect": 2.34226286385808e-05
+    },
+    {
+      "input": [
+        0.3482500000000006
+      ],
+      "expect": 7.419454061552422e-05
+    },
+    {
+      "input": [
+        0.9025000000000001
+      ],
+      "expect": 1.0
+    },
+    {
+      "input": [
+        0.8258650000000001
+      ],
+      "expect": 0.9999999999999998
+    },
+    {
+      "input": [
+        0.7502500000000002
+      ],
+      "expect": 0.9999999998028277
+    },
+    {
+      "input": [
+        0.7180300000000002
+      ],
+      "expect": 0.9999999749210807
+    },
+    {
+      "input": [
+        0.6878875000000003
+      ],
+      "expect": 0.9999986811585053
+    },
+    {
+      "input": [
+        0.6231950000000004
+      ],
+      "expect": 0.9989645625568964
+    },
+    {
+      "input": [
+        0.6342775000000004
+      ],
+      "expect": 0.999605945372136
+    },
+    {
+      "input": [
+        0.5760000000000005
+      ],
+      "expect": 0.971283440183999
+    },
+    {
+      "input": [
+        0.5220575000000005
+      ],
+      "expect": 0.7093331000030504
+    },
+    {
+      "input": [
+        0.5050000000000008
+      ],
+      "expect": 0.5497382248301206
+    },
+    {
+      "input": [
+        0.4925000000000007
+      ],
+      "expect": 0.4256343118441098
+    },
+    {
+      "input": [
+        0.9002500000000001
+      ],
+      "expect": 1.0
+    },
+    {
+      "input": [
+        0.8441437500000002
+      ],
+      "expect": 1.0
+    },
+    {
+      "input": [
+        0.8211250000000003
+      ],
+      "expect": 0.9999999999999996
+    },
+    {
+      "input": [
+        0.8002712500000003
+      ],
+      "expect": 0.9999999999999697
+    },
+    {
+      "input": [
+        0.3133
+      ],
+      "expect": 1.5244337487896331e-06
+    },
+    {
+      "input": [
+        0.15450000000000003
+      ],
+      "expect": 0.0
+    },
+    {
+      "input": [
+        0.201875
+      ],
+      "expect": 4.5574655160862676e-14
+    },
+    {
+      "input": [
+        0.24193
+      ],
+      "expect": 5.5282944888546126e-11
+    },
+    {
+      "input": [
+        0.29260416666666667
+      ],
+      "expect": 1.0806781647332286e-07
+    },
+    {
+      "input": [
+        0.3356100000000001
+      ],
+      "expect": 1.9804384788990603e-05
+    },
+    {
+      "input": [
+        0.16333333333333336
+      ],
+      "expect": 0.0
+    },
+    {
+      "input": [
+        0.20581750000000004
+      ],
+      "expect": 9.581224702515101e-14
+    },
+    {
+      "input": [
+        0.2497383333333334
+      ],
+      "expect": 1.9680401752708576e-10
+    },
+    {
+      "input": [
+        0.32572916666666674
+      ],
+      "expect": 6.599766984360933e-06
+    },
+    {
+      "input": [
+        0.37290000000000006
+      ],
+      "expect": 0.0007427534496998178
+    },
+    {
+      "input": [
+        0.4215100000000001
+      ],
+      "expect": 0.02486669264844299
+    },
+    {
+      "input": [
+        0.20564250000000006
+      ],
+      "expect": 9.270362255620057e-14
+    },
+    {
+      "input": [
+        0.26442666666666675
+      ],
+      "expect": 1.938783189547877e-09
+    },
+    {
+      "input": [
+        0.3137333333333335
+      ],
+      "expect": 1.6068506653588166e-06
+    },
+    {
+      "input": [
+        0.3758150000000001
+      ],
+      "expect": 0.000952602025494409
+    },
+    {
+      "input": [
+        0.4280741666666668
+      ],
+      "expect": 0.036076950335571234
+    },
+    {
+      "input": [
+        0.21321000000000007
+      ],
+      "expect": 3.7569947153315297e-13
+    },
+    {
+      "input": [
+        0.2649500000000001
+      ],
+      "expect": 2.0983219606307557e-09
+    },
+    {
+      "input": [
+        0.3180208333333334
+      ],
+      "expect": 2.688942887962842e-06
+    },
+    {
+      "input": [
+        0.39750000000000013
+      ],
+      "expect": 0.005196079382091212
+    },
+    {
+      "input": [
+        0.4664091666666668
+      ],
+      "expect": 0.20051844490056114
+    },
+    {
+      "input": [
+        0.5241666666666669
+      ],
+      "expect": 0.7271335799859586
+    },
+    {
+      "input": [
+        0.2744233333333334
+      ],
+      "expect": 8.531360118357867e-09
+    },
+    {
+      "input": [
+        0.34489583333333346
+      ],
+      "expect": 5.274508292046898e-05
+    },
+    {
+      "input": [
+        0.41710500000000017
+      ],
+      "expect": 0.019115241478224076
+    },
+    {
+      "input": [
+        0.4772916666666668
+      ],
+      "expect": 0.28511651605347704
+    },
+    {
+      "input": [
+        0.23625000000000007
+      ],
+      "expect": 2.144268096415658e-11
+    },
+    {
+      "input": [
+        0.29608833333333345
+      ],
+      "expect": 1.718193516908606e-07
+    },
+    {
+      "input": [
+        0.3573841666666669
+      ],
+      "expect": 0.00018165372030704008
+    },
+    {
+      "input": [
+        0.43456000000000017
+      ],
+      "expect": 0.050919793698048665
+    },
+    {
+      "input": [
+        0.5135416666666668
+      ],
+      "expect": 0.6325224833787156
+    },
+    {
+      "input": [
+        0.5792816666666669
+      ],
+      "expect": 0.9762627112871758
+    },
+    {
+      "input": [
+        0.2719200000000001
+      ],
+      "expect": 5.9204914304444856e-09
+    },
+    {
+      "input": [
+        0.35229166666666684
+      ],
+      "expect": 0.00011093922194882477
+    },
+    {
+      "input": [
+        0.46560000000000024
+      ],
+      "expect": 0.19489452125181
+    },
+    {
+      "input": [
+        0.5497916666666669
+      ],
+      "expect": 0.8933958299332602
+    },
+    {
+      "input": [
+        0.619696666666667
+      ],
+      "expect": 0.9986161089035301
+    },
+    {
+      "input": [
+        0.3068316666666668
+      ],
+      "expect": 6.853846751253556e-07
+    },
+    {
+      "input": [
+        0.39250833333333357
+      ],
+      "expect": 0.003601701118453482
+    },
+    {
+      "input": [
+        0.49664000000000025
+      ],
+      "expect": 0.46652821588491566
+    },
+    {
+      "input": [
+        0.619749166666667
+      ],
+      "expect": 0.9986220477106418
+    },
+    {
+      "input": [
+        0.3059100000000002
+      ],
+      "expect": 6.103430510440155e-07
+    },
+    {
+      "input": [
+        0.37850000000000017
+      ],
+      "expect": 0.0011927470233527027
+    },
+    {
+      "input": [
+        0.45239583333333355
+      ],
+      "expect": 0.11700272640656473
+    },
+    {
+      "input": [
+        0.5631250000000002
+      ],
+      "expect": 0.9427315520543706
+    },
+    {
+      "input": [
+        0.6759375000000003
+      ],
+      "expect": 0.999994548349221
+    },
+    {
+      "input": [
+        0.3244500000000002
+      ],
+      "expect": 5.700201509473146e-06
+    },
+    {
+      "input": [
+        0.4012100000000002
+      ],
+      "expect": 0.006760375309361244
+    },
+    {
+      "input": [
+        0.5164533333333337
+      ],
+      "expect": 0.6595859346522368
+    },
+    {
+      "input": [
+        0.6149700000000003
+      ],
+      "expect": 0.9979750587430711
+    },
+    {
+      "input": [
+        0.7342058333333337
+      ],
+      "expect": 0.9999999976170418
+    },
+    {
+      "input": [
+        0.3429900000000002
+      ],
+      "expect": 4.331985493477575e-05
+    },
+    {
+      "input": [
+        0.4627466666666669
+      ],
+      "expect": 0.1758405822046195
+    },
+    {
+      "input": [
+        0.5454133333333336
+      ],
+      "expect": 0.8718821595738403
+    },
+    {
+      "input": [
+        0.6689900000000004
+      ],
+      "expect": 0.999988039691265
+    },
+    {
+      "input": [
+        0.7746208333333338
+      ],
+      "expect": 0.9999999999966875
+    },
+    {
+      "input": [
+        0.4021875000000002
+      ],
+      "expect": 0.007236333992651778
+    },
+    {
+      "input": [
+        0.48753666666666695
+      ],
+      "expect": 0.37767860109055557
+    },
+    {
+      "input": [
+        0.5743733333333337
+      ],
+      "expect": 0.968510047508988
+    },
+    {
+      "input": [
+        0.7042000000000003
+      ],
+      "expect": 0.9999998346027423
+    },
+    {
+      "input": [
+        0.7901562500000001
+      ],
+      "expect": 0.9999999999997975
+    },
+    {
+      "input": [
+        0.37437500000000057
+      ],
+      "expect": 0.0008429387318698578
+    },
+    {
+      "input": [
+        0.46163500000000046
+      ],
+      "expect": 0.1687478887423819
+    },
+    {
+      "input": [
+        0.5664062500000004
+      ],
+      "expect": 0.9515584883152082
+    },
+    {
+      "input": [
+        0.6685725000000003
+      ],
+      "expect": 0.9999874729905032
+    },
+    {
+      "input": [
+        0.7490625000000002
+      ],
+      "expect": 0.99999999976161
+    },
+    {
+      "input": [
+        0.8462800000000001
+      ],
+      "expect": 1.0
+    },
+    {
+      "input": [
+        0.4677375000000005
+      ],
+      "expect": 0.2099592930282027
+    },
+    {
+      "input": [
+        0.5651275000000004
+      ],
+      "expect": 0.948257432771225
+    },
+    {
+      "input": [
+        0.6423200000000004
+      ],
+      "expect": 0.9998131553431509
+    },
+    {
+      "input": [
+        0.7522675000000003
+      ],
+      "expect": 0.9999999998574647
+    },
+    {
+      "input": [
+        0.8246875000000002
+      ],
+      "expect": 0.9999999999999998
+    },
+    {
+      "input": [
+        0.48000000000000065
+      ],
+      "expect": 0.30853753872599265
+    },
+    {
+      "input": [
+        0.5865625000000005
+      ],
+      "expect": 0.9847702234836053
+    },
+    {
+      "input": [
+        0.6576825000000004
+      ],
+      "expect": 0.999959608041169
+    },
+    {
+      "input": [
+        0.7426562500000004
+      ],
+      "expect": 0.9999999993459798
+    },
+    {
+      "input": [
+        0.8093500000000002
+      ],
+      "expect": 0.9999999999999948
+    },
+    {
+      "input": [
+        0.8893750000000001
+      ],
+      "expect": 1.0
+    },
+    {
+      "input": [
+        0.5814062500000006
+      ],
+      "expect": 0.9790824232006161
+    },
+    {
+      "input": [
+        0.6470600000000005
+      ],
+      "expect": 0.9998817720723612
+    },
+    {
+      "input": [
+        0.7393000000000005
+      ],
+      "expect": 0.9999999989013074
+    },
+    {
+      "input": [
+        0.8284150000000003
+      ],
+      "expect": 0.9999999999999999
+    },
+    {
+      "input": [
+        0.8868450000000002
+      ],
+      "expect": 1.0
+    },
+    {
+      "input": [
+        0.6122087500000006
+      ],
+      "expect": 0.9974858778996275
+    },
+    {
+      "input": [
+        0.6979375000000005
+      ],
+      "expect": 0.999999625941979
+    },
+    {
+      "input": [
+        0.3375
+      ],
+      "expect": 2.4274973856708293e-05
+    },
+    {
+      "input": [
+        0.7467
+      ],
+      "expect": 0.9999999996531095
+    },
+    {
+      "input": [
+        0.20400000000000001
+      ],
+      "expect": 6.80566714095221e-14
+    },
+    {
+      "input": [
+        0.23690333333333333
+      ],
+      "expect": 2.3934632054078975e-11
+    },
+    {
+      "input": [
+        0.2708741666666667
+      ],
+      "expect": 5.0767132719897745e-09
+    },
+    {
+      "input": [
+        0.30001500000000003
+      ],
+      "expect": 2.872096146466774e-07
+    },
+    {
+      "input": [
+        0.3360958333333333
+      ],
+      "expect": 2.0872416552797368e-05
+    },
+    {
+      "input": [
+        0.22168250000000003
+      ],
+      "expect": 1.7264523144433497e-12
+    },
+    {
+      "input": [
+        0.2577616666666667
+      ],
+      "expect": 6.97920665704288e-10
+    },
+    {
+      "input": [
+        0.2884608333333334
+      ],
+      "expect": 6.166876675983701e-08
+    },
+    {
+      "input": [
+        0.3400000000000001
+      ],
+      "expect": 3.167124183311998e-05
+    },
+    {
+      "input": [
+        0.3795725000000001
+      ],
+      "expect": 0.0013032848075865688
+    },
+    {
+      "input": [
+        0.24501750000000005
+      ],
+      "expect": 9.174300208414365e-11
+    },
+    {
+      "input": [
+        0.29157333333333335
+      ],
+      "expect": 9.408162887636351e-08
+    },
+    {
+      "input": [
+        0.35387083333333347
+      ],
+      "expect": 0.00012948145698732372
+    },
+    {
+      "input": [
+        0.4033150000000001
+      ],
+      "expect": 0.00782182195394443
+    },
+    {
+      "input": [
+        0.26446333333333344
+      ],
+      "expect": 1.949565342496129e-09
+    },
+    {
+      "input": [
+        0.3066475000000001
+      ],
+      "expect": 6.697137514555251e-07
+    },
+    {
+      "input": [
+        0.3655750000000001
+      ],
+      "expect": 0.0003888316612888354
+    },
+    {
+      "input": [
+        0.4102025000000002
+      ],
+      "expect": 0.012386072568923323
+    },
+    {
+      "input": [
+        0.2676666666666667
+      ],
+      "expect": 3.1548899048772228e-09
+    },
+    {
+      "input": [
+        0.3371316666666668
+      ],
+      "expect": 2.333479732974375e-05
+    },
+    {
+      "input": [
+        0.3916875000000002
+      ],
+      "expect": 0.0033864137178153397
+    },
+    {
+      "input": [
+        0.46442333333333347
+      ],
+      "expect": 0.18688959550685708
+    },
+    {
+      "input": [
+        0.3293550000000002
+      ],
+      "expect": 9.944868446187805e-06
+    },
+    {
+      "input": [
+        0.3686666666666668
+      ],
+      "expect": 0.0005129364259243707
+    },
+    {
+      "input": [
+        0.4178000000000002
+      ],
+      "expect": 0.019939502356080385
+    },
+    {
+      "input": [
+        0.4679775000000002
+      ],
+      "expect": 0.21169248375214833
+    },
+    {
+      "input": [
+        0.5193333333333335
+      ],
+      "expect": 0.6855704621388241
+    },
+    {
+      "input": [
+        0.35469000000000017
+      ],
+      "expect": 0.0001402083368641227
+    },
+    {
+      "input": [
+        0.41557916666666683
+      ],
+      "expect": 0.017406759312677433
+    },
+    {
+      "input": [
+        0.4873333333333336
+      ],
+      "expect": 0.37574827209399025
+    },
+    {
+      "input": [
+        0.5413575000000003
+      ],
+      "expect": 0.849417308732329
+    },
+    {
+      "input": [
+        0.35600000000000015
+      ],
+      "expect": 0.00015910859015755285
+    },
+    {
+      "input": [
+        0.41002500000000014
+      ],
+      "expect": 0.012244323890778896
+    },
+    {
+      "input": [
+        0.5257525000000002
+      ],
+      "expect": 0.7401514864753298
+    },
+    {
+      "input": [
+        0.5724700000000003
+      ],
+      "expect": 0.9649875829834561
+    },
+    {
+      "input": [
+        0.38641833333333353
+      ],
+      "expect": 0.0022589197247178117
+    },
+    {
+      "input": [
+        0.4538625000000003
+      ],
+      "expect": 0.12436542848180693
+    },
+    {
+      "input": [
+        0.5546400000000002
+      ],
+      "expect": 0.9140305183049898
+    },
+    {
+      "input": [
+        0.6143333333333336
+      ],
+      "expect": 0.9978706361845712
+    },
+    {
+      "input": [
+        0.4180275000000002
+      ],
+      "expect": 0.020215783565340484
+    },
+    {
+      "input": [
+        0.4889166666666669
+      ],
+      "expect": 0.3908580595311801
+    },
+    {
+      "input": [
+        0.5498608333333336
+      ],
+      "expect": 0.8937133771955348
+    },
+    {
+      "input": [
+        0.6233050000000002
+      ],
+      "expect": 0.9989740823160808
+    },
+    {
+      "input": [
+        0.3928600000000002
+      ],
+      "expect": 0.003697636608152033
+    },
+    {
+      "input": [
+        0.49000000000000027
+      ],
+      "expect": 0.40129367431707885
+    },
+    {
+      "input": [
+        0.600666666666667
+      ],
+      "expect": 0.9940764573491742
+    },
+    {
+      "input": [
+        0.653859166666667
+      ],
+      "expect": 0.9999400863428058
+    },
+    {
+      "input": [
+        0.44808083333333354
+      ],
+      "expect": 0.0971472470002932
+    },
+    {
+      "input": [
+        0.5133333333333336
+      ],
+      "expect": 0.6305586598182392
+    },
+    {
+      "input": [
+        0.5920000000000003
+      ],
+      "expect": 0.9892758899783244
+    },
+    {
+      "input": [
+        0.6969200000000003
+      ],
+      "expect": 0.9999995738627369
+    },
+    {
+      "input": [
+        0.45600000000000024
+      ],
+      "expect": 0.135666060946384
+    },
+    {
+      "input": [
+        0.5622541666666669
+      ],
+      "expect": 0.9401880511971865
+    },
+    {
+      "input": [
+        0.6315233333333337
+      ],
+      "expect": 0.9994956401173203
+    },
+    {
+      "input": [
+        0.7280325000000004
+      ],
+      "expect": 0.9999999940381135
+    },
+    {
+      "input": [
+        0.5024775000000004
+      ],
+      "expect": 0.5246936979347064
+    },
+    {
+      "input": [
+        0.6133000000000002
+      ],
+      "expect": 0.9976907216909461
+    },
+    {
+      "input": [
+        0.7235000000000003
+      ],
+      "expect": 0.9999999884819121
+    },
+    {
+      "input": [
+        0.4866987500000005
+      ],
+      "expect": 0.3697440734142662
+    },
+    {
+      "input": [
+        0.5440000000000005
+      ],
+      "expect": 0.86433393905362
+    },
+    {
+      "input": [
+        0.6125312500000004
+      ],
+      "expect": 0.9975480630550936
+    },
+    {
+      "input": [
+        0.7040000000000003
+      ],
+      "expect": 0.9999998301732593
+    },
+    {
+      "input": [
+        0.7688637500000003
+      ],
+      "expect": 0.9999999999910126
+    },
+    {
+      "input": [
+        0.5503037500000005
+      ],
+      "expect": 0.8957306425772
+    },
+    {
+      "input": [
+        0.6150000000000004
+      ],
+      "expect": 0.9979798625100541
+    },
+    {
+      "input": [
+        0.6895000000000003
+      ],
+      "expect": 0.999998918145715
+    },
+    {
+      "input": [
+        0.7506950000000002
+      ],
+      "expect": 0.9999999998164074
+    },
+    {
+      "input": [
+        0.7990000000000003
+      ],
+      "expect": 0.9999999999999614
+    },
+    {
+      "input": [
+        0.6208062500000004
+      ],
+      "expect": 0.9987367784377299
+    },
+    {
+      "input": [
+        0.7013600000000004
+      ],
+      "expect": 0.9999997598251653
+    },
+    {
+      "input": [
+        0.7480000000000004
+      ],
+      "expect": 0.9999999997176842
+    },
+    {
+      "input": [
+        0.8036925000000003
+      ],
+      "expect": 0.9999999999999842
+    },
+    {
+      "input": [
+        0.6199750000000006
+      ],
+      "expect": 0.9986473294648832
+    },
+    {
+      "input": [
+        0.6951912500000004
+      ],
+      "expect": 0.999999468982145
+    },
+    {
+      "input": [
+        0.7486425000000003
+      ],
+      "expect": 0.9999999997451074
+    },
+    {
+      "input": [
+        0.7910237500000004
+      ],
+      "expect": 0.9999999999998276
+    },
+    {
+      "input": [
+        0.6241437500000007
+      ],
+      "expect": 0.9990440717386827
+    },
+    {
+      "input": [
+        0.7030000000000005
+      ],
+      "expect": 0.9999998062519992
+    },
+    {
+      "input": [
+        0.7703112500000004
+      ],
+      "expect": 0.9999999999929939
+    },
+    {
+      "input": [
+        0.8180000000000003
+      ],
+      "expect": 0.9999999999999991
+    },
+    {
+      "input": [
+        0.6583125000000006
+      ],
+      "expect": 0.9999621803526484
+    },
+    {
+      "input": [
+        0.4133
+      ],
+      "expect": 0.015098374846505558
+    },
+    {
+      "input": [
+        0.28515625
+      ],
+      "expect": 3.913025359292277e-08
+    },
+    {
+      "input": [
+        0.285703125
+      ],
+      "expect": 4.2208925243869544e-08
+    },
+    {
+      "input": [
+        0.301875
+      ],
+      "expect": 3.651551354622029e-07
+    },
+    {
+      "input": [
+        0.30882812500000006
+      ],
+      "expect": 8.795464480071402e-07
+    },
+    {
+      "input": [
+        0.33421875
+      ],
+      "expect": 1.70254760457067e-05
+    },
+    {
+      "input": [
+        0.37640625000000005
+      ],
+      "expect": 0.0010013090893574716
+    },
+    {
+      "input": [
+        0.3554687500000001
+      ],
+      "expect": 0.00015117322029739588
+    },
+    {
+      "input": [
+        0.3179687500000001
+      ],
+      "expect": 2.6723546066032e-06
+    },
+    {
+      "input": [
+        0.43343750000000014
+      ],
+      "expect": 0.04804997002766148
+    },
+    {
+      "input": [
+        0.43820312500000014
+      ],
+      "expect": 0.061182580782845275
+    },
+    {
+      "input": [
+        0.45484375000000016
+      ],
+      "expect": 0.12946869197799155
+    },
+    {
+      "input": [
+        0.4714843750000001
+      ],
+      "expect": 0.23795672042153015
+    },
+    {
+      "input": [
+        0.4606250000000002
+      ],
+      "expect": 0.1624655827384197
+    },
+    {
+      "input": [
+        0.47632812500000016
+      ],
+      "expect": 0.27699330803196537
+    },
+    {
+      "input": [
+        0.49203125000000025
+      ],
+      "expect": 0.4210458165030819
+    },
+    {
+      "input": [
+        0.5228906250000002
+      ],
+      "expect": 0.7164289829204691
+    },
+    {
+      "input": [
+        0.5234375000000002
+      ],
+      "expect": 0.7210412420349578
+    },
+    {
+      "input": [
+        0.5069531250000002
+      ],
+      "expect": 0.5689997298391458
+    },
+    {
+      "input": [
+        0.5051562500000002
+      ],
+      "expect": 0.5512840844250965
+    },
+    {
+      "input": [
+        0.5194531250000003
+      ],
+      "expect": 0.686632729274886
+    },
+    {
+      "input": [
+        0.5162500000000002
+      ],
+      "expect": 0.657720540316051
+    },
+    {
+      "input": [
+        0.5660156250000002
+      ],
+      "expect": 0.9505684663306393
+    },
+    {
+      "input": [
+        0.5992187500000004
+      ],
+      "expect": 0.9934395117733152
+    },
+    {
+      "input": [
+        0.6144531250000003
+      ],
+      "expect": 0.9978906491072221
+    },
+    {
+      "input": [
+        0.6490625000000003
+      ],
+      "expect": 0.9999029455218513
+    },
+    {
+      "input": [
+        0.7242968750000004
+      ],
+      "expect": 0.999999989731867
+    },
+    {
+      "input": [
+        0.6837500000000003
+      ],
+      "expect": 0.9999978232455071
+    },
+    {
+      "input": [
+        0.7158333333333335
+      ],
+      "expect": 0.999999965896881
+    },
+    {
+      "input": [
+        0.7287500000000002
+      ],
+      "expect": 0.9999999946344729
+    },
+    {
+      "input": [
+        0.7416666666666669
+      ],
+      "expect": 0.9999999992373483
+    },
+    {
+      "input": [
+        0.770416666666667
+      ],
+      "expect": 0.9999999999931202
+    },
+    {
+      "input": [
+        0.7718055555555559
+      ],
+      "expect": 0.9999999999945896
+    },
+    {
+      "input": [
+        0.7569444444444449
+      ],
+      "expect": 0.9999999999334606
+    },
+    {
+      "input": [
+        0.2725
+      ],
+      "expect": 6.445630140738956e-09
+    },
+    {
+      "input": [
+        0.28442307692307695
+      ],
+      "expect": 3.534211318045877e-08
+    },
+    {
+      "input": [
+        0.3046153846153847
+      ],
+      "expect": 5.181547108601414e-07
+    },
+    {
+      "input": [
+        0.32980769230769236
+      ],
+      "expect": 1.0461438039899296e-05
+    },
+    {
+      "input": [
+        0.3677884615384617
+      ],
+      "expect": 0.0004743934755361279
+    },
+    {
+      "input": [
+        0.3933173076923078
+      ],
+      "expect": 0.0038258173062567513
+    },
+    {
+      "input": [
+        0.4099038461538463
+      ],
+      "expect": 0.01214838144942676
+    },
+    {
+      "input": [
+        0.48211538461538483
+      ],
+      "expect": 0.32739587574695156
+    },
+    {
+      "input": [
+        0.4805769230769233
+      ],
+      "expect": 0.3136335807158442
+    },
+    {
+      "input": [
+        0.5055208333333336
+      ],
+      "expect": 0.5548880237473659
+    },
+    {
+      "input": [
+        0.5462500000000003
+      ],
+      "expect": 0.8762105432483074
+    },
+    {
+      "input": [
+        0.5771875000000003
+      ],
+      "expect": 0.9731772151511004
+    },
+    {
+      "input": [
+        0.6081250000000004
+      ],
+      "expect": 0.9965654545657968
+    },
+    {
+      "input": [
+        0.6682291666666671
+      ],
+      "expect": 0.9999869879133325
+    },
+    {
+      "input": [
+        0.6784375000000004
+      ],
+      "expect": 0.9999959199055924
+    },
+    {
+      "input": [
+        0.7090625000000004
+      ],
+      "expect": 0.9999999136547686
+    },
+    {
+      "input": [
+        0.7343750000000004
+      ],
+      "expect": 0.9999999976769377
+    },
+    {
+      "input": [
+        0.2130392156862745
+      ],
+      "expect": 3.6415315207705135e-13
+    },
+    {
+      "input": [
+        0.2291176470588235
+      ],
+      "expect": 6.3481442325041826e-12
+    },
+    {
+      "input": [
+        0.2691176470588236
+      ],
+      "expect": 3.915438362422918e-09
+    },
+    {
+      "input": [
+        0.286764705882353
+      ],
+      "expect": 4.886836124651239e-08
+    },
+    {
+      "input": [
+        0.3991176470588236
+      ],
+      "expect": 0.00583350982205133
+    },
+    {
+      "input": [
+        0.4222549019607844
+      ],
+      "expect": 0.025970196518740774
+    },
+    {
+      "input": [
+        0.45294117647058835
+      ],
+      "expect": 0.11970343939839528
+    },
+    {
+      "input": [
+        0.329607843137255
+      ],
+      "expect": 1.0230315753423369e-05
+    },
+    {
+      "input": [
+        0.3794117647058825
+      ],
+      "expect": 0.001286142819029057
+    },
+    {
+      "input": [
+        0.5205882352941178
+      ],
+      "expect": 0.6966207188617999
+    },
+    {
+      "input": [
+        0.5437254901960786
+      ],
+      "expect": 0.8628332295352684
+    },
+    {
+      "input": [
+        0.5668627450980394
+      ],
+      "expect": 0.9526952922681851
+    },
+    {
+      "input": [
+        0.519948979591837
+      ],
+      "expect": 0.691013255252518
+    },
+    {
+      "input": [
+        0.5824489795918371
+      ],
+      "expect": 0.9803591859101616
+    },
+    {
+      "input": [
+        0.6004081632653064
+      ],
+      "expect": 0.993966929734436
+    },
+    {
+      "input": [
+        0.644387755102041
+      ],
+      "expect": 0.9998467207131432
+    },
+    {
+      "input": [
+        0.6693877551020411
+      ],
+      "expect": 0.9999885568370481
+    },
+    {
+      "input": [
+        0.5579591836734697
+      ],
+      "expect": 0.9263283590196609
+    },
+    {
+      "input": [
+        0.5812244897959187
+      ],
+      "expect": 0.9788528277009878
+    },
+    {
+      "input": [
+        0.6044897959183677
+      ],
+      "expect": 0.9955025102889603
+    },
+    {
+      "input": [
+        0.6832653061224494
+      ],
+      "expect": 0.999997693200985
+    },
+    {
+      "input": [
+        0.748979591836735
+      ],
+      "expect": 0.9999999997584372
+    },
+    {
+      "input": [
+        0.6913265306122454
+      ],
+      "expect": 0.9999991372107263
+    },
+    {
+      "input": [
+        0.7137755102040821
+      ],
+      "expect": 0.9999999546384134
+    },
+    {
+      "input": [
+        0.16577437858508606
+      ],
+      "expect": 0.0
+    },
+    {
+      "input": [
+        0.1445506692160612
+      ],
+      "expect": 0.0
+    },
+    {
+      "input": [
+        0.15258126195028685
+      ],
+      "expect": 0.0
+    },
+    {
+      "input": [
+        0.14340344168260039
+      ],
+      "expect": 0.0
+    },
+    {
+      "input": [
+        0.42676864244741874
+      ],
+      "expect": 0.03356639927316463
+    },
+    {
+      "input": [
+        0.4101338432122372
+      ],
+      "expect": 0.012331076670678176
+    },
+    {
+      "input": [
+        0.448565965583174
+      ],
+      "expect": 0.09924755803585467
+    },
+    {
+      "input": [
+        0.44799235181644376
+      ],
+      "expect": 0.09676772219659224
+    },
+    {
+      "input": [
+        0.4456978967495221
+      ],
+      "expect": 0.08730284905792585
+    },
+    {
+      "input": [
+        0.4858508604206503
+      ],
+      "expect": 0.36177118485789805
+    },
+    {
+      "input": [
+        0.5047801147227535
+      ],
+      "expect": 0.5475615160347543
+    },
+    {
+      "input": [
+        0.4999043977055451
+      ],
+      "expect": 0.4990465059737499
+    },
+    {
+      "input": [
+        0.54263862332696
+      ],
+      "expect": 0.8567803998944121
+    },
+    {
+      "input": [
+        0.5615678776290634
+      ],
+      "expect": 0.9381218878659379
+    },
+    {
+      "input": [
+        0.606883365200765
+      ],
+      "expect": 0.9962309126637129
+    },
+    {
+      "input": [
+        0.5994263862332698
+      ],
+      "expect": 0.9935344215615997
+    },
+    {
+      "input": [
+        0.6183556405353731
+      ],
+      "expect": 0.9984562586330712
+    },
+    {
+      "input": [
+        0.6372848948374764
+      ],
+      "expect": 0.9997005613663092
+    },
+    {
+      "input": [
+        0.6562141491395796
+      ],
+      "expect": 0.9999529561721209
+    },
+    {
+      "input": [
+        0.6100628930817611
+      ],
+      "expect": 0.997034503946152
+    },
+    {
+      "input": [
+        0.3490566037735854
+      ],
+      "expect": 8.045920962673758e-05
+    },
+    {
+      "input": [
+        0.3433962264150947
+      ],
+      "expect": 4.518443300327579e-05
+    },
+    {
+      "input": [
+        0.7772536687631029
+      ],
+      "expect": 0.9999999999979157
+    },
+    {
+      "input": [
+        0.7593291404612161
+      ],
+      "expect": 0.9999999999551098
+    },
+    {
+      "input": [
+        0.7184486373165622
+      ],
+      "expect": 0.9999999763557779
+    },
+    {
+      "input": [
+        0.7052410901467507
+      ],
+      "expect": 0.9999998559174106
+    },
+    {
+      "input": [
+        0.716876310272537
+      ],
+      "expect": 0.999999970516845
+    },
+    {
+      "input": [
+        0.5157232704402521
+      ],
+      "expect": 0.6528704526458117
+    },
+    {
+      "input": [
+        0.5364779874213842
+      ],
+      "expect": 0.8191023977444454
+    },
+    {
+      "input": [
+        0.7316561844863734
+      ],
+      "expect": 0.9999999965099902
+    },
+    {
+      "input": [
+        0.5779874213836484
+      ],
+      "expect": 0.9743931942579902
+    },
+    {
+      "input": [
+        0.5622641509433968
+      ],
+      "expect": 0.9402177063361625
+    },
+    {
+      "input": [
+        0.6022012578616358
+      ],
+      "expect": 0.994691089749386
+    },
+    {
+      "input": [
+        0.5911949685534599
+      ],
+      "expect": 0.9886924250900602
+    },
+    {
+      "input": [
+        0.33999999999999997
+      ],
+      "expect": 3.167124183311998e-05
+    },
+    {
+      "input": [
+        0.07954110898661568
+      ],
+      "expect": 0.0
+    },
+    {
+      "input": [
+        0.06835564053537285
+      ],
+      "expect": 0.0
+    },
+    {
+      "input": [
+        0.4631931166347993
+      ],
+      "expect": 0.17874141994780018
+    },
+    {
+      "input": [
+        0.47036328871892924
+      ],
+      "expect": 0.22937164650496367
+    },
+    {
+      "input": [
+        0.06118546845124284
+      ],
+      "expect": 0.0
+    },
+    {
+      "input": [
+        0.5173996175908222
+      ],
+      "expect": 0.6682153165995834
+    },
+    {
+      "input": [
+        0.10707456978967499
+      ],
+      "expect": 0.0
+    },
+    {
+      "input": [
+        0.13260038240917785
+      ],
+      "expect": 0.0
+    },
+    {
+      "input": [
+        0.5957934990439772
+      ],
+      "expect": 0.9916861331071566
+    },
+    {
+      "input": [
+        0.6419694072657746
+      ],
+      "expect": 0.9998068240736463
+    },
+    {
+      "input": [
+        0.6428298279158702
+      ],
+      "expect": 0.9998220168149085
+    },
+    {
+      "input": [
+        0.10688336520076486
+      ],
+      "expect": 0.0
+    },
+    {
+      "input": [
+        0.0850860420650096
+      ],
+      "expect": 0.0
+    },
+    {
+      "input": [
+        0.0879541108986616
+      ],
+      "expect": 0.0
+    },
+    {
+      "input": [
+        0.7369024856596561
+      ],
+      "expect": 0.9999999984151802
+    },
+    {
+      "input": [
+        0.7326003824091781
+      ],
+      "expect": 0.999999996968479
+    },
+    {
+      "input": [
+        0.6978967495219888
+      ],
+      "expect": 0.9999996239795856
+    },
+    {
+      "input": [
+        0.6892925430210327
+      ],
+      "expect": 0.9999988901242893
+    },
+    {
+      "input": [
+        0.17232704402515764
+      ],
+      "expect": 1.1102230246251565e-16
+    },
+    {
+      "input": [
+        0.22735849056603807
+      ],
+      "expect": 4.679256981887647e-12
+    },
+    {
+      "input": [
+        0.22515723270440302
+      ],
+      "expect": 3.1861180360692742e-12
+    },
+    {
+      "input": [
+        0.25157232704402566
+      ],
+      "expect": 2.63759181162726e-10
+    },
+    {
+      "input": [
+        0.7937106918238995
+      ],
+      "expect": 0.9999999999998954
+    },
+    {
+      "input": [
+        0.8261006289308178
+      ],
+      "expect": 0.9999999999999998
+    },
+    {
+      "input": [
+        0.8327044025157234
+      ],
+      "expect": 1.0
+    },
+    {
+      "input": [
+        0.32075471698113267
+      ],
+      "expect": 3.71240717000898e-06
+    },
+    {
+      "input": [
+        0.8047169811320757
+      ],
+      "expect": 0.9999999999999871
+    },
+    {
+      "input": [
+        0.8754716981132077
+      ],
+      "expect": 1.0
+    },
+    {
+      "input": [
+        0.4735849056603779
+      ],
+      "expect": 0.2545058490702653
+    },
+    {
+      "input": [
+        0.4990566037735855
+      ],
+      "expect": 0.49059185617073275
+    },
+    {
+      "input": [
+        0.5069182389937115
+      ],
+      "expect": 0.5686569834983752
+    },
+    {
+      "input": [
+        0.8333333333333336
+      ],
+      "expect": 1.0
+    },
+    {
+      "input": [
+        0.8899371069182392
+      ],
+      "expect": 1.0
+    },
+    {
+      "input": [
+        0.3444736842105264
+      ],
+      "expect": 5.050395630457061e-05
+    },
+    {
+      "input": [
+        0.2794736842105264
+      ],
+      "expect": 1.7622588333043865e-08
+    },
+    {
+      "input": [
+        0.3850000000000001
+      ],
+      "expect": 0.0020201374899460056
+    },
+    {
+      "input": [
+        0.3105263157894737
+      ],
+      "expect": 1.085370788911355e-06
+    },
+    {
+      "input": [
+        0.3177631578947369
+      ],
+      "expect": 2.6078262301276744e-06
+    },
+    {
+      "input": [
+        0.31842105263157905
+      ],
+      "expect": 2.819740894055567e-06
+    },
+    {
+      "input": [
+        0.3086842105263159
+      ],
+      "expect": 8.639431079426885e-07
+    },
+    {
+      "input": [
+        0.10736842105263161
+      ],
+      "expect": 0.0
+    },
+    {
+      "input": [
+        0.6296491228070178
+      ],
+      "expect": 0.9994049203863007
+    },
+    {
+      "input": [
+        0.6551754385964915
+      ],
+      "expect": 0.9999476397599028
+    },
+    {
+      "input": [
+        0.44210526315789495
+      ],
+      "expect": 0.07389688266906363
+    },
+    {
+      "input": [
+        0.4295614035087721
+      ],
+      "expect": 0.039122170968451386
+    },
+    {
+      "input": [
+        0.4337719298245616
+      ],
+      "expect": 0.048891115929668216
+    },
+    {
+      "input": [
+        0.4293859649122809
+      ],
+      "expect": 0.03875240687940307
+    },
+    {
+      "input": [
+        0.2985964912280703
+      ],
+      "expect": 2.388150309173831e-07
+    },
+    {
+      "input": [
+        0.14166666666666675
+      ],
+      "expect": 0.0
+    },
+    {
+      "input": [
+        0.14614035087719307
+      ],
+      "expect": 0.0
+    },
+    {
+      "input": [
+        0.6754385964912285
+      ],
+      "expect": 0.9999942263632036
+    },
+    {
+      "input": [
+        0.5692105263157898
+      ],
+      "expect": 0.9582083656207785
+    },
+    {
+      "input": [
+        0.5346491228070178
+      ],
+      "expect": 0.8068174485825849
+    },
+    {
+      "input": [
+        0.5258771929824565
+      ],
+      "expect": 0.7411613188824713
+    },
+    {
+      "input": [
+        0.5010526315789476
+      ],
+      "expect": 0.5104972694530193
+    },
+    {
+      "input": [
+        0.9703488372093023
+      ],
+      "expect": 1.0
+    },
+    {
+      "input": [
+        0.7806976744186048
+      ],
+      "expect": 0.9999999999988701
+    },
+    {
+      "input": [
+        0.6233720930232561
+      ],
+      "expect": 0.9989798492714312
+    },
+    {
+      "input": [
+        0.6155813953488376
+      ],
+      "expect": 0.9980709390088877
+    },
+    {
+      "input": [
+        0.618023255813954
+      ],
+      "expect": 0.998414117697426
+    },
+    {
+      "input": [
+        0.4872093023255819
+      ],
+      "expect": 0.37457231518983536
+    },
+    {
+      "input": [
+        0.9762790697674418
+      ],
+      "expect": 1.0
+    },
+    {
+      "input": [
+        0.8261627906976746
+      ],
+      "expect": 0.9999999999999998
+    },
+    {
+      "input": [
+        0.7044186046511631
+      ],
+      "expect": 0.9999998393166759
+    },
+    {
+      "input": [
+        0.7015697674418608
+      ],
+      "expect": 0.9999997663130655
+    },
+    {
+      "input": [
+        0.7069767441860471
+      ],
+      "expect": 0.9999998856891268
+    },
+    {
+      "input": [
+        0.6980232558139541
+      ],
+      "expect": 0.9999996300394873
+    },
+    {
+      "input": [
+        0.5174418604651172
+      ],
+      "expect": 0.6685985080621407
+    },
+    {
+      "input": [
+        0.13239277652370204
+      ],
+      "expect": 0.0
+    },
+    {
+      "input": [
+        0.12189616252821672
+      ],
+      "expect": 0.0
+    },
+    {
+      "input": [
+        0.42347629796839736
+      ],
+      "expect": 0.027868102616178003
+    },
+    {
+      "input": [
+        0.4461625282167044
+      ],
+      "expect": 0.08916145062664255
+    },
+    {
+      "input": [
+        0.44785553047404075
+      ],
+      "expect": 0.0961829982120388
+    },
+    {
+      "input": [
+        0.12663656884875849
+      ],
+      "expect": 0.0
+    },
+    {
+      "input": [
+        0.5142212189616254
+      ],
+      "expect": 0.638903890402805
+    },
+    {
+      "input": [
+        0.5128668171557563
+      ],
+      "expect": 0.6261488087822945
+    },
+    {
+      "input": [
+        0.48442437923250575
+      ],
+      "expect": 0.3484936421631638
+    },
+    {
+      "input": [
+        0.47799097065462776
+      ],
+      "expect": 0.2910822776316556
+    },
+    {
+      "input": [
+        0.469525959367946
+      ],
+      "expect": 0.22307446415057153
+    },
+    {
+      "input": [
+        0.21546275395033868
+      ],
+      "expect": 5.659916979539048e-13
+    },
+    {
+      "input": [
+        0.19413092550790076
+      ],
+      "expect": 1.0325074129013956e-14
+    },
+    {
+      "input": [
+        0.6654627539503388
+      ],
+      "expect": 0.9999823731193456
+    },
+    {
+      "input": [
+        0.6184021543985638
+      ],
+      "expect": 0.9984620736841991
+    },
+    {
+      "input": [
+        0.5718132854578099
+      ],
+      "expect": 0.9636996011050643
+    },
+    {
+      "input": [
+        0.5561938958707362
+      ],
+      "expect": 0.9199666692037842
+    },
+    {
+      "input": [
+        0.3087971274685819
+      ],
+      "expect": 8.761629520792624e-07
+    },
+    {
+      "input": [
+        0.3034111310592462
+      ],
+      "expect": 4.4454326791898424e-07
+    },
+    {
+      "input": [
+        0.32495511669658905
+      ],
+      "expect": 6.040468368384566e-06
+    },
+    {
+      "input": [
+        0.7274685816876123
+      ],
+      "expect": 0.999999993524667
+    },
+    {
+      "input": [
+        0.3443447037701979
+      ],
+      "expect": 4.9837347383396846e-05
+    },
+    {
+      "input": [
+        0.3666965888689411
+      ],
+      "expect": 0.00043021548228477924
+    },
+    {
+      "input": [
+        0.4332136445242374
+      ],
+      "expect": 0.0474934361902023
+    },
+    {
+      "input": [
+        0.43267504488330377
+      ],
+      "expect": 0.04617555647556337
+    },
+    {
+      "input": [
+        0.47468581687612244
+      ],
+      "expect": 0.26341430593761583
+    },
+    {
+      "input": [
+        0.6854578096947939
+      ],
+      "expect": 0.9999982277398143
+    },
+    {
+      "input": [
+        0.7172351885098747
+      ],
+      "expect": 0.9999999719615377
+    },
+    {
+      "input": [
+        0.5549371633752248
+      ],
+      "expect": 0.9151905033773426
+    },
+    {
+      "input": [
+        0.7587073608617596
+      ],
+      "expect": 0.9999999999502418
+    },
+    {
+      "input": [
+        0.7535906642728908
+      ],
+      "expect": 0.9999999998849433
+    },
+    {
+      "input": [
+        0.7500897666068226
+      ],
+      "expect": 0.9999999997977019
+    },
+    {
+      "input": [
+        0.6346499102333938
+      ],
+      "expect": 0.9996190088190671
+    },
+    {
+      "input": [
+        0.6545780969479359
+      ],
+      "expect": 0.9999443306560893
+    },
+    {
+      "input": [
+        0.185
+      ],
+      "expect": 1.6653345369377348e-15
+    },
+    {
+      "input": [
+        0.189
+      ],
+      "expect": 3.774758283725532e-15
+    },
+    {
+      "input": [
+        0.2679
+      ],
+      "expect": 3.26666971250944e-09
+    },
+    {
+      "input": [
+        0.26230000000000003
+      ],
+      "expect": 1.4035382855936973e-09
+    },
+    {
+      "input": [
+        0.25350000000000006
+      ],
+      "expect": 3.580266638714136e-10
+    },
+    {
+      "input": [
+        0.2553000000000001
+      ],
+      "expect": 4.752738202995488e-10
+    },
+    {
+      "input": [
+        0.25550000000000006
+      ],
+      "expect": 4.904115447068591e-10
+    },
+    {
+      "input": [
+        0.2695000000000001
+      ],
+      "expect": 4.1438521503067705e-09
+    },
+    {
+      "input": [
+        0.3483000000000001
+      ],
+      "expect": 7.456912526648818e-05
+    },
+    {
+      "input": [
+        0.33150000000000013
+      ],
+      "expect": 1.2627985743862702e-05
+    },
+    {
+      "input": [
+        0.34710000000000013
+      ],
+      "expect": 6.605273931115097e-05
+    },
+    {
+      "input": [
+        0.38130000000000014
+      ],
+      "expect": 0.001501161412882257
+    },
+    {
+      "input": [
+        0.4559000000000002
+      ],
+      "expect": 0.13512217925082537
+    },
+    {
+      "input": [
+        0.3630000000000003
+      ],
+      "expect": 0.00030739971030485647
+    },
+    {
+      "input": [
+        0.4965000000000003
+      ],
+      "expect": 0.46513704271628736
+    },
+    {
+      "input": [
+        0.4631000000000003
+      ],
+      "expect": 0.17813391516303806
+    },
+    {
+      "input": [
+        0.4519000000000003
+      ],
+      "expect": 0.11458493305886197
+    },
+    {
+      "input": [
+        0.7564000000000002
+      ],
+      "expect": 0.9999999999272402
+    },
+    {
+      "input": [
+        0.5339000000000003
+      ],
+      "expect": 0.8016417564663918
+    },
+    {
+      "input": [
+        0.7825000000000002
+      ],
+      "expect": 0.9999999999991823
+    },
+    {
+      "input": [
+        0.5590000000000004
+      ],
+      "expect": 0.929893728288778
+    },
+    {
+      "input": [
+        0.6238000000000004
+      ],
+      "expect": 0.9990159355145302
+    },
+    {
+      "input": [
+        0.6401000000000003
+      ],
+      "expect": 0.999769543108256
+    },
+    {
+      "input": [
+        0.6808000000000005
+      ],
+      "expect": 0.999996908018431
+    },
+    {
+      "input": [
+        0.7297000000000005
+      ],
+      "expect": 0.9999999953355561
+    },
+    {
+      "input": [
+        0.4590000000000001
+      ],
+      "expect": 0.1526815938331108
+    },
+    {
+      "input": [
+        0.5135000000000001
+      ],
+      "expect": 0.6321299939285235
+    },
+    {
+      "input": [
+        0.2382142857142857
+      ],
+      "expect": 2.9818869595743536e-11
+    },
+    {
+      "input": [
+        0.22335714285714303
+      ],
+      "expect": 2.3216983890961274e-12
+    },
+    {
+      "input": [
+        0.24707142857142872
+      ],
+      "expect": 1.2808881733050725e-10
+    },
+    {
+      "input": [
+        0.28835714285714287
+      ],
+      "expect": 6.080092940230486e-08
+    },
+    {
+      "input": [
+        0.2945000000000001
+      ],
+      "expect": 1.392087339846526e-07
+    },
+    {
+      "input": [
+        0.3182142857142859
+      ],
+      "expect": 2.7514238068460095e-06
+    },
+    {
+      "input": [
+        0.38950000000000007
+      ],
+      "expect": 0.0028680280886292375
+    },
+    {
+      "input": [
+        0.3809285714285716
+      ],
+      "expect": 0.001456437629426155
+    },
+    {
+      "input": [
+        0.45771428571428585
+      ],
+      "expect": 0.1452231971618655
+    },
+    {
+      "input": [
+        0.4642857142857145
+      ],
+      "expect": 0.18596684024709037
+    },
+    {
+      "input": [
+        0.485714285714286
+      ],
+      "expect": 0.36049243095083794
+    },
+    {
+      "input": [
+        0.5202857142857145
+      ],
+      "expect": 0.6939727069935062
+    },
+    {
+      "input": [
+        0.5285714285714288
+      ],
+      "expect": 0.7624747379730252
+    },
+    {
+      "input": [
+        0.7060000000000002
+      ],
+      "expect": 0.9999998697567705
+    },
+    {
+      "input": [
+        0.554214285714286
+      ],
+      "expect": 0.9123481014324639
+    },
+    {
+      "input": [
+        0.5567857142857147
+      ],
+      "expect": 0.9221441591005669
+    },
+    {
+      "input": [
+        0.606571428571429
+      ],
+      "expect": 0.9961423998380605
+    },
+    {
+      "input": [
+        0.6662857142857146
+      ],
+      "expect": 0.9999838873752986
+    },
+    {
+      "input": [
+        0.6839285714285719
+      ],
+      "expect": 0.9999978693620638
+    },
+    {
+      "input": [
+        0.7184285714285719
+      ],
+      "expect": 0.9999999762888644
+    },
+    {
+      "input": [
+        0.405374
+      ],
+      "expect": 0.008999225306087988
+    },
+    {
+      "input": [
+        0.649204
+      ],
+      "expect": 0.9999042981057746
+    },
+    {
+      "input": [
+        0.580693
+      ],
+      "expect": 0.9781691958273457
+    },
+    {
+      "input": [
+        0.327685
+      ],
+      "expect": 8.241524382945897e-06
+    },
+    {
+      "input": [
+        0.19074559484944037
+      ],
+      "expect": 5.329070518200751e-15
+    },
+    {
+      "input": [
+        0.2941089292017612
+      ],
+      "expect": 1.321476161830759e-07
+    },
+    {
+      "input": [
+        0.21866980751269655
+      ],
+      "expect": 1.0088596624768797e-12
+    },
+    {
+      "input": [
+        0.3030450386849319
+      ],
+      "expect": 4.242373285445744e-07
+    },
+    {
+      "input": [
+        0.23462491407570796
+      ],
+      "expect": 1.629374413170126e-11
+    },
+    {
+      "input": [
+        0.3319211067217708
+      ],
+      "expect": 1.3229973985340315e-05
+    },
+    {
+      "input": [
+        0.25424900902057285
+      ],
+      "expect": 4.0291542324766283e-10
+    },
+    {
+      "input": [
+        0.37882954647174166
+      ],
+      "expect": 0.0012257625754308332
+    },
+    {
+      "input": [
+        0.26735559229915673
+      ],
+      "expect": 3.0116384386325024e-09
+    },
+    {
+      "input": [
+        0.1687362668914069
+      ],
+      "expect": 5.551115123125783e-17
+    },
+    {
+      "input": [
+        0.29201626101393197
+      ],
+      "expect": 9.986243332260614e-08
+    },
+    {
+      "input": [
+        0.19170147832005555
+      ],
+      "expect": 6.439293542825908e-15
+    },
+    {
+      "input": [
+        0.30700875372197856
+      ],
+      "expect": 7.007853771723305e-07
+    },
+    {
+      "input": [
+        0.20183129789170923
+      ],
+      "expect": 4.518607710224387e-14
+    },
+    {
+      "input": [
+        0.3236154155357876
+      ],
+      "expect": 5.177737075257038e-06
+    },
+    {
+      "input": [
+        0.22126489002535088
+      ],
+      "expect": 1.6030510252562635e-12
+    },
+    {
+      "input": [
+        0.34116635787404304
+      ],
+      "expect": 3.580967539101865e-05
+    },
+    {
+      "input": [
+        0.2622959055280354
+      ],
+      "expect": 1.402661820026907e-09
+    },
+    {
+      "input": [
+        0.3505815153413918
+      ],
+      "expect": 9.368539331644499e-05
+    },
+    {
+      "input": [
+        0.27072105470274
+      ],
+      "expect": 4.963435329408128e-09
+    },
+    {
+      "input": [
+        0.38298589237127406
+      ],
+      "expect": 0.0017203301497388246
+    },
+    {
+      "input": [
+        0.29331390782835753
+      ],
+      "expect": 1.1884378625648395e-07
+    },
+    {
+      "input": [
+        0.43601136480709896
+      ],
+      "expect": 0.054830813710657345
+    },
+    {
+      "input": [
+        0.30696382819532814
+      ],
+      "expect": 6.968471381041397e-07
+    },
+    {
+      "input": [
+        0.1932797238937934
+      ],
+      "expect": 8.770761894538737e-15
+    },
+    {
+      "input": [
+        0.3344913535250494
+      ],
+      "expect": 1.753899631357081e-05
+    },
+    {
+      "input": [
+        0.2190874037943492
+      ],
+      "expect": 1.0872414080154158e-12
+    },
+    {
+      "input": [
+        0.35086714711083267
+      ],
+      "expect": 9.637975228304896e-05
+    },
+    {
+      "input": [
+        0.23169926582231448
+      ],
+      "expect": 9.89808235374312e-12
+    },
+    {
+      "input": [
+        0.3690351229794069
+      ],
+      "expect": 0.0005299543386340089
+    },
+    {
+      "input": [
+        0.25178418520126133
+      ],
+      "expect": 2.7279778436195556e-10
+    },
+    {
+      "input": [
+        0.3882237865463249
+      ],
+      "expect": 0.0025997630622728862
+    },
+    {
+      "input": [
+        0.2978614520403114
+      ],
+      "expect": 2.169344052171951e-07
+    },
+    {
+      "input": [
+        0.39811799199785175
+      ],
+      "expect": 0.005431890199389278
+    },
+    {
+      "input": [
+        0.30681719532977203
+      ],
+      "expect": 6.84140637141617e-07
+    },
+    {
+      "input": [
+        0.454658287324077
+      ],
+      "expect": 0.12849318557536138
+    },
+    {
+      "input": [
+        0.33178130557633884
+      ],
+      "expect": 1.3027159477707606e-05
+    },
+    {
+      "input": [
+        0.49319318314245625
+      ],
+      "expect": 0.4324380563458585
+    },
+    {
+      "input": [
+        0.3465720640914995
+      ],
+      "expect": 6.260399221535984e-05
+    },
+    {
+      "input": [
+        0.22035156757998353
+      ],
+      "expect": 1.3626322292736859e-12
+    },
+    {
+      "input": [
+        0.3769664460361668
+      ],
+      "expect": 0.0010495563154183096
+    },
+    {
+      "input": [
+        0.24647332926864288
+      ],
+      "expect": 1.1625755913513558e-10
+    },
+    {
+      "input": [
+        0.3947255404996868
+      ],
+      "expect": 0.0042459237856209975
+    },
+    {
+      "input": [
+        0.2602160985389071
+      ],
+      "expect": 1.0199500133367678e-09
+    },
+    {
+      "input": [
+        0.41445483042302633
+      ],
+      "expect": 0.016232853756085408
+    },
+    {
+      "input": [
+        0.28230348037717184
+      ],
+      "expect": 2.6281818443774085e-08
+    },
+    {
+      "input": [
+        0.43636292394243464
+      ],
+      "expect": 0.05581301378470982
+    },
+    {
+      "input": [
+        0.3334269985525874
+      ],
+      "expect": 1.561374927350201e-05
+    },
+    {
+      "input": [
+        0.4456544686543117
+      ],
+      "expect": 0.08713061879523931
+    },
+    {
+      "input": [
+        0.34291333595680407
+      ],
+      "expect": 4.2976222779989026e-05
+    },
+    {
+      "input": [
+        0.5081474975974978
+      ],
+      "expect": 0.5807011210417793
+    },
+    {
+      "input": [
+        0.3702487033243202
+      ],
+      "expect": 0.0005897690621075591
+    },
+    {
+      "input": [
+        0.5503750014778135
+      ],
+      "expect": 0.896052549178278
+    },
+    {
+      "input": [
+        0.396404370274164
+      ],
+      "expect": 0.004800319859792679
+    },
+    {
+      "input": [
+        0.2451799132227986
+      ],
+      "expect": 9.420514368585486e-11
+    },
+    {
+      "input": [
+        0.4194415385472842
+      ],
+      "expect": 0.022006785975722587
+    },
+    {
+      "input": [
+        0.27385925474293654
+      ],
+      "expect": 7.859803141663235e-09
+    },
+    {
+      "input": [
+        0.4480608555103862
+      ],
+      "expect": 0.09706146055791487
+    },
+    {
+      "input": [
+        0.28873293125549965
+      ],
+      "expect": 6.400346364010545e-08
+    },
+    {
+      "input": [
+        0.45987453786664567
+      ],
+      "expect": 0.1578974900967992
+    },
+    {
+      "input": [
+        0.3128227755530823
+      ],
+      "expect": 1.4383634741044204e-06
+    },
+    {
+      "input": [
+        0.48353729409837354
+      ],
+      "expect": 0.3403281743784843
+    },
+    {
+      "input": [
+        0.36899254506486345
+      ],
+      "expect": 0.0005279614333169036
+    },
+    {
+      "input": [
+        0.4931909453107716
+      ],
+      "expect": 0.43241605813899264
+    },
+    {
+      "input": [
+        0.39040093499141193
+      ],
+      "expect": 0.0030721777013120732
+    },
+    {
+      "input": [
+        0.5616367078709187
+      ],
+      "expect": 0.9383315908983669
+    },
+    {
+      "input": [
+        0.40871610107230155
+      ],
+      "expect": 0.011241793077350182
+    },
+    {
+      "input": [
+        0.6075568198131708
+      ],
+      "expect": 0.9964158255113482
+    },
+    {
+      "input": [
+        0.43706122876382186
+      ],
+      "expect": 0.05780509796458322
+    },
+    {
+      "input": [
+        0.27000825886561364
+      ],
+      "expect": 4.467624992177122e-09
+    },
+    {
+      "input": [
+        0.46191663105840164
+      ],
+      "expect": 0.17052713470341002
+    },
+    {
+      "input": [
+        0.30397023430519976
+      ],
+      "expect": 4.773716476003109e-07
+    },
+    {
+      "input": [
+        0.49286694106142487
+      ],
+      "expect": 0.4292332945977479
+    },
+    {
+      "input": [
+        0.31724976397209226
+      ],
+      "expect": 2.453138905900154e-06
+    },
+    {
+      "input": [
+        0.505294245310265
+      ],
+      "expect": 0.5526486948326017
+    },
+    {
+      "input": [
+        0.3776720977011981
+      ],
+      "expect": 0.0011133636210536313
+    },
+    {
+      "input": [
+        0.5307116642543125
+      ],
+      "expect": 0.7786944990034607
+    },
+    {
+      "input": [
+        0.40455809157713946
+      ],
+      "expect": 0.00851527073593078
+    },
+    {
+      "input": [
+        0.5407274219672316
+      ],
+      "expect": 0.8457051071997315
+    },
+    {
+      "input": [
+        0.42758197641916545
+      ],
+      "expect": 0.03511297006679065
+    },
+    {
+      "input": [
+        0.6151259181443395
+      ],
+      "expect": 0.9979999125956146
+    },
+    {
+      "input": [
+        0.44718349882028285
+      ],
+      "expect": 0.09334866128907304
+    },
+    {
+      "input": [
+        0.6694633172941323
+      ],
+      "expect": 0.9999886526439565
+    },
+    {
+      "input": [
+        0.4777180872534798
+      ],
+      "expect": 0.28874737911152115
+    },
+    {
+      "input": [
+        0.29483660450842875
+      ],
+      "expect": 1.455770201608253e-07
+    },
+    {
+      "input": [
+        0.504391723569519
+      ],
+      "expect": 0.5437132640502815
+    },
+    {
+      "input": [
+        0.3316038919693089
+      ],
+      "expect": 1.277403449390091e-05
+    },
+    {
+      "input": [
+        0.5376730266124635
+      ],
+      "expect": 0.82685904860565
+    },
+    {
+      "input": [
+        0.3457665966886848
+      ],
+      "expect": 5.7667613131417994e-05
+    },
+    {
+      "input": [
+        0.5609162274042337
+      ],
+      "expect": 0.9361088483678794
+    },
+    {
+      "input": [
+        0.41124295083019347
+      ],
+      "expect": 0.01324587187146875
+    },
+    {
+      "input": [
+        0.5778860344102513
+      ],
+      "expect": 0.9742416745170631
+    },
+    {
+      "input": [
+        0.44012363808941546
+      ],
+      "expect": 0.06720846282392012
+    },
+    {
+      "input": [
+        0.6137717090785033
+      ],
+      "expect": 0.9977744932583122
+    },
+    {
+      "input": [
+        0.464763017846919
+      ],
+      "expect": 0.18917932833817924
+    },
+    {
+      "input": [
+        0.6686151284177604
+      ],
+      "expect": 0.9999875320032693
+    },
+    {
+      "input": [
+        0.4856508965682642
+      ],
+      "expect": 0.3598994448040809
+    },
+    {
+      "input": [
+        0.7270515596420147
+      ],
+      "expect": 0.9999999931175919
+    },
+    {
+      "input": [
+        0.5183749457431377
+      ],
+      "expect": 0.6770170641386617
+    },
+    {
+      "input": [
+        0.3196649501512438
+      ],
+      "expect": 3.266282736502646e-06
+    },
+    {
+      "input": [
+        0.5494179357564971
+      ],
+      "expect": 0.8916681642672171
+    },
+    {
+      "input": [
+        0.359237549633418
+      ],
+      "expect": 0.00021653834792234594
+    },
+    {
+      "input": [
+        0.5824791121635021
+      ],
+      "expect": 0.9803950753976787
+    },
+    {
+      "input": [
+        0.37428342940527737
+      ],
+      "expect": 0.0008363741342188868
+    },
+    {
+      "input": [
+        0.6071773595612839
+      ],
+      "expect": 0.9963126628811089
+    },
+    {
+      "input": [
+        0.4448138039591889
+      ],
+      "expect": 0.08384646246326488
+    },
+    {
+      "input": [
+        0.6250604045661903
+      ],
+      "expect": 0.9991155279018267
+    },
+    {
+      "input": [
+        0.4774466424924549
+      ],
+      "expect": 0.2864335763970083
+    },
+    {
+      "input": [
+        0.663369422943433
+      ],
+      "expect": 0.9999778889243967
+    },
+    {
+      "input": [
+        0.5019440592746724
+      ],
+      "expect": 0.5193815554982084
+    },
+    {
+      "input": [
+        0.7221043386911812
+      ],
+      "expect": 0.9999999859281014
+    },
+    {
+      "input": [
+        0.5245297428942512
+      ],
+      "expect": 0.7301423510049208
+    },
+    {
+      "input": [
+        0.7846398019898971
+      ],
+      "expect": 0.9999999999994444
+    },
+    {
+      "input": [
+        0.5590318042327955
+      ],
+      "expect": 0.9300005474946681
+    },
+    {
+      "input": [
+        0.34449329579405885
+      ],
+      "expect": 5.060604891277132e-05
+    },
+    {
+      "input": [
+        0.5920911734851572
+      ],
+      "expect": 0.9893402878417689
+    },
+    {
+      "input": [
+        0.38687120729752705
+      ],
+      "expect": 0.0023403827039829572
+    },
+    {
+      "input": [
+        0.6272851977145408
+      ],
+      "expect": 0.9992690189500208
+    },
+    {
+      "input": [
+        0.41961406270319956
+      ],
+      "expect": 0.022234205688928865
+    },
+    {
+      "input": [
+        0.6534384917183341
+      ],
+      "expect": 0.9999374632009673
+    },
+    {
+      "input": [
+        0.4783846570881843
+      ],
+      "expect": 0.29446626711103296
+    },
+    {
+      "input": [
+        0.6722347747221291
+      ],
+      "expect": 0.9999916834402054
+    },
+    {
+      "input": [
+        0.5131435877255357
+      ],
+      "expect": 0.6287670802253111
+    },
+    {
+      "input": [
+        0.7129671368083625
+      ],
+      "expect": 0.9999999492948338
+    },
+    {
+      "input": [
+        0.539125100702426
+      ],
+      "expect": 0.8359943702193704
+    },
+    {
+      "input": [
+        0.7755935489646021
+      ],
+      "expect": 0.9999999999972072
+    },
+    {
+      "input": [
+        0.5630273387030037
+      ],
+      "expect": 0.942450615314515
+    },
+    {
+      "input": [
+        0.8422280443377795
+      ],
+      "expect": 1.0
+    },
+    {
+      "input": [
+        0.5996886627224534
+      ],
+      "expect": 0.9936525697162137
+    },
+    {
+      "input": [
+        0.40525687101780083
+      ],
+      "expect": 0.008928301931326987
+    },
+    {
+      "input": [
+        0.6342878068392708
+      ],
+      "expect": 0.9996063124423287
+    },
+    {
+      "input": [
+        0.4204991799641591
+      ],
+      "expect": 0.023432373181030475
+    },
+    {
+      "input": [
+        0.6697616380124001
+      ],
+      "expect": 0.9999890234868061
+    },
+    {
+      "input": [
+        0.45746460607635575
+      ],
+      "expect": 0.1438037305955856
+    },
+    {
+      "input": [
+        0.6947460095266348
+      ],
+      "expect": 0.9999994381845987
+    },
+    {
+      "input": [
+        0.5190122061538239
+      ],
+      "expect": 0.6827152569284758
+    },
+    {
+      "input": [
+        0.7138272016552714
+      ],
+      "expect": 0.9999999549608958
+    },
+    {
+      "input": [
+        0.554882240891964
+      ],
+      "expect": 0.9149770007586557
+    },
+    {
+      "input": [
+        0.7490891718496039
+      ],
+      "expect": 0.999999999762622
+    },
+    {
+      "input": [
+        0.581127947654992
+      ],
+      "expect": 0.9787300132880423
+    },
+    {
+      "input": [
+        0.8302260062906188
+      ],
+      "expect": 0.9999999999999999
+    },
+    {
+      "input": [
+        0.6045551826510328
+      ],
+      "expect": 0.995523970706626
+    },
+    {
+      "input": [
+        0.8643419855899234
+      ],
+      "expect": 1.0
+    },
+    {
+      "input": [
+        0.6388193935412068
+      ],
+      "expect": 0.9997402401641833
+    },
+    {
+      "input": [
+        0.46399693313949963
+      ],
+      "expect": 0.18403972489208165
+    },
+    {
+      "input": [
+        0.6704075296205774
+      ],
+      "expect": 0.9999897872597546
+    },
+    {
+      "input": [
+        0.4784492619677432
+      ],
+      "expect": 0.29502331767853274
+    },
+    {
+      "input": [
+        0.7095475706591423
+      ],
+      "expect": 0.9999999191394662
+    },
+    {
+      "input": [
+        0.5124048991319148
+      ],
+      "expect": 0.6217660904145678
+    },
+    {
+      "input": [
+        0.7256578060302667
+      ],
+      "expect": 0.999999991568562
+    },
+    {
+      "input": [
+        0.5683442875739446
+      ],
+      "expect": 0.9562381319742848
+    },
+    {
+      "input": [
+        0.7431782578957564
+      ],
+      "expect": 0.9999999993970469
+    },
+    {
+      "input": [
+        0.6011282418382535
+      ],
+      "expect": 0.9942676476716802
+    },
+    {
+      "input": [
+        0.775157829319775
+      ],
+      "expect": 0.9999999999969851
+    },
+    {
+      "input": [
+        0.6292214685138111
+      ],
+      "expect": 0.9993822098240074
+    },
+    {
+      "input": [
+        0.8480969529968695
+      ],
+      "expect": 1.0
+    },
+    {
+      "input": [
+        0.6467359631682561
+      ],
+      "expect": 0.9998779629995145
+    },
+    {
+      "input": [
+        0.8788121737936649
+      ],
+      "expect": 1.0
+    },
+    {
+      "input": [
+        0.6787121637424036
+      ],
+      "expect": 0.9999960486686625
+    },
+    {
+      "input": [
+        0.5227369952611984
+      ],
+      "expect": 0.7151267503440135
+    },
+    {
+      "input": [
+        0.7065272524018841
+      ],
+      "expect": 0.9999998786061168
+    },
+    {
+      "input": [
+        0.5363993439713275
+      ],
+      "expect": 0.818584420403025
+    },
+    {
+      "input": [
+        0.7418200628081266
+      ],
+      "expect": 0.9999999992552705
+    },
+    {
+      "input": [
+        0.5673451921874737
+      ],
+      "expect": 0.953873382524495
+    },
+    {
+      "input": [
+        0.7565696025338988
+      ],
+      "expect": 0.9999999999292365
+    },
+    {
+      "input": [
+        0.6221206935860699
+      ],
+      "expect": 0.998867235764607
+    },
+    {
+      "input": [
+        0.7725293141362415
+      ],
+      "expect": 0.9999999999952285
+    },
+    {
+      "input": [
+        0.647374242784543
+      ],
+      "expect": 0.9998853592301253
+    },
+    {
+      "input": [
+        0.801226486789946
+      ],
+      "expect": 0.9999999999999748
+    },
+    {
+      "input": [
+        0.6728424722180687
+      ],
+      "expect": 0.9999922359915805
+    },
+    {
+      "input": [
+        0.8659678997031202
+      ],
+      "expect": 1.0
+    },
+    {
+      "input": [
+        0.6889167436854793
+      ],
+      "expect": 0.9999988375803641
+    },
+    {
+      "input": [
+        0.9201861444586906
+      ],
+      "expect": 1.0
+    },
+    {
+      "input": [
+        0.7176561438948397
+      ],
+      "expect": 0.9999999735688013
+    },
+    {
+      "input": [
+        0.5814770573828971
+      ],
+      "expect": 0.9791712926828888
+    },
+    {
+      "input": [
+        0.7426469751831908
+      ],
+      "expect": 0.9999999993450355
+    },
+    {
+      "input": [
+        0.5986574456557718
+      ],
+      "expect": 0.9931767470500475
+    },
+    {
+      "input": [
+        0.7740925549571108
+      ],
+      "expect": 0.9999999999963668
+    },
+    {
+      "input": [
+        0.6222854852430327
+      ],
+      "expect": 0.9988826899013677
+    },
+    {
+      "input": [
+        0.7874813990375307
+      ],
+      "expect": 0.9999999999996689
+    },
+    {
+      "input": [
+        0.6708793137685126
+      ],
+      "expect": 0.9999903128757516
+    },
+    {
+      "input": [
+        0.8018803703767265
+      ],
+      "expect": 0.9999999999999778
+    },
+    {
+      "input": [
+        0.6936202437308325
+      ],
+      "expect": 0.9999993524555751
+    },
+    {
+      "input": [
+        0.835815365682052
+      ],
+      "expect": 1.0
+    },
+    {
+      "input": [
+        0.7164634759223263
+      ],
+      "expect": 0.9999999687656664
+    },
+    {
+      "input": [
+        0.8838388464093708
+      ],
+      "expect": 1.0
+    },
+    {
+      "input": [
+        0.7310975242027025
+      ],
+      "expect": 0.9999999962076696
+    },
+    {
+      "input": [
+        0.9310083621592072
+      ],
+      "expect": 1.0
+    },
+    {
+      "input": [
+        0.7566001240472756
+      ],
+      "expect": 0.99999999992959
+    },
+    {
+      "input": [
+        0.519325
+      ],
+      "expect": 0.6854965079661826
+    },
+    {
+      "input": [
+        0.20436399366248578
+      ],
+      "expect": 7.294165271787278e-14
+    },
+    {
+      "input": [
+        0.21978769129739043
+      ],
+      "expect": 1.2322365350314612e-12
+    },
+    {
+      "input": [
+        0.23521138893229504
+      ],
+      "expect": 1.7994605805427e-11
+    },
+    {
+      "input": [
+        0.2506350865671996
+      ],
+      "expect": 2.2715823666530355e-10
+    },
+    {
+      "input": [
+        0.2465015893235436
+      ],
+      "expect": 1.1679168743228274e-10
+    },
+    {
+      "input": [
+        0.2607915365307055
+      ],
+      "expect": 1.1142398115282504e-09
+    },
+    {
+      "input": [
+        0.2750814837378675
+      ],
+      "expect": 9.385485943980143e-09
+    },
+    {
+      "input": [
+        0.28937143094502943
+      ],
+      "expect": 6.982268480060227e-08
+    },
+    {
+      "input": [
+        0.41356715608996747
+      ],
+      "expect": 0.015354580842232401
+    },
+    {
+      "input": [
+        0.433029139905966
+      ],
+      "expect": 0.04703862627094374
+    },
+    {
+      "input": [
+        0.45249112372196443
+      ],
+      "expect": 0.1174714949972615
+    },
+    {
+      "input": [
+        0.5185554562159662
+      ],
+      "expect": 0.6786354333822971
+    },
+    {
+      "input": [
+        0.5399391863692019
+      ],
+      "expect": 0.8409765884611007
+    },
+    {
+      "input": [
+        0.5586028306828549
+      ],
+      "expect": 0.9285491943369002
+    },
+    {
+      "input": [
+        0.5771879746541031
+      ],
+      "expect": 0.9731779507354765
+    },
+    {
+      "input": [
+        0.720834258624421
+      ],
+      "expect": 0.9999999831324364
+    },
+    {
+      "input": [
+        0.7338187117116572
+      ],
+      "expect": 0.9999999974742666
+    },
+    {
+      "input": [
+        0.7468031647988935
+      ],
+      "expect": 0.9999999996587209
+    },
+    {
+      "input": [
+        0.6825973679260741
+      ],
+      "expect": 0.999997501744809
+    },
+    {
+      "input": [
+        0.6997542669570971
+      ],
+      "expect": 0.9999997040733631
+    },
+    {
+      "input": [
+        0.7169111659881202
+      ],
+      "expect": 0.9999999706602627
+    },
+    {
+      "input": [
+        0.7340680650191432
+      ],
+      "expect": 0.9999999975671552
+    },
+    {
+      "input": [
+        0.695403780850621
+      ],
+      "expect": 0.9999994831037619
+    },
+    {
+      "input": [
+        0.7164104166540265
+      ],
+      "expect": 0.999999968533417
+    },
+    {
+      "input": [
+        0.7374170524574319
+      ],
+      "expect": 0.9999999985345853
+    },
+    {
+      "input": [
+        0.46579099999999996
+      ],
+      "expect": 0.1962132993034022
+    },
+    {
+      "input": [
+        0.34144171993840694
+      ],
+      "expect": 3.685876810183286e-05
+    },
+    {
+      "input": [
+        0.24758207403160976
+      ],
+      "expect": 1.39114275654606e-10
+    },
+    {
+      "input": [
+        0.19422948732476986
+      ],
+      "expect": 1.0547118733938987e-14
+    },
+    {
+      "input": [
+        0.26963764939973467
+      ],
+      "expect": 4.229212702266949e-09
+    },
+    {
+      "input": [
+        0.2223978199137431
+      ],
+      "expect": 1.9597656830683263e-12
+    },
+    {
+      "input": [
+        0.322387879373671
+      ],
+      "expect": 4.491614974955205e-06
+    },
+    {
+      "input": [
+        0.2670742315870868
+      ],
+      "expect": 2.8875341007150723e-09
+    },
+    {
+      "input": [
+        0.4165588983248566
+      ],
+      "expect": 0.01848806415459603
+    },
+    {
+      "input": [
+        0.299955205076758
+      ],
+      "expect": 2.8499128768011417e-07
+    },
+    {
+      "input": [
+        0.2337947532612971
+      ],
+      "expect": 1.4152345961804258e-11
+    },
+    {
+      "input": [
+        0.3235651792796817
+      ],
+      "expect": 5.147793612103602e-06
+    },
+    {
+      "input": [
+        0.26531669744095676
+      ],
+      "expect": 2.21764928642898e-09
+    },
+    {
+      "input": [
+        0.38353040822040174
+      ],
+      "expect": 0.0017971095442027574
+    },
+    {
+      "input": [
+        0.31603784071138613
+      ],
+      "expect": 2.1220690315515434e-06
+    },
+    {
+      "input": [
+        0.49167607671130614
+      ],
+      "expect": 0.4175761922761276
+    },
+    {
+      "input": [
+        0.3523283361219063
+      ],
+      "expect": 0.00011133994968581806
+    },
+    {
+      "input": [
+        0.27336001919782427
+      ],
+      "expect": 7.308496696722955e-09
+    },
+    {
+      "input": [
+        0.3772873990947693
+      ],
+      "expect": 0.0010781502448485858
+    },
+    {
+      "input": [
+        0.30823557496817033
+      ],
+      "expect": 8.169904680555007e-07
+    },
+    {
+      "input": [
+        0.44467293706713257
+      ],
+      "expect": 0.08330536551859258
+    },
+    {
+      "input": [
+        0.3650014498356854
+      ],
+      "expect": 0.0003691270672984137
+    },
+    {
+      "input": [
+        0.5667932550977557
+      ],
+      "expect": 0.9525236347824803
+    },
+    {
+      "input": [
+        0.4047014671670545
+      ],
+      "expect": 0.008598622544492118
+    },
+    {
+      "input": [
+        0.3129252851343515
+      ],
+      "expect": 1.4564490442570133e-06
+    },
+    {
+      "input": [
+        0.4311855989654507
+      ],
+      "expect": 0.04268350925817699
+    },
+    {
+      "input": [
+        0.35115445249538396
+      ],
+      "expect": 9.916323763847767e-05
+    },
+    {
+      "input": [
+        0.5058154659138633
+      ],
+      "expect": 0.5577971969346687
+    },
+    {
+      "input": [
+        0.4139650589599847
+      ],
+      "expect": 0.015743091827493172
+    },
+    {
+      "input": [
+        0.635200377290574
+      ],
+      "expect": 0.9996375832887268
+    },
+    {
+      "input": [
+        0.45707459821220275
+      ],
+      "expect": 0.1416052646519842
+    },
+    {
+      "input": [
+        0.35249055107087873
+      ],
+      "expect": 0.00011312900796578429
+    },
+    {
+      "input": [
+        0.48508379883613206
+      ],
+      "expect": 0.3546095644458921
+    },
+    {
+      "input": [
+        0.3940733300225976
+      ],
+      "expect": 0.004046479789866386
+    },
+    {
+      "input": [
+        0.566957994760594
+      ],
+      "expect": 0.9529297739423979
+    },
+    {
+      "input": [
+        0.462928668084284
+      ],
+      "expect": 0.17701952923607767
+    },
+    {
+      "input": [
+        0.7095323363352156
+      ],
+      "expect": 0.9999999189724544
+    },
+    {
+      "input": [
+        0.509447729257351
+      ],
+      "expect": 0.5933586342556283
+    },
+    {
+      "input": [
+        0.39205581700740594
+      ],
+      "expect": 0.0034815428615175836
+    },
+    {
+      "input": [
+        0.5389819987068134
+      ],
+      "expect": 0.8351082290878227
+    },
+    {
+      "input": [
+        0.43699220754981116
+      ],
+      "expect": 0.05760574226062354
+    },
+    {
+      "input": [
+        0.6281005236073248
+      ],
+      "expect": 0.9993188294577193
+    },
+    {
+      "input": [
+        0.5118922772085833
+      ],
+      "expect": 0.6168839044077203
+    },
+    {
+      "input": [
+        0.7838642953798572
+      ],
+      "expect": 0.9999999999993607
+    },
+    {
+      "input": [
+        0.5618208603024993
+      ],
+      "expect": 0.938889914646891
+    },
+    {
+      "input": [
+        0.4316210829439332
+      ],
+      "expect": 0.04368169125783211
+    },
+    {
+      "input": [
+        0.5931272441315025
+      ],
+      "expect": 0.9900487554210124
+    },
+    {
+      "input": [
+        0.48362625396317405
+      ],
+      "expect": 0.34114374295591704
+    },
+    {
+      "input": [
+        0.6836769750857649
+      ],
+      "expect": 0.9999978041124168
+    },
+    {
+      "input": [
+        0.5690700669113753
+      ],
+      "expect": 0.9578938644241678
+    },
+    {
+      "input": [
+        0.8274953992178672
+      ],
+      "expect": 0.9999999999999999
+    },
+    {
+      "input": [
+        0.6195599251872822
+      ],
+      "expect": 0.998600530774884
+    },
+    {
+      "input": [
+        0.5097320294450061
+      ],
+      "expect": 0.5961137829106341
+    },
+    {
+      "input": [
+        0.6497804126701543
+      ],
+      "expect": 0.9999096270248063
+    },
+    {
+      "input": [
+        0.5573939319684351
+      ],
+      "expect": 0.9243348344636294
+    },
+    {
+      "input": [
+        0.7294605707970359
+      ],
+      "expect": 0.9999999951677545
+    },
+    {
+      "input": [
+        0.6331272191272521
+      ],
+      "expect": 0.9995629239189384
+    },
+    {
+      "input": [
+        0.8534892431713392
+      ],
+      "expect": 1.0
+    },
+    {
+      "input": [
+        0.6785013452286892
+      ],
+      "expect": 0.9999959501894344
+    },
+    {
+      "input": [
+        0.5878906914175415
+      ],
+      "expect": 0.9859993186803104
+    },
+    {
+      "input": [
+        0.7064335812088058
+      ],
+      "expect": 0.9999998770775764
+    },
+    {
+      "input": [
+        0.6311616099736961
+      ],
+      "expect": 0.9994791961065723
+    },
+    {
+      "input": [
+        0.7752441665083067
+      ],
+      "expect": 0.9999999999970305
+    },
+    {
+      "input": [
+        0.6971843713431289
+      ],
+      "expect": 0.9999995880288247
+    },
+    {
+      "input": [
+        0.8794830871248114
+      ],
+      "expect": 1.0
+    },
+    {
+      "input": [
+        0.646257
+      ],
+      "expect": 0.9998721214027636
+    },
+    {
+      "input": [
+        0.241267081924937
+      ],
+      "expect": 4.9548254388298574e-11
+    },
+    {
+      "input": [
+        0.25830832510091306
+      ],
+      "expect": 7.597014128890578e-10
+    },
+    {
+      "input": [
+        0.27290113265885796
+      ],
+      "expect": 6.835007337890886e-09
+    },
+    {
+      "input": [
+        0.29807757855228245
+      ],
+      "expect": 2.231588692724884e-07
+    },
+    {
+      "input": [
+        0.3137443379551501
+      ],
+      "expect": 1.608998319857502e-06
+    },
+    {
+      "input": [
+        0.3501824015566355
+      ],
+      "expect": 9.003895552095464e-05
+    },
+    {
+      "input": [
+        0.38219737317769203
+      ],
+      "expect": 0.0016144306133906161
+    },
+    {
+      "input": [
+        0.34141568196925054
+      ],
+      "expect": 3.6758336101949673e-05
+    },
+    {
+      "input": [
+        0.35978659567627186
+      ],
+      "expect": 0.0002280164441210708
+    },
+    {
+      "input": [
+        0.37466087704012707
+      ],
+      "expect": 0.0008637391216019807
+    },
+    {
+      "input": [
+        0.403847041909544
+      ],
+      "expect": 0.008112292277531907
+    },
+    {
+      "input": [
+        0.4199347292630472
+      ],
+      "expect": 0.02266217483662092
+    },
+    {
+      "input": [
+        0.46347670794260587
+      ],
+      "expect": 0.18059962894191062
+    },
+    {
+      "input": [
+        0.5006247282468361
+      ],
+      "expect": 0.5062305094849059
+    },
+    {
+      "input": [
+        0.4415642820135641
+      ],
+      "expect": 0.07202241088162187
+    },
+    {
+      "input": [
+        0.46126486625163066
+      ],
+      "expect": 0.16642772551782425
+    },
+    {
+      "input": [
+        0.47642062142139624
+      ],
+      "expect": 0.27776816534669485
+    },
+    {
+      "input": [
+        0.50754778274407
+      ],
+      "expect": 0.5748338956268705
+    },
+    {
+      "input": [
+        0.5261251205709442
+      ],
+      "expect": 0.7431631233587059
+    },
+    {
+      "input": [
+        0.5767710143285761
+      ],
+      "expect": 0.9725252525646351
+    },
+    {
+      "input": [
+        0.6190520833159803
+      ],
+      "expect": 0.9985412633624692
+    },
+    {
+      "input": [
+        0.5417128820578776
+      ],
+      "expect": 0.8514846418357578
+    },
+    {
+      "input": [
+        0.564629063044898
+      ],
+      "expect": 0.9469232788038606
+    },
+    {
+      "input": [
+        0.58281506813332
+      ],
+      "expect": 0.9807914591396836
+    },
+    {
+      "input": [
+        0.6170984987404032
+      ],
+      "expect": 0.9982912984797596
+    },
+    {
+      "input": [
+        0.6370574211157006
+      ],
+      "expect": 0.9996942205376877
+    },
+    {
+      "input": [
+        0.6848410055762504
+      ],
+      "expect": 0.9999980907575188
+    },
+    {
+      "input": [
+        0.7212399213471062
+      ],
+      "expect": 0.9999999840793052
+    },
+    {
+      "input": [
+        0.6653260567731805
+      ],
+      "expect": 0.9999821088591166
+    },
+    {
+      "input": [
+        0.6874259939809526
+      ],
+      "expect": 0.9999986046348738
+    },
+    {
+      "input": [
+        0.705189314814213
+      ],
+      "expect": 0.9999998549231854
+    },
+    {
+      "input": [
+        0.7340961796808358
+      ],
+      "expect": 0.9999999975774175
+    },
+    {
+      "input": [
+        0.284142
+      ],
+      "expect": 3.398617109962032e-08
+    },
+    {
+      "input": [
+        0.2602552964512807
+      ],
+      "expect": 1.0261182459281315e-09
+    },
+    {
+      "input": [
+        0.3378003232389963
+      ],
+      "expect": 2.506801800317149e-05
+    },
+    {
+      "input": [
+        0.2946286374920159
+      ],
+      "expect": 1.4161002936941003e-07
+    },
+    {
+      "input": [
+        0.3874707728243303
+      ],
+      "expect": 0.002452322615155933
+    },
+    {
+      "input": [
+        0.33730910276741793
+      ],
+      "expect": 2.378331132790734e-05
+    },
+    {
+      "input": [
+        0.4305230809159225
+      ],
+      "expect": 0.041200383558440135
+    },
+    {
+      "input": [
+        0.38101827025004686
+      ],
+      "expect": 0.0014671254734385242
+    },
+    {
+      "input": [
+        0.25116155377176774
+      ],
+      "expect": 2.4705926193746564e-10
+    },
+    {
+      "input": [
+        0.41706053905748375
+      ],
+      "expect": 0.019063512010351502
+    },
+    {
+      "input": [
+        0.27370169321282384
+      ],
+      "expect": 7.681584590635282e-09
+    },
+    {
+      "input": [
+        0.4618758310595938
+      ],
+      "expect": 0.1702686332122365
+    },
+    {
+      "input": [
+        0.4166651779921096
+      ],
+      "expect": 0.018608730252499428
+    },
+    {
+      "input": [
+        0.49861595398478875
+      ],
+      "expect": 0.4861988920898811
+    },
+    {
+      "input": [
+        0.48613725186182644
+      ],
+      "expect": 0.36445768066187206
+    },
+    {
+      "input": [
+        0.6152791601853149
+      ],
+      "expect": 0.9980240696771736
+    },
+    {
+      "input": [
+        0.5205105929025616
+      ],
+      "expect": 0.6959420802629204
+    },
+    {
+      "input": [
+        0.6575042005901894
+      ],
+      "expect": 0.9999588505409774
+    },
+    {
+      "input": [
+        0.5688944569062424
+      ],
+      "expect": 0.9574979663101475
+    },
+    {
+      "input": [
+        0.7134382483749575
+      ],
+      "expect": 0.9999999524788302
+    },
+    {
+      "input": [
+        0.6040233036831921
+      ],
+      "expect": 0.9953467193158382
+    },
+    {
+      "input": [
+        0.744252049155131
+      ],
+      "expect": 0.9999999994901676
+    },
+    {
+      "input": [
+        0.6508609402627938
+      ],
+      "expect": 0.9999188730652004
+    },
+    {
+      "input": [
+        0.47577912161148606
+      ],
+      "expect": 0.27241611909113916
+    },
+    {
+      "input": [
+        0.6843400281828
+      ],
+      "expect": 0.9999979720849969
+    },
+    {
+      "input": [
+        0.6473847296443217
+      ],
+      "expect": 0.9998854771603145
+    },
+    {
+      "input": [
+        0.7264021926513231
+      ],
+      "expect": 0.9999999924337675
+    },
+    {
+      "input": [
+        0.6871961311360919
+      ],
+      "expect": 0.9999985649485754
+    },
+    {
+      "input": [
+        0.7588629494554034
+      ],
+      "expect": 0.9999999999515063
+    },
+    {
+      "input": [
+        0.718314
+      ],
+      "expect": 0.999999975903274
+    },
+    {
+      "input": [
+        0.37658386986540743
+      ],
+      "expect": 0.0010163817196776614
+    },
+    {
+      "input": [
+        0.22052015781421105
+      ],
+      "expect": 1.404210081545898e-12
+    },
+    {
+      "input": [
+        0.24267988062970353
+      ],
+      "expect": 6.255362894336258e-11
+    },
+    {
+      "input": [
+        0.2534413613805637
+      ],
+      "expect": 3.547260263303542e-10
+    },
+    {
+      "input": [
+        0.26573747272035353
+      ],
+      "expect": 2.3627193534991875e-09
+    },
+    {
+      "input": [
+        0.42537952686802477
+      ],
+      "expect": 0.031054847897811044
+    },
+    {
+      "input": [
+        0.2631272377076554
+      ],
+      "expect": 1.59199919913533e-09
+    },
+    {
+      "input": [
+        0.27800076111184463
+      ],
+      "expect": 1.4285034599659241e-08
+    },
+    {
+      "input": [
+        0.30004057968763354
+      ],
+      "expect": 2.8816366870465515e-07
+    },
+    {
+      "input": [
+        0.3112437771340256
+      ],
+      "expect": 1.185584231566672e-06
+    },
+    {
+      "input": [
+        0.3307183187194682
+      ],
+      "expect": 1.157895581904711e-05
+    },
+    {
+      "input": [
+        0.529185144339425
+      ],
+      "expect": 0.7671913848868475
+    },
+    {
+      "input": [
+        0.31657495786702294
+      ],
+      "expect": 2.2631404553163925e-06
+    },
+    {
+      "input": [
+        0.34041711647341166
+      ],
+      "expect": 3.309630022746424e-05
+    },
+    {
+      "input": [
+        0.359351433686189
+      ],
+      "expect": 0.0002188738676758284
+    },
+    {
+      "input": [
+        0.3691501370777966
+      ],
+      "expect": 0.0005353725418718591
+    },
+    {
+      "input": [
+        0.39043134848826117
+      ],
+      "expect": 0.0030792921629387293
+    },
+    {
+      "input": [
+        0.6552559335658091
+      ],
+      "expect": 0.9999480712169684
+    },
+    {
+      "input": [
+        0.37446819251469815
+      ],
+      "expect": 0.000849668238683321
+    },
+    {
+      "input": [
+        0.3964351229816946
+      ],
+      "expect": 0.004811050937009953
+    },
+    {
+      "input": [
+        0.4170251205740959
+      ],
+      "expect": 0.019022388502037357
+    },
+    {
+      "input": [
+        0.4323863962907449
+      ],
+      "expect": 0.04548145448834845
+    },
+    {
+      "input": [
+        0.6833966169355153
+      ],
+      "expect": 0.9999977291487974
+    },
+    {
+      "input": [
+        0.7531677397308152
+      ],
+      "expect": 0.999999999876777
+    },
+    {
+      "input": [
+        0.4338496726442425
+      ],
+      "expect": 0.04908832769952798
+    },
+    {
+      "input": [
+        0.4657126611459821
+      ],
+      "expect": 0.19567174783907781
+    },
+    {
+      "input": [
+        0.48031673485042214
+      ],
+      "expect": 0.3113308194397617
+    },
+    {
+      "input": [
+        0.49706758646002613
+      ],
+      "expect": 0.47077958245316126
+    },
+    {
+      "input": [
+        0.7583241230276888
+      ],
+      "expect": 0.9999999999469882
+    },
+    {
+      "input": [
+        0.4888383467638838
+      ],
+      "expect": 0.3901065532472964
+    },
+    {
+      "input": [
+        0.5097153603154052
+      ],
+      "expect": 0.595952372732389
+    },
+    {
+      "input": [
+        0.540922315883241
+      ],
+      "expect": 0.8468597639259952
+    },
+    {
+      "input": [
+        0.5530670317796789
+      ],
+      "expect": 0.9076920243202534
+    },
+    {
+      "input": [
+        0.5763111488687824
+      ],
+      "expect": 0.9717900889708497
+    },
+    {
+      "input": [
+        0.7936250938213972
+      ],
+      "expect": 0.9999999999998936
+    },
+    {
+      "input": [
+        0.569936366410703
+      ],
+      "expect": 0.9598033985753567
+    },
+    {
+      "input": [
+        0.5929026278239213
+      ],
+      "expect": 0.9898987523142246
+    },
+    {
+      "input": [
+        0.6137029243407761
+      ],
+      "expect": 0.9977624516902304
+    },
+    {
+      "input": [
+        0.6256936391154811
+      ],
+      "expect": 0.999161986361652
+    },
+    {
+      "input": [
+        0.8112273282140532
+      ],
+      "expect": 0.9999999999999964
+    },
+    {
+      "input": [
+        0.8543857997707047
+      ],
+      "expect": 1.0
+    },
+    {
+      "input": [
+        0.6465230408855094
+      ],
+      "expect": 0.9998753977306081
+    },
+    {
+      "input": [
+        0.6738035194364946
+      ],
+      "expect": 0.9999930390075349
+    },
+    {
+      "input": [
+        0.687072442490577
+      ],
+      "expect": 0.9999985431475835
+    },
+    {
+      "input": [
+        0.7015565897674884
+      ],
+      "expect": 0.9999997659105189
+    },
+    {
+      "input": [
+        0.8489818625712426
+      ],
+      "expect": 1.0
+    },
+    {
+      "input": [
+        0.385106
+      ],
+      "expect": 0.002037157241175702
+    },
+    {
+      "input": [
+        0.34389800000000004
+      ],
+      "expect": 4.759228370748714e-05
+    },
+    {
+      "input": [
+        0.23553834624275427
+      ],
+      "expect": 1.9016954677653075e-11
+    },
+    {
+      "input": [
+        0.22965389173238324
+      ],
+      "expect": 6.964040455414988e-12
+    },
+    {
+      "input": [
+        0.23388791218215343
+      ],
+      "expect": 1.4378220836164246e-11
+    },
+    {
+      "input": [
+        0.3593870526369133
+      ],
+      "expect": 0.00021960915049495933
+    },
+    {
+      "input": [
+        0.26971149685613044
+      ],
+      "expect": 4.275709841738973e-09
+    },
+    {
+      "input": [
+        0.2692697958531328
+      ],
+      "expect": 4.004824916137295e-09
+    },
+    {
+      "input": [
+        0.266105558392553
+      ],
+      "expect": 2.4971636980453127e-09
+    },
+    {
+      "input": [
+        0.40878866491769034
+      ],
+      "expect": 0.011295443523804516
+    },
+    {
+      "input": [
+        0.31002963579450443
+      ],
+      "expect": 1.0208161430047547e-06
+    },
+    {
+      "input": [
+        0.3061072930756907
+      ],
+      "expect": 6.257097703299408e-07
+    },
+    {
+      "input": [
+        0.29615040677345045
+      ],
+      "expect": 1.732330773274171e-07
+    },
+    {
+      "input": [
+        0.5526323329344214
+      ],
+      "expect": 0.9058808075385267
+    },
+    {
+      "input": [
+        0.46036681726574963
+      ],
+      "expect": 0.160884404261392
+    },
+    {
+      "input": [
+        0.3417615219992906
+      ],
+      "expect": 3.811364705041953e-05
+    },
+    {
+      "input": [
+        0.32898172150734223
+      ],
+      "expect": 9.537282389393553e-06
+    },
+    {
+      "input": [
+        0.29273526396419935
+      ],
+      "expect": 1.099844432750352e-07
+    },
+    {
+      "input": [
+        0.5069924492556457
+      ],
+      "expect": 0.5693860185702933
+    },
+    {
+      "input": [
+        0.37666605595425123
+      ],
+      "expect": 0.0010234261509279863
+    },
+    {
+      "input": [
+        0.3596466606375059
+      ],
+      "expect": 0.0002250382973145726
+    },
+    {
+      "input": [
+        0.36482213650591944
+      ],
+      "expect": 0.0003631595955615463
+    },
+    {
+      "input": [
+        0.5580289711574822
+      ],
+      "expect": 0.9265716739942453
+    },
+    {
+      "input": [
+        0.41973242999871374
+      ],
+      "expect": 0.022391380685859885
+    },
+    {
+      "input": [
+        0.4039046937796993
+      ],
+      "expect": 0.008144329795303162
+    },
+    {
+      "input": [
+        0.39486720903126726
+      ],
+      "expect": 0.004290390551029866
+    },
+    {
+      "input": [
+        0.7342115280414455
+      ],
+      "expect": 0.9999999976190824
+    },
+    {
+      "input": [
+        0.46868594828695187
+      ],
+      "expect": 0.2168572213474576
+    },
+    {
+      "input": [
+        0.44317026012450755
+      ],
+      "expect": 0.07769567116971732
+    },
+    {
+      "input": [
+        0.4285419793319328
+      ],
+      "expect": 0.037013171236427556
+    },
+    {
+      "input": [
+        0.3790546366715915
+      ],
+      "expect": 0.0012487916238665964
+    },
+    {
+      "input": [
+        0.6521863244598121
+      ],
+      "expect": 0.9999289999073908
+    },
+    {
+      "input": [
+        0.4846174256270821
+      ],
+      "expect": 0.35028010208566
+    },
+    {
+      "input": [
+        0.46394742246446175
+      ],
+      "expect": 0.1837105795765105
+    },
+    {
+      "input": [
+        0.4675412475510232
+      ],
+      "expect": 0.2085482483506937
+    },
+    {
+      "input": [
+        0.6809249637530858
+      ],
+      "expect": 0.9999969533254754
+    },
+    {
+      "input": [
+        0.53340241468113
+      ],
+      "expect": 0.7981581399191218
+    },
+    {
+      "input": [
+        0.5180506450513209
+      ],
+      "expect": 0.6741011222385684
+    },
+    {
+      "input": [
+        0.5115936217752571
+      ],
+      "expect": 0.6140308856913879
+    },
+    {
+      "input": [
+        0.8362041574081301
+      ],
+      "expect": 1.0
+    },
+    {
+      "input": [
+        0.5842575851545784
+      ],
+      "expect": 0.9824169089922479
+    },
+    {
+      "input": [
+        0.5636504031314051
+      ],
+      "expect": 0.944224471394928
+    },
+    {
+      "input": [
+        0.5518161244347333
+      ],
+      "expect": 0.9024093972704648
+    },
+    {
+      "input": [
+        0.5201448233656034
+      ],
+      "expect": 0.6927359875536883
+    },
+    {
+      "input": [
+        0.7351577613577089
+      ],
+      "expect": 0.9999999979355403
+    },
+    {
+      "input": [
+        0.6056486144026554
+      ],
+      "expect": 0.9958695405207885
+    },
+    {
+      "input": [
+        0.5947811528367064
+      ],
+      "expect": 0.9910946165557657
+    },
+    {
+      "input": [
+        0.6006559356632677
+      ],
+      "expect": 0.9940719459543096
+    },
+    {
+      "input": [
+        0.7615703025847236
+      ],
+      "expect": 0.9999999999690875
+    },
+    {
+      "input": [
+        0.6456744801186192
+      ],
+      "expect": 0.9998646634176039
+    },
+    {
+      "input": [
+        0.6454625434860295
+      ],
+      "expect": 0.999861850269841
+    },
+    {
+      "input": [
+        0.6437506417654819
+      ],
+      "expect": 0.99983703373959
+    },
+    {
+      "input": [
+        0.790683228665662
+      ],
+      "expect": 0.9999999999998164
+    },
+    {
+      "input": [
+        0.6906824996200753
+      ],
+      "expect": 0.9999990653432801
+    },
+    {
+      "input": [
+        0.6891009122311264
+      ],
+      "expect": 0.999998863622281
+    },
+    {
+      "input": [
+        0.6839729082552608
+      ],
+      "expect": 0.9999978806662532
+    },
+    {
+      "input": [
+        0.8947026726195123
+      ],
+      "expect": 1.0
+    },
+    {
+      "input": [
+        0.8163760478746784
+      ],
+      "expect": 0.9999999999999987
+    },
+    {
+      "input": [
+        0.7298963112346957
+      ],
+      "expect": 0.9999999954689003
+    },
+    {
+      "input": [
+        0.592098
+      ],
+      "expect": 0.9893450959804219
+    },
+    {
+      "input": [
+        0.24417619592687878
+      ],
+      "expect": 7.996159290257765e-11
+    },
+    {
+      "input": [
+        0.21832069691097084
+      ],
+      "expect": 9.476308626688024e-13
+    },
+    {
+      "input": [
+        0.3382198510828791
+      ],
+      "expect": 2.6217037615849925e-05
+    },
+    {
+      "input": [
+        0.23265362980760154
+      ],
+      "expect": 1.1652456777255793e-11
+    },
+    {
+      "input": [
+        0.4752477229884668
+      ],
+      "expect": 0.26802177972718566
+    },
+    {
+      "input": [
+        0.2701231720631179
+      ],
+      "expect": 4.5441663210077365e-09
+    },
+    {
+      "input": [
+        0.2311399979600395
+      ],
+      "expect": 8.993139566371156e-12
+    },
+    {
+      "input": [
+        0.29789495903079216
+      ],
+      "expect": 2.1788831727764801e-07
+    },
+    {
+      "input": [
+        0.2645039212575224
+      ],
+      "expect": 1.9615686852603176e-09
+    },
+    {
+      "input": [
+        0.40841642394913713
+      ],
+      "expect": 0.011022564985737282
+    },
+    {
+      "input": [
+        0.2791843557691219
+      ],
+      "expect": 1.6912297784443808e-08
+    },
+    {
+      "input": [
+        0.5685999542897728
+      ],
+      "expect": 0.9568272817780693
+    },
+    {
+      "input": [
+        0.3213534288337093
+      ],
+      "expect": 3.981723457113784e-06
+    },
+    {
+      "input": [
+        0.2735156642527134
+      ],
+      "expect": 7.47621597962933e-09
+    },
+    {
+      "input": [
+        0.35161372213470554
+      ],
+      "expect": 0.00010377013515261435
+    },
+    {
+      "input": [
+        0.310687145604074
+      ],
+      "expect": 1.1071017491648405e-06
+    },
+    {
+      "input": [
+        0.4786129968153951
+      ],
+      "expect": 0.29643727831099576
+    },
+    {
+      "input": [
+        0.32571508173064223
+      ],
+      "expect": 6.589162198422649e-06
+    },
+    {
+      "input": [
+        0.6619521855910789
+      ],
+      "expect": 0.9999742600532963
+    },
+    {
+      "input": [
+        0.37258368560430066
+      ],
+      "expect": 0.0007227506320389154
+    },
+    {
+      "input": [
+        0.31589133054538737
+      ],
+      "expect": 2.0850761457413824e-06
+    },
+    {
+      "input": [
+        0.4053324852386189
+      ],
+      "expect": 0.008974031231168023
+    },
+    {
+      "input": [
+        0.35619283860512047
+      ],
+      "expect": 0.00016208428414565823
+    },
+    {
+      "input": [
+        0.5488095696816531
+      ],
+      "expect": 0.8888129026266486
+    },
+    {
+      "input": [
+        0.3722458076921626
+      ],
+      "expect": 0.0007019335236914115
+    },
+    {
+      "input": [
+        0.7553044168923849
+      ],
+      "expect": 0.9999999999129527
+    },
+    {
+      "input": [
+        0.42381394237489206
+      ],
+      "expect": 0.028412697552669175
+    },
+    {
+      "input": [
+        0.3582669968380613
+      ],
+      "expect": 0.0001975576641504162
+    },
+    {
+      "input": [
+        0.4590512483425323
+      ],
+      "expect": 0.15298405850572327
+    },
+    {
+      "input": [
+        0.4022883824246067
+      ],
+      "expect": 0.007287098657690061
+    },
+    {
+      "input": [
+        0.6190061425479111
+      ],
+      "expect": 0.9985357904407974
+    },
+    {
+      "input": [
+        0.41877653365368295
+      ],
+      "expect": 0.02114847110985385
+    },
+    {
+      "input": [
+        0.848656648193691
+      ],
+      "expect": 1.0
+    },
+    {
+      "input": [
+        0.4750441991454834
+      ],
+      "expect": 0.26634826507511666
+    },
+    {
+      "input": [
+        0.40064266313073527
+      ],
+      "expect": 0.006497004976038889
+    },
+    {
+      "input": [
+        0.5127700114464457
+      ],
+      "expect": 0.625231636229692
+    },
+    {
+      "input": [
+        0.4503029997152441
+      ],
+      "expect": 0.10703989689788806
+    },
+    {
+      "input": [
+        0.6829918100718693
+      ],
+      "expect": 0.9999976165703344
+    },
+    {
+      "input": [
+        0.4720409793913022
+      ],
+      "expect": 0.2422836663037603
+    },
+    {
+      "input": [
+        0.9041068111981436
+      ],
+      "expect": 1.0
+    },
+    {
+      "input": [
+        0.5293423831968349
+      ],
+      "expect": 0.7683913983644801
+    },
+    {
+      "input": [
+        0.4652498629345193
+      ],
+      "expect": 0.1924910060152889
+    },
+    {
+      "input": [
+        0.5689925580881388
+      ],
+      "expect": 0.9577194967357786
+    },
+    {
+      "input": [
+        0.5153209244801079
+      ],
+      "expect": 0.649148686220959
+    },
+    {
+      "input": [
+        0.7208949632154502
+      ],
+      "expect": 0.9999999832775261
+    },
+    {
+      "input": [
+        0.5365693041323654
+      ],
+      "expect": 0.8197026820233283
+    },
+    {
+      "input": [
+        0.9159587783534293
+      ],
+      "expect": 1.0
+    },
+    {
+      "input": [
+        0.5888508175052811
+      ],
+      "expect": 0.9868336750544227
+    },
+    {
+      "input": [
+        0.5344528218488758
+      ],
+      "expect": 0.8054692386827284
+    },
+    {
+      "input": [
+        0.6254340088146921
+      ],
+      "expect": 0.9991432165288519
+    },
+    {
+      "input": [
+        0.5803388492449716
+      ],
+      "expect": 0.9777033799087397
+    },
+    {
+      "input": [
+        0.7489528834752158
+      ],
+      "expect": 0.9999999997574064
+    },
+    {
+      "input": [
+        0.6010976288734284
+      ],
+      "expect": 0.9942551390830418
+    },
+    {
+      "input": [
+        0.9278107455087149
+      ],
+      "expect": 1.0
+    },
+    {
+      "input": [
+        0.6483592518137273
+      ],
+      "expect": 0.9998959526009041
+    },
+    {
+      "input": [
+        0.6036557807632321
+      ],
+      "expect": 0.9952206080130189
+    },
+    {
+      "input": [
+        0.6818754595412455
+      ],
+      "expect": 0.999997277732861
+    },
+    {
+      "input": [
+        0.6453567740098352
+      ],
+      "expect": 0.9998604259241338
+    },
+    {
+      "input": [
+        0.7884031446433963
+      ],
+      "expect": 0.9999999999997204
+    },
+    {
+      "input": [
+        0.6656259536144917
+      ],
+      "expect": 0.9999826837599272
+    },
+    {
+      "input": [
+        0.9396627126640006
+      ],
+      "expect": 1.0
+    },
+    {
+      "input": [
+        0.7078676861221735
+      ],
+      "expect": 0.9999998985670524
+    },
+    {
+      "input": [
+        0.6728587396775885
+      ],
+      "expect": 0.9999922502906321
+    },
+    {
+      "input": [
+        0.7383169102677989
+      ],
+      "expect": 0.999999998722679
+    },
+    {
+      "input": [
+        0.426165
+      ],
+      "expect": 0.032455178706883414
+    },
+    {
+      "input": [
+        0.25766438464472086
+      ],
+      "expect": 6.874519842270388e-10
+    },
+    {
+      "input": [
+        0.2876662914972979
+      ],
+      "expect": 5.5313244984311893e-08
+    },
+    {
+      "input": [
+        0.30821388374710484
+      ],
+      "expect": 8.147836488836546e-07
+    },
+    {
+      "input": [
+        0.32876147599691186
+      ],
+      "expect": 9.304310739199906e-06
+    },
+    {
+      "input": [
+        0.34930906824671887
+      ],
+      "expect": 8.252014917164985e-05
+    },
+    {
+      "input": [
+        0.566284986093929
+      ],
+      "expect": 0.9512528620189421
+    },
+    {
+      "input": [
+        0.5977452630991472
+      ],
+      "expect": 0.9927298667672486
+    },
+    {
+      "input": [
+        0.6292055401043655
+      ],
+      "expect": 0.9993813486846251
+    },
+    {
+      "input": [
+        0.35011493437636626
+      ],
+      "expect": 8.94358958840602e-05
+    },
+    {
+      "input": [
+        0.3712193493715482
+      ],
+      "expect": 0.0006420353785824284
+    },
+    {
+      "input": [
+        0.3938781115563573
+      ],
+      "expect": 0.003988435643740185
+    },
+    {
+      "input": [
+        0.41653687374116644
+      ],
+      "expect": 0.018463141759150314
+    },
+    {
+      "input": [
+        0.4457342992287341
+      ],
+      "expect": 0.08744741233607672
+    },
+    {
+      "input": [
+        0.46812887299727013
+      ],
+      "expect": 0.21278993628424725
+    },
+    {
+      "input": [
+        0.49052344676580617
+      ],
+      "expect": 0.4063618199691056
+    },
+    {
+      "input": [
+        0.5232631339785114
+      ],
+      "expect": 0.7195746351444259
+    },
+    {
+      "input": [
+        0.5451820703473156
+      ],
+      "expect": 0.870667425872886
+    },
+    {
+      "input": [
+        0.5671010067161196
+      ],
+      "expect": 0.9532800839053981
+    },
+    {
+      "input": [
+        0.5890199430849237
+      ],
+      "expect": 0.9869761067291347
+    },
+    {
+      "input": [
+        0.6155603345427498
+      ],
+      "expect": 0.9980677060237532
+    },
+    {
+      "input": [
+        0.6372189072445668
+      ],
+      "expect": 0.9996987346793973
+    },
+    {
+      "input": [
+        0.6588774799463837
+      ],
+      "expect": 0.9999643547118446
+    },
+    {
+      "input": [
+        0.6805360526482007
+      ],
+      "expect": 0.9999968101929575
+    },
+    {
+      "input": [
+        0.7231361803737731
+      ],
+      "expect": 0.9999999878632668
+    },
+    {
+      "input": [
+        0.7432717308920442
+      ],
+      "expect": 0.9999999994057713
+    },
+    {
+      "input": [
+        0.17738588962217655
+      ],
+      "expect": 3.3306690738754696e-16
+    },
+    {
+      "input": [
+        0.22768650149662809
+      ],
+      "expect": 4.9538151358774485e-12
+    },
+    {
+      "input": [
+        0.2430510536502098
+      ],
+      "expect": 6.649025774407846e-11
+    },
+    {
+      "input": [
+        0.26568546768124834
+      ],
+      "expect": 2.3443015306767734e-09
+    },
+    {
+      "input": [
+        0.28017945111616
+      ],
+      "expect": 1.9478732404820676e-08
+    },
+    {
+      "input": [
+        0.4294921081418973
+      ],
+      "expect": 0.03897577849600181
+    },
+    {
+      "input": [
+        0.6049643333693968
+      ],
+      "expect": 0.9956561926329881
+    },
+    {
+      "input": [
+        0.2554356810559343
+      ],
+      "expect": 4.854927571074086e-10
+    },
+    {
+      "input": [
+        0.3221978794763606
+      ],
+      "expect": 4.393509836275733e-06
+    },
+    {
+      "input": [
+        0.33853539615564937
+      ],
+      "expect": 2.711396389443177e-05
+    },
+    {
+      "input": [
+        0.36475462512171386
+      ],
+      "expect": 0.00036093616143539897
+    },
+    {
+      "input": [
+        0.38026747023019714
+      ],
+      "expect": 0.0013798317327724519
+    },
+    {
+      "input": [
+        0.5643638293683069
+      ],
+      "expect": 0.9462022950589315
+    },
+    {
+      "input": [
+        0.7552358042341178
+      ],
+      "expect": 0.9999999999119721
+    },
+    {
+      "input": [
+        0.36037208187444913
+      ],
+      "expect": 0.00024088028545687923
+    },
+    {
+      "input": [
+        0.41056344756148744
+      ],
+      "expect": 0.01267870872779675
+    },
+    {
+      "input": [
+        0.45301293520413
+      ],
+      "expect": 0.12006205829764849
+    },
+    {
+      "input": [
+        0.4806784433239454
+      ],
+      "expect": 0.31453405198815765
+    },
+    {
+      "input": [
+        0.49780295001412544
+      ],
+      "expect": 0.4780986096234515
+    },
+    {
+      "input": [
+        0.6491779510842117
+      ],
+      "expect": 0.9999040504448797
+    },
+    {
+      "input": [
+        0.8041886433872943
+      ],
+      "expect": 0.9999999999999858
+    },
+    {
+      "input": [
+        0.49312504601371454
+      ],
+      "expect": 0.43176835278862397
+    },
+    {
+      "input": [
+        0.5364625170143738
+      ],
+      "expect": 0.8190005767327796
+    },
+    {
+      "input": [
+        0.5733500894592216
+      ],
+      "expect": 0.9666546096441841
+    },
+    {
+      "input": [
+        0.5984627139102672
+      ],
+      "expect": 0.9930834384451024
+    },
+    {
+      "input": [
+        0.6153384297980536
+      ],
+      "expect": 0.9980333416647309
+    },
+    {
+      "input": [
+        0.7339920728001168
+      ],
+      "expect": 0.9999999975392047
+    },
+    {
+      "input": [
+        0.8531414825404708
+      ],
+      "expect": 1.0
+    },
+    {
+      "input": [
+        0.62587801015298
+      ],
+      "expect": 0.9991750848570815
+    },
+    {
+      "input": [
+        0.6623615864672601
+      ],
+      "expect": 0.9999753625276537
+    },
+    {
+      "input": [
+        0.6936872437143131
+      ],
+      "expect": 0.9999993578917935
+    },
+    {
+      "input": [
+        0.7162469844965891
+      ],
+      "expect": 0.9999999678074845
+    },
+    {
+      "input": [
+        0.7328739095819818
+      ],
+      "expect": 0.999999997089972
+    },
+    {
+      "input": [
+        0.447795
+      ],
+      "expect": 0.09592514360722437
+    },
+    {
+      "input": [
+        0.617985
+      ],
+      "expect": 0.9984092007952445
+    },
+    {
+      "input": [
+        0.2052067154064562
+      ],
+      "expect": 8.54316617449058e-14
+    },
+    {
+      "input": [
+        0.14107795975504792
+      ],
+      "expect": 0.0
+    },
+    {
+      "input": [
+        0.375340494257081
+      ],
+      "expect": 0.0009150967514273134
+    },
+    {
+      "input": [
+        0.254286512796668
+      ],
+      "expect": 4.0530179212794337e-10
+    },
+    {
+      "input": [
+        0.23637409602200216
+      ],
+      "expect": 2.1895596447052412e-11
+    },
+    {
+      "input": [
+        0.20744692375421694
+      ],
+      "expect": 1.297850715786808e-13
+    },
+    {
+      "input": [
+        0.4981080766909706
+      ],
+      "expect": 0.481137828068778
+    },
+    {
+      "input": [
+        0.37181833133823367
+      ],
+      "expect": 0.0006763884253710994
+    },
+    {
+      "input": [
+        0.266745975999446
+      ],
+      "expect": 2.749026284387668e-09
+    },
+    {
+      "input": [
+        0.24892845836507357
+      ],
+      "expect": 1.728188148142351e-10
+    },
+    {
+      "input": [
+        0.21412965839277412
+      ],
+      "expect": 4.442557433037564e-13
+    },
+    {
+      "input": [
+        0.47802260068657815
+      ],
+      "expect": 0.29135348605348155
+    },
+    {
+      "input": [
+        0.32671700171149876
+      ],
+      "expect": 7.385531623937958e-06
+    },
+    {
+      "input": [
+        0.2834471859202026
+      ],
+      "expect": 3.084703248390497e-08
+    },
+    {
+      "input": [
+        0.2503521927958766
+      ],
+      "expect": 2.171199886547015e-10
+    },
+    {
+      "input": [
+        0.1715065393100583
+      ],
+      "expect": 1.1102230246251565e-16
+    },
+    {
+      "input": [
+        0.4467008883964346
+      ],
+      "expect": 0.09135161748245862
+    },
+    {
+      "input": [
+        0.3080778905036555
+      ],
+      "expect": 8.010779986022953e-07
+    },
+    {
+      "input": [
+        0.28543287066807815
+      ],
+      "expect": 4.065928899121829e-08
+    },
+    {
+      "input": [
+        0.24970463044489077
+      ],
+      "expect": 1.957440320943249e-10
+    },
+    {
+      "input": [
+        0.5995745367576498
+      ],
+      "expect": 0.9936013960814327
+    },
+    {
+      "input": [
+        0.4461819976058805
+      ],
+      "expect": 0.08923996921145455
+    },
+    {
+      "input": [
+        0.3191425069993372
+      ],
+      "expect": 3.0710573174497213e-06
+    },
+    {
+      "input": [
+        0.29580094181893735
+      ],
+      "expect": 1.6541785274881704e-07
+    },
+    {
+      "input": [
+        0.2547404556741623
+      ],
+      "expect": 4.353028493220279e-10
+    },
+    {
+      "input": [
+        0.568682059437481
+      ],
+      "expect": 0.9570151173857867
+    },
+    {
+      "input": [
+        0.3876303410136426
+      ],
+      "expect": 0.002482919220873958
+    },
+    {
+      "input": [
+        0.3354125033389065
+      ],
+      "expect": 1.9385222127743518e-05
+    },
+    {
+      "input": [
+        0.29549767018529705
+      ],
+      "expect": 1.5891247190369384e-07
+    },
+    {
+      "input": [
+        0.20193511886506865
+      ],
+      "expect": 4.6074255521943996e-14
+    },
+    {
+      "input": [
+        0.5259542718216085
+      ],
+      "expect": 0.7417845286168452
+    },
+    {
+      "input": [
+        0.361869268210643
+      ],
+      "expect": 0.0002769189332032518
+    },
+    {
+      "input": [
+        0.3344916453141541
+      ],
+      "expect": 1.7539553773926464e-05
+    },
+    {
+      "input": [
+        0.29196233713556463
+      ],
+      "expect": 9.91407170802816e-08
+    },
+    {
+      "input": [
+        0.6870251580415708
+      ],
+      "expect": 0.9999985347296996
+    },
+    {
+      "input": [
+        0.5205456638735273
+      ],
+      "expect": 0.6962487042659427
+    },
+    {
+      "input": [
+        0.37153903799922844
+      ],
+      "expect": 0.0006601645929273925
+    },
+    {
+      "input": [
+        0.3436510941720008
+      ],
+      "expect": 4.6392706247344595e-05
+    },
+    {
+      "input": [
+        0.2953512529555506
+      ],
+      "expect": 1.5586082247054378e-07
+    },
+    {
+      "input": [
+        0.6593415181883837
+      ],
+      "expect": 0.9999660515891078
+    },
+    {
+      "input": [
+        0.44842166714791265
+      ],
+      "expect": 0.09861939854668234
+    },
+    {
+      "input": [
+        0.3821132797023886
+      ],
+      "expect": 0.0016034945546273827
+    },
+    {
+      "input": [
+        0.3438543772117729
+      ],
+      "expect": 4.7378236506911975e-05
+    },
+    {
+      "input": [
+        0.24412059576011136
+      ],
+      "expect": 7.923739442361466e-11
+    },
+    {
+      "input": [
+        0.593602931795137
+      ],
+      "expect": 0.9903600221151422
+    },
+    {
+      "input": [
+        0.41639830209711337
+      ],
+      "expect": 0.0183069934131862
+    },
+    {
+      "input": [
+        0.38820660896191916
+      ],
+      "expect": 0.002596312310831128
+    },
+    {
+      "input": [
+        0.34615095286699504
+      ],
+      "expect": 5.997552164704878e-05
+    },
+    {
+      "input": [
+        0.7448548036180744
+      ],
+      "expect": 0.9999999995361293
+    },
+    {
+      "input": [
+        0.573823487936395
+      ],
+      "expect": 0.9675239166530025
+    },
+    {
+      "input": [
+        0.4271679151082134
+      ],
+      "expect": 0.034318470794767464
+    },
+    {
+      "input": [
+        0.4014693390366577
+      ],
+      "expect": 0.006883876515176857
+    },
+    {
+      "input": [
+        0.3213849894909315
+      ],
+      "expect": 3.996426501284844e-06
+    },
+    {
+      "input": [
+        0.6948435139236767
+      ],
+      "expect": 0.999999445072617
+    },
+    {
+      "input": [
+        0.49940789959642506
+      ],
+      "expect": 0.4940948685198643
+    },
+    {
+      "input": [
+        0.4397128892216575
+      ],
+      "expect": 0.06588254842831459
+    },
+    {
+      "input": [
+        0.4055432819183584
+      ],
+      "expect": 0.00910259995606505
+    },
+    {
+      "input": [
+        0.31579881512768715
+      ],
+      "expect": 2.062035767469439e-06
+    },
+    {
+      "input": [
+        0.6321405848145638
+      ],
+      "expect": 0.9995225950475589
+    },
+    {
+      "input": [
+        0.4722210732008678
+      ],
+      "expect": 0.2436927604559193
+    },
+    {
+      "input": [
+        0.44723930458840067
+      ],
+      "expect": 0.0935816501867004
+    },
+    {
+      "input": [
+        0.4097999751542788
+      ],
+      "expect": 0.01206664489705589
+    },
+    {
+      "input": [
+        0.7696919466287043
+      ],
+      "expect": 0.999999999992205
+    },
+    {
+      "input": [
+        0.6131164341017602
+      ],
+      "expect": 0.997657357413599
+    },
+    {
+      "input": [
+        0.48393505865604813
+      ],
+      "expect": 0.3439805538057813
+    },
+    {
+      "input": [
+        0.46132240513299205
+      ],
+      "expect": 0.16678704651398302
+    },
+    {
+      "input": [
+        0.38986907312028707
+      ],
+      "expect": 0.0029501320524932817
+    },
+    {
+      "input": [
+        0.7256391226102782
+      ],
+      "expect": 0.9999999915456548
+    },
+    {
+      "input": [
+        0.5503941320449374
+      ],
+      "expect": 0.8961388561861698
+    },
+    {
+      "input": [
+        0.4973124987409264
+      ],
+      "expect": 0.47321620556754007
+    },
+    {
+      "input": [
+        0.4571058343797637
+      ],
+      "expect": 0.14178049886779487
+    },
+    {
+      "input": [
+        0.38747703449526283
+      ],
+      "expect": 0.002453516808741285
+    },
+    {
+      "input": [
+        0.6706782378339904
+      ],
+      "expect": 0.9999900920864471
+    },
+    {
+      "input": [
+        0.5280438443046223
+      ],
+      "expect": 0.7583784803510285
+    },
+    {
+      "input": [
+        0.5062720002148822
+      ],
+      "expect": 0.5622987656912021
+    },
+    {
+      "input": [
+        0.47344899744156255
+      ],
+      "expect": 0.2534171438878906
+    },
+    {
+      "input": [
+        0.7945290896393343
+      ],
+      "expect": 0.9999999999999103
+    },
+    {
+      "input": [
+        0.6552522680114695
+      ],
+      "expect": 0.9999480516425513
+    },
+    {
+      "input": [
+        0.540702202203883
+      ],
+      "expect": 0.8455552721136317
+    },
+    {
+      "input": [
+        0.5211754712293264
+      ],
+      "expect": 0.7017314167433418
+    },
+    {
+      "input": [
+        0.4583531567496427
+      ],
+      "expect": 0.14889807731839128
+    },
+    {
+      "input": [
+        0.7264428397316665
+      ],
+      "expect": 0.9999999924784413
+    },
+    {
+      "input": [
+        0.6013803644934497
+      ],
+      "expect": 0.9943697500830639
+    },
+    {
+      "input": [
+        0.5549121082601954
+      ],
+      "expect": 0.9150931554272553
+    },
+    {
+      "input": [
+        0.5199672640831596
+      ],
+      "expect": 0.6911742728155091
+    },
+    {
+      "input": [
+        0.4591552538628385
+      ],
+      "expect": 0.15359911323838538
+    },
+    {
+      "input": [
+        0.7092158908534172
+      ],
+      "expect": 0.9999999154269248
+    },
+    {
+      "input": [
+        0.5838666154083767
+      ],
+      "expect": 0.9819883966233474
+    },
+    {
+      "input": [
+        0.5623845261518009
+      ],
+      "expect": 0.9405743369102432
+    },
+    {
+      "input": [
+        0.5370980197288462
+      ],
+      "expect": 0.8231536576788193
+    },
+    {
+      "input": [
+        0.8193662326499642
+      ],
+      "expect": 0.9999999999999993
+    },
+    {
+      "input": [
+        0.697388101921179
+      ],
+      "expect": 0.9999995986349874
+    },
+    {
+      "input": [
+        0.5974693457517177
+      ],
+      "expect": 0.9925897042085448
+    },
+    {
+      "input": [
+        0.5810285373256607
+      ],
+      "expect": 0.978602920341975
+    },
+    {
+      "input": [
+        0.5268372403789983
+      ],
+      "expect": 0.7488677596250506
+    },
+    {
+      "input": [
+        0.7610305266621454
+      ],
+      "expect": 0.999999999966172
+    },
+    {
+      "input": [
+        0.6523665969419621
+      ],
+      "expect": 0.9999302815346354
+    },
+    {
+      "input": [
+        0.6125117177794643
+      ],
+      "expect": 0.9975443367619573
+    },
+    {
+      "input": [
+        0.5828286937865554
+      ],
+      "expect": 0.9808073908120649
+    },
+    {
+      "input": [
+        0.5306733190526398
+      ],
+      "expect": 0.7784095863653515
+    },
+    {
+      "input": [
+        0.7477535438728439
+      ],
+      "expect": 0.9999999997064182
+    },
+    {
+      "input": [
+        0.6396893865121311
+      ],
+      "expect": 0.9997605013845344
+    },
+    {
+      "input": [
+        0.6218137880324206
+      ],
+      "expect": 0.998837931142498
+    },
+    {
+      "input": [
+        0.60074704201613
+      ],
+      "expect": 0.9941101510595927
+    },
+    {
+      "input": [
+        0.8442033756605942
+      ],
+      "expect": 1.0
+    },
+    {
+      "input": [
+        0.7395239358308883
+      ],
+      "expect": 0.9999999989384569
+    },
+    {
+      "input": [
+        0.6535053871567769
+      ],
+      "expect": 0.9999378874470366
+    },
+    {
+      "input": [
+        0.640881603421995
+      ],
+      "expect": 0.9997858803076393
+    },
+    {
+      "input": [
+        0.5953213240083539
+      ],
+      "expect": 0.9914146748252927
+    },
+    {
+      "input": [
+        0.7956182135926244
+      ],
+      "expect": 0.9999999999999268
+    },
+    {
+      "input": [
+        0.7033528293904743
+      ],
+      "expect": 0.9999998150414546
+    },
+    {
+      "input": [
+        0.6701113272987334
+      ],
+      "expect": 0.9999894435013443
+    },
+    {
+      "input": [
+        0.6456901234899513
+      ],
+      "expect": 0.9998648689180774
+    },
+    {
+      "input": [
+        0.6023760064195978
+      ],
+      "expect": 0.9947573515447963
+    },
+    {
+      "input": [
+        0.7862911968922706
+      ],
+      "expect": 0.9999999999995886
+    },
+    {
+      "input": [
+        0.6955121576158856
+      ],
+      "expect": 0.9999994901649989
+    },
+    {
+      "input": [
+        0.6812430499130404
+      ],
+      "expect": 0.9999970658024181
+    },
+    {
+      "input": [
+        0.6594429354212697
+      ],
+      "expect": 0.9999664121285887
+    },
+    {
+      "input": [
+        0.8690405186712242
+      ],
+      "expect": 1.0
+    },
+    {
+      "input": [
+        0.7816597697405976
+      ],
+      "expect": 0.9999999999990491
+    },
+    {
+      "input": [
+        0.7103925623996943
+      ],
+      "expect": 0.9999999278994286
+    },
+    {
+      "input": [
+        0.7007346695183292
+      ],
+      "expect": 0.9999997394368842
+    },
+    {
+      "input": [
+        0.6638054076377096
+      ],
+      "expect": 0.999978903894348
+    },
+    {
+      "input": [
+        0.8302059005231035
+      ],
+      "expect": 0.9999999999999999
+    },
+    {
+      "input": [
+        0.7412793783869087
+      ],
+      "expect": 0.9999999991902082
+    },
+    {
+      "input": [
+        0.7277109368180021
+      ],
+      "expect": 0.9999999937503895
+    },
+    {
+      "input": [
+        0.7085515531933472
+      ],
+      "expect": 0.9999999074889585
+    },
+    {
+      "input": [
+        0.6740786937865557
+      ],
+      "expect": 0.9999932539319386
+    },
+    {
+      "input": [
+        0.8248288499116972
+      ],
+      "expect": 0.9999999999999998
+    },
+    {
+      "input": [
+        0.5078419742625642
+      ],
+      "expect": 0.5777142327240534
+    },
+    {
+      "input": [
+        0.26199578367347753
+      ],
+      "expect": 1.3398492870742018e-09
+    },
+    {
+      "input": [
+        0.27227012813126095
+      ],
+      "expect": 6.232300564512627e-09
+    },
+    {
+      "input": [
+        0.2928409370468195
+      ],
+      "expect": 1.1155324053380156e-07
+    },
+    {
+      "input": [
+        0.30348969839397666
+      ],
+      "expect": 4.4902152407377827e-07
+    },
+    {
+      "input": [
+        0.31413845974113375
+      ],
+      "expect": 1.6877557441619118e-06
+    },
+    {
+      "input": [
+        0.32478722108829083
+      ],
+      "expect": 5.925271826856537e-06
+    },
+    {
+      "input": [
+        0.26886217568263654
+      ],
+      "expect": 3.769695444688637e-09
+    },
+    {
+      "input": [
+        0.2773974828471647
+      ],
+      "expect": 1.3102891160965413e-08
+    },
+    {
+      "input": [
+        0.2859327900116929
+      ],
+      "expect": 4.35706387080792e-08
+    },
+    {
+      "input": [
+        0.3038471279297237
+      ],
+      "expect": 4.6994881069961636e-07
+    },
+    {
+      "input": [
+        0.3126542910581214
+      ],
+      "expect": 1.4091053003872922e-06
+    },
+    {
+      "input": [
+        0.3214614541865192
+      ],
+      "expect": 4.0322643320989116e-06
+    },
+    {
+      "input": [
+        0.330268617314917
+      ],
+      "expect": 1.1013591366237918e-05
+    },
+    {
+      "input": [
+        0.40296432461771325
+      ],
+      "expect": 0.007635409398420445
+    },
+    {
+      "input": [
+        0.41343093045193957
+      ],
+      "expect": 0.015223476064433084
+    },
+    {
+      "input": [
+        0.4238975362861659
+      ],
+      "expect": 0.02854888736200939
+    },
+    {
+      "input": [
+        0.34496528444676033
+      ],
+      "expect": 5.312266059942505e-05
+    },
+    {
+      "input": [
+        0.3532777009394534
+      ],
+      "expect": 0.00012220012532626612
+    },
+    {
+      "input": [
+        0.36159011743214636
+      ],
+      "expect": 0.0002698399892037129
+    },
+    {
+      "input": [
+        0.3699025339248394
+      ],
+      "expect": 0.0005721004883117997
+    },
+    {
+      "input": [
+        0.4554709020157006
+      ],
+      "expect": 0.13280537819031796
+    },
+    {
+      "input": [
+        0.46548125151055114
+      ],
+      "expect": 0.19407733481025363
+    },
+    {
+      "input": [
+        0.4754916010054018
+      ],
+      "expect": 0.2700340629041502
+    },
+    {
+      "input": [
+        0.48550195050025235
+      ],
+      "expect": 0.35850742828507476
+    },
+    {
+      "input": [
+        0.6018102426482357
+      ],
+      "expect": 0.9945401185505943
+    },
+    {
+      "input": [
+        0.6096951883383697
+      ],
+      "expect": 0.9969502106779224
+    },
+    {
+      "input": [
+        0.6175801340285036
+      ],
+      "expect": 0.9983563064192033
+    },
+    {
+      "input": [
+        0.6827439719685147
+      ],
+      "expect": 0.9999975450278016
+    },
+    {
+      "input": [
+        0.6894230462428618
+      ],
+      "expect": 0.9999989078316955
+    },
+    {
+      "input": [
+        0.6961021205172089
+      ],
+      "expect": 0.9999995270046297
+    },
+    {
+      "input": [
+        0.7027811947915559
+      ],
+      "expect": 0.9999998006002252
+    },
+    {
+      "input": [
+        0.5310613303441192
+      ],
+      "expect": 0.7812829043402285
+    },
+    {
+      "input": [
+        0.5419668808012326
+      ],
+      "expect": 0.8529505230762804
+    },
+    {
+      "input": [
+        0.5528724312583462
+      ],
+      "expect": 0.9068844163618812
+    },
+    {
+      "input": [
+        0.5637779817154597
+      ],
+      "expect": 0.9445823082747742
+    },
+    {
+      "input": [
+        0.6218231210382597
+      ],
+      "expect": 0.9988388324371786
+    },
+    {
+      "input": [
+        0.6315199640885607
+      ],
+      "expect": 0.9994954891937329
+    },
+    {
+      "input": [
+        0.6412168071388618
+      ],
+      "expect": 0.999792549906612
+    },
+    {
+      "input": [
+        0.6156194971978324
+      ],
+      "expect": 0.9980767754320519
+    },
+    {
+      "input": [
+        0.6262967333867815
+      ],
+      "expect": 0.9992041359278532
+    },
+    {
+      "input": [
+        0.6369739695757306
+      ],
+      "expect": 0.9996918631623597
+    },
+    {
+      "input": [
+        0.6476512057646797
+      ],
+      "expect": 0.9998884358917417
+    },
+    {
+      "input": [
+        0.5633447310608422
+      ],
+      "expect": 0.943359693866272
+    },
+    {
+      "input": [
+        0.576990208215191
+      ],
+      "expect": 0.9728700047845937
+    },
+    {
+      "input": [
+        0.5906356853695396
+      ],
+      "expect": 0.9882710058322166
+    },
+    {
+      "input": [
+        0.7783399285222531
+      ],
+      "expect": 0.9999999999982804
+    },
+    {
+      "input": [
+        0.7859833792628651
+      ],
+      "expect": 0.9999999999995648
+    },
+    {
+      "input": [
+        0.793626830003477
+      ],
+      "expect": 0.9999999999998938
+    },
+    {
+      "input": [
+        0.801270280744089
+      ],
+      "expect": 0.9999999999999749
+    },
+    {
+      "input": [
+        0.756703505088435
+      ],
+      "expect": 0.9999999999307747
+    },
+    {
+      "input": [
+        0.11009876381712341
+      ],
+      "expect": 0.0
+    },
+    {
+      "input": [
+        0.07929591589418629
+      ],
+      "expect": 0.0
+    },
+    {
+      "input": [
+        0.31444424664240544
+      ],
+      "expect": 1.7513946086733512e-06
+    },
+    {
+      "input": [
+        0.5962274127670136
+      ],
+      "expect": 0.9919289187601353
+    },
+    {
+      "input": [
+        0.2821898771830267
+      ],
+      "expect": 2.5865891317700118e-08
+    },
+    {
+      "input": [
+        0.25148373264574303
+      ],
+      "expect": 2.6006674591627643e-10
+    },
+    {
+      "input": [
+        0.32241111647493076
+      ],
+      "expect": 4.503755964557765e-06
+    },
+    {
+      "input": [
+        0.19222082472427135
+      ],
+      "expect": 7.105427357601002e-15
+    },
+    {
+      "input": [
+        0.2414194422329931
+      ],
+      "expect": 5.081246534643924e-11
+    },
+    {
+      "input": [
+        0.3627125060342971
+      ],
+      "expect": 0.0002993668953622519
+    },
+    {
+      "input": [
+        0.34702908630244245
+      ],
+      "expect": 6.557930361339448e-05
+    },
+    {
+      "input": [
+        0.47864366916485407
+      ],
+      "expect": 0.2967024997395932
+    },
+    {
+      "input": [
+        0.29830454198446593
+      ],
+      "expect": 2.2988079201313738e-07
+    },
+    {
+      "input": [
+        0.3148024500456464
+      ],
+      "expect": 1.8288695699530955e-06
+    },
+    {
+      "input": [
+        0.4910482749574285
+      ],
+      "expect": 0.41145913946614254
+    },
+    {
+      "input": [
+        0.43378023588326803
+      ],
+      "expect": 0.04891215582172037
+    },
+    {
+      "input": [
+        0.34498898635139336
+      ],
+      "expect": 5.325210099549338e-05
+    },
+    {
+      "input": [
+        0.4362360996521119
+      ],
+      "expect": 0.05545709842066149
+    },
+    {
+      "input": [
+        0.4647833271249852
+      ],
+      "expect": 0.1893167734551695
+    },
+    {
+      "input": [
+        0.4051682359292528
+      ],
+      "expect": 0.008874958022764057
+    },
+    {
+      "input": [
+        0.47347576669558494
+      ],
+      "expect": 0.25363138769626065
+    },
+    {
+      "input": [
+        0.30158784568808106
+      ],
+      "expect": 3.5191498437558977e-07
+    },
+    {
+      "input": [
+        0.3720234027852682
+      ],
+      "expect": 0.0006885341019995384
+    },
+    {
+      "input": [
+        0.5527047710998815
+      ],
+      "expect": 0.9061844354825564
+    },
+    {
+      "input": [
+        0.5205436294536638
+      ],
+      "expect": 0.6962309211901441
+    },
+    {
+      "input": [
+        0.7109266262595629
+      ],
+      "expect": 0.9999999329547875
+    },
+    {
+      "input": [
+        0.43893382606285714
+      ],
+      "expect": 0.06342349244360385
+    },
+    {
+      "input": [
+        0.5573497446675593
+      ],
+      "expect": 0.9241772798210318
+    },
+    {
+      "input": [
+        0.7071095159386972
+      ],
+      "expect": 0.9999998877037716
+    },
+    {
+      "input": [
+        0.6196860512618115
+      ],
+      "expect": 0.9986149052496164
+    },
+    {
+      "input": [
+        0.48874559832862574
+      ],
+      "expect": 0.389217131344968
+    },
+    {
+      "input": [
+        0.609664931775499
+      ],
+      "expect": 0.9969431794283015
+    },
+    {
+      "input": [
+        0.6414028652801036
+      ],
+      "expect": 0.9997961676846577
+    },
+    {
+      "input": [
+        0.5650348275365107
+      ],
+      "expect": 0.9480114166168223
+    },
+    {
+      "input": [
+        0.6418101726881051
+      ],
+      "expect": 0.9998038827763831
+    },
+    {
+      "input": [
+        0.45668804670040597
+      ],
+      "expect": 0.13944886194590156
+    },
+    {
+      "input": [
+        0.5380152695145772
+      ],
+      "expect": 0.8290408400672808
+    },
+    {
+      "input": [
+        0.7135387266814047
+      ],
+      "expect": 0.99999995313242
+    },
+    {
+      "input": [
+        0.506729937135895
+      ],
+      "expect": 0.5668060782137232
+    },
+    {
+      "input": [
+        0.8415224892491306
+      ],
+      "expect": 1.0
+    },
+    {
+      "input": [
+        0.61975509469127
+      ],
+      "expect": 0.9986227168247531
+    },
+    {
+      "input": [
+        0.715061492999995
+      ],
+      "expect": 0.9999999620340181
+    },
+    {
+      "input": [
+        0.8213631426978938
+      ],
+      "expect": 0.9999999999999996
+    },
+    {
+      "input": [
+        0.7610271443836801
+      ],
+      "expect": 0.9999999999661529
+    },
+    {
+      "input": [
+        0.6826696817212163
+      ],
+      "expect": 0.9999975231850873
+    },
+    {
+      "input": [
+        0.8425573461066183
+      ],
+      "expect": 1.0
+    },
+    {
+      "input": [
+        0.7839776296868096
+      ],
+      "expect": 0.9999999999993737
+    },
+    {
+      "input": [
+        0.3183159978675892
+      ],
+      "expect": 2.7848297081689566e-06
+    },
+    {
+      "input": [
+        0.7038566397056109
+      ],
+      "expect": 0.9999998269279697
+    },
+    {
+      "input": [
+        0.08732410992539427
+      ],
+      "expect": 0.0
+    },
+    {
+      "input": [
+        0.285063113869337
+      ],
+      "expect": 3.862808373167326e-08
+    },
+    {
+      "input": [
+        0.29646563842411056
+      ],
+      "expect": 1.8058754580607683e-07
+    },
+    {
+      "input": [
+        0.30786816297888403
+      ],
+      "expect": 7.803747630319435e-07
+    },
+    {
+      "input": [
+        0.31673106086440894
+      ],
+      "expect": 2.3057971452189463e-06
+    },
+    {
+      "input": [
+        0.3278444314210549
+      ],
+      "expect": 8.391280440722682e-06
+    },
+    {
+      "input": [
+        0.3389578019777008
+      ],
+      "expect": 2.8360219621770266e-05
+    },
+    {
+      "input": [
+        0.3500711725343467
+      ],
+      "expect": 8.904676080601082e-05
+    },
+    {
+      "input": [
+        0.4151511004064425
+      ],
+      "expect": 0.016951541762921185
+    },
+    {
+      "input": [
+        0.42792498041894844
+      ],
+      "expect": 0.03578249865719757
+    },
+    {
+      "input": [
+        0.4406988604314544
+      ],
+      "expect": 0.06909986446219935
+    },
+    {
+      "input": [
+        0.2703165400071167
+      ],
+      "expect": 4.67585137275961e-09
+    },
+    {
+      "input": [
+        0.27793109042985237
+      ],
+      "expect": 1.4143399618138375e-08
+    },
+    {
+      "input": [
+        0.28554564085258805
+      ],
+      "expect": 4.129909525474318e-08
+    },
+    {
+      "input": [
+        0.2931601912753238
+      ],
+      "expect": 1.1642526343003112e-07
+    },
+    {
+      "input": [
+        0.5413177466305967
+      ],
+      "expect": 0.8491848687206006
+    },
+    {
+      "input": [
+        0.5550219933807383
+      ],
+      "expect": 0.9155194765285124
+    },
+    {
+      "input": [
+        0.56872624013088
+      ],
+      "expect": 0.9571159179518961
+    },
+    {
+      "input": [
+        0.3413057923356739
+      ],
+      "expect": 3.633732095065234e-05
+    },
+    {
+      "input": [
+        0.34933651686121914
+      ],
+      "expect": 8.274718935230574e-05
+    },
+    {
+      "input": [
+        0.3573672413867644
+      ],
+      "expect": 0.0001813608520271348
+    },
+    {
+      "input": [
+        0.36539796591230966
+      ],
+      "expect": 0.00038264776496094166
+    },
+    {
+      "input": [
+        0.5309650212960008
+      ],
+      "expect": 0.7805717200238925
+    },
+    {
+      "input": [
+        0.5423836239045169
+      ],
+      "expect": 0.8553345535183375
+    },
+    {
+      "input": [
+        0.5538022265130331
+      ],
+      "expect": 0.910696370119807
+    },
+    {
+      "input": [
+        0.5650193179064176
+      ],
+      "expect": 0.9479701528057369
+    },
+    {
+      "input": [
+        0.45738996460478865
+      ],
+      "expect": 0.14338120614246086
+    },
+    {
+      "input": [
+        0.4683517835016616
+      ],
+      "expect": 0.21441206679527225
+    },
+    {
+      "input": [
+        0.4793136023985346
+      ],
+      "expect": 0.3025222570470661
+    },
+    {
+      "input": [
+        0.38602393676601965
+      ],
+      "expect": 0.00219007775904162
+    },
+    {
+      "input": [
+        0.39922772307212684
+      ],
+      "expect": 0.005879305470022911
+    },
+    {
+      "input": [
+        0.4124315093782339
+      ],
+      "expect": 0.014290707784507028
+    },
+    {
+      "input": [
+        0.4256352956843411
+      ],
+      "expect": 0.03150523498963742
+    },
+    {
+      "input": [
+        0.5521710154576811
+      ],
+      "expect": 0.9039301478312587
+    },
+    {
+      "input": [
+        0.5627081680351476
+      ],
+      "expect": 0.9415249095767637
+    },
+    {
+      "input": [
+        0.5732453206126139
+      ],
+      "expect": 0.9664596541223198
+    },
+    {
+      "input": [
+        0.4606827565072076
+      ],
+      "expect": 0.1628206781987499
+    },
+    {
+      "input": [
+        0.47433635760829096
+      ],
+      "expect": 0.2605693696464821
+    },
+    {
+      "input": [
+        0.48798995870937434
+      ],
+      "expect": 0.381992840769658
+    },
+    {
+      "input": [
+        0.5016435598104577
+      ],
+      "expect": 0.5163875261474687
+    },
+    {
+      "input": [
+        0.6138127971610722
+      ],
+      "expect": 0.9977816581589913
+    },
+    {
+      "input": [
+        0.6246913099170983
+      ],
+      "expect": 0.9990873678951088
+    },
+    {
+      "input": [
+        0.6355698226731246
+      ],
+      "expect": 0.9996495739211659
+    },
+    {
+      "input": [
+        0.6464483354291506
+      ],
+      "expect": 0.9998744857627495
+    },
+    {
+      "input": [
+        0.7782921306404855
+      ],
+      "expect": 0.9999999999982657
+    },
+    {
+      "input": [
+        0.7853304756995179
+      ],
+      "expect": 0.99999999999951
+    },
+    {
+      "input": [
+        0.79236882075855
+      ],
+      "expect": 0.9999999999998657
+    },
+    {
+      "input": [
+        0.7219930225319183
+      ],
+      "expect": 0.9999999857022615
+    },
+    {
+      "input": [
+        0.731747653320272
+      ],
+      "expect": 0.9999999965572021
+    },
+    {
+      "input": [
+        0.7415022841086258
+      ],
+      "expect": 0.999999999217676
+    },
+    {
+      "input": [
+        0.7512569148969797
+      ],
+      "expect": 0.9999999998322558
+    },
+    {
+      "input": [
+        0.4363941558250227
+      ],
+      "expect": 0.055900937854424404
+    },
+    {
+      "input": [
+        0.0761989281749798
+      ],
+      "expect": 0.0
+    },
+    {
+      "input": [
+        0.2553007726410852
+      ],
+      "expect": 4.753313853633756e-10
+    }
+  ]
+}

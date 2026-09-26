@@ -1,0 +1,2976 @@
+{
+  "schema": "rdarust.cases/1",
+  "suite": "traced",
+  "function": "est_district_responsiveness",
+  "note": "Recorded by instrumenting rdapy and running its own test suite. Arguments are exactly what rdapy's tests exercise. Cases with a \"from\" field were asserted directly by that test; the rest are incidental interior calls, sampled.",
+  "source": {
+    "rdapy_commit": "2b702b4f8fa10ba6fdbfd364a1f2344ece1077b1",
+    "python": "3.13.15",
+    "numpy": "2.5.3",
+    "platform": "macOS-26.7-arm64-arm-64bit-Mach-O"
+  },
+  "cases": [
+    {
+      "input": [
+        0.35
+      ],
+      "expect": 0.0003536378703379306,
+      "from": "test_method.py::test_district_responsiveness"
+    },
+    {
+      "input": [
+        0.35303
+      ],
+      "expect": 0.0004770412555065162,
+      "from": "test_method.py::test_district_responsiveness"
+    },
+    {
+      "input": [
+        0.356061
+      ],
+      "expect": 0.000640074768998633,
+      "from": "test_method.py::test_district_responsiveness"
+    },
+    {
+      "input": [
+        0.359091
+      ],
+      "expect": 0.000854086175248181,
+      "from": "test_method.py::test_district_responsiveness"
+    },
+    {
+      "input": [
+        0.362121
+      ],
+      "expect": 0.0011334806998618552,
+      "from": "test_method.py::test_district_responsiveness"
+    },
+    {
+      "input": [
+        0.365152
+      ],
+      "expect": 0.0014962699288667558,
+      "from": "test_method.py::test_district_responsiveness"
+    },
+    {
+      "input": [
+        0.368182
+      ],
+      "expect": 0.0019643181779921415,
+      "from": "test_method.py::test_district_responsiveness"
+    },
+    {
+      "input": [
+        0.371212
+      ],
+      "expect": 0.002564849512502243,
+      "from": "test_method.py::test_district_responsiveness"
+    },
+    {
+      "input": [
+        0.374242
+      ],
+      "expect": 0.0033308999905612424,
+      "from": "test_method.py::test_district_responsiveness"
+    },
+    {
+      "input": [
+        0.377273
+      ],
+      "expect": 0.004302770632906627,
+      "from": "test_method.py::test_district_responsiveness"
+    },
+    {
+      "input": [
+        0.380303
+      ],
+      "expect": 0.005527753064487606,
+      "from": "test_method.py::test_district_responsiveness"
+    },
+    {
+      "input": [
+        0.383333
+      ],
+      "expect": 0.007063167603600262,
+      "from": "test_method.py::test_district_responsiveness"
+    },
+    {
+      "input": [
+        0.386364
+      ],
+      "expect": 0.008977045520367044,
+      "from": "test_method.py::test_district_responsiveness"
+    },
+    {
+      "input": [
+        0.389394
+      ],
+      "expect": 0.011346952924271347,
+      "from": "test_method.py::test_district_responsiveness"
+    },
+    {
+      "input": [
+        0.392424
+      ],
+      "expect": 0.014264880179517991,
+      "from": "test_method.py::test_district_responsiveness"
+    },
+    {
+      "input": [
+        0.395455
+      ],
+      "expect": 0.017837202316029144,
+      "from": "test_method.py::test_district_responsiveness"
+    },
+    {
+      "input": [
+        0.398485
+      ],
+      "expect": 0.02218117775358952,
+      "from": "test_method.py::test_district_responsiveness"
+    },
+    {
+      "input": [
+        0.401515
+      ],
+      "expect": 0.027432542479324473,
+      "from": "test_method.py::test_district_responsiveness"
+    },
+    {
+      "input": [
+        0.404545
+      ],
+      "expect": 0.033741257886609755,
+      "from": "test_method.py::test_district_responsiveness"
+    },
+    {
+      "input": [
+        0.407576
+      ],
+      "expect": 0.04127498918383554,
+      "from": "test_method.py::test_district_responsiveness"
+    },
+    {
+      "input": [
+        0.410606
+      ],
+      "expect": 0.05020785366365288,
+      "from": "test_method.py::test_district_responsiveness"
+    },
+    {
+      "input": [
+        0.413636
+      ],
+      "expect": 0.06073356509589589,
+      "from": "test_method.py::test_district_responsiveness"
+    },
+    {
+      "input": [
+        0.416667
+      ],
+      "expect": 0.07305777069427077,
+      "from": "test_method.py::test_district_responsiveness"
+    },
+    {
+      "input": [
+        0.419697
+      ],
+      "expect": 0.08737988711959566,
+      "from": "test_method.py::test_district_responsiveness"
+    },
+    {
+      "input": [
+        0.422727
+      ],
+      "expect": 0.10391267576805774,
+      "from": "test_method.py::test_district_responsiveness"
+    },
+    {
+      "input": [
+        0.425758
+      ],
+      "expect": 0.12286741347531716,
+      "from": "test_method.py::test_district_responsiveness"
+    },
+    {
+      "input": [
+        0.428788
+      ],
+      "expect": 0.14442472198412415,
+      "from": "test_method.py::test_district_responsiveness"
+    },
+    {
+      "input": [
+        0.431818
+      ],
+      "expect": 0.16876369367451627,
+      "from": "test_method.py::test_district_responsiveness"
+    },
+    {
+      "input": [
+        0.434848
+      ],
+      "expect": 0.19602839801466865,
+      "from": "test_method.py::test_district_responsiveness"
+    },
+    {
+      "input": [
+        0.437879
+      ],
+      "expect": 0.2263340313422183,
+      "from": "test_method.py::test_district_responsiveness"
+    },
+    {
+      "input": [
+        0.440909
+      ],
+      "expect": 0.2597151724765683,
+      "from": "test_method.py::test_district_responsiveness"
+    },
+    {
+      "input": [
+        0.443939
+      ],
+      "expect": 0.29617487265700226,
+      "from": "test_method.py::test_district_responsiveness"
+    },
+    {
+      "input": [
+        0.44697
+      ],
+      "expect": 0.3356487010718021,
+      "from": "test_method.py::test_district_responsiveness"
+    },
+    {
+      "input": [
+        0.45
+      ],
+      "expect": 0.3779515959639903,
+      "from": "test_method.py::test_district_responsiveness"
+    },
+    {
+      "input": [
+        0.45303
+      ],
+      "expect": 0.4228481672482791,
+      "from": "test_method.py::test_district_responsiveness"
+    },
+    {
+      "input": [
+        0.456061
+      ],
+      "expect": 0.4700118189324297,
+      "from": "test_method.py::test_district_responsiveness"
+    },
+    {
+      "input": [
+        0.459091
+      ],
+      "expect": 0.5189715962573714,
+      "from": "test_method.py::test_district_responsiveness"
+    },
+    {
+      "input": [
+        0.462121
+      ],
+      "expect": 0.5692066704857077,
+      "from": "test_method.py::test_district_responsiveness"
+    },
+    {
+      "input": [
+        0.465152
+      ],
+      "expect": 0.6201064645828867,
+      "from": "test_method.py::test_district_responsiveness"
+    },
+    {
+      "input": [
+        0.468182
+      ],
+      "expect": 0.6709277252831375,
+      "from": "test_method.py::test_district_responsiveness"
+    },
+    {
+      "input": [
+        0.471212
+      ],
+      "expect": 0.7209093866740526,
+      "from": "test_method.py::test_district_responsiveness"
+    },
+    {
+      "input": [
+        0.474242
+      ],
+      "expect": 0.7692233893021143,
+      "from": "test_method.py::test_district_responsiveness"
+    },
+    {
+      "input": [
+        0.477273
+      ],
+      "expect": 0.8150278778267559,
+      "from": "test_method.py::test_district_responsiveness"
+    },
+    {
+      "input": [
+        0.480303
+      ],
+      "expect": 0.8574325352960406,
+      "from": "test_method.py::test_district_responsiveness"
+    },
+    {
+      "input": [
+        0.483333
+      ],
+      "expect": 0.8956168212334776,
+      "from": "test_method.py::test_district_responsiveness"
+    },
+    {
+      "input": [
+        0.486364
+      ],
+      "expect": 0.9288064818190576,
+      "from": "test_method.py::test_district_responsiveness"
+    },
+    {
+      "input": [
+        0.489394
+      ],
+      "expect": 0.9562746434864012,
+      "from": "test_method.py::test_district_responsiveness"
+    },
+    {
+      "input": [
+        0.492424
+      ],
+      "expect": 0.9774337486427581,
+      "from": "test_method.py::test_district_responsiveness"
+    },
+    {
+      "input": [
+        0.495455
+      ],
+      "expect": 0.9918160961795757,
+      "from": "test_method.py::test_district_responsiveness"
+    },
+    {
+      "input": [
+        0.498485
+      ],
+      "expect": 0.999087195529392,
+      "from": "test_method.py::test_district_responsiveness"
+    },
+    {
+      "input": [
+        0.501515
+      ],
+      "expect": 0.9990871955293918,
+      "from": "test_method.py::test_district_responsiveness"
+    },
+    {
+      "input": [
+        0.504545
+      ],
+      "expect": 0.9918160961795757,
+      "from": "test_method.py::test_district_responsiveness"
+    },
+    {
+      "input": [
+        0.507576
+      ],
+      "expect": 0.9774337486427581,
+      "from": "test_method.py::test_district_responsiveness"
+    },
+    {
+      "input": [
+        0.510606
+      ],
+      "expect": 0.9562746434864013,
+      "from": "test_method.py::test_district_responsiveness"
+    },
+    {
+      "input": [
+        0.513636
+      ],
+      "expect": 0.9288064818190576,
+      "from": "test_method.py::test_district_responsiveness"
+    },
+    {
+      "input": [
+        0.516667
+      ],
+      "expect": 0.8956168212334775,
+      "from": "test_method.py::test_district_responsiveness"
+    },
+    {
+      "input": [
+        0.519697
+      ],
+      "expect": 0.8574325352960412,
+      "from": "test_method.py::test_district_responsiveness"
+    },
+    {
+      "input": [
+        0.522727
+      ],
+      "expect": 0.815027877826755,
+      "from": "test_method.py::test_district_responsiveness"
+    },
+    {
+      "input": [
+        0.525758
+      ],
+      "expect": 0.7692233893021152,
+      "from": "test_method.py::test_district_responsiveness"
+    },
+    {
+      "input": [
+        0.528788
+      ],
+      "expect": 0.7209093866740517,
+      "from": "test_method.py::test_district_responsiveness"
+    },
+    {
+      "input": [
+        0.531818
+      ],
+      "expect": 0.6709277252831375,
+      "from": "test_method.py::test_district_responsiveness"
+    },
+    {
+      "input": [
+        0.534848
+      ],
+      "expect": 0.6201064645828867,
+      "from": "test_method.py::test_district_responsiveness"
+    },
+    {
+      "input": [
+        0.537879
+      ],
+      "expect": 0.5692066704857077,
+      "from": "test_method.py::test_district_responsiveness"
+    },
+    {
+      "input": [
+        0.540909
+      ],
+      "expect": 0.5189715962573714,
+      "from": "test_method.py::test_district_responsiveness"
+    },
+    {
+      "input": [
+        0.543939
+      ],
+      "expect": 0.4700118189324307,
+      "from": "test_method.py::test_district_responsiveness"
+    },
+    {
+      "input": [
+        0.54697
+      ],
+      "expect": 0.4228481672482798,
+      "from": "test_method.py::test_district_responsiveness"
+    },
+    {
+      "input": [
+        0.55
+      ],
+      "expect": 0.37795159596398964,
+      "from": "test_method.py::test_district_responsiveness"
+    },
+    {
+      "input": [
+        0.55303
+      ],
+      "expect": 0.3356487010718021,
+      "from": "test_method.py::test_district_responsiveness"
+    },
+    {
+      "input": [
+        0.556061
+      ],
+      "expect": 0.2961748726570025,
+      "from": "test_method.py::test_district_responsiveness"
+    },
+    {
+      "input": [
+        0.559091
+      ],
+      "expect": 0.25971517247656806,
+      "from": "test_method.py::test_district_responsiveness"
+    },
+    {
+      "input": [
+        0.562121
+      ],
+      "expect": 0.2263340313422183,
+      "from": "test_method.py::test_district_responsiveness"
+    },
+    {
+      "input": [
+        0.565152
+      ],
+      "expect": 0.19602839801466843,
+      "from": "test_method.py::test_district_responsiveness"
+    },
+    {
+      "input": [
+        0.568182
+      ],
+      "expect": 0.1687636936745167,
+      "from": "test_method.py::test_district_responsiveness"
+    },
+    {
+      "input": [
+        0.571212
+      ],
+      "expect": 0.14442472198412348,
+      "from": "test_method.py::test_district_responsiveness"
+    },
+    {
+      "input": [
+        0.574242
+      ],
+      "expect": 0.12286741347531671,
+      "from": "test_method.py::test_district_responsiveness"
+    },
+    {
+      "input": [
+        0.577273
+      ],
+      "expect": 0.1039126757680574,
+      "from": "test_method.py::test_district_responsiveness"
+    },
+    {
+      "input": [
+        0.580303
+      ],
+      "expect": 0.08737988711959543,
+      "from": "test_method.py::test_district_responsiveness"
+    },
+    {
+      "input": [
+        0.583333
+      ],
+      "expect": 0.07305777069427077,
+      "from": "test_method.py::test_district_responsiveness"
+    },
+    {
+      "input": [
+        0.586364
+      ],
+      "expect": 0.060733565095896114,
+      "from": "test_method.py::test_district_responsiveness"
+    },
+    {
+      "input": [
+        0.589394
+      ],
+      "expect": 0.05020785366365288,
+      "from": "test_method.py::test_district_responsiveness"
+    },
+    {
+      "input": [
+        0.592424
+      ],
+      "expect": 0.041274989183835764,
+      "from": "test_method.py::test_district_responsiveness"
+    },
+    {
+      "input": [
+        0.595455
+      ],
+      "expect": 0.033741257886609755,
+      "from": "test_method.py::test_district_responsiveness"
+    },
+    {
+      "input": [
+        0.598485
+      ],
+      "expect": 0.027432542479324473,
+      "from": "test_method.py::test_district_responsiveness"
+    },
+    {
+      "input": [
+        0.601515
+      ],
+      "expect": 0.02218117775358952,
+      "from": "test_method.py::test_district_responsiveness"
+    },
+    {
+      "input": [
+        0.604545
+      ],
+      "expect": 0.017837202316029144,
+      "from": "test_method.py::test_district_responsiveness"
+    },
+    {
+      "input": [
+        0.607576
+      ],
+      "expect": 0.014264880179517991,
+      "from": "test_method.py::test_district_responsiveness"
+    },
+    {
+      "input": [
+        0.610606
+      ],
+      "expect": 0.011346952924271347,
+      "from": "test_method.py::test_district_responsiveness"
+    },
+    {
+      "input": [
+        0.613636
+      ],
+      "expect": 0.008977045520367044,
+      "from": "test_method.py::test_district_responsiveness"
+    },
+    {
+      "input": [
+        0.616667
+      ],
+      "expect": 0.007063167603600706,
+      "from": "test_method.py::test_district_responsiveness"
+    },
+    {
+      "input": [
+        0.619697
+      ],
+      "expect": 0.005527753064487162,
+      "from": "test_method.py::test_district_responsiveness"
+    },
+    {
+      "input": [
+        0.622727
+      ],
+      "expect": 0.004302770632906627,
+      "from": "test_method.py::test_district_responsiveness"
+    },
+    {
+      "input": [
+        0.625758
+      ],
+      "expect": 0.0033308999905612424,
+      "from": "test_method.py::test_district_responsiveness"
+    },
+    {
+      "input": [
+        0.628788
+      ],
+      "expect": 0.002564849512502243,
+      "from": "test_method.py::test_district_responsiveness"
+    },
+    {
+      "input": [
+        0.631818
+      ],
+      "expect": 0.0019643181779921415,
+      "from": "test_method.py::test_district_responsiveness"
+    },
+    {
+      "input": [
+        0.634848
+      ],
+      "expect": 0.0014962699288667558,
+      "from": "test_method.py::test_district_responsiveness"
+    },
+    {
+      "input": [
+        0.637879
+      ],
+      "expect": 0.0011334806998616331,
+      "from": "test_method.py::test_district_responsiveness"
+    },
+    {
+      "input": [
+        0.640909
+      ],
+      "expect": 0.000854086175248181,
+      "from": "test_method.py::test_district_responsiveness"
+    },
+    {
+      "input": [
+        0.643939
+      ],
+      "expect": 0.000640074768998633,
+      "from": "test_method.py::test_district_responsiveness"
+    },
+    {
+      "input": [
+        0.64697
+      ],
+      "expect": 0.0004770412555065162,
+      "from": "test_method.py::test_district_responsiveness"
+    },
+    {
+      "input": [
+        0.65
+      ],
+      "expect": 0.0003536378703379306,
+      "from": "test_method.py::test_district_responsiveness"
+    },
+    {
+      "input": [
+        0.509618
+      ],
+      "expect": 0.9638929394448241
+    },
+    {
+      "input": [
+        0.662215
+      ],
+      "expect": 0.00010010536399773784
+    },
+    {
+      "input": [
+        0.460129
+      ],
+      "expect": 0.5360670120513894
+    },
+    {
+      "input": [
+        0.61341
+      ],
+      "expect": 0.009137000442402954
+    },
+    {
+      "input": [
+        0.410944
+      ],
+      "expect": 0.05129945599504093
+    },
+    {
+      "input": [
+        0.517405
+      ],
+      "expect": 0.8867487019025991
+    },
+    {
+      "input": [
+        0.421855
+      ],
+      "expect": 0.09891604960659572
+    },
+    {
+      "input": [
+        0.494843
+      ],
+      "expect": 0.9894767270059576
+    },
+    {
+      "input": [
+        0.507846
+      ],
+      "expect": 0.9758174989191276
+    },
+    {
+      "input": [
+        0.31032
+      ],
+      "expect": 4.232368004064568e-06
+    },
+    {
+      "input": [
+        0.448834
+      ],
+      "expect": 0.36135006995949326
+    },
+    {
+      "input": [
+        0.435296
+      ],
+      "expect": 0.20031484334468574
+    },
+    {
+      "input": [
+        0.526326
+      ],
+      "expect": 0.760332719677847
+    },
+    {
+      "input": [
+        0.601164
+      ],
+      "expect": 0.022740316349865952
+    },
+    {
+      "input": [
+        0.589382
+      ],
+      "expect": 0.05024626797591547
+    },
+    {
+      "input": [
+        0.483423
+      ],
+      "expect": 0.8966781799270565
+    },
+    {
+      "input": [
+        0.620081
+      ],
+      "expect": 0.005356610402773576
+    },
+    {
+      "input": [
+        0.371433
+      ],
+      "expect": 0.00261468693918554
+    },
+    {
+      "input": [
+        0.596228
+      ],
+      "expect": 0.03202247927465196
+    },
+    {
+      "input": [
+        0.477735
+      ],
+      "expect": 0.8217333700157534
+    },
+    {
+      "input": [
+        0.443552
+      ],
+      "expect": 0.2913486004340827
+    },
+    {
+      "input": [
+        0.733725
+      ],
+      "expect": 1.0246109294342887e-08
+    },
+    {
+      "input": [
+        0.521964
+      ],
+      "expect": 0.8260583082583266
+    },
+    {
+      "input": [
+        0.78906
+      ],
+      "expect": 9.912071163853398e-13
+    },
+    {
+      "input": [
+        0.645215
+      ],
+      "expect": 0.0005659393858421513
+    },
+    {
+      "input": [
+        0.631329
+      ],
+      "expect": 0.0020514811611608286
+    },
+    {
+      "input": [
+        0.922
+      ],
+      "expect": 0.0
+    },
+    {
+      "input": [
+        0.793
+      ],
+      "expect": 4.778399897986674e-13
+    },
+    {
+      "input": [
+        0.684
+      ],
+      "expect": 8.44980096015302e-06
+    },
+    {
+      "input": [
+        0.621
+      ],
+      "expect": 0.004966480703372578
+    },
+    {
+      "input": [
+        0.6
+      ],
+      "expect": 0.024684421529272083
+    },
+    {
+      "input": [
+        0.566
+      ],
+      "expect": 0.1880961675369761
+    },
+    {
+      "input": [
+        0.552
+      ],
+      "expect": 0.3497206030784046
+    },
+    {
+      "input": [
+        0.526
+      ],
+      "expect": 0.7654459757926176
+    },
+    {
+      "input": [
+        0.513
+      ],
+      "expect": 0.935067313776692
+    },
+    {
+      "input": [
+        0.511
+      ],
+      "expect": 0.9530481474186623
+    },
+    {
+      "input": [
+        0.495
+      ],
+      "expect": 0.9901044359629966
+    },
+    {
+      "input": [
+        0.476
+      ],
+      "expect": 0.7961533806177512
+    },
+    {
+      "input": [
+        0.454
+      ],
+      "expect": 0.4377157862125075
+    },
+    {
+      "input": [
+        0.423
+      ],
+      "expect": 0.1055178931911186
+    },
+    {
+      "input": [
+        0.393
+      ],
+      "expect": 0.014890005428937036
+    },
+    {
+      "input": [
+        0.39
+      ],
+      "expect": 0.011883536984470311
+    },
+    {
+      "input": [
+        0.371
+      ],
+      "expect": 0.002517866464662455
+    },
+    {
+      "input": [
+        0.3
+      ],
+      "expect": 1.1466059588460809e-06
+    },
+    {
+      "input": [
+        0.34
+      ],
+      "expect": 0.00012668095506229715
+    },
+    {
+      "input": [
+        0.3833
+      ],
+      "expect": 0.007044542687486999
+    },
+    {
+      "input": [
+        0.4267
+      ],
+      "expect": 0.1292813954905747
+    },
+    {
+      "input": [
+        0.47
+      ],
+      "expect": 0.7010695821260757
+    },
+    {
+      "input": [
+        0.5133
+      ],
+      "expect": 0.9321458662470192
+    },
+    {
+      "input": [
+        0.5567
+      ],
+      "expect": 0.2882323954405507
+    },
+    {
+      "input": [
+        0.6433
+      ],
+      "expect": 0.0006805274146353124
+    },
+    {
+      "input": [
+        0.6867
+      ],
+      "expect": 6.097725699594214e-06
+    },
+    {
+      "input": [
+        0.73
+      ],
+      "expect": 1.7848689526367423e-08
+    },
+    {
+      "input": [
+        0.7733
+      ],
+      "expect": 1.6689316595375203e-11
+    },
+    {
+      "input": [
+        0.8167
+      ],
+      "expect": 4.884981308350689e-15
+    },
+    {
+      "input": [
+        0.86
+      ],
+      "expect": 0.0
+    },
+    {
+      "input": [
+        0.9
+      ],
+      "expect": 0.0
+    },
+    {
+      "input": [
+        0.3708
+      ],
+      "expect": 0.002474271959738261
+    },
+    {
+      "input": [
+        0.3917
+      ],
+      "expect": 0.013512456506346582
+    },
+    {
+      "input": [
+        0.4125
+      ],
+      "expect": 0.056588049517995676
+    },
+    {
+      "input": [
+        0.4333
+      ],
+      "expect": 0.18172602194727783
+    },
+    {
+      "input": [
+        0.4542
+      ],
+      "expect": 0.4408088556873425
+    },
+    {
+      "input": [
+        0.475
+      ],
+      "expect": 0.7809489095415335
+    },
+    {
+      "input": [
+        0.4958
+      ],
+      "expect": 0.9930069946328648
+    },
+    {
+      "input": [
+        0.5167
+      ],
+      "expect": 0.8952265475537259
+    },
+    {
+      "input": [
+        0.5375
+      ],
+      "expect": 0.5755496051586668
+    },
+    {
+      "input": [
+        0.5583
+      ],
+      "expect": 0.26893808296543065
+    },
+    {
+      "input": [
+        0.5792
+      ],
+      "expect": 0.09313143071722252
+    },
+    {
+      "input": [
+        0.6208
+      ],
+      "expect": 0.005049104206524602
+    },
+    {
+      "input": [
+        0.6417
+      ],
+      "expect": 0.0007925497496591438
+    },
+    {
+      "input": [
+        0.6625
+      ],
+      "expect": 9.709753832942702e-05
+    },
+    {
+      "input": [
+        0.6833
+      ],
+      "expect": 9.188973065010764e-06
+    },
+    {
+      "input": [
+        0.7042
+      ],
+      "expect": 6.615889212024939e-07
+    },
+    {
+      "input": [
+        0.725
+      ],
+      "expect": 3.710159435232896e-08
+    },
+    {
+      "input": [
+        0.7458
+      ],
+      "expect": 1.5992700497236e-09
+    },
+    {
+      "input": [
+        0.7667
+      ],
+      "expect": 5.203926178865004e-11
+    },
+    {
+      "input": [
+        0.7875
+      ],
+      "expect": 1.319833131674386e-12
+    },
+    {
+      "input": [
+        0.8083
+      ],
+      "expect": 2.5757174171303632e-14
+    },
+    {
+      "input": [
+        0.8292
+      ],
+      "expect": 4.440892098500626e-16
+    },
+    {
+      "input": [
+        0.85
+      ],
+      "expect": 0.0
+    },
+    {
+      "input": [
+        0.44
+      ],
+      "expect": 0.24937599650992148
+    },
+    {
+      "input": [
+        0.4533
+      ],
+      "expect": 0.4269638815166623
+    },
+    {
+      "input": [
+        0.4667
+      ],
+      "expect": 0.6461258499612292
+    },
+    {
+      "input": [
+        0.48
+      ],
+      "expect": 0.8533685036915879
+    },
+    {
+      "input": [
+        0.4933
+      ],
+      "expect": 0.9823047876973245
+    },
+    {
+      "input": [
+        0.5067
+      ],
+      "expect": 0.9823047876973243
+    },
+    {
+      "input": [
+        0.52
+      ],
+      "expect": 0.8533685036915879
+    },
+    {
+      "input": [
+        0.5333
+      ],
+      "expect": 0.6461258499612292
+    },
+    {
+      "input": [
+        0.5467
+      ],
+      "expect": 0.4269638815166631
+    },
+    {
+      "input": [
+        0.56
+      ],
+      "expect": 0.2493759965099207
+    },
+    {
+      "input": [
+        0.5733
+      ],
+      "expect": 0.12928139549057405
+    },
+    {
+      "input": [
+        0.5867
+      ],
+      "expect": 0.05948165569399988
+    },
+    {
+      "input": [
+        0.6133
+      ],
+      "expect": 0.009215782170980957
+    },
+    {
+      "input": [
+        0.6267
+      ],
+      "expect": 0.003072750119683443
+    },
+    {
+      "input": [
+        0.64
+      ],
+      "expect": 0.0009302998509884697
+    },
+    {
+      "input": [
+        0.6533
+      ],
+      "expect": 0.0002536791083646017
+    },
+    {
+      "input": [
+        0.6667
+      ],
+      "expect": 6.159075416478643e-05
+    },
+    {
+      "input": [
+        0.68
+      ],
+      "expect": 1.359064632222573e-05
+    },
+    {
+      "input": [
+        0.6933
+      ],
+      "expect": 2.6965804209577726e-06
+    },
+    {
+      "input": [
+        0.7067
+      ],
+      "expect": 4.744918774557405e-07
+    },
+    {
+      "input": [
+        0.72
+      ],
+      "expect": 7.595824846884369e-08
+    },
+    {
+      "input": [
+        0.7333
+      ],
+      "expect": 1.0920600868047359e-08
+    },
+    {
+      "input": [
+        0.7467
+      ],
+      "expect": 1.3875620652470388e-09
+    },
+    {
+      "input": [
+        0.76
+      ],
+      "expect": 1.606399457898533e-10
+    },
+    {
+      "input": [
+        0.57
+      ],
+      "expect": 0.15381768326070921
+    },
+    {
+      "input": [
+        0.59
+      ],
+      "expect": 0.048300139693402966
+    },
+    {
+      "input": [
+        0.61
+      ],
+      "expect": 0.011883536984470311
+    },
+    {
+      "input": [
+        0.63
+      ],
+      "expect": 0.0023067683379648374
+    },
+    {
+      "input": [
+        0.67
+      ],
+      "expect": 4.275364612127408e-05
+    },
+    {
+      "input": [
+        0.69
+      ],
+      "expect": 4.068328832262935e-06
+    },
+    {
+      "input": [
+        0.71
+      ],
+      "expect": 3.0419839758266676e-07
+    },
+    {
+      "input": [
+        0.49
+      ],
+      "expect": 0.9610282450807063
+    },
+    {
+      "input": [
+        0.505
+      ],
+      "expect": 0.9901044359629966
+    },
+    {
+      "input": [
+        0.51
+      ],
+      "expect": 0.9610282450807063
+    },
+    {
+      "input": [
+        0.545
+      ],
+      "expect": 0.453271423763578
+    },
+    {
+      "input": [
+        0.41
+      ],
+      "expect": 0.048300139693402966
+    },
+    {
+      "input": [
+        0.43
+      ],
+      "expect": 0.15381768326070888
+    },
+    {
+      "input": [
+        0.515
+      ],
+      "expect": 0.9145375972433657
+    },
+    {
+      "input": [
+        0.25
+      ],
+      "expect": 8.209053437013836e-10
+    },
+    {
+      "input": [
+        0.28
+      ],
+      "expect": 7.595824846884369e-08
+    },
+    {
+      "input": [
+        0.31
+      ],
+      "expect": 4.06832883248498e-06
+    },
+    {
+      "input": [
+        0.66
+      ],
+      "expect": 0.00012668095506229715
+    },
+    {
+      "input": [
+        0.75
+      ],
+      "expect": 8.209051216567786e-10
+    },
+    {
+      "input": [
+        0.1
+      ],
+      "expect": 0.0
+    },
+    {
+      "input": [
+        0.13
+      ],
+      "expect": 0.0
+    },
+    {
+      "input": [
+        0.16
+      ],
+      "expect": 0.0
+    },
+    {
+      "input": [
+        0.19
+      ],
+      "expect": 1.84297022087776e-14
+    },
+    {
+      "input": [
+        0.7
+      ],
+      "expect": 1.1466059586240362e-06
+    },
+    {
+      "input": [
+        0.79
+      ],
+      "expect": 8.335554468885675e-13
+    },
+    {
+      "input": [
+        0.82
+      ],
+      "expect": 2.6645352591003757e-15
+    },
+    {
+      "input": [
+        0.17
+      ],
+      "expect": 4.440892098500626e-16
+    },
+    {
+      "input": [
+        0.37
+      ],
+      "expect": 0.0023067683379648374
+    },
+    {
+      "input": [
+        0.565
+      ],
+      "expect": 0.19747527899877393
+    },
+    {
+      "input": [
+        0.575
+      ],
+      "expect": 0.11788969182678743
+    },
+    {
+      "input": [
+        0.77
+      ],
+      "expect": 2.956923594865657e-11
+    },
+    {
+      "input": [
+        0.97
+      ],
+      "expect": 0.0
+    },
+    {
+      "input": [
+        0.2
+      ],
+      "expect": 1.27675647831893e-13
+    },
+    {
+      "input": [
+        0.23
+      ],
+      "expect": 2.9569013904051644e-11
+    },
+    {
+      "input": [
+        0.26
+      ],
+      "expect": 3.946350579653313e-09
+    },
+    {
+      "input": [
+        0.58
+      ],
+      "expect": 0.08893025377807895
+    },
+    {
+      "input": [
+        0.15
+      ],
+      "expect": 0.0
+    },
+    {
+      "input": [
+        0.21
+      ],
+      "expect": 8.335554468885675e-13
+    },
+    {
+      "input": [
+        0.27
+      ],
+      "expect": 1.7848689748412028e-08
+    },
+    {
+      "input": [
+        0.363299
+      ],
+      "expect": 0.001263466461252527
+    },
+    {
+      "input": [
+        0.367516
+      ],
+      "expect": 0.001851111353423418
+    },
+    {
+      "input": [
+        0.400985
+      ],
+      "expect": 0.026442122358711684
+    },
+    {
+      "input": [
+        0.403835
+      ],
+      "expect": 0.03215965409454946
+    },
+    {
+      "input": [
+        0.405374
+      ],
+      "expect": 0.03567295699991302
+    },
+    {
+      "input": [
+        0.409041
+      ],
+      "expect": 0.04540747380085919
+    },
+    {
+      "input": [
+        0.415317
+      ],
+      "expect": 0.06733366501170435
+    },
+    {
+      "input": [
+        0.419307
+      ],
+      "expect": 0.08541688064731767
+    },
+    {
+      "input": [
+        0.422114
+      ],
+      "expect": 0.10037953219051843
+    },
+    {
+      "input": [
+        0.439734
+      ],
+      "expect": 0.2464030740789228
+    },
+    {
+      "input": [
+        0.445364
+      ],
+      "expect": 0.31436690328289896
+    },
+    {
+      "input": [
+        0.451755
+      ],
+      "expect": 0.4036597408752757
+    },
+    {
+      "input": [
+        0.496925
+      ],
+      "expect": 0.9962451275294121
+    },
+    {
+      "input": [
+        0.502773
+      ],
+      "expect": 0.9969453295125733
+    },
+    {
+      "input": [
+        0.507735
+      ],
+      "expect": 0.9764884676340982
+    },
+    {
+      "input": [
+        0.526451
+      ],
+      "expect": 0.7583648054196737
+    },
+    {
+      "input": [
+        0.528396
+      ],
+      "expect": 0.7272718063719857
+    },
+    {
+      "input": [
+        0.529718
+      ],
+      "expect": 0.7057067183282766
+    },
+    {
+      "input": [
+        0.534305
+      ],
+      "expect": 0.6292402613072516
+    },
+    {
+      "input": [
+        0.550364
+      ],
+      "expect": 0.3727268356536739
+    },
+    {
+      "input": [
+        0.555165
+      ],
+      "expect": 0.30753672444595337
+    },
+    {
+      "input": [
+        0.56807
+      ],
+      "expect": 0.1697186477688617
+    },
+    {
+      "input": [
+        0.569405
+      ],
+      "expect": 0.15859495627764053
+    },
+    {
+      "input": [
+        0.569852
+      ],
+      "expect": 0.1549956821881775
+    },
+    {
+      "input": [
+        0.578284
+      ],
+      "expect": 0.09813774093572458
+    },
+    {
+      "input": [
+        0.586292
+      ],
+      "expect": 0.061004691304005876
+    },
+    {
+      "input": [
+        0.601814
+      ],
+      "expect": 0.02171447397522397
+    },
+    {
+      "input": [
+        0.60286
+      ],
+      "expect": 0.020149269188350805
+    },
+    {
+      "input": [
+        0.608688
+      ],
+      "expect": 0.013124017256108123
+    },
+    {
+      "input": [
+        0.628728
+      ],
+      "expect": 0.0025782926681100493
+    },
+    {
+      "input": [
+        0.631661
+      ],
+      "expect": 0.001991922263376966
+    },
+    {
+      "input": [
+        0.637399
+      ],
+      "expect": 0.0011848658076639706
+    },
+    {
+      "input": [
+        0.649204
+      ],
+      "expect": 0.00038277094149119506
+    },
+    {
+      "input": [
+        0.663232
+      ],
+      "expect": 8.975990796455946e-05
+    },
+    {
+      "input": [
+        0.670894
+      ],
+      "expect": 3.86843585025165e-05
+    },
+    {
+      "input": [
+        0.671433
+      ],
+      "expect": 3.6412122217499565e-05
+    },
+    {
+      "input": [
+        0.672315
+      ],
+      "expect": 3.296582584089158e-05
+    },
+    {
+      "input": [
+        0.68477
+      ],
+      "expect": 7.70257718596401e-06
+    },
+    {
+      "input": [
+        0.691346
+      ],
+      "expect": 3.442803467867961e-06
+    },
+    {
+      "input": [
+        0.696557
+      ],
+      "expect": 1.7854174252374122e-06
+    },
+    {
+      "input": [
+        0.698288
+      ],
+      "expect": 1.4303264525006298e-06
+    },
+    {
+      "input": [
+        0.700686
+      ],
+      "expect": 1.0488721645662835e-06
+    },
+    {
+      "input": [
+        0.701677
+      ],
+      "expect": 9.217436475195129e-07
+    },
+    {
+      "input": [
+        0.703648
+      ],
+      "expect": 7.116088309722102e-07
+    },
+    {
+      "input": [
+        0.734159
+      ],
+      "expect": 9.599216088673757e-09
+    },
+    {
+      "input": [
+        0.747274
+      ],
+      "expect": 1.2670939852910124e-09
+    },
+    {
+      "input": [
+        0.755875
+      ],
+      "expect": 3.171782836375314e-10
+    },
+    {
+      "input": [
+        0.791762
+      ],
+      "expect": 6.012967901369848e-13
+    },
+    {
+      "input": [
+        0.817757
+      ],
+      "expect": 3.9968028886505635e-15
+    },
+    {
+      "input": [
+        0.830931
+      ],
+      "expect": 0.0
+    },
+    {
+      "input": [
+        0.846421
+      ],
+      "expect": 0.0
+    },
+    {
+      "input": [
+        0.852437
+      ],
+      "expect": 0.0
+    },
+    {
+      "input": [
+        0.889638
+      ],
+      "expect": 0.0
+    },
+    {
+      "input": [
+        0.678999
+      ],
+      "expect": 1.5283992379155897e-05
+    },
+    {
+      "input": [
+        0.575848
+      ],
+      "expect": 0.11251090400803998
+    },
+    {
+      "input": [
+        0.480675
+      ],
+      "expect": 0.8623641821294086
+    },
+    {
+      "input": [
+        0.389881
+      ],
+      "expect": 0.011776404570141064
+    },
+    {
+      "input": [
+        0.361222
+      ],
+      "expect": 0.0010427782724695689
+    },
+    {
+      "input": [
+        0.491961
+      ],
+      "expect": 0.9746292834463962
+    },
+    {
+      "input": [
+        0.540539
+      ],
+      "expect": 0.5250493030239929
+    },
+    {
+      "input": [
+        0.43167
+      ],
+      "expect": 0.16750792717304686
+    },
+    {
+      "input": [
+        0.432957
+      ],
+      "expect": 0.17866291084157393
+    },
+    {
+      "input": [
+        0.463599
+      ],
+      "expect": 0.5939880443703289
+    },
+    {
+      "input": [
+        0.468259
+      ],
+      "expect": 0.67221170027425
+    },
+    {
+      "input": [
+        0.482758
+      ],
+      "expect": 0.8887323994977933
+    },
+    {
+      "input": [
+        0.534209
+      ],
+      "expect": 0.630854561919503
+    },
+    {
+      "input": [
+        0.56368
+      ],
+      "expect": 0.21036285669589094
+    },
+    {
+      "input": [
+        0.565989
+      ],
+      "expect": 0.1881975485564179
+    },
+    {
+      "input": [
+        0.571408
+      ],
+      "expect": 0.1429478370418803
+    },
+    {
+      "input": [
+        0.585263
+      ],
+      "expect": 0.06499184093460297
+    },
+    {
+      "input": [
+        0.588047
+      ],
+      "expect": 0.05467867474839194
+    },
+    {
+      "input": [
+        0.588367
+      ],
+      "expect": 0.053587142293403
+    },
+    {
+      "input": [
+        0.657926
+      ],
+      "expect": 0.0001575087052443358
+    },
+    {
+      "input": [
+        0.667085
+      ],
+      "expect": 5.90424901111275e-05
+    },
+    {
+      "input": [
+        0.800841
+      ],
+      "expect": 1.0880185641326534e-13
+    },
+    {
+      "input": [
+        0.810986
+      ],
+      "expect": 1.509903313490213e-14
+    },
+    {
+      "input": [
+        0.819553
+      ],
+      "expect": 2.6645352591003757e-15
+    },
+    {
+      "input": [
+        0.875253
+      ],
+      "expect": 0.0
+    },
+    {
+      "input": [
+        0.54651
+      ],
+      "expect": 0.42987072793127956
+    },
+    {
+      "input": [
+        0.553766
+      ],
+      "expect": 0.3257946033685928
+    },
+    {
+      "input": [
+        0.555302
+      ],
+      "expect": 0.3057825746285674
+    },
+    {
+      "input": [
+        0.57484
+      ],
+      "expect": 0.11892694307155793
+    },
+    {
+      "input": [
+        0.577183
+      ],
+      "expect": 0.1044396938623966
+    },
+    {
+      "input": [
+        0.57948
+      ],
+      "expect": 0.0916430823659572
+    },
+    {
+      "input": [
+        0.618246
+      ],
+      "expect": 0.006220407524141658
+    },
+    {
+      "input": [
+        0.646257
+      ],
+      "expect": 0.0005114489772030106
+    },
+    {
+      "input": [
+        0.816538
+      ],
+      "expect": 4.884981308350689e-15
+    },
+    {
+      "input": [
+        0.382132
+      ],
+      "expect": 0.006413376862820397
+    },
+    {
+      "input": [
+        0.53747
+      ],
+      "expect": 0.5760520828490425
+    },
+    {
+      "input": [
+        0.582745
+      ],
+      "expect": 0.0756740642160284
+    },
+    {
+      "input": [
+        0.597459
+      ],
+      "expect": 0.02944242489926341
+    },
+    {
+      "input": [
+        0.611039
+      ],
+      "expect": 0.010976997945314926
+    },
+    {
+      "input": [
+        0.62287
+      ],
+      "expect": 0.004251628805274077
+    },
+    {
+      "input": [
+        0.715858
+      ],
+      "expect": 1.3594467973554458e-07
+    },
+    {
+      "input": [
+        0.729883
+      ],
+      "expect": 1.8160091985741644e-08
+    },
+    {
+      "input": [
+        0.4235
+      ],
+      "expect": 0.1085091955547598
+    },
+    {
+      "input": [
+        0.428588
+      ],
+      "expect": 0.14291781752471222
+    },
+    {
+      "input": [
+        0.43388
+      ],
+      "expect": 0.18699276840663226
+    },
+    {
+      "input": [
+        0.443866
+      ],
+      "expect": 0.29526072909541046
+    },
+    {
+      "input": [
+        0.454505
+      ],
+      "expect": 0.4455433694607712
+    },
+    {
+      "input": [
+        0.456985
+      ],
+      "expect": 0.48477302246629717
+    },
+    {
+      "input": [
+        0.458005
+      ],
+      "expect": 0.5012470785654085
+    },
+    {
+      "input": [
+        0.458134
+      ],
+      "expect": 0.5033429873061803
+    },
+    {
+      "input": [
+        0.463947
+      ],
+      "expect": 0.5998369076107697
+    },
+    {
+      "input": [
+        0.473144
+      ],
+      "expect": 0.7519618807758659
+    },
+    {
+      "input": [
+        0.718314
+      ],
+      "expect": 9.638690146029916e-08
+    },
+    {
+      "input": [
+        0.73662
+      ],
+      "expect": 6.617378200957091e-09
+    },
+    {
+      "input": [
+        0.775817
+      ],
+      "expect": 1.0740741629433614e-11
+    },
+    {
+      "input": [
+        0.385106
+      ],
+      "expect": 0.008132028926201684
+    },
+    {
+      "input": [
+        0.43636
+      ],
+      "expect": 0.21076245413299577
+    },
+    {
+      "input": [
+        0.440415
+      ],
+      "expect": 0.2540618061420813
+    },
+    {
+      "input": [
+        0.440416
+      ],
+      "expect": 0.25407316728342766
+    },
+    {
+      "input": [
+        0.444179
+      ],
+      "expect": 0.29919257083299433
+    },
+    {
+      "input": [
+        0.444629
+      ],
+      "expect": 0.3049014004284597
+    },
+    {
+      "input": [
+        0.460507
+      ],
+      "expect": 0.5423252069076572
+    },
+    {
+      "input": [
+        0.468812
+      ],
+      "expect": 0.6814159290665782
+    },
+    {
+      "input": [
+        0.473905
+      ],
+      "expect": 0.7639588024492956
+    },
+    {
+      "input": [
+        0.477168
+      ],
+      "expect": 0.8134928143376167
+    },
+    {
+      "input": [
+        0.489429
+      ],
+      "expect": 0.9565561108738925
+    },
+    {
+      "input": [
+        0.506242
+      ],
+      "expect": 0.9846224151495127
+    },
+    {
+      "input": [
+        0.656102
+      ],
+      "expect": 0.00019036007472827965
+    },
+    {
+      "input": [
+        0.658528
+      ],
+      "expect": 0.0001478980863849344
+    },
+    {
+      "input": [
+        0.665822
+      ],
+      "expect": 6.779865362294135e-05
+    },
+    {
+      "input": [
+        0.810099
+      ],
+      "expect": 1.7763568394002505e-14
+    },
+    {
+      "input": [
+        0.392416
+      ],
+      "expect": 0.014256365544595972
+    },
+    {
+      "input": [
+        0.406936
+      ],
+      "expect": 0.03957366633133508
+    },
+    {
+      "input": [
+        0.407902
+      ],
+      "expect": 0.042165508159646814
+    },
+    {
+      "input": [
+        0.439866
+      ],
+      "expect": 0.2478753784444957
+    },
+    {
+      "input": [
+        0.443709
+      ],
+      "expect": 0.29330061611305513
+    },
+    {
+      "input": [
+        0.444553
+      ],
+      "expect": 0.3039326195593003
+    },
+    {
+      "input": [
+        0.447487
+      ],
+      "expect": 0.34267134194863513
+    },
+    {
+      "input": [
+        0.447898
+      ],
+      "expect": 0.34831262408617214
+    },
+    {
+      "input": [
+        0.453195
+      ],
+      "expect": 0.425361211974731
+    },
+    {
+      "input": [
+        0.490848
+      ],
+      "expect": 0.9672478201840277
+    },
+    {
+      "input": [
+        0.493135
+      ],
+      "expect": 0.981431128085904
+    },
+    {
+      "input": [
+        0.497702
+      ],
+      "expect": 0.9979011447042115
+    },
+    {
+      "input": [
+        0.517089
+      ],
+      "expect": 0.8905815840697299
+    },
+    {
+      "input": [
+        0.566615
+      ],
+      "expect": 0.18249101246543076
+    },
+    {
+      "input": [
+        0.662465
+      ],
+      "expect": 9.746225141138432e-05
+    },
+    {
+      "input": [
+        0.675702
+      ],
+      "expect": 2.2405645387357787e-05
+    },
+    {
+      "input": [
+        0.801797
+      ],
+      "expect": 9.059419880941277e-14
+    },
+    {
+      "input": [
+        0.898595
+      ],
+      "expect": 0.0
+    },
+    {
+      "input": [
+        0.354257
+      ],
+      "expect": 0.0005376822181364371
+    },
+    {
+      "input": [
+        0.361786
+      ],
+      "expect": 0.001098855754932182
+    },
+    {
+      "input": [
+        0.375341
+      ],
+      "expect": 0.0036571940766357836
+    },
+    {
+      "input": [
+        0.382761
+      ],
+      "expect": 0.006746581823881881
+    },
+    {
+      "input": [
+        0.426165
+      ],
+      "expect": 0.12560736032795072
+    },
+    {
+      "input": [
+        0.441802
+      ],
+      "expect": 0.27014264148897016
+    },
+    {
+      "input": [
+        0.67644
+      ],
+      "expect": 2.0578757762956812e-05
+    },
+    {
+      "input": [
+        0.295124
+      ],
+      "expect": 6.049445011591104e-07
+    },
+    {
+      "input": [
+        0.331516
+      ],
+      "expect": 5.060085669772452e-05
+    },
+    {
+      "input": [
+        0.357369
+      ],
+      "expect": 0.0007254334360456971
+    },
+    {
+      "input": [
+        0.361048
+      ],
+      "expect": 0.0010260234164561899
+    },
+    {
+      "input": [
+        0.374603
+      ],
+      "expect": 0.0034350061782458807
+    },
+    {
+      "input": [
+        0.375924
+      ],
+      "expect": 0.003841960746121864
+    },
+    {
+      "input": [
+        0.376753
+      ],
+      "expect": 0.004119457314912367
+    },
+    {
+      "input": [
+        0.549664
+      ],
+      "expect": 0.3828077861610554
+    },
+    {
+      "input": [
+        0.740076
+      ],
+      "expect": 3.90043597420231e-09
+    },
+    {
+      "input": [
+        0.223426
+      ],
+      "expect": 9.4002583495012e-12
+    },
+    {
+      "input": [
+        0.223691
+      ],
+      "expect": 9.849898674474389e-12
+    },
+    {
+      "input": [
+        0.246111
+      ],
+      "expect": 4.384668184087559e-10
+    },
+    {
+      "input": [
+        0.258285
+      ],
+      "expect": 3.027838868518984e-09
+    },
+    {
+      "input": [
+        0.298544
+      ],
+      "expect": 9.487372752969847e-07
+    },
+    {
+      "input": [
+        0.300477
+      ],
+      "expect": 1.219677531194563e-06
+    },
+    {
+      "input": [
+        0.310651
+      ],
+      "expect": 4.408722086068906e-06
+    },
+    {
+      "input": [
+        0.311429
+      ],
+      "expect": 4.851451646192828e-06
+    },
+    {
+      "input": [
+        0.319181
+      ],
+      "expect": 1.2340168250135619e-05
+    },
+    {
+      "input": [
+        0.33188
+      ],
+      "expect": 5.267942394182601e-05
+    },
+    {
+      "input": [
+        0.342921
+      ],
+      "expect": 0.00017203443716640177
+    },
+    {
+      "input": [
+        0.351763
+      ],
+      "expect": 0.00042119688651875986
+    },
+    {
+      "input": [
+        0.35315
+      ],
+      "expect": 0.0004826759436930006
+    },
+    {
+      "input": [
+        0.356353
+      ],
+      "expect": 0.0006582726261058491
+    },
+    {
+      "input": [
+        0.360648
+      ],
+      "expect": 0.0009884531156998388
+    },
+    {
+      "input": [
+        0.363184
+      ],
+      "expect": 0.0012501914108405954
+    },
+    {
+      "input": [
+        0.376169
+      ],
+      "expect": 0.003922131724547029
+    },
+    {
+      "input": [
+        0.382015
+      ],
+      "expect": 0.006353074250582513
+    },
+    {
+      "input": [
+        0.383885
+      ],
+      "expect": 0.007381411933198745
+    },
+    {
+      "input": [
+        0.385185
+      ],
+      "expect": 0.008182896411361384
+    },
+    {
+      "input": [
+        0.391974
+      ],
+      "expect": 0.013792932438989602
+    },
+    {
+      "input": [
+        0.395413
+      ],
+      "expect": 0.017782711825745534
+    },
+    {
+      "input": [
+        0.395439
+      ],
+      "expect": 0.017816426574457256
+    },
+    {
+      "input": [
+        0.418439
+      ],
+      "expect": 0.08117716710322831
+    },
+    {
+      "input": [
+        0.447795
+      ],
+      "expect": 0.346894041724631
+    },
+    {
+      "input": [
+        0.519898
+      ],
+      "expect": 0.8547412599559285
+    },
+    {
+      "input": [
+        0.543649
+      ],
+      "expect": 0.4746271101467
+    },
+    {
+      "input": [
+        0.546673
+      ],
+      "expect": 0.4273764289042081
+    },
+    {
+      "input": [
+        0.546709
+      ],
+      "expect": 0.42682640495216584
+    },
+    {
+      "input": [
+        0.582619
+      ],
+      "expect": 0.07624465223297927
+    },
+    {
+      "input": [
+        0.595134
+      ],
+      "expect": 0.03447819845030797
+    },
+    {
+      "input": [
+        0.625399
+      ],
+      "expect": 0.003434421268211252
+    },
+    {
+      "input": [
+        0.666469
+      ],
+      "expect": 6.316951813911675e-05
+    },
+    {
+      "input": [
+        0.726329
+      ],
+      "expect": 3.058930775345914e-08
+    },
+    {
+      "input": [
+        0.731002
+      ],
+      "expect": 1.5386047436116712e-08
+    },
+    {
+      "input": [
+        0.745915
+      ],
+      "expect": 1.5705574618607443e-09
+    },
+    {
+      "input": [
+        0.4484862816762021
+      ],
+      "expect": 0.3564761789776121
+    },
+    {
+      "input": [
+        0.5096128354359748
+      ],
+      "expect": 0.9639309651714734
+    },
+    {
+      "input": [
+        0.46003255359314077
+      ],
+      "expect": 0.5344728765449438
+    },
+    {
+      "input": [
+        0.30992315580105234
+      ],
+      "expect": 4.0298558930951245e-06
+    },
+    {
+      "input": [
+        0.6134566562818464
+      ],
+      "expect": 0.009103769430445885
+    },
+    {
+      "input": [
+        0.5078419742625642
+      ],
+      "expect": 0.9758419921284467
+    },
+    {
+      "input": [
+        0.5263487133618857
+      ],
+      "expect": 0.7599754331454911
+    },
+    {
+      "input": [
+        0.42188455518324297
+      ],
+      "expect": 0.09908217829001387
+    },
+    {
+      "input": [
+        0.4353218961225009
+      ],
+      "expect": 0.20056464991993306
+    },
+    {
+      "input": [
+        0.5173451009475202
+      ],
+      "expect": 0.8874792982948267
+    },
+    {
+      "input": [
+        0.41086747868804047
+      ],
+      "expect": 0.05105057432573901
+    },
+    {
+      "input": [
+        0.49479318816024126
+      ],
+      "expect": 0.9892736061907336
+    },
+    {
+      "input": [
+        0.6012438130979054
+      ],
+      "expect": 0.02261209546408305
+    },
+    {
+      "input": [
+        0.6622269455822639
+      ],
+      "expect": 9.99775393050184e-05
+    },
+    {
+      "input": [
+        0.5892860111334366
+      ],
+      "expect": 0.05055444703960432
+    },
+    {
+      "input": [
+        0.48330293664984697
+      ],
+      "expect": 0.895261301840022
+    },
+    {
+      "input": [
+        0.5219396960520742
+      ],
+      "expect": 0.8264059818784302
+    },
+    {
+      "input": [
+        0.44355409958348
+      ],
+      "expect": 0.2913746515338461
+    },
+    {
+      "input": [
+        0.7888739165876462
+      ],
+      "expect": 1.0258460747536446e-12
+    },
+    {
+      "input": [
+        0.7337821057882652
+      ],
+      "expect": 1.0158627716805313e-08
+    },
+    {
+      "input": [
+        0.5962274127670136
+      ],
+      "expect": 0.03202375554993664
+    },
+    {
+      "input": [
+        0.6452472628137551
+      ],
+      "expect": 0.0005641736117261154
+    },
+    {
+      "input": [
+        0.47760186759032897
+      ],
+      "expect": 0.8198093306722776
+    },
+    {
+      "input": [
+        0.6313689584823708
+      ],
+      "expect": 0.002044226640431246
+    },
+    {
+      "input": [
+        0.6201195808792481
+      ],
+      "expect": 0.0053396855590630565
+    },
+    {
+      "input": [
+        0.37142970475473186
+      ],
+      "expect": 0.0026139373196374383
+    },
+    {
+      "input": [
+        0.5493134931760025
+      ],
+      "expect": 0.38790729287050285
+    },
+    {
+      "input": [
+        0.6313894254956323
+      ],
+      "expect": 0.002040520021090897
+    },
+    {
+      "input": [
+        0.3763732407155626
+      ],
+      "expect": 0.003990134403719203
+    },
+    {
+      "input": [
+        0.6773757444058607
+      ],
+      "expect": 1.84662750049025e-05
+    },
+    {
+      "input": [
+        0.39694396217387035
+      ],
+      "expect": 0.01986729125582376
+    },
+    {
+      "input": [
+        0.5644005528387291
+      ],
+      "expect": 0.20325602670024134
+    },
+    {
+      "input": [
+        0.4456406833216718
+      ],
+      "expect": 0.31797508427208876
+    },
+    {
+      "input": [
+        0.3322602733102758
+      ],
+      "expect": 5.493751636886923e-05
+    },
+    {
+      "input": [
+        0.4671168391364441
+      ],
+      "expect": 0.6531166057146089
+    },
+    {
+      "input": [
+        0.30951231289232256
+      ],
+      "expect": 3.830019895012526e-06
+    },
+    {
+      "input": [
+        0.4498536278840128
+      ],
+      "expect": 0.3758460674274925
+    },
+    {
+      "input": [
+        0.6440579620792285
+      ],
+      "expect": 0.0006327967462320672
+    },
+    {
+      "input": [
+        0.506690403376052
+      ],
+      "expect": 0.9823549716161188
+    },
+    {
+      "input": [
+        0.5636058441749773
+      ],
+      "expect": 0.2111040920056807
+    }
+  ]
+}
