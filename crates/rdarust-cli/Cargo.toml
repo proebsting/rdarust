@@ -1,0 +1,16 @@
+[package]
+name = "rdarust-cli"
+description = "Command-line interface for rdarust"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+repository.workspace = true
+
+[[bin]]
+name = "rdarust"
+path = "src/main.rs"
+
+[dependencies]
+rdarust-core.workspace = true
+rdarust-io.workspace = true

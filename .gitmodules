@@ -1,0 +1,4 @@
+[submodule "vendor/rdapy"]
+	path = vendor/rdapy
+	url = https://github.com/dra2020/rdapy.git
+	branch = main

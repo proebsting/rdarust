@@ -1,0 +1,22 @@
+[workspace]
+resolver = "2"
+members = [
+    "crates/rdarust-core",
+    "crates/rdarust-io",
+    "crates/rdarust-cli",
+]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.77"
+license = "MIT"
+repository = "https://github.com/proebsting/rdarust"
+
+[workspace.dependencies]
+rdarust-core = { path = "crates/rdarust-core" }
+rdarust-io = { path = "crates/rdarust-io" }
+
+[profile.release]
+lto = "thin"
+codegen-units = 1
