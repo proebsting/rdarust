@@ -1,0 +1,188 @@
+{
+  "schema": "rdarust.cases/1",
+  "suite": "rate",
+  "function": "normalizer_invert",
+  "note": "Normalizer.invert: 1 - x on a unit value.",
+  "source": {
+    "rdapy_commit": "2b702b4f8fa10ba6fdbfd364a1f2344ece1077b1",
+    "python": "3.13.15",
+    "numpy": "2.5.3",
+    "platform": "macOS-26.7-arm64-arm-64bit-Mach-O"
+  },
+  "cases": [
+    {
+      "input": [
+        0.0075
+      ],
+      "expect": 0.9925,
+      "published": 0.9925,
+      "origin": "rdapy-test",
+      "places": 6
+    },
+    {
+      "input": [
+        0.0
+      ],
+      "expect": 1.0,
+      "published": 1.0,
+      "origin": "rdapy-test",
+      "places": 6
+    },
+    {
+      "input": [
+        1.0
+      ],
+      "expect": 0.0,
+      "published": 0.0,
+      "origin": "rdapy-test",
+      "places": 6
+    },
+    {
+      "input": [
+        0.0
+      ],
+      "expect": 1.0,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.05
+      ],
+      "expect": 0.95,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.1
+      ],
+      "expect": 0.9,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.15000000000000002
+      ],
+      "expect": 0.85,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.2
+      ],
+      "expect": 0.8,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.25
+      ],
+      "expect": 0.75,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.30000000000000004
+      ],
+      "expect": 0.7,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.35000000000000003
+      ],
+      "expect": 0.6499999999999999,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.4
+      ],
+      "expect": 0.6,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.45
+      ],
+      "expect": 0.55,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.5
+      ],
+      "expect": 0.5,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.55
+      ],
+      "expect": 0.44999999999999996,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.6000000000000001
+      ],
+      "expect": 0.3999999999999999,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.65
+      ],
+      "expect": 0.35,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.7000000000000001
+      ],
+      "expect": 0.29999999999999993,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.75
+      ],
+      "expect": 0.25,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.8
+      ],
+      "expect": 0.19999999999999996,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.8500000000000001
+      ],
+      "expect": 0.1499999999999999,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.9
+      ],
+      "expect": 0.09999999999999998,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.9500000000000001
+      ],
+      "expect": 0.04999999999999993,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        1.0
+      ],
+      "expect": 0.0,
+      "origin": "sweep"
+    }
+  ]
+}

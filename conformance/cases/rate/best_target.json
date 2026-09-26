@@ -1,0 +1,364 @@
+{
+  "schema": "rdarust.cases/1",
+  "suite": "rate",
+  "function": "best_target",
+  "note": "The practically-best splitting score given counts of counties and districts; some splitting is unavoidable when one greatly outnumbers the other.",
+  "source": {
+    "rdapy_commit": "2b702b4f8fa10ba6fdbfd364a1f2344ece1077b1",
+    "python": "3.13.15",
+    "numpy": "2.5.3",
+    "platform": "macOS-26.7-arm64-arm-64bit-Mach-O"
+  },
+  "cases": [
+    {
+      "input": [
+        67,
+        7
+      ],
+      "expect": 1.017910447761194,
+      "published": 1.02,
+      "origin": "rdapy-test",
+      "places": 2
+    },
+    {
+      "input": [
+        67,
+        35
+      ],
+      "expect": 1.1014925373134328,
+      "published": 1.1,
+      "origin": "rdapy-test",
+      "places": 2
+    },
+    {
+      "input": [
+        67,
+        105
+      ],
+      "expect": 1.1257142857142857,
+      "published": 1.13,
+      "origin": "rdapy-test",
+      "places": 2
+    },
+    {
+      "input": [
+        15,
+        9
+      ],
+      "expect": 1.1066666666666667,
+      "published": 1.11,
+      "origin": "rdapy-test",
+      "places": 2
+    },
+    {
+      "input": [
+        15,
+        30
+      ],
+      "expect": 1.0933333333333333,
+      "published": 1.09,
+      "origin": "rdapy-test",
+      "places": 2
+    },
+    {
+      "input": [
+        58,
+        53
+      ],
+      "expect": 1.1793103448275861,
+      "published": 1.18,
+      "origin": "rdapy-test",
+      "places": 2
+    },
+    {
+      "input": [
+        58,
+        40
+      ],
+      "expect": 1.1344827586206896,
+      "published": 1.13,
+      "origin": "rdapy-test",
+      "places": 2
+    },
+    {
+      "input": [
+        58,
+        80
+      ],
+      "expect": 1.1425,
+      "published": 1.14,
+      "origin": "rdapy-test",
+      "places": 2
+    },
+    {
+      "input": [
+        64,
+        7
+      ],
+      "expect": 1.01875,
+      "published": 1.02,
+      "origin": "rdapy-test",
+      "places": 2
+    },
+    {
+      "input": [
+        64,
+        35
+      ],
+      "expect": 1.10625,
+      "published": 1.11,
+      "origin": "rdapy-test",
+      "places": 2
+    },
+    {
+      "input": [
+        64,
+        65
+      ],
+      "expect": 1.1938461538461538,
+      "published": 1.19,
+      "origin": "rdapy-test",
+      "places": 2
+    },
+    {
+      "input": [
+        8,
+        5
+      ],
+      "expect": 1.1,
+      "published": 1.1,
+      "origin": "rdapy-test",
+      "places": 2
+    },
+    {
+      "input": [
+        8,
+        36
+      ],
+      "expect": 1.038888888888889,
+      "published": 1.04,
+      "origin": "rdapy-test",
+      "places": 2
+    },
+    {
+      "input": [
+        8,
+        151
+      ],
+      "expect": 1.0092715231788079,
+      "published": 1.01,
+      "origin": "rdapy-test",
+      "places": 2
+    },
+    {
+      "input": [
+        159,
+        14
+      ],
+      "expect": 1.0163522012578616,
+      "published": 1.02,
+      "origin": "rdapy-test",
+      "places": 2
+    },
+    {
+      "input": [
+        159,
+        56
+      ],
+      "expect": 1.069182389937107,
+      "published": 1.07,
+      "origin": "rdapy-test",
+      "places": 2
+    },
+    {
+      "input": [
+        159,
+        180
+      ],
+      "expect": 1.1755555555555555,
+      "published": 1.18,
+      "origin": "rdapy-test",
+      "places": 2
+    },
+    {
+      "input": [
+        99,
+        4
+      ],
+      "expect": 1.006060606060606,
+      "published": 1.01,
+      "origin": "rdapy-test",
+      "places": 2
+    },
+    {
+      "input": [
+        99,
+        50
+      ],
+      "expect": 1.098989898989899,
+      "published": 1.1,
+      "origin": "rdapy-test",
+      "places": 2
+    },
+    {
+      "input": [
+        99,
+        100
+      ],
+      "expect": 1.196,
+      "published": 1.2,
+      "origin": "rdapy-test",
+      "places": 2
+    },
+    {
+      "input": [
+        120,
+        6
+      ],
+      "expect": 1.0083333333333333,
+      "published": 1.01,
+      "origin": "rdapy-test",
+      "places": 2
+    },
+    {
+      "input": [
+        120,
+        38
+      ],
+      "expect": 1.0616666666666665,
+      "published": 1.06,
+      "origin": "rdapy-test",
+      "places": 2
+    },
+    {
+      "input": [
+        120,
+        100
+      ],
+      "expect": 1.165,
+      "published": 1.17,
+      "origin": "rdapy-test",
+      "places": 2
+    },
+    {
+      "input": [
+        67,
+        18
+      ],
+      "expect": 1.0507462686567164,
+      "published": 1.05,
+      "origin": "rdapy-test",
+      "places": 2
+    },
+    {
+      "input": [
+        67,
+        50
+      ],
+      "expect": 1.1462686567164178,
+      "published": 1.15,
+      "origin": "rdapy-test",
+      "places": 2
+    },
+    {
+      "input": [
+        67,
+        203
+      ],
+      "expect": 1.0650246305418718,
+      "published": 1.07,
+      "origin": "rdapy-test",
+      "places": 2
+    },
+    {
+      "input": [
+        95,
+        9
+      ],
+      "expect": 1.0168421052631578,
+      "published": 1.02,
+      "origin": "rdapy-test",
+      "places": 2
+    },
+    {
+      "input": [
+        95,
+        33
+      ],
+      "expect": 1.0673684210526315,
+      "published": 1.07,
+      "origin": "rdapy-test",
+      "places": 2
+    },
+    {
+      "input": [
+        95,
+        99
+      ],
+      "expect": 1.1898989898989898,
+      "published": 1.19,
+      "origin": "rdapy-test",
+      "places": 2
+    },
+    {
+      "input": [
+        254,
+        36
+      ],
+      "expect": 1.0275590551181102,
+      "published": 1.03,
+      "origin": "rdapy-test",
+      "places": 2
+    },
+    {
+      "input": [
+        254,
+        31
+      ],
+      "expect": 1.0236220472440944,
+      "published": 1.02,
+      "origin": "rdapy-test",
+      "places": 2
+    },
+    {
+      "input": [
+        254,
+        150
+      ],
+      "expect": 1.1173228346456692,
+      "published": 1.12,
+      "origin": "rdapy-test",
+      "places": 2
+    },
+    {
+      "input": [
+        133,
+        11
+      ],
+      "expect": 1.0150375939849625,
+      "published": 1.02,
+      "origin": "rdapy-test",
+      "places": 2
+    },
+    {
+      "input": [
+        133,
+        40
+      ],
+      "expect": 1.0586466165413535,
+      "published": 1.06,
+      "origin": "rdapy-test",
+      "places": 2
+    },
+    {
+      "input": [
+        133,
+        100
+      ],
+      "expect": 1.1488721804511277,
+      "published": 1.15,
+      "origin": "rdapy-test",
+      "places": 2
+    }
+  ]
+}

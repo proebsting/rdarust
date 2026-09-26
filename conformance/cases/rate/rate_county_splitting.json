@@ -1,0 +1,1355 @@
+{
+  "schema": "rdarust.cases/1",
+  "suite": "rate",
+  "function": "rate_county_splitting",
+  "note": "County splitting. 100 is reserved for plans that split nothing.",
+  "source": {
+    "rdapy_commit": "2b702b4f8fa10ba6fdbfd364a1f2344ece1077b1",
+    "python": "3.13.15",
+    "numpy": "2.5.3",
+    "platform": "macOS-26.7-arm64-arm-64bit-Mach-O"
+  },
+  "cases": [
+    {
+      "input": [
+        1.11,
+        67,
+        7
+      ],
+      "expect": 73,
+      "published": 73,
+      "origin": "rdapy-test",
+      "name": "AL 7"
+    },
+    {
+      "input": [
+        1.42,
+        67,
+        35
+      ],
+      "expect": 12,
+      "published": 12,
+      "origin": "rdapy-test",
+      "name": "AL 35"
+    },
+    {
+      "input": [
+        1.64,
+        67,
+        105
+      ],
+      "expect": 0,
+      "published": 0,
+      "origin": "rdapy-test",
+      "name": "AL 105"
+    },
+    {
+      "input": [
+        1.352,
+        15,
+        9
+      ],
+      "expect": 33,
+      "published": 33,
+      "origin": "rdapy-test",
+      "name": "AZ 9"
+    },
+    {
+      "input": [
+        1.71,
+        15,
+        30
+      ],
+      "expect": 0,
+      "published": 0,
+      "origin": "rdapy-test",
+      "name": "AZ 30"
+    },
+    {
+      "input": [
+        1.789,
+        58,
+        53
+      ],
+      "expect": 0,
+      "published": 0,
+      "origin": "rdapy-test",
+      "name": "CA 53"
+    },
+    {
+      "input": [
+        1.74,
+        58,
+        40
+      ],
+      "expect": 0,
+      "published": 0,
+      "origin": "rdapy-test",
+      "name": "CA 40"
+    },
+    {
+      "input": [
+        1.7,
+        58,
+        80
+      ],
+      "expect": 0,
+      "published": 0,
+      "origin": "rdapy-test",
+      "name": "CA 80"
+    },
+    {
+      "input": [
+        1.196,
+        64,
+        7
+      ],
+      "expect": 47,
+      "published": 47,
+      "origin": "rdapy-test",
+      "name": "CO 7"
+    },
+    {
+      "input": [
+        1.21,
+        64,
+        35
+      ],
+      "expect": 72,
+      "published": 72,
+      "origin": "rdapy-test",
+      "name": "CO 35"
+    },
+    {
+      "input": [
+        1.25,
+        64,
+        65
+      ],
+      "expect": 87,
+      "published": 87,
+      "origin": "rdapy-test",
+      "name": "CO 65"
+    },
+    {
+      "input": [
+        1.48,
+        8,
+        5
+      ],
+      "expect": 0,
+      "published": 0,
+      "origin": "rdapy-test",
+      "name": "CT 5"
+    },
+    {
+      "input": [
+        2.08,
+        8,
+        36
+      ],
+      "expect": 0,
+      "published": 0,
+      "origin": "rdapy-test",
+      "name": "CT 36"
+    },
+    {
+      "input": [
+        1.68,
+        8,
+        151
+      ],
+      "expect": 0,
+      "published": 0,
+      "origin": "rdapy-test",
+      "name": "CT 151"
+    },
+    {
+      "input": [
+        1.296,
+        159,
+        14
+      ],
+      "expect": 17,
+      "published": 17,
+      "origin": "rdapy-test",
+      "name": "GA 14"
+    },
+    {
+      "input": [
+        1.58,
+        159,
+        56
+      ],
+      "expect": 0,
+      "published": 0,
+      "origin": "rdapy-test",
+      "name": "GA 56"
+    },
+    {
+      "input": [
+        1.78,
+        159,
+        180
+      ],
+      "expect": 0,
+      "published": 0,
+      "origin": "rdapy-test",
+      "name": "GA 180"
+    },
+    {
+      "input": [
+        1.0,
+        99,
+        4
+      ],
+      "expect": 100,
+      "published": 100,
+      "origin": "rdapy-test",
+      "name": "IA 4"
+    },
+    {
+      "input": [
+        1.33,
+        99,
+        50
+      ],
+      "expect": 36,
+      "published": 36,
+      "origin": "rdapy-test",
+      "name": "IA 50"
+    },
+    {
+      "input": [
+        1.26,
+        99,
+        100
+      ],
+      "expect": 85,
+      "published": 85,
+      "origin": "rdapy-test",
+      "name": "IA 100"
+    },
+    {
+      "input": [
+        1.036,
+        120,
+        6
+      ],
+      "expect": 92,
+      "published": 92,
+      "origin": "rdapy-test",
+      "name": "KY 6"
+    },
+    {
+      "input": [
+        1.21,
+        120,
+        38
+      ],
+      "expect": 58,
+      "published": 58,
+      "origin": "rdapy-test",
+      "name": "KY 38"
+    },
+    {
+      "input": [
+        1.43,
+        120,
+        100
+      ],
+      "expect": 31,
+      "published": 31,
+      "origin": "rdapy-test",
+      "name": "KY 100"
+    },
+    {
+      "input": [
+        1.178,
+        67,
+        18
+      ],
+      "expect": 63,
+      "published": 63,
+      "origin": "rdapy-test",
+      "name": "PA 18"
+    },
+    {
+      "input": [
+        1.52,
+        67,
+        50
+      ],
+      "expect": 1,
+      "published": 1,
+      "origin": "rdapy-test",
+      "name": "PA 50"
+    },
+    {
+      "input": [
+        1.65,
+        67,
+        203
+      ],
+      "expect": 0,
+      "published": 0,
+      "origin": "rdapy-test",
+      "name": "PA 203"
+    },
+    {
+      "input": [
+        1.31,
+        67,
+        203
+      ],
+      "expect": 72,
+      "published": 72,
+      "origin": "rdapy-test",
+      "name": "PA 203"
+    },
+    {
+      "input": [
+        1.071,
+        95,
+        9
+      ],
+      "expect": 84,
+      "published": 84,
+      "origin": "rdapy-test",
+      "name": "TN 9"
+    },
+    {
+      "input": [
+        1.14,
+        95,
+        33
+      ],
+      "expect": 79,
+      "published": 79,
+      "origin": "rdapy-test",
+      "name": "TN 33"
+    },
+    {
+      "input": [
+        1.1,
+        95,
+        99
+      ],
+      "expect": 99,
+      "published": 99,
+      "origin": "rdapy-test",
+      "name": "TN 99"
+    },
+    {
+      "input": [
+        1.579,
+        254,
+        36
+      ],
+      "expect": 0,
+      "published": 0,
+      "origin": "rdapy-test",
+      "name": "TX 36"
+    },
+    {
+      "input": [
+        1.46,
+        254,
+        31
+      ],
+      "expect": 0,
+      "published": 0,
+      "origin": "rdapy-test",
+      "name": "TX 31"
+    },
+    {
+      "input": [
+        1.08,
+        254,
+        150
+      ],
+      "expect": 99,
+      "published": 99,
+      "origin": "rdapy-test",
+      "name": "TX 150"
+    },
+    {
+      "input": [
+        1.214,
+        133,
+        11
+      ],
+      "expect": 41,
+      "published": 41,
+      "origin": "rdapy-test",
+      "name": "VA 11"
+    },
+    {
+      "input": [
+        1.64,
+        133,
+        40
+      ],
+      "expect": 0,
+      "published": 0,
+      "origin": "rdapy-test",
+      "name": "VA 40"
+    },
+    {
+      "input": [
+        1.84,
+        133,
+        100
+      ],
+      "expect": 0,
+      "published": 0,
+      "origin": "rdapy-test",
+      "name": "VA 100"
+    },
+    {
+      "input": [
+        1.0,
+        67,
+        7
+      ],
+      "expect": 100,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        1.0,
+        15,
+        30
+      ],
+      "expect": 100,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        1.0,
+        99,
+        100
+      ],
+      "expect": 100,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        1.0,
+        254,
+        150
+      ],
+      "expect": 100,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        1.0,
+        8,
+        151
+      ],
+      "expect": 100,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        1.05,
+        67,
+        7
+      ],
+      "expect": 90,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        1.05,
+        15,
+        30
+      ],
+      "expect": 99,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        1.05,
+        99,
+        100
+      ],
+      "expect": 99,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        1.05,
+        254,
+        150
+      ],
+      "expect": 99,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        1.05,
+        8,
+        151
+      ],
+      "expect": 99,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        1.1,
+        67,
+        7
+      ],
+      "expect": 76,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        1.1,
+        15,
+        30
+      ],
+      "expect": 99,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        1.1,
+        99,
+        100
+      ],
+      "expect": 99,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        1.1,
+        254,
+        150
+      ],
+      "expect": 99,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        1.1,
+        8,
+        151
+      ],
+      "expect": 99,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        1.15,
+        67,
+        7
+      ],
+      "expect": 61,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        1.15,
+        15,
+        30
+      ],
+      "expect": 99,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        1.15,
+        99,
+        100
+      ],
+      "expect": 99,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        1.15,
+        254,
+        150
+      ],
+      "expect": 91,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        1.15,
+        8,
+        151
+      ],
+      "expect": 99,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        1.2,
+        67,
+        7
+      ],
+      "expect": 46,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        1.2,
+        15,
+        30
+      ],
+      "expect": 99,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        1.2,
+        99,
+        100
+      ],
+      "expect": 99,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        1.2,
+        254,
+        150
+      ],
+      "expect": 78,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        1.2,
+        8,
+        151
+      ],
+      "expect": 99,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        1.25,
+        67,
+        7
+      ],
+      "expect": 31,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        1.25,
+        15,
+        30
+      ],
+      "expect": 87,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        1.25,
+        99,
+        100
+      ],
+      "expect": 87,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        1.25,
+        254,
+        150
+      ],
+      "expect": 64,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        1.25,
+        8,
+        151
+      ],
+      "expect": 87,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        1.3,
+        67,
+        7
+      ],
+      "expect": 16,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        1.3,
+        15,
+        30
+      ],
+      "expect": 75,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        1.3,
+        99,
+        100
+      ],
+      "expect": 75,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        1.3,
+        254,
+        150
+      ],
+      "expect": 50,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        1.3,
+        8,
+        151
+      ],
+      "expect": 75,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        1.35,
+        67,
+        7
+      ],
+      "expect": 1,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        1.35,
+        15,
+        30
+      ],
+      "expect": 62,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        1.35,
+        99,
+        100
+      ],
+      "expect": 62,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        1.35,
+        254,
+        150
+      ],
+      "expect": 37,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        1.35,
+        8,
+        151
+      ],
+      "expect": 62,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        1.4,
+        67,
+        7
+      ],
+      "expect": 0,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        1.4,
+        15,
+        30
+      ],
+      "expect": 49,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        1.4,
+        99,
+        100
+      ],
+      "expect": 49,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        1.4,
+        254,
+        150
+      ],
+      "expect": 23,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        1.4,
+        8,
+        151
+      ],
+      "expect": 49,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        1.45,
+        67,
+        7
+      ],
+      "expect": 0,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        1.45,
+        15,
+        30
+      ],
+      "expect": 37,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        1.45,
+        99,
+        100
+      ],
+      "expect": 37,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        1.45,
+        254,
+        150
+      ],
+      "expect": 10,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        1.45,
+        8,
+        151
+      ],
+      "expect": 37,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        1.5,
+        67,
+        7
+      ],
+      "expect": 0,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        1.5,
+        15,
+        30
+      ],
+      "expect": 24,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        1.5,
+        99,
+        100
+      ],
+      "expect": 24,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        1.5,
+        254,
+        150
+      ],
+      "expect": 0,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        1.5,
+        8,
+        151
+      ],
+      "expect": 24,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        1.55,
+        67,
+        7
+      ],
+      "expect": 0,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        1.55,
+        15,
+        30
+      ],
+      "expect": 12,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        1.55,
+        99,
+        100
+      ],
+      "expect": 12,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        1.55,
+        254,
+        150
+      ],
+      "expect": 0,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        1.55,
+        8,
+        151
+      ],
+      "expect": 12,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        1.6,
+        67,
+        7
+      ],
+      "expect": 0,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        1.6,
+        15,
+        30
+      ],
+      "expect": 0,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        1.6,
+        99,
+        100
+      ],
+      "expect": 0,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        1.6,
+        254,
+        150
+      ],
+      "expect": 0,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        1.6,
+        8,
+        151
+      ],
+      "expect": 0,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        1.65,
+        67,
+        7
+      ],
+      "expect": 0,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        1.65,
+        15,
+        30
+      ],
+      "expect": 0,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        1.65,
+        99,
+        100
+      ],
+      "expect": 0,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        1.65,
+        254,
+        150
+      ],
+      "expect": 0,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        1.65,
+        8,
+        151
+      ],
+      "expect": 0,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        1.7000000000000002,
+        67,
+        7
+      ],
+      "expect": 0,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        1.7000000000000002,
+        15,
+        30
+      ],
+      "expect": 0,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        1.7000000000000002,
+        99,
+        100
+      ],
+      "expect": 0,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        1.7000000000000002,
+        254,
+        150
+      ],
+      "expect": 0,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        1.7000000000000002,
+        8,
+        151
+      ],
+      "expect": 0,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        1.75,
+        67,
+        7
+      ],
+      "expect": 0,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        1.75,
+        15,
+        30
+      ],
+      "expect": 0,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        1.75,
+        99,
+        100
+      ],
+      "expect": 0,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        1.75,
+        254,
+        150
+      ],
+      "expect": 0,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        1.75,
+        8,
+        151
+      ],
+      "expect": 0,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        1.8,
+        67,
+        7
+      ],
+      "expect": 0,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        1.8,
+        15,
+        30
+      ],
+      "expect": 0,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        1.8,
+        99,
+        100
+      ],
+      "expect": 0,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        1.8,
+        254,
+        150
+      ],
+      "expect": 0,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        1.8,
+        8,
+        151
+      ],
+      "expect": 0,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        1.85,
+        67,
+        7
+      ],
+      "expect": 0,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        1.85,
+        15,
+        30
+      ],
+      "expect": 0,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        1.85,
+        99,
+        100
+      ],
+      "expect": 0,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        1.85,
+        254,
+        150
+      ],
+      "expect": 0,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        1.85,
+        8,
+        151
+      ],
+      "expect": 0,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        1.9,
+        67,
+        7
+      ],
+      "expect": 0,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        1.9,
+        15,
+        30
+      ],
+      "expect": 0,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        1.9,
+        99,
+        100
+      ],
+      "expect": 0,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        1.9,
+        254,
+        150
+      ],
+      "expect": 0,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        1.9,
+        8,
+        151
+      ],
+      "expect": 0,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        1.9500000000000002,
+        67,
+        7
+      ],
+      "expect": 0,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        1.9500000000000002,
+        15,
+        30
+      ],
+      "expect": 0,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        1.9500000000000002,
+        99,
+        100
+      ],
+      "expect": 0,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        1.9500000000000002,
+        254,
+        150
+      ],
+      "expect": 0,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        1.9500000000000002,
+        8,
+        151
+      ],
+      "expect": 0,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        2.0,
+        67,
+        7
+      ],
+      "expect": 0,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        2.0,
+        15,
+        30
+      ],
+      "expect": 0,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        2.0,
+        99,
+        100
+      ],
+      "expect": 0,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        2.0,
+        254,
+        150
+      ],
+      "expect": 0,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        2.0,
+        8,
+        151
+      ],
+      "expect": 0,
+      "origin": "sweep"
+    }
+  ]
+}

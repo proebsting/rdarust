@@ -1,0 +1,2140 @@
+{
+  "schema": "rdarust.cases/1",
+  "suite": "rate",
+  "function": "normalizer_rescale",
+  "note": "Normalizer.rescale: round(x * 100) with CPython's round, so ties go to even. This is where banker's rounding is visible.",
+  "source": {
+    "rdapy_commit": "2b702b4f8fa10ba6fdbfd364a1f2344ece1077b1",
+    "python": "3.13.15",
+    "numpy": "2.5.3",
+    "platform": "macOS-26.7-arm64-arm-64bit-Mach-O"
+  },
+  "cases": [
+    {
+      "input": [
+        0.63
+      ],
+      "expect": 63,
+      "published": 63,
+      "origin": "rdapy-test"
+    },
+    {
+      "input": [
+        0.6372
+      ],
+      "expect": 64,
+      "published": 64,
+      "origin": "rdapy-test"
+    },
+    {
+      "input": [
+        0.6312
+      ],
+      "expect": 63,
+      "published": 63,
+      "origin": "rdapy-test"
+    },
+    {
+      "input": [
+        0.0
+      ],
+      "expect": 0,
+      "published": 0,
+      "origin": "rdapy-test"
+    },
+    {
+      "input": [
+        1.0
+      ],
+      "expect": 100,
+      "published": 100,
+      "origin": "rdapy-test"
+    },
+    {
+      "input": [
+        0.0
+      ],
+      "expect": 0,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.005
+      ],
+      "expect": 0,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.01
+      ],
+      "expect": 1,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.015
+      ],
+      "expect": 2,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.02
+      ],
+      "expect": 2,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.025
+      ],
+      "expect": 2,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.03
+      ],
+      "expect": 3,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.035
+      ],
+      "expect": 4,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.04
+      ],
+      "expect": 4,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.045
+      ],
+      "expect": 4,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.05
+      ],
+      "expect": 5,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.055
+      ],
+      "expect": 6,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.06
+      ],
+      "expect": 6,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.065
+      ],
+      "expect": 6,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.07
+      ],
+      "expect": 7,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.075
+      ],
+      "expect": 8,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.08
+      ],
+      "expect": 8,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.085
+      ],
+      "expect": 8,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.09
+      ],
+      "expect": 9,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.095
+      ],
+      "expect": 10,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.1
+      ],
+      "expect": 10,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.105
+      ],
+      "expect": 10,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.11
+      ],
+      "expect": 11,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.115
+      ],
+      "expect": 12,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.12
+      ],
+      "expect": 12,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.125
+      ],
+      "expect": 12,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.13
+      ],
+      "expect": 13,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.135
+      ],
+      "expect": 14,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.14
+      ],
+      "expect": 14,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.145
+      ],
+      "expect": 14,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.15
+      ],
+      "expect": 15,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.155
+      ],
+      "expect": 16,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.16
+      ],
+      "expect": 16,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.165
+      ],
+      "expect": 16,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.17
+      ],
+      "expect": 17,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.175
+      ],
+      "expect": 18,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.18
+      ],
+      "expect": 18,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.185
+      ],
+      "expect": 18,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.19
+      ],
+      "expect": 19,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.195
+      ],
+      "expect": 20,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.2
+      ],
+      "expect": 20,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.205
+      ],
+      "expect": 20,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.21
+      ],
+      "expect": 21,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.215
+      ],
+      "expect": 22,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.22
+      ],
+      "expect": 22,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.225
+      ],
+      "expect": 22,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.23
+      ],
+      "expect": 23,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.235
+      ],
+      "expect": 24,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.24
+      ],
+      "expect": 24,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.245
+      ],
+      "expect": 24,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.25
+      ],
+      "expect": 25,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.255
+      ],
+      "expect": 26,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.26
+      ],
+      "expect": 26,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.265
+      ],
+      "expect": 26,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.27
+      ],
+      "expect": 27,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.275
+      ],
+      "expect": 28,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.28
+      ],
+      "expect": 28,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.285
+      ],
+      "expect": 28,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.29
+      ],
+      "expect": 29,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.295
+      ],
+      "expect": 30,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.3
+      ],
+      "expect": 30,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.305
+      ],
+      "expect": 30,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.31
+      ],
+      "expect": 31,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.315
+      ],
+      "expect": 32,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.32
+      ],
+      "expect": 32,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.325
+      ],
+      "expect": 32,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.33
+      ],
+      "expect": 33,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.335
+      ],
+      "expect": 34,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.34
+      ],
+      "expect": 34,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.345
+      ],
+      "expect": 34,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.35
+      ],
+      "expect": 35,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.355
+      ],
+      "expect": 36,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.36
+      ],
+      "expect": 36,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.365
+      ],
+      "expect": 36,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.37
+      ],
+      "expect": 37,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.375
+      ],
+      "expect": 38,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.38
+      ],
+      "expect": 38,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.385
+      ],
+      "expect": 38,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.39
+      ],
+      "expect": 39,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.395
+      ],
+      "expect": 40,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.4
+      ],
+      "expect": 40,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.405
+      ],
+      "expect": 40,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.41
+      ],
+      "expect": 41,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.415
+      ],
+      "expect": 42,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.42
+      ],
+      "expect": 42,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.425
+      ],
+      "expect": 42,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.43
+      ],
+      "expect": 43,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.435
+      ],
+      "expect": 44,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.44
+      ],
+      "expect": 44,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.445
+      ],
+      "expect": 44,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.45
+      ],
+      "expect": 45,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.455
+      ],
+      "expect": 46,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.46
+      ],
+      "expect": 46,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.465
+      ],
+      "expect": 46,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.47
+      ],
+      "expect": 47,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.475
+      ],
+      "expect": 48,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.48
+      ],
+      "expect": 48,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.485
+      ],
+      "expect": 48,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.49
+      ],
+      "expect": 49,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.495
+      ],
+      "expect": 50,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.5
+      ],
+      "expect": 50,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.505
+      ],
+      "expect": 50,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.51
+      ],
+      "expect": 51,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.515
+      ],
+      "expect": 52,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.52
+      ],
+      "expect": 52,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.525
+      ],
+      "expect": 52,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.53
+      ],
+      "expect": 53,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.535
+      ],
+      "expect": 54,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.54
+      ],
+      "expect": 54,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.545
+      ],
+      "expect": 55,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.55
+      ],
+      "expect": 55,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.555
+      ],
+      "expect": 56,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.56
+      ],
+      "expect": 56,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.565
+      ],
+      "expect": 56,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.57
+      ],
+      "expect": 57,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.575
+      ],
+      "expect": 57,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.58
+      ],
+      "expect": 58,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.585
+      ],
+      "expect": 58,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.59
+      ],
+      "expect": 59,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.595
+      ],
+      "expect": 60,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.6
+      ],
+      "expect": 60,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.605
+      ],
+      "expect": 60,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.61
+      ],
+      "expect": 61,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.615
+      ],
+      "expect": 62,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.62
+      ],
+      "expect": 62,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.625
+      ],
+      "expect": 62,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.63
+      ],
+      "expect": 63,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.635
+      ],
+      "expect": 64,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.64
+      ],
+      "expect": 64,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.645
+      ],
+      "expect": 64,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.65
+      ],
+      "expect": 65,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.655
+      ],
+      "expect": 66,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.66
+      ],
+      "expect": 66,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.665
+      ],
+      "expect": 66,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.67
+      ],
+      "expect": 67,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.675
+      ],
+      "expect": 68,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.68
+      ],
+      "expect": 68,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.685
+      ],
+      "expect": 68,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.69
+      ],
+      "expect": 69,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.695
+      ],
+      "expect": 70,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.7
+      ],
+      "expect": 70,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.705
+      ],
+      "expect": 70,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.71
+      ],
+      "expect": 71,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.715
+      ],
+      "expect": 72,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.72
+      ],
+      "expect": 72,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.725
+      ],
+      "expect": 72,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.73
+      ],
+      "expect": 73,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.735
+      ],
+      "expect": 74,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.74
+      ],
+      "expect": 74,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.745
+      ],
+      "expect": 74,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.75
+      ],
+      "expect": 75,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.755
+      ],
+      "expect": 76,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.76
+      ],
+      "expect": 76,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.765
+      ],
+      "expect": 76,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.77
+      ],
+      "expect": 77,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.775
+      ],
+      "expect": 78,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.78
+      ],
+      "expect": 78,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.785
+      ],
+      "expect": 78,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.79
+      ],
+      "expect": 79,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.795
+      ],
+      "expect": 80,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.8
+      ],
+      "expect": 80,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.805
+      ],
+      "expect": 80,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.81
+      ],
+      "expect": 81,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.815
+      ],
+      "expect": 82,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.82
+      ],
+      "expect": 82,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.825
+      ],
+      "expect": 82,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.83
+      ],
+      "expect": 83,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.835
+      ],
+      "expect": 84,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.84
+      ],
+      "expect": 84,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.845
+      ],
+      "expect": 84,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.85
+      ],
+      "expect": 85,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.855
+      ],
+      "expect": 86,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.86
+      ],
+      "expect": 86,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.865
+      ],
+      "expect": 86,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.87
+      ],
+      "expect": 87,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.875
+      ],
+      "expect": 88,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.88
+      ],
+      "expect": 88,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.885
+      ],
+      "expect": 88,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.89
+      ],
+      "expect": 89,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.895
+      ],
+      "expect": 90,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.9
+      ],
+      "expect": 90,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.905
+      ],
+      "expect": 90,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.91
+      ],
+      "expect": 91,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.915
+      ],
+      "expect": 92,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.92
+      ],
+      "expect": 92,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.925
+      ],
+      "expect": 92,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.93
+      ],
+      "expect": 93,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.935
+      ],
+      "expect": 94,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.94
+      ],
+      "expect": 94,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.945
+      ],
+      "expect": 94,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.95
+      ],
+      "expect": 95,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.955
+      ],
+      "expect": 96,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.96
+      ],
+      "expect": 96,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.965
+      ],
+      "expect": 96,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.97
+      ],
+      "expect": 97,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.975
+      ],
+      "expect": 98,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.98
+      ],
+      "expect": 98,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.985
+      ],
+      "expect": 98,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.99
+      ],
+      "expect": 99,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.995
+      ],
+      "expect": 100,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        1.0
+      ],
+      "expect": 100,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.0
+      ],
+      "expect": 0,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.010416666666666666
+      ],
+      "expect": 1,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.020833333333333332
+      ],
+      "expect": 2,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.03125
+      ],
+      "expect": 3,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.041666666666666664
+      ],
+      "expect": 4,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.05208333333333333
+      ],
+      "expect": 5,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.0625
+      ],
+      "expect": 6,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.07291666666666666
+      ],
+      "expect": 7,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.08333333333333333
+      ],
+      "expect": 8,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.09375
+      ],
+      "expect": 9,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.10416666666666666
+      ],
+      "expect": 10,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.11458333333333333
+      ],
+      "expect": 11,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.125
+      ],
+      "expect": 12,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.13541666666666666
+      ],
+      "expect": 14,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.14583333333333331
+      ],
+      "expect": 15,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.15625
+      ],
+      "expect": 16,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.16666666666666666
+      ],
+      "expect": 17,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.17708333333333331
+      ],
+      "expect": 18,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.1875
+      ],
+      "expect": 19,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.19791666666666666
+      ],
+      "expect": 20,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.20833333333333331
+      ],
+      "expect": 21,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.21875
+      ],
+      "expect": 22,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.22916666666666666
+      ],
+      "expect": 23,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.23958333333333331
+      ],
+      "expect": 24,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.25
+      ],
+      "expect": 25,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.26041666666666663
+      ],
+      "expect": 26,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.2708333333333333
+      ],
+      "expect": 27,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.28125
+      ],
+      "expect": 28,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.29166666666666663
+      ],
+      "expect": 29,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.3020833333333333
+      ],
+      "expect": 30,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.3125
+      ],
+      "expect": 31,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.32291666666666663
+      ],
+      "expect": 32,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.3333333333333333
+      ],
+      "expect": 33,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.34375
+      ],
+      "expect": 34,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.35416666666666663
+      ],
+      "expect": 35,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.3645833333333333
+      ],
+      "expect": 36,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.375
+      ],
+      "expect": 38,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.38541666666666663
+      ],
+      "expect": 39,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.3958333333333333
+      ],
+      "expect": 40,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.40625
+      ],
+      "expect": 41,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.41666666666666663
+      ],
+      "expect": 42,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.4270833333333333
+      ],
+      "expect": 43,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.4375
+      ],
+      "expect": 44,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.44791666666666663
+      ],
+      "expect": 45,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.4583333333333333
+      ],
+      "expect": 46,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.46875
+      ],
+      "expect": 47,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.47916666666666663
+      ],
+      "expect": 48,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.4895833333333333
+      ],
+      "expect": 49,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.5
+      ],
+      "expect": 50,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.5104166666666666
+      ],
+      "expect": 51,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.5208333333333333
+      ],
+      "expect": 52,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.53125
+      ],
+      "expect": 53,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.5416666666666666
+      ],
+      "expect": 54,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.5520833333333333
+      ],
+      "expect": 55,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.5625
+      ],
+      "expect": 56,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.5729166666666666
+      ],
+      "expect": 57,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.5833333333333333
+      ],
+      "expect": 58,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.59375
+      ],
+      "expect": 59,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.6041666666666666
+      ],
+      "expect": 60,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.6145833333333333
+      ],
+      "expect": 61,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.625
+      ],
+      "expect": 62,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.6354166666666666
+      ],
+      "expect": 64,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.6458333333333333
+      ],
+      "expect": 65,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.65625
+      ],
+      "expect": 66,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.6666666666666666
+      ],
+      "expect": 67,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.6770833333333333
+      ],
+      "expect": 68,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.6875
+      ],
+      "expect": 69,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.6979166666666666
+      ],
+      "expect": 70,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.7083333333333333
+      ],
+      "expect": 71,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.71875
+      ],
+      "expect": 72,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.7291666666666666
+      ],
+      "expect": 73,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.7395833333333333
+      ],
+      "expect": 74,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.75
+      ],
+      "expect": 75,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.7604166666666666
+      ],
+      "expect": 76,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.7708333333333333
+      ],
+      "expect": 77,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.78125
+      ],
+      "expect": 78,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.7916666666666666
+      ],
+      "expect": 79,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.8020833333333333
+      ],
+      "expect": 80,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.8125
+      ],
+      "expect": 81,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.8229166666666666
+      ],
+      "expect": 82,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.8333333333333333
+      ],
+      "expect": 83,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.84375
+      ],
+      "expect": 84,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.8541666666666666
+      ],
+      "expect": 85,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.8645833333333333
+      ],
+      "expect": 86,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.875
+      ],
+      "expect": 88,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.8854166666666666
+      ],
+      "expect": 89,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.8958333333333333
+      ],
+      "expect": 90,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.90625
+      ],
+      "expect": 91,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.9166666666666666
+      ],
+      "expect": 92,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.9270833333333333
+      ],
+      "expect": 93,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.9375
+      ],
+      "expect": 94,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.9479166666666666
+      ],
+      "expect": 95,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.9583333333333333
+      ],
+      "expect": 96,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.96875
+      ],
+      "expect": 97,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.9791666666666666
+      ],
+      "expect": 98,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.9895833333333333
+      ],
+      "expect": 99,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        1.0
+      ],
+      "expect": 100,
+      "origin": "sweep"
+    }
+  ]
+}

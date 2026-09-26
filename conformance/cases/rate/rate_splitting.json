@@ -1,0 +1,3560 @@
+{
+  "schema": "rdarust.cases/1",
+  "suite": "rate",
+  "function": "rate_splitting",
+  "note": "Even blend of the two splitting ratings; 100 again reserved for a plan that splits nothing at all.",
+  "source": {
+    "rdapy_commit": "2b702b4f8fa10ba6fdbfd364a1f2344ece1077b1",
+    "python": "3.13.15",
+    "numpy": "2.5.3",
+    "platform": "macOS-26.7-arm64-arm-64bit-Mach-O"
+  },
+  "cases": [
+    {
+      "input": [
+        99,
+        100
+      ],
+      "expect": 99,
+      "published": 99,
+      "origin": "rdapy-test"
+    },
+    {
+      "input": [
+        100,
+        100
+      ],
+      "expect": 100,
+      "published": 100,
+      "origin": "rdapy-test"
+    },
+    {
+      "input": [
+        0,
+        0
+      ],
+      "expect": 0,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0,
+        5
+      ],
+      "expect": 2,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0,
+        10
+      ],
+      "expect": 5,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0,
+        15
+      ],
+      "expect": 8,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0,
+        20
+      ],
+      "expect": 10,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0,
+        25
+      ],
+      "expect": 12,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0,
+        30
+      ],
+      "expect": 15,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0,
+        35
+      ],
+      "expect": 18,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0,
+        40
+      ],
+      "expect": 20,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0,
+        45
+      ],
+      "expect": 22,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0,
+        50
+      ],
+      "expect": 25,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0,
+        55
+      ],
+      "expect": 28,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0,
+        60
+      ],
+      "expect": 30,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0,
+        65
+      ],
+      "expect": 32,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0,
+        70
+      ],
+      "expect": 35,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0,
+        75
+      ],
+      "expect": 38,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0,
+        80
+      ],
+      "expect": 40,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0,
+        85
+      ],
+      "expect": 42,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0,
+        90
+      ],
+      "expect": 45,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0,
+        95
+      ],
+      "expect": 48,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0,
+        100
+      ],
+      "expect": 50,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        5,
+        0
+      ],
+      "expect": 2,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        5,
+        5
+      ],
+      "expect": 5,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        5,
+        10
+      ],
+      "expect": 8,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        5,
+        15
+      ],
+      "expect": 10,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        5,
+        20
+      ],
+      "expect": 12,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        5,
+        25
+      ],
+      "expect": 15,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        5,
+        30
+      ],
+      "expect": 18,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        5,
+        35
+      ],
+      "expect": 20,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        5,
+        40
+      ],
+      "expect": 22,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        5,
+        45
+      ],
+      "expect": 25,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        5,
+        50
+      ],
+      "expect": 28,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        5,
+        55
+      ],
+      "expect": 30,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        5,
+        60
+      ],
+      "expect": 32,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        5,
+        65
+      ],
+      "expect": 35,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        5,
+        70
+      ],
+      "expect": 38,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        5,
+        75
+      ],
+      "expect": 40,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        5,
+        80
+      ],
+      "expect": 42,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        5,
+        85
+      ],
+      "expect": 45,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        5,
+        90
+      ],
+      "expect": 48,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        5,
+        95
+      ],
+      "expect": 50,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        5,
+        100
+      ],
+      "expect": 52,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        10,
+        0
+      ],
+      "expect": 5,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        10,
+        5
+      ],
+      "expect": 8,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        10,
+        10
+      ],
+      "expect": 10,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        10,
+        15
+      ],
+      "expect": 12,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        10,
+        20
+      ],
+      "expect": 15,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        10,
+        25
+      ],
+      "expect": 18,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        10,
+        30
+      ],
+      "expect": 20,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        10,
+        35
+      ],
+      "expect": 22,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        10,
+        40
+      ],
+      "expect": 25,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        10,
+        45
+      ],
+      "expect": 28,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        10,
+        50
+      ],
+      "expect": 30,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        10,
+        55
+      ],
+      "expect": 32,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        10,
+        60
+      ],
+      "expect": 35,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        10,
+        65
+      ],
+      "expect": 38,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        10,
+        70
+      ],
+      "expect": 40,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        10,
+        75
+      ],
+      "expect": 42,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        10,
+        80
+      ],
+      "expect": 45,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        10,
+        85
+      ],
+      "expect": 48,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        10,
+        90
+      ],
+      "expect": 50,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        10,
+        95
+      ],
+      "expect": 52,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        10,
+        100
+      ],
+      "expect": 55,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        15,
+        0
+      ],
+      "expect": 8,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        15,
+        5
+      ],
+      "expect": 10,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        15,
+        10
+      ],
+      "expect": 12,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        15,
+        15
+      ],
+      "expect": 15,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        15,
+        20
+      ],
+      "expect": 18,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        15,
+        25
+      ],
+      "expect": 20,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        15,
+        30
+      ],
+      "expect": 22,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        15,
+        35
+      ],
+      "expect": 25,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        15,
+        40
+      ],
+      "expect": 28,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        15,
+        45
+      ],
+      "expect": 30,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        15,
+        50
+      ],
+      "expect": 32,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        15,
+        55
+      ],
+      "expect": 35,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        15,
+        60
+      ],
+      "expect": 38,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        15,
+        65
+      ],
+      "expect": 40,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        15,
+        70
+      ],
+      "expect": 42,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        15,
+        75
+      ],
+      "expect": 45,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        15,
+        80
+      ],
+      "expect": 48,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        15,
+        85
+      ],
+      "expect": 50,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        15,
+        90
+      ],
+      "expect": 52,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        15,
+        95
+      ],
+      "expect": 55,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        15,
+        100
+      ],
+      "expect": 58,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        20,
+        0
+      ],
+      "expect": 10,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        20,
+        5
+      ],
+      "expect": 12,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        20,
+        10
+      ],
+      "expect": 15,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        20,
+        15
+      ],
+      "expect": 18,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        20,
+        20
+      ],
+      "expect": 20,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        20,
+        25
+      ],
+      "expect": 22,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        20,
+        30
+      ],
+      "expect": 25,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        20,
+        35
+      ],
+      "expect": 28,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        20,
+        40
+      ],
+      "expect": 30,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        20,
+        45
+      ],
+      "expect": 32,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        20,
+        50
+      ],
+      "expect": 35,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        20,
+        55
+      ],
+      "expect": 38,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        20,
+        60
+      ],
+      "expect": 40,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        20,
+        65
+      ],
+      "expect": 42,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        20,
+        70
+      ],
+      "expect": 45,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        20,
+        75
+      ],
+      "expect": 48,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        20,
+        80
+      ],
+      "expect": 50,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        20,
+        85
+      ],
+      "expect": 52,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        20,
+        90
+      ],
+      "expect": 55,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        20,
+        95
+      ],
+      "expect": 58,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        20,
+        100
+      ],
+      "expect": 60,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        25,
+        0
+      ],
+      "expect": 12,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        25,
+        5
+      ],
+      "expect": 15,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        25,
+        10
+      ],
+      "expect": 18,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        25,
+        15
+      ],
+      "expect": 20,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        25,
+        20
+      ],
+      "expect": 22,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        25,
+        25
+      ],
+      "expect": 25,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        25,
+        30
+      ],
+      "expect": 28,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        25,
+        35
+      ],
+      "expect": 30,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        25,
+        40
+      ],
+      "expect": 32,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        25,
+        45
+      ],
+      "expect": 35,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        25,
+        50
+      ],
+      "expect": 38,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        25,
+        55
+      ],
+      "expect": 40,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        25,
+        60
+      ],
+      "expect": 42,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        25,
+        65
+      ],
+      "expect": 45,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        25,
+        70
+      ],
+      "expect": 48,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        25,
+        75
+      ],
+      "expect": 50,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        25,
+        80
+      ],
+      "expect": 52,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        25,
+        85
+      ],
+      "expect": 55,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        25,
+        90
+      ],
+      "expect": 58,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        25,
+        95
+      ],
+      "expect": 60,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        25,
+        100
+      ],
+      "expect": 62,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        30,
+        0
+      ],
+      "expect": 15,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        30,
+        5
+      ],
+      "expect": 18,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        30,
+        10
+      ],
+      "expect": 20,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        30,
+        15
+      ],
+      "expect": 22,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        30,
+        20
+      ],
+      "expect": 25,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        30,
+        25
+      ],
+      "expect": 28,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        30,
+        30
+      ],
+      "expect": 30,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        30,
+        35
+      ],
+      "expect": 32,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        30,
+        40
+      ],
+      "expect": 35,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        30,
+        45
+      ],
+      "expect": 38,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        30,
+        50
+      ],
+      "expect": 40,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        30,
+        55
+      ],
+      "expect": 42,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        30,
+        60
+      ],
+      "expect": 45,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        30,
+        65
+      ],
+      "expect": 48,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        30,
+        70
+      ],
+      "expect": 50,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        30,
+        75
+      ],
+      "expect": 52,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        30,
+        80
+      ],
+      "expect": 55,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        30,
+        85
+      ],
+      "expect": 58,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        30,
+        90
+      ],
+      "expect": 60,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        30,
+        95
+      ],
+      "expect": 62,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        30,
+        100
+      ],
+      "expect": 65,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        35,
+        0
+      ],
+      "expect": 18,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        35,
+        5
+      ],
+      "expect": 20,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        35,
+        10
+      ],
+      "expect": 22,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        35,
+        15
+      ],
+      "expect": 25,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        35,
+        20
+      ],
+      "expect": 28,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        35,
+        25
+      ],
+      "expect": 30,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        35,
+        30
+      ],
+      "expect": 32,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        35,
+        35
+      ],
+      "expect": 35,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        35,
+        40
+      ],
+      "expect": 38,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        35,
+        45
+      ],
+      "expect": 40,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        35,
+        50
+      ],
+      "expect": 42,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        35,
+        55
+      ],
+      "expect": 45,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        35,
+        60
+      ],
+      "expect": 48,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        35,
+        65
+      ],
+      "expect": 50,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        35,
+        70
+      ],
+      "expect": 52,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        35,
+        75
+      ],
+      "expect": 55,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        35,
+        80
+      ],
+      "expect": 58,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        35,
+        85
+      ],
+      "expect": 60,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        35,
+        90
+      ],
+      "expect": 62,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        35,
+        95
+      ],
+      "expect": 65,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        35,
+        100
+      ],
+      "expect": 68,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        40,
+        0
+      ],
+      "expect": 20,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        40,
+        5
+      ],
+      "expect": 22,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        40,
+        10
+      ],
+      "expect": 25,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        40,
+        15
+      ],
+      "expect": 28,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        40,
+        20
+      ],
+      "expect": 30,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        40,
+        25
+      ],
+      "expect": 32,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        40,
+        30
+      ],
+      "expect": 35,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        40,
+        35
+      ],
+      "expect": 38,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        40,
+        40
+      ],
+      "expect": 40,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        40,
+        45
+      ],
+      "expect": 42,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        40,
+        50
+      ],
+      "expect": 45,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        40,
+        55
+      ],
+      "expect": 48,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        40,
+        60
+      ],
+      "expect": 50,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        40,
+        65
+      ],
+      "expect": 52,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        40,
+        70
+      ],
+      "expect": 55,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        40,
+        75
+      ],
+      "expect": 58,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        40,
+        80
+      ],
+      "expect": 60,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        40,
+        85
+      ],
+      "expect": 62,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        40,
+        90
+      ],
+      "expect": 65,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        40,
+        95
+      ],
+      "expect": 68,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        40,
+        100
+      ],
+      "expect": 70,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        45,
+        0
+      ],
+      "expect": 22,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        45,
+        5
+      ],
+      "expect": 25,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        45,
+        10
+      ],
+      "expect": 28,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        45,
+        15
+      ],
+      "expect": 30,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        45,
+        20
+      ],
+      "expect": 32,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        45,
+        25
+      ],
+      "expect": 35,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        45,
+        30
+      ],
+      "expect": 38,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        45,
+        35
+      ],
+      "expect": 40,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        45,
+        40
+      ],
+      "expect": 42,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        45,
+        45
+      ],
+      "expect": 45,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        45,
+        50
+      ],
+      "expect": 48,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        45,
+        55
+      ],
+      "expect": 50,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        45,
+        60
+      ],
+      "expect": 52,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        45,
+        65
+      ],
+      "expect": 55,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        45,
+        70
+      ],
+      "expect": 58,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        45,
+        75
+      ],
+      "expect": 60,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        45,
+        80
+      ],
+      "expect": 62,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        45,
+        85
+      ],
+      "expect": 65,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        45,
+        90
+      ],
+      "expect": 68,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        45,
+        95
+      ],
+      "expect": 70,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        45,
+        100
+      ],
+      "expect": 72,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        50,
+        0
+      ],
+      "expect": 25,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        50,
+        5
+      ],
+      "expect": 28,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        50,
+        10
+      ],
+      "expect": 30,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        50,
+        15
+      ],
+      "expect": 32,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        50,
+        20
+      ],
+      "expect": 35,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        50,
+        25
+      ],
+      "expect": 38,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        50,
+        30
+      ],
+      "expect": 40,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        50,
+        35
+      ],
+      "expect": 42,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        50,
+        40
+      ],
+      "expect": 45,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        50,
+        45
+      ],
+      "expect": 48,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        50,
+        50
+      ],
+      "expect": 50,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        50,
+        55
+      ],
+      "expect": 52,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        50,
+        60
+      ],
+      "expect": 55,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        50,
+        65
+      ],
+      "expect": 58,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        50,
+        70
+      ],
+      "expect": 60,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        50,
+        75
+      ],
+      "expect": 62,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        50,
+        80
+      ],
+      "expect": 65,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        50,
+        85
+      ],
+      "expect": 68,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        50,
+        90
+      ],
+      "expect": 70,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        50,
+        95
+      ],
+      "expect": 72,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        50,
+        100
+      ],
+      "expect": 75,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        55,
+        0
+      ],
+      "expect": 28,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        55,
+        5
+      ],
+      "expect": 30,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        55,
+        10
+      ],
+      "expect": 32,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        55,
+        15
+      ],
+      "expect": 35,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        55,
+        20
+      ],
+      "expect": 38,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        55,
+        25
+      ],
+      "expect": 40,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        55,
+        30
+      ],
+      "expect": 42,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        55,
+        35
+      ],
+      "expect": 45,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        55,
+        40
+      ],
+      "expect": 48,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        55,
+        45
+      ],
+      "expect": 50,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        55,
+        50
+      ],
+      "expect": 52,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        55,
+        55
+      ],
+      "expect": 55,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        55,
+        60
+      ],
+      "expect": 58,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        55,
+        65
+      ],
+      "expect": 60,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        55,
+        70
+      ],
+      "expect": 62,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        55,
+        75
+      ],
+      "expect": 65,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        55,
+        80
+      ],
+      "expect": 68,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        55,
+        85
+      ],
+      "expect": 70,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        55,
+        90
+      ],
+      "expect": 72,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        55,
+        95
+      ],
+      "expect": 75,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        55,
+        100
+      ],
+      "expect": 78,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        60,
+        0
+      ],
+      "expect": 30,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        60,
+        5
+      ],
+      "expect": 32,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        60,
+        10
+      ],
+      "expect": 35,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        60,
+        15
+      ],
+      "expect": 38,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        60,
+        20
+      ],
+      "expect": 40,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        60,
+        25
+      ],
+      "expect": 42,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        60,
+        30
+      ],
+      "expect": 45,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        60,
+        35
+      ],
+      "expect": 48,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        60,
+        40
+      ],
+      "expect": 50,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        60,
+        45
+      ],
+      "expect": 52,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        60,
+        50
+      ],
+      "expect": 55,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        60,
+        55
+      ],
+      "expect": 58,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        60,
+        60
+      ],
+      "expect": 60,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        60,
+        65
+      ],
+      "expect": 62,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        60,
+        70
+      ],
+      "expect": 65,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        60,
+        75
+      ],
+      "expect": 68,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        60,
+        80
+      ],
+      "expect": 70,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        60,
+        85
+      ],
+      "expect": 72,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        60,
+        90
+      ],
+      "expect": 75,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        60,
+        95
+      ],
+      "expect": 78,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        60,
+        100
+      ],
+      "expect": 80,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        65,
+        0
+      ],
+      "expect": 32,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        65,
+        5
+      ],
+      "expect": 35,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        65,
+        10
+      ],
+      "expect": 38,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        65,
+        15
+      ],
+      "expect": 40,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        65,
+        20
+      ],
+      "expect": 42,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        65,
+        25
+      ],
+      "expect": 45,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        65,
+        30
+      ],
+      "expect": 48,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        65,
+        35
+      ],
+      "expect": 50,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        65,
+        40
+      ],
+      "expect": 52,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        65,
+        45
+      ],
+      "expect": 55,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        65,
+        50
+      ],
+      "expect": 58,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        65,
+        55
+      ],
+      "expect": 60,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        65,
+        60
+      ],
+      "expect": 62,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        65,
+        65
+      ],
+      "expect": 65,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        65,
+        70
+      ],
+      "expect": 68,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        65,
+        75
+      ],
+      "expect": 70,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        65,
+        80
+      ],
+      "expect": 72,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        65,
+        85
+      ],
+      "expect": 75,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        65,
+        90
+      ],
+      "expect": 78,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        65,
+        95
+      ],
+      "expect": 80,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        65,
+        100
+      ],
+      "expect": 82,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        70,
+        0
+      ],
+      "expect": 35,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        70,
+        5
+      ],
+      "expect": 38,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        70,
+        10
+      ],
+      "expect": 40,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        70,
+        15
+      ],
+      "expect": 42,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        70,
+        20
+      ],
+      "expect": 45,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        70,
+        25
+      ],
+      "expect": 48,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        70,
+        30
+      ],
+      "expect": 50,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        70,
+        35
+      ],
+      "expect": 52,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        70,
+        40
+      ],
+      "expect": 55,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        70,
+        45
+      ],
+      "expect": 58,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        70,
+        50
+      ],
+      "expect": 60,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        70,
+        55
+      ],
+      "expect": 62,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        70,
+        60
+      ],
+      "expect": 65,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        70,
+        65
+      ],
+      "expect": 68,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        70,
+        70
+      ],
+      "expect": 70,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        70,
+        75
+      ],
+      "expect": 72,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        70,
+        80
+      ],
+      "expect": 75,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        70,
+        85
+      ],
+      "expect": 78,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        70,
+        90
+      ],
+      "expect": 80,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        70,
+        95
+      ],
+      "expect": 82,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        70,
+        100
+      ],
+      "expect": 85,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        75,
+        0
+      ],
+      "expect": 38,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        75,
+        5
+      ],
+      "expect": 40,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        75,
+        10
+      ],
+      "expect": 42,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        75,
+        15
+      ],
+      "expect": 45,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        75,
+        20
+      ],
+      "expect": 48,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        75,
+        25
+      ],
+      "expect": 50,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        75,
+        30
+      ],
+      "expect": 52,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        75,
+        35
+      ],
+      "expect": 55,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        75,
+        40
+      ],
+      "expect": 58,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        75,
+        45
+      ],
+      "expect": 60,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        75,
+        50
+      ],
+      "expect": 62,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        75,
+        55
+      ],
+      "expect": 65,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        75,
+        60
+      ],
+      "expect": 68,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        75,
+        65
+      ],
+      "expect": 70,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        75,
+        70
+      ],
+      "expect": 72,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        75,
+        75
+      ],
+      "expect": 75,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        75,
+        80
+      ],
+      "expect": 78,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        75,
+        85
+      ],
+      "expect": 80,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        75,
+        90
+      ],
+      "expect": 82,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        75,
+        95
+      ],
+      "expect": 85,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        75,
+        100
+      ],
+      "expect": 88,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        80,
+        0
+      ],
+      "expect": 40,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        80,
+        5
+      ],
+      "expect": 42,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        80,
+        10
+      ],
+      "expect": 45,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        80,
+        15
+      ],
+      "expect": 48,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        80,
+        20
+      ],
+      "expect": 50,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        80,
+        25
+      ],
+      "expect": 52,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        80,
+        30
+      ],
+      "expect": 55,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        80,
+        35
+      ],
+      "expect": 58,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        80,
+        40
+      ],
+      "expect": 60,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        80,
+        45
+      ],
+      "expect": 62,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        80,
+        50
+      ],
+      "expect": 65,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        80,
+        55
+      ],
+      "expect": 68,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        80,
+        60
+      ],
+      "expect": 70,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        80,
+        65
+      ],
+      "expect": 72,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        80,
+        70
+      ],
+      "expect": 75,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        80,
+        75
+      ],
+      "expect": 78,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        80,
+        80
+      ],
+      "expect": 80,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        80,
+        85
+      ],
+      "expect": 82,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        80,
+        90
+      ],
+      "expect": 85,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        80,
+        95
+      ],
+      "expect": 88,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        80,
+        100
+      ],
+      "expect": 90,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        85,
+        0
+      ],
+      "expect": 42,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        85,
+        5
+      ],
+      "expect": 45,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        85,
+        10
+      ],
+      "expect": 48,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        85,
+        15
+      ],
+      "expect": 50,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        85,
+        20
+      ],
+      "expect": 52,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        85,
+        25
+      ],
+      "expect": 55,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        85,
+        30
+      ],
+      "expect": 58,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        85,
+        35
+      ],
+      "expect": 60,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        85,
+        40
+      ],
+      "expect": 62,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        85,
+        45
+      ],
+      "expect": 65,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        85,
+        50
+      ],
+      "expect": 68,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        85,
+        55
+      ],
+      "expect": 70,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        85,
+        60
+      ],
+      "expect": 72,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        85,
+        65
+      ],
+      "expect": 75,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        85,
+        70
+      ],
+      "expect": 78,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        85,
+        75
+      ],
+      "expect": 80,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        85,
+        80
+      ],
+      "expect": 82,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        85,
+        85
+      ],
+      "expect": 85,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        85,
+        90
+      ],
+      "expect": 88,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        85,
+        95
+      ],
+      "expect": 90,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        85,
+        100
+      ],
+      "expect": 92,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        90,
+        0
+      ],
+      "expect": 45,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        90,
+        5
+      ],
+      "expect": 48,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        90,
+        10
+      ],
+      "expect": 50,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        90,
+        15
+      ],
+      "expect": 52,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        90,
+        20
+      ],
+      "expect": 55,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        90,
+        25
+      ],
+      "expect": 58,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        90,
+        30
+      ],
+      "expect": 60,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        90,
+        35
+      ],
+      "expect": 62,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        90,
+        40
+      ],
+      "expect": 65,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        90,
+        45
+      ],
+      "expect": 68,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        90,
+        50
+      ],
+      "expect": 70,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        90,
+        55
+      ],
+      "expect": 72,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        90,
+        60
+      ],
+      "expect": 75,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        90,
+        65
+      ],
+      "expect": 78,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        90,
+        70
+      ],
+      "expect": 80,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        90,
+        75
+      ],
+      "expect": 82,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        90,
+        80
+      ],
+      "expect": 85,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        90,
+        85
+      ],
+      "expect": 88,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        90,
+        90
+      ],
+      "expect": 90,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        90,
+        95
+      ],
+      "expect": 92,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        90,
+        100
+      ],
+      "expect": 95,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        95,
+        0
+      ],
+      "expect": 48,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        95,
+        5
+      ],
+      "expect": 50,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        95,
+        10
+      ],
+      "expect": 52,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        95,
+        15
+      ],
+      "expect": 55,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        95,
+        20
+      ],
+      "expect": 58,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        95,
+        25
+      ],
+      "expect": 60,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        95,
+        30
+      ],
+      "expect": 62,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        95,
+        35
+      ],
+      "expect": 65,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        95,
+        40
+      ],
+      "expect": 68,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        95,
+        45
+      ],
+      "expect": 70,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        95,
+        50
+      ],
+      "expect": 72,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        95,
+        55
+      ],
+      "expect": 75,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        95,
+        60
+      ],
+      "expect": 78,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        95,
+        65
+      ],
+      "expect": 80,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        95,
+        70
+      ],
+      "expect": 82,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        95,
+        75
+      ],
+      "expect": 85,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        95,
+        80
+      ],
+      "expect": 88,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        95,
+        85
+      ],
+      "expect": 90,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        95,
+        90
+      ],
+      "expect": 92,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        95,
+        95
+      ],
+      "expect": 95,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        95,
+        100
+      ],
+      "expect": 98,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        100,
+        0
+      ],
+      "expect": 50,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        100,
+        5
+      ],
+      "expect": 52,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        100,
+        10
+      ],
+      "expect": 55,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        100,
+        15
+      ],
+      "expect": 58,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        100,
+        20
+      ],
+      "expect": 60,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        100,
+        25
+      ],
+      "expect": 62,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        100,
+        30
+      ],
+      "expect": 65,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        100,
+        35
+      ],
+      "expect": 68,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        100,
+        40
+      ],
+      "expect": 70,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        100,
+        45
+      ],
+      "expect": 72,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        100,
+        50
+      ],
+      "expect": 75,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        100,
+        55
+      ],
+      "expect": 78,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        100,
+        60
+      ],
+      "expect": 80,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        100,
+        65
+      ],
+      "expect": 82,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        100,
+        70
+      ],
+      "expect": 85,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        100,
+        75
+      ],
+      "expect": 88,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        100,
+        80
+      ],
+      "expect": 90,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        100,
+        85
+      ],
+      "expect": 92,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        100,
+        90
+      ],
+      "expect": 95,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        100,
+        95
+      ],
+      "expect": 98,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        100,
+        100
+      ],
+      "expect": 100,
+      "origin": "sweep"
+    }
+  ]
+}

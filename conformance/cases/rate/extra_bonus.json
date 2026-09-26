@@ -1,0 +1,234 @@
+{
+  "schema": "rdarust.cases/1",
+  "suite": "rate",
+  "function": "extra_bonus",
+  "note": "The winner's bonus allowed before deviation counts.",
+  "source": {
+    "rdapy_commit": "2b702b4f8fa10ba6fdbfd364a1f2344ece1077b1",
+    "python": "3.13.15",
+    "numpy": "2.5.3",
+    "platform": "macOS-26.7-arm64-arm-64bit-Mach-O"
+  },
+  "cases": [
+    {
+      "input": [
+        0.5
+      ],
+      "expect": 0.0,
+      "published": 0.0,
+      "origin": "rdapy-test",
+      "places": 6
+    },
+    {
+      "input": [
+        0.55
+      ],
+      "expect": 0.050000000000000044,
+      "published": 0.05,
+      "origin": "rdapy-test",
+      "places": 6
+    },
+    {
+      "input": [
+        0.6
+      ],
+      "expect": 0.09999999999999998,
+      "published": 0.1,
+      "origin": "rdapy-test",
+      "places": 6
+    },
+    {
+      "input": [
+        0.45
+      ],
+      "expect": 0.04999999999999999,
+      "published": 0.05,
+      "origin": "rdapy-test",
+      "places": 6
+    },
+    {
+      "input": [
+        0.4
+      ],
+      "expect": 0.09999999999999998,
+      "published": 0.1,
+      "origin": "rdapy-test",
+      "places": 6
+    },
+    {
+      "input": [
+        0.2
+      ],
+      "expect": 0.3,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.225
+      ],
+      "expect": 0.275,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.25
+      ],
+      "expect": 0.25,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.275
+      ],
+      "expect": 0.22499999999999998,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.30000000000000004
+      ],
+      "expect": 0.19999999999999996,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.32500000000000007
+      ],
+      "expect": 0.17499999999999993,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.35000000000000003
+      ],
+      "expect": 0.14999999999999997,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.37500000000000006
+      ],
+      "expect": 0.12499999999999994,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.4
+      ],
+      "expect": 0.09999999999999998,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.42500000000000004
+      ],
+      "expect": 0.07499999999999996,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.45000000000000007
+      ],
+      "expect": 0.04999999999999993,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.4750000000000001
+      ],
+      "expect": 0.02499999999999991,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.5
+      ],
+      "expect": 0.0,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.5250000000000001
+      ],
+      "expect": 0.025000000000000133,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.55
+      ],
+      "expect": 0.050000000000000044,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.5750000000000001
+      ],
+      "expect": 0.07500000000000007,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.6000000000000001
+      ],
+      "expect": 0.10000000000000009,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.6250000000000001
+      ],
+      "expect": 0.1250000000000001,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.6500000000000001
+      ],
+      "expect": 0.15000000000000013,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.675
+      ],
+      "expect": 0.17500000000000004,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.7000000000000002
+      ],
+      "expect": 0.20000000000000018,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.7250000000000001
+      ],
+      "expect": 0.2250000000000001,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.7500000000000002
+      ],
+      "expect": 0.2500000000000002,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.7750000000000001
+      ],
+      "expect": 0.27500000000000013,
+      "origin": "sweep"
+    },
+    {
+      "input": [
+        0.8
+      ],
+      "expect": 0.30000000000000004,
+      "origin": "sweep"
+    }
+  ]
+}

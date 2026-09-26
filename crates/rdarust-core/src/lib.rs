@@ -12,4 +12,5 @@
 
 pub mod geometry;
 pub mod numeric;
+pub mod rate;
 pub mod spline;
