@@ -113,6 +113,30 @@ enum Command {
         #[arg(long)]
         prefixes: bool,
     },
+    /// Write the data map naming which datasets and fields to extract.
+    MapData {
+        #[arg(long)]
+        geojson: String,
+        /// Where to write the data map.
+        #[arg(long = "data-map")]
+        data_map: String,
+        #[arg(long, default_value = "T_20_CENS")]
+        census: String,
+        #[arg(long, default_value = "V_20_VAP")]
+        vap: String,
+        #[arg(long, default_value = "V_20_CVAP")]
+        cvap: String,
+        /// Elections to score, comma separated. `__all__` takes every one the
+        /// GeoJSON carries.
+        #[arg(long, default_value = "E_16-20_COMP", value_delimiter = ',')]
+        elections: Vec<String>,
+        /// Also score the elections a composite averages, individually.
+        #[arg(short = 'x', long = "expand-composites")]
+        expand_composites: bool,
+        /// The GeoJSON version, recorded in the map.
+        #[arg(long)]
+        version: Option<String>,
+    },
     /// Build the adjacency graph from a DRA GeoJSON.
     ExtractGraph {
         /// The GeoJSON to read.
@@ -185,6 +209,12 @@ fn main() {
         Command::Write { input, data, scores, by_district, prefixes } => {
             stages::write(input.as_deref(), &data, &scores, &by_district, prefixes)
         }
+        Command::MapData {
+            geojson, data_map, census, vap, cvap, elections, expand_composites, version,
+        } => extract::map_data(
+            &geojson, &data_map, &census, &vap, &cvap, &elections,
+            expand_composites, version.as_deref(),
+        ),
         Command::ExtractGraph { geojson, graph, locations, geoid_field } => {
             extract::extract_graph(&geojson, &graph, locations.as_deref(), &geoid_field)
         }

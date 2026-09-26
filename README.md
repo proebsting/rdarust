@@ -42,13 +42,27 @@ cat plans.jsonl | rdarust aggregate ... | rdarust score ... | rdarust write ...
 scripts of the same name. `score-all` does the same work in one process,
 skipping the JSONL round-trip between stages, and scores across cores.
 
-Starting from a DRA GeoJSON instead, the two preprocessing steps run first:
+Starting from a DRA GeoJSON instead, `scripts/SCORE.sh` runs the whole chain
+and takes rdapy's arguments:
 
 ```bash
+scripts/SCORE.sh --state NC --plan-type congress \
+    --geojson NC_2020_vtd.datasets.geojson \
+    --plans NC_congress_plans.jsonl \
+    --scores scores.csv --by-district by-district.jsonl
+```
+
+which is these four steps:
+
+```bash
+rdarust map-data      --geojson NC.geojson --data-map NC_data_map.json
 rdarust extract-graph --geojson NC.geojson --graph NC_graph.json
 rdarust extract-data  --geojson NC.geojson --data-map NC_data_map.json \
                       --graph NC_graph.json --data NC_input_data.jsonl
+rdarust score-all     --state NC --plan-type congress ...
 ```
+
+The first three are once per state.
 
 ## Using it as a library
 

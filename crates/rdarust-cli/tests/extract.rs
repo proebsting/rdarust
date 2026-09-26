@@ -181,6 +181,14 @@ fn the_whole_chain_from_geojson_matches_rdapy() {
     let data = dir.join("data.jsonl");
     let scores = dir.join("scores.csv");
 
+    // Derive the data map too, so nothing in the chain comes from rdapy.
+    let data_map = dir.join("data-map.json");
+    run(&[
+        "map-data",
+        "--geojson", &rdapy(GEOJSON),
+        "--data-map", data_map.to_str().unwrap(),
+        "--elections", "E_16-20_COMP,E_20_PRES,E_20_GOV,E_20_SEN,E_16_PRES,E_20_AG,E_16_SEN",
+    ]);
     run(&[
         "extract-graph",
         "--geojson", &rdapy(GEOJSON),
@@ -189,7 +197,7 @@ fn the_whole_chain_from_geojson_matches_rdapy() {
     run(&[
         "extract-data",
         "--geojson", &rdapy(GEOJSON),
-        "--data-map", &rdapy(DATA_MAP),
+        "--data-map", data_map.to_str().unwrap(),
         "--graph", graph.to_str().unwrap(),
         "--data", data.to_str().unwrap(),
     ]);
