@@ -74,15 +74,31 @@ suite knows its shape.
 
 ## Regenerating
 
-Needs the rdapy virtualenv and the pinned checkout in `vendor/rdapy`:
+One script runs every generator and records what it read them from:
 
 ```bash
-PYTHONPATH=vendor/rdapy ~/ext/rdapy/.venv/bin/python \
-    conformance/tools/gen_primitives.py conformance/cases/primitives
+conformance/tools/regenerate.sh      # RDAPY_VENV=... to point at another venv
 ```
 
-Regenerating should produce no diff. If it does, either a dependency version
-changed or something upstream moved -- investigate before committing it.
+Regenerating against the same rdapy should produce no diff. If it does, either
+a dependency version changed or something upstream moved -- investigate before
+committing it.
+
+## Provenance
+
+Every expected value here came from one specific rdapy commit, recorded in
+`cases/PROVENANCE.json` and stamped into each generated file.
+
+Moving the submodule without regenerating would leave the tests passing while
+checking this port against values that no longer describe the code it is
+pinned to -- the one failure a test suite cannot report on its own. So
+`crates/rdarust-core/tests/provenance.rs` compares the recorded commit against
+the submodule as it stands, and fails with instructions if they differ. It
+also checks the per-file stamps agree with each other, which catches half the
+corpus being regenerated on its own.
+
+Where the submodule is absent or git is unavailable -- a source export -- the
+check reports that it could not compare and passes.
 
 ## Runners
 
