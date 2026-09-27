@@ -28,6 +28,9 @@ pub fn parse_mode(s: &str) -> Mode {
 }
 
 pub fn build_context(args: &DataArgs) -> Result<Context> {
+    if args.graph.is_empty() {
+        return Err(anyhow!("--graph is required for this command"));
+    }
     let input = load_input_data(&args.data)
         .map_err(|e| anyhow!("{e}"))
         .with_context(|| format!("reading precinct data from {}", args.data))?;

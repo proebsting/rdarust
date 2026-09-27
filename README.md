@@ -12,8 +12,7 @@ GeoJSON to a scores CSV, with no Python involved -- and the CSV is
 byte-identical to the one rdapy produces from the same input. Shape-based
 compactness, including the KIWYSI model, is in too.
 
-Not ported: the geographic-baseline precomputation and the contiguity-repair
-tooling.
+Not ported: the contiguity-repair tooling.
 
 Ported: the five DRA ratings; the partisan suite (Nagle's method, bias,
 responsiveness); population deviation; county, district and COI splitting;
@@ -90,6 +89,24 @@ rdarust sample -k 100                                     # keep every 100th rec
 `from-json`, `from-csvs` and `sample` produce byte-identical output to
 rdapy's. `from-canonical` produces the same assignments, in a different key
 order -- see [KNOWN-DIFFERENCES.md](KNOWN-DIFFERENCES.md).
+
+## The geographic baseline
+
+How many seats each party would win from geography alone, which
+`geographic_advantage` scores a plan against. Both steps are once per state:
+
+```bash
+rdarust find-neighborhoods    --state NC --plan-type congress \
+        --data NC_input_data.jsonl --graph NC_graph.json \
+        --output NC_neighborhoods.jsonl
+rdarust precompute-baselines  --state NC --plan-type congress \
+        --data NC_input_data.jsonl \
+        --neighborhoods NC_neighborhoods.jsonl \
+        --output NC_precomputed.json
+```
+
+The result is what `score-all --precomputed` reads. Output is byte-identical
+to rdapy's.
 
 ## Using it as a library
 
@@ -187,6 +204,12 @@ The once-per-state preprocessing, on North Carolina's 2,666 precincts:
 | --- | --- | --- |
 | extract the adjacency graph | 4.2 s | 0.76 s |
 | extract the precinct data | 3.6 s | 0.40 s |
+| grow 2,666 neighbourhoods | 67.3 s | 0.16 s |
+| compute the baseline | 2.2 s | 0.04 s |
+
+Neighbourhood growing is the outlier. Most of rdapy's 67s is a connectivity
+assertion that re-checks the whole set on every step; running it under
+`python -O` takes it to 4.8s with identical output.
 
 Reproduce with:
 

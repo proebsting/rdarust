@@ -10,6 +10,7 @@
 //! `rdarust score-all` does the same work in one process. The stages exist to
 //! be diffed against Python stage by stage; `score-all` is what you run.
 
+mod baseline;
 mod extract;
 mod formats;
 mod fused;
@@ -41,8 +42,9 @@ pub struct DataArgs {
     /// Precinct data, as JSONL.
     #[arg(long)]
     pub data: String,
-    /// Adjacency graph, as JSON.
-    #[arg(long)]
+    /// Adjacency graph, as JSON. Not needed by the commands that only read
+    /// precinct data.
+    #[arg(long, default_value = "")]
     pub graph: String,
     /// Score only one family of metrics.
     #[arg(long, default_value = "all",
@@ -113,6 +115,49 @@ enum Command {
         /// Always prefix a metric with its dataset.
         #[arg(long)]
         prefixes: bool,
+    },
+    /// Grow a district-sized neighbourhood around every precinct.
+    ///
+    /// Depends only on the map, so it is done once per state. The result
+    /// feeds `precompute-baselines`.
+    FindNeighborhoods {
+        #[command(flatten)]
+        data: DataArgs,
+        /// Where to write the neighbourhoods. Defaults to stdout.
+        #[arg(long)]
+        output: Option<String>,
+        /// Neighbourhood size, as a fraction of one district's population.
+        #[arg(long, default_value_t = 1.0)]
+        size: f64,
+        /// Worker threads. Defaults to one per core.
+        #[arg(long)]
+        jobs: Option<usize>,
+    },
+    /// Compute the geographic baseline from stored neighbourhoods.
+    PrecomputeBaselines {
+        #[command(flatten)]
+        data: DataArgs,
+        /// The neighbourhoods. Defaults to stdin.
+        #[arg(long)]
+        neighborhoods: Option<String>,
+        #[arg(long)]
+        output: Option<String>,
+    },
+    /// Check stored neighbourhoods against the state they describe.
+    CheckNeighborhoods {
+        #[command(flatten)]
+        data: DataArgs,
+        #[arg(long)]
+        neighborhoods: Option<String>,
+    },
+    /// Print a precomputed baseline.
+    ReportBaselines {
+        /// The precomputed JSON.
+        #[arg(long)]
+        precomputed: String,
+        /// Show the district count alongside, for comparison.
+        #[arg(long = "districts")]
+        n_districts: Option<u32>,
     },
     /// Convert a legacy single-JSON ensemble to tagged JSONL.
     FromJson {
@@ -269,6 +314,18 @@ fn main() {
         ),
         Command::Write { input, data, scores, by_district, prefixes } => {
             stages::write(input.as_deref(), &data, &scores, &by_district, prefixes)
+        }
+        Command::FindNeighborhoods { data, output, size, jobs } => {
+            baseline::find_neighborhoods(&data, output.as_deref(), size, jobs)
+        }
+        Command::PrecomputeBaselines { data, neighborhoods, output } => {
+            baseline::precompute_baselines(&data, neighborhoods.as_deref(), output.as_deref())
+        }
+        Command::CheckNeighborhoods { data, neighborhoods } => {
+            baseline::check_neighborhoods(&data, neighborhoods.as_deref())
+        }
+        Command::ReportBaselines { precomputed, n_districts } => {
+            baseline::report_baselines(&precomputed, n_districts)
         }
         Command::FromJson { input, output } => {
             formats::from_json(&input, output.as_deref())

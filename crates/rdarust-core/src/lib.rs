@@ -14,6 +14,7 @@ pub mod aggregate;
 pub mod compactness;
 pub mod context;
 pub mod equal;
+pub mod geographic;
 pub mod geometry;
 pub mod graph;
 pub mod minority;
