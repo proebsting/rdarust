@@ -190,6 +190,7 @@ pub fn from_canonical(
     input: Option<&str>,
     output: Option<&str>,
     geoid_key: &str,
+    keep_district_numbers: bool,
 ) -> Result<()> {
     let text = std::fs::read_to_string(expand(graph_path))
         .with_context(|| format!("reading {graph_path}"))?;
@@ -217,6 +218,7 @@ pub fn from_canonical(
     let reader = smart_reader(input).context("opening the canonical stream")?;
     let mut out = smart_writer(output).context("opening output")?;
     let mut count = 0usize;
+    let mut shifted = false;
 
     for (n, line) in reader.lines().enumerate() {
         let line = line.context("reading input")?;
@@ -239,12 +241,37 @@ pub fn from_canonical(
             ));
         }
 
+        // rustrecom normalises district labels to 0-based internally, by
+        // subtracting the lowest, and writes them out that way whatever the
+        // seed used. Scoring numbers districts from 1, so shift them back.
+        // The shift preserves identity -- it is an offset, not a relabelling.
+        let shift: i64 = if keep_district_numbers {
+            0
+        } else {
+            match assignment.iter().filter_map(|d| d.as_i64()).min() {
+                Some(lo) if lo < 1 => 1 - lo,
+                _ => 0,
+            }
+        };
+        if shift != 0 && !shifted {
+            eprintln!(
+                "rdarust: districts are numbered from {}; shifting to start at 1 \
+                 (--keep-district-numbers to leave them)",
+                1 - shift
+            );
+            shifted = true;
+        }
+
         // Keyed in precinct order. rdapy groups by district first, which
         // leaves the keys in an order that depends on Python's set
         // iteration; the pairs are the same either way.
         let mut plan = Map::new();
         for (i, district) in assignment.iter().enumerate() {
-            plan.insert(geoids[i].clone(), district.clone());
+            let d = match district.as_i64() {
+                Some(d) => json!(d + shift),
+                None => district.clone(),
+            };
+            plan.insert(geoids[i].clone(), d);
         }
 
         let mut record = Map::new();

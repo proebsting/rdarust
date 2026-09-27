@@ -146,6 +146,13 @@ enum Command {
         /// Name for the county attribute.
         #[arg(long = "county-name", default_value = "COUNTY")]
         county_name: String,
+        /// A plan to stamp onto the nodes as a starting point, as a CSV or a
+        /// tagged JSONL. rustrecom's `--assignment-col` requires one.
+        #[arg(long)]
+        assignment: Option<String>,
+        /// Name for the assignment attribute.
+        #[arg(long = "assignment-name", default_value = "INITIAL")]
+        assignment_name: String,
     },
     /// Propose the fewest edges that would make a graph fully connected.
     ///
@@ -259,6 +266,11 @@ enum Command {
         /// The graph node property holding the geoid.
         #[arg(long, default_value = "GEOID")]
         geoid: String,
+        /// Leave district numbers as they arrive. By default they are shifted
+        /// to start at 1, since rustrecom writes them 0-based and scoring
+        /// numbers districts from 1.
+        #[arg(long = "keep-district-numbers")]
+        keep_district_numbers: bool,
     },
     /// Keep every kth line, for subsampling an ensemble.
     Sample {
@@ -384,9 +396,11 @@ fn main() {
         }
         Command::ToRecomGraph {
             state, plan_type, data, graph, output, pop_name, geoid_name, county_name,
+            assignment, assignment_name,
         } => graphs::to_recom_graph(
             &state, &plan_type, &data, &graph, output.as_deref(),
             &pop_name, &geoid_name, &county_name,
+            assignment.as_deref(), &assignment_name,
         ),
         Command::ContiguityMods { graph, locations, geojson, output } => {
             graphs::generate_mods(&graph, locations.as_deref(), geojson.as_deref(), output.as_deref())
@@ -413,8 +427,10 @@ fn main() {
         Command::FromCsvs { files, output, state, plan_type } => formats::from_csvs(
             &files, output.as_deref(), state.as_deref(), plan_type.as_deref(),
         ),
-        Command::FromCanonical { graph, input, output, geoid } => {
-            formats::from_canonical(&graph, input.as_deref(), output.as_deref(), &geoid)
+        Command::FromCanonical { graph, input, output, geoid, keep_district_numbers } => {
+            formats::from_canonical(
+                &graph, input.as_deref(), output.as_deref(), &geoid, keep_district_numbers,
+            )
         }
         Command::Sample { input, output, rate } => {
             formats::sample(input.as_deref(), output.as_deref(), rate)

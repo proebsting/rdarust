@@ -237,3 +237,61 @@ fn records_are_written_with_python_separators() {
         &first[..60.min(first.len())]
     );
 }
+
+/// rustrecom normalises district labels to 0-based internally and writes them
+/// out that way whatever the seed used, while scoring numbers districts from
+/// 1. `from-canonical` shifts them back.
+#[test]
+fn zero_based_canonical_districts_are_shifted_to_start_at_one() {
+    let dir = tempdir("zero-based");
+    let graph = dir.join("graph.json");
+    let canonical = dir.join("canonical.jsonl");
+
+    // Four precincts, two districts, labelled from 0 as rustrecom writes them.
+    std::fs::write(
+        &graph,
+        r#"{"directed":false,"multigraph":false,"graph":[],
+            "nodes":[{"GEOID":"a","id":0},{"GEOID":"b","id":1},
+                     {"GEOID":"c","id":2},{"GEOID":"d","id":3}],
+            "adjacency":[[{"id":1}],[{"id":0}],[{"id":3}],[{"id":2}]]}"#,
+    )
+    .unwrap();
+    std::fs::write(&canonical, "{\"assignment\":[0,0,1,1],\"sample\":1}\n").unwrap();
+
+    let shifted = dir.join("shifted.jsonl");
+    run(&[
+        "from-canonical",
+        "--graph", graph.to_str().unwrap(),
+        "--input", canonical.to_str().unwrap(),
+        "--output", shifted.to_str().unwrap(),
+    ]);
+    let plan = &records(&shifted)[0]["plan"];
+    assert_eq!(plan["a"], 1, "district 0 becomes 1");
+    assert_eq!(plan["c"], 2, "district 1 becomes 2");
+
+    // Already 1-based, so nothing moves.
+    std::fs::write(&canonical, "{\"assignment\":[1,1,2,2],\"sample\":1}\n").unwrap();
+    let untouched = dir.join("untouched.jsonl");
+    run(&[
+        "from-canonical",
+        "--graph", graph.to_str().unwrap(),
+        "--input", canonical.to_str().unwrap(),
+        "--output", untouched.to_str().unwrap(),
+    ]);
+    let plan = &records(&untouched)[0]["plan"];
+    assert_eq!(plan["a"], 1);
+    assert_eq!(plan["c"], 2);
+
+    // And the shift can be declined.
+    std::fs::write(&canonical, "{\"assignment\":[0,0,1,1],\"sample\":1}\n").unwrap();
+    let kept = dir.join("kept.jsonl");
+    run(&[
+        "from-canonical",
+        "--graph", graph.to_str().unwrap(),
+        "--input", canonical.to_str().unwrap(),
+        "--output", kept.to_str().unwrap(),
+        "--keep-district-numbers",
+    ]);
+    let plan = &records(&kept)[0]["plan"];
+    assert_eq!(plan["a"], 0, "left as it arrived");
+}

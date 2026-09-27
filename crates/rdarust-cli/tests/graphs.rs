@@ -306,3 +306,68 @@ fn a_disconnected_graph_is_refused() {
         "the error should say what to do about it, got: {stderr}"
     );
 }
+
+/// rustrecom's `--assignment-col` is required, so the graph has to carry a
+/// starting plan. It is stamped from a plan you already have rather than
+/// generated.
+#[test]
+fn a_seed_plan_can_be_stamped_onto_the_recom_graph() {
+    let dir = tempdir("recom-seed");
+    let out = dir.join("recom.json");
+
+    run(&[
+        "to-recom-graph",
+        "--state", "NC",
+        "--data", &rdapy(DATA),
+        "--graph", &rdapy(GRAPH),
+        "--assignment", &rdapy("testdata/plans/NC_congress_plans.tagged.jsonl"),
+        "--output", out.to_str().unwrap(),
+    ]);
+
+    let doc: Value = serde_json::from_str(&std::fs::read_to_string(&out).unwrap()).unwrap();
+    let nodes = doc["nodes"].as_array().unwrap();
+
+    let districts: std::collections::BTreeSet<i64> = nodes
+        .iter()
+        .map(|n| {
+            n["INITIAL"]
+                .as_i64()
+                .expect("every node needs an assignment, or rustrecom panics")
+        })
+        .collect();
+
+    // rustrecom accepts 0- or 1-indexed and rejects gaps.
+    assert_eq!(districts.len(), 14, "North Carolina's fourteen districts");
+    let lo = *districts.iter().next().unwrap();
+    let hi = *districts.iter().next_back().unwrap();
+    assert!(lo == 0 || lo == 1, "must be numbered from 0 or 1, starts at {lo}");
+    assert_eq!(
+        districts.len() as i64,
+        hi - lo + 1,
+        "no gaps: a district with no precincts is rejected by rustrecom"
+    );
+}
+
+/// A seed that does not cover every precinct is refused here, where the
+/// message can say so, rather than in rustrecom, where it panics.
+#[test]
+fn an_incomplete_seed_plan_is_refused() {
+    let dir = tempdir("recom-badseed");
+    let seed = dir.join("seed.csv");
+    std::fs::write(&seed, "GEOID,District\n37001000001,1\n").unwrap();
+
+    let out = rdarust(&[
+        "to-recom-graph",
+        "--state", "NC",
+        "--data", &rdapy(DATA),
+        "--graph", &rdapy(GRAPH),
+        "--assignment", seed.to_str().unwrap(),
+        "--output", dir.join("recom.json").to_str().unwrap(),
+    ]);
+    assert!(!out.status.success());
+    let stderr = String::from_utf8_lossy(&out.stderr);
+    assert!(
+        stderr.contains("does not assign") && stderr.contains("every"),
+        "the error should name the gap, got: {stderr}"
+    );
+}

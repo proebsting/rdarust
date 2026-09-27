@@ -323,6 +323,17 @@ pub fn check_graph(state: &str, data: &str, graph_path: &str) -> Result<()> {
 /// the state border as a pseudo-node. This joins the two and drops the border
 /// node, which ReCom would otherwise treat as a real unit adjacent to half
 /// the state.
+/// Read a plan from a CSV or a tagged JSONL, by extension.
+fn read_seed_plan(path: &str) -> Result<HashMap<String, u32>> {
+    let p = expand(path);
+    let plan = if p.extension().is_some_and(|e| e.eq_ignore_ascii_case("csv")) {
+        rdarust_io::read_plan_csv(&p)
+    } else {
+        rdarust_io::read_plan_jsonl(&p, 0)
+    };
+    plan.map_err(|e| anyhow!("{e}")).with_context(|| format!("reading {path}"))
+}
+
 #[allow(clippy::too_many_arguments)]
 pub fn to_recom_graph(
     state: &str,
@@ -333,6 +344,8 @@ pub fn to_recom_graph(
     pop_name: &str,
     geoid_name: &str,
     county_name: &str,
+    assignment: Option<&str>,
+    assignment_name: &str,
 ) -> Result<()> {
     let input = load_input_data(expand(data))
         .map_err(|e| anyhow!("{e}"))
@@ -365,10 +378,16 @@ pub fn to_recom_graph(
         ));
     }
 
+    // A chain needs somewhere to start. rustrecom takes its starting plan
+    // from a node attribute (`--assignment-col`) and requires one, so a seed
+    // plan is stamped on here rather than generated.
+    let seed = assignment.map(read_seed_plan).transpose()?;
+
     let mut nodes = Vec::with_capacity(order.len());
     let mut adjacency = Vec::with_capacity(order.len());
     let mut total_pop: i64 = 0;
     let mut edges = 0usize;
+    let mut districts: std::collections::BTreeSet<u32> = Default::default();
 
     for (id, &i) in order.iter().enumerate() {
         let geoid = &ctx.geoids[i as usize];
@@ -381,6 +400,16 @@ pub fn to_recom_graph(
             json!(if geoid.len() >= 5 { &geoid[..5] } else { geoid.as_str() }),
         );
         node.insert(pop_name.to_string(), json!(ctx.pop[i as usize]));
+        if let Some(seed) = &seed {
+            let d = *seed.get(geoid).ok_or_else(|| {
+                anyhow!(
+                    "the seed plan does not assign {geoid}; rustrecom needs every \
+                     node to carry an assignment"
+                )
+            })?;
+            districts.insert(d);
+            node.insert(assignment_name.to_string(), json!(d));
+        }
         node.insert("id".into(), json!(id));
         nodes.push(Value::Object(node));
         total_pop += ctx.pop[i as usize];
@@ -406,6 +435,25 @@ pub fn to_recom_graph(
         ));
     }
 
+    // rustrecom accepts a 0- or 1-indexed seed and rejects gaps, so catch
+    // both here where the message can say which plan is at fault.
+    if !districts.is_empty() {
+        let lo = *districts.iter().next().unwrap();
+        let hi = *districts.iter().next_back().unwrap();
+        if lo > 1 {
+            return Err(anyhow!(
+                "the seed plan's lowest district is {lo}; it must be numbered from 0 or 1"
+            ));
+        }
+        if districts.len() as u32 != hi - lo + 1 {
+            return Err(anyhow!(
+                "the seed plan numbers {} districts between {lo} and {hi}, leaving a gap; \
+                 every district in the range must have at least one precinct",
+                districts.len()
+            ));
+        }
+    }
+
     let mut doc = Map::new();
     doc.insert("directed".into(), json!(false));
     doc.insert("multigraph".into(), json!(false));
@@ -424,5 +472,14 @@ pub fn to_recom_graph(
         order.len(),
         edges / 2
     );
+    match districts.len() {
+        0 => eprintln!(
+            "rdarust: no seed plan; pass --assignment to write one, which \
+             rustrecom's --assignment-col requires"
+        ),
+        n => eprintln!(
+            "rdarust: seeded with {n} districts in `{assignment_name}`"
+        ),
+    }
     Ok(())
 }

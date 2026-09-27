@@ -106,37 +106,71 @@ joining islands at their closest pair of border precincts and choosing which
 islands to join with a minimum spanning tree. The output is a CSV meant to be
 reviewed before it is applied.
 
-## Feeding GerryChain's ReCom
+## Running a chain
 
-rdapy keeps adjacency and precinct data in separate files, and represents the
-state border as a pseudo-node. GerryChain wants one file in networkx adjacency
-format, with integer node ids, a population on every node, and no border node
--- it would otherwise be treated as a real unit adjacent to half the state.
+The dual graph a ReCom implementation eats is one file in networkx adjacency
+format: integer node ids, a population on every node, and no border node --
+rdapy keeps adjacency and precinct data separately and represents the state
+border as a pseudo-node, which would otherwise be treated as a real unit
+adjacent to half the state.
 
 ```bash
 rdarust to-recom-graph --state NC \
     --data NC_input_data.jsonl --graph NC_graph.json \
+    --assignment starting_plan.jsonl \
     --output NC_recom_graph.json
 ```
 
-Each node carries `GEOID`, `COUNTY` and `TOTAL_POP`. ReCom itself reads only
-the population column; the geoid is what lets a plan that comes back as node
-indices be turned into precinct assignments, and the county code is there for
-region-aware ReCom. The graph must be fully connected, so the command refuses
-a disconnected one and points at `contiguity-mods`.
+Each node carries `GEOID`, `COUNTY` and `TOTAL_POP`. The chain itself reads
+only the population column; the geoid is what turns a plan of node indices
+back into precinct assignments, and the county is there for region-aware
+ReCom. The graph must be fully connected, so the command refuses a
+disconnected one and points at `contiguity-mods`.
 
-No seed plan is written -- GerryChain's `recursive_tree_part` produces one in
-a line, and it is the reference implementation.
+`--assignment` stamps a plan you already have onto the nodes as a starting
+point. It is optional, but required by
+[rustrecom](https://github.com/mggg/rustrecom), whose `--assignment-col` has
+no default. No seed is *generated*: producing a balanced starting plan is its
+own algorithm, and both GerryChain and rustrecom's own tooling already have
+one.
 
-Plans come back with `from-canonical`, which closes the loop:
+### With rustrecom
 
 ```bash
+rustrecom chain --graph-json NC_recom_graph.json \
+    --assignment-col INITIAL --pop-col TOTAL_POP \
+    --n-steps 100000 --n-threads 8 --rng-seed 1 \
+    --tol 0.02 --variant cut-edges-ust \
+    --writer canonical > chain.jsonl
+
 rdarust from-canonical --graph NC_recom_graph.json --input chain.jsonl \
   | rdarust score-all --state NC --plan-type congress \
         --data NC_input_data.jsonl --graph NC_graph.json \
         --plans - --scores scores.csv --by-district by-district.jsonl
 ```
 
+`--writer canonical` matters: rustrecom's default writer emits summary
+statistics with no assignments at all.
+
+One wrinkle it handles for you. rustrecom normalises district labels to
+0-based internally -- `Partition::from_assignments` subtracts the lowest --
+and writes them out that way whatever the seed used, while scoring numbers
+districts from 1. `from-canonical` shifts them back and says so;
+`--keep-district-numbers` declines. The shift is an offset, not a relabelling,
+so district identity survives it.
+
+`conformance/tools/check_rustrecom.sh` runs that whole loop and checks every
+plan from the chain comes out scored.
+
+### With GerryChain
+
+GerryChain reads the same graph, and seeds a chain itself:
+
+```python
+seed = recursive_tree_part(graph, range(14), ideal, "TOTAL_POP", 0.02)
+```
+
+so `--assignment` is unnecessary there.
 `conformance/tools/check_recom_graph.py` loads a generated graph through
 GerryChain and runs a chain on it, which is the part a Rust test cannot check.
 
