@@ -232,10 +232,12 @@ pipeline.
 Holding the two implementations to that bar surfaced a handful of things worth
 reporting back upstream -- a few that would move a number, several performance
 opportunities, and some notes on approximations that are easy to miss from the
-code. Those are collected in [RDAPY-FINDINGS.md](RDAPY-FINDINGS.md), also
-readable as a shareable page:
+code. Those are written up for the rdapy maintainers here:
 
 <https://claude.ai/code/artifact/20fde9f4-9c4a-49ec-89b1-d7c75936767c>
+
+[RDAPY-FINDINGS.md](RDAPY-FINDINGS.md) summarises what that covers and points
+at it. The document is the only copy, so it can be revised as people comment.
 
 ## Performance
 
