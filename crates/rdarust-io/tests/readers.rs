@@ -153,3 +153,45 @@ fn geojson_reads_a_hand_written_buffer() {
         assert_eq!(features[0].raw_geometry, doc["features"][0]["geometry"]);
     }
 }
+
+#[test]
+fn records_in_memory_match_the_same_records_as_jsonl() {
+    // What a fused pipeline would do: extract, then build a context from the
+    // records directly rather than writing JSONL and reading it back.
+    let bytes = std::fs::read(rdapy_path(NC_DATA)).expect("reading NC input data");
+    let records: Vec<serde_json::Value> = std::str::from_utf8(&bytes)
+        .expect("utf-8")
+        .lines()
+        .filter(|l| !l.trim().is_empty())
+        .map(|l| serde_json::from_str(l).expect("a record"))
+        .collect();
+
+    let from_records = rdarust_io::load_input_data_from_records(records)
+        .expect("records")
+        .into_context("NC", "congress", None)
+        .expect("context from records");
+    let from_bytes = load_input_data_from(Cursor::new(&bytes))
+        .expect("reader")
+        .into_context("NC", "congress", None)
+        .expect("context from bytes");
+
+    assert_eq!(from_records.geoids, from_bytes.geoids);
+    assert_eq!(from_records.adjacency, from_bytes.adjacency);
+    assert_eq!(from_records.arc_len, from_bytes.arc_len);
+    assert_eq!(from_records.pop, from_bytes.pop);
+    assert_eq!(from_records.area, from_bytes.area);
+}
+
+#[test]
+fn a_bad_record_is_reported_by_its_position() {
+    let records = vec![json!({"_tag_": "precinct", "data": {"geoid": "001"}})];
+    let err = match rdarust_io::load_input_data_from_records(records) {
+        Err(e) => e,
+        Ok(_) => panic!("a precinct with no metadata record should not load"),
+    };
+    // No metadata record came first, so the field mapping is unknown.
+    assert!(
+        matches!(err, rdarust_io::LoadError::MissingMetadata),
+        "unexpected error: {err}"
+    );
+}

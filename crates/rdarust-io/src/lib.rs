@@ -11,6 +11,10 @@
 //!
 //! # Paths and readers
 //!
+//! [`load_input_data_from_records`] goes one step further still: it takes the
+//! records themselves, which is what [`extract::extract_data`] hands back, so
+//! extracting and scoring in one process needs no JSONL round trip.
+//!
 //! Every reader here comes in two forms. The bare name -- [`load_input_data`],
 //! [`load_graph`], [`load_geojson`], [`read_plan_csv`], [`read_plan_jsonl`],
 //! [`read_plans_jsonl`] -- opens a path. The `_from` variant takes an already
@@ -215,7 +219,45 @@ pub fn load_input_data(path: impl AsRef<Path>) -> Result<InputData, LoadError> {
 }
 
 /// Read input data from an open reader.
+/// Read input data from an open reader.
 pub fn load_input_data_from(reader: impl BufRead) -> Result<InputData, LoadError> {
+    load_input_data_records(reader.lines().enumerate().filter_map(|(n, line)| {
+        let line = match line {
+            Ok(line) => line,
+            Err(e) => return Some(Err(LoadError::Io(e))),
+        };
+        if line.trim().is_empty() {
+            return None;
+        }
+        Some(
+            serde_json::from_str(&line)
+                .map(|rec| (n + 1, rec))
+                .map_err(|source| LoadError::Json { line: n + 1, source }),
+        )
+    }))
+}
+
+/// Read input data from records already in memory.
+///
+/// `extract_data` hands back exactly these records, so a caller that extracts
+/// and scores in one process does not have to serialise them to JSONL and
+/// parse them back. Positions in error messages are 1-based record numbers.
+pub fn load_input_data_from_records(
+    records: impl IntoIterator<Item = Value>,
+) -> Result<InputData, LoadError> {
+    load_input_data_records(
+        records.into_iter().enumerate().map(|(i, rec)| Ok((i + 1, rec))),
+    )
+}
+
+/// The reader and the record list meet here.
+///
+/// Each item carries where it came from -- a line number from a file, a
+/// record number from a list -- so error messages point at the same place
+/// either way.
+fn load_input_data_records(
+    records: impl IntoIterator<Item = Result<(usize, Value), LoadError>>,
+) -> Result<InputData, LoadError> {
     let mut metadata: Option<Value> = None;
     let mut keys: Option<DatasetKeys> = None;
     let mut election_fields: Vec<(String, String, String)> = Vec::new();
@@ -230,19 +272,14 @@ pub fn load_input_data_from(reader: impl BufRead) -> Result<InputData, LoadError
     let mut vap_counts: Vec<Vec<i64>> = Vec::new();
     let mut cvap_counts: Vec<Vec<i64>> = Vec::new();
 
-    for (n, line) in reader.lines().enumerate() {
-        let line = line?;
-        if line.trim().is_empty() {
-            continue;
-        }
-        let rec: Value = serde_json::from_str(&line)
-            .map_err(|source| LoadError::Json { line: n + 1, source })?;
+    for record in records {
+        let (at, rec) = record?;
 
         match rec.get("_tag_").and_then(|t| t.as_str()) {
             Some("metadata") => {
                 let props = rec.get("properties").and_then(|p| p.as_object()).ok_or(
                     LoadError::Malformed {
-                        line: n + 1,
+                        line: at,
                         what: "metadata record has no properties object".into(),
                     },
                 )?;
@@ -258,7 +295,7 @@ pub fn load_input_data_from(reader: impl BufRead) -> Result<InputData, LoadError
                     .find(|(k, _)| k == "total_pop")
                     .map(|(_, v)| v)
                     .ok_or(LoadError::Malformed {
-                        line: n + 1,
+                        line: at,
                         what: "metadata does not name a total_pop field".into(),
                     })?;
 
@@ -269,7 +306,7 @@ pub fn load_input_data_from(reader: impl BufRead) -> Result<InputData, LoadError
                         (Some(d), Some(r)) => election_fields.push((e.clone(), d, r)),
                         _ => {
                             return Err(LoadError::Malformed {
-                                line: n + 1,
+                                line: at,
                                 what: format!("election {e} lacks dem_votes or rep_votes"),
                             })
                         }
@@ -302,7 +339,7 @@ pub fn load_input_data_from(reader: impl BufRead) -> Result<InputData, LoadError
                 }
                 let data = rec.get("data").and_then(|d| d.as_object()).ok_or(
                     LoadError::Malformed {
-                        line: n + 1,
+                        line: at,
                         what: "precinct record has no data object".into(),
                     },
                 )?;
@@ -310,7 +347,7 @@ pub fn load_input_data_from(reader: impl BufRead) -> Result<InputData, LoadError
                     .get("geoid")
                     .and_then(|g| g.as_str())
                     .ok_or(LoadError::Malformed {
-                        line: n + 1,
+                        line: at,
                         what: "precinct record has no geoid".into(),
                     })?
                     .to_string();
