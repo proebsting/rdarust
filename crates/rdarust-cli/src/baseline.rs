@@ -12,7 +12,7 @@ use rayon::prelude::*;
 use rdarust_core::context::Context;
 use rdarust_io::{
     load_graph, load_input_data,
-    neighborhoods::{read_neighborhoods, write_neighborhoods},
+    neighborhoods::{read_neighborhoods_from, write_neighborhoods},
     records::{expand, smart_reader, smart_writer, write_record},
 };
 use serde_json::{json, Map, Value};
@@ -86,7 +86,7 @@ pub fn precompute_baselines(
     let ctx = context(args, graph)?;
 
     let reader = smart_reader(neighborhoods_path).context("opening the neighbourhoods")?;
-    let neighborhoods = read_neighborhoods(reader, &ctx)
+    let neighborhoods = read_neighborhoods_from(reader, &ctx)
         .map_err(|e| anyhow!("{e}"))
         .context("reading neighbourhoods")?;
     eprintln!("rdarust: read {} neighbourhoods", neighborhoods.len());
@@ -119,7 +119,7 @@ pub fn check_neighborhoods(args: &DataArgs, neighborhoods_path: Option<&str>) ->
     let ctx = context(args, graph)?;
 
     let reader = smart_reader(neighborhoods_path).context("opening the neighbourhoods")?;
-    let neighborhoods = read_neighborhoods(reader, &ctx)
+    let neighborhoods = read_neighborhoods_from(reader, &ctx)
         .map_err(|e| anyhow!("{e}"))
         .context("reading neighbourhoods")?;
 

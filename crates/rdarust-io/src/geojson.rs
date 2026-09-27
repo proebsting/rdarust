@@ -52,10 +52,23 @@ pub fn parse_geometry(v: &Value) -> Option<Geometry> {
 
 /// Read a GeoJSON file's features, in file order.
 pub fn load_geojson(path: impl AsRef<std::path::Path>) -> Result<Vec<Feature>, LoadError> {
-    let text = std::fs::read_to_string(path.as_ref())?;
+    load_geojson_from(std::fs::File::open(path.as_ref())?)
+}
+
+/// Read GeoJSON features from an open reader, in file order.
+///
+/// The whole document is read in before parsing: DRA publishes one JSON
+/// object per state, so there is nothing to stream.
+pub fn load_geojson_from(mut reader: impl std::io::Read) -> Result<Vec<Feature>, LoadError> {
+    let mut text = String::new();
+    reader.read_to_string(&mut text)?;
     let doc: Value = serde_json::from_str(&text)
         .map_err(|source| LoadError::Json { line: 0, source })?;
+    features_of(&doc)
+}
 
+/// The features of an already-parsed GeoJSON document, in file order.
+pub fn features_of(doc: &Value) -> Result<Vec<Feature>, LoadError> {
     let features = doc
         .get("features")
         .and_then(|f| f.as_array())

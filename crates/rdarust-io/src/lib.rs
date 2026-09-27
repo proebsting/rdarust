@@ -8,6 +8,22 @@
 //! Field *order* in that mapping is load-bearing: it fixes the order minority
 //! opportunity is summed in, and floating-point addition is not associative.
 //! `serde_json`'s `preserve_order` feature keeps it.
+//!
+//! # Paths and readers
+//!
+//! Every reader here comes in two forms. The bare name -- [`load_input_data`],
+//! [`load_graph`], [`load_geojson`], [`read_plan_csv`], [`read_plan_jsonl`],
+//! [`read_plans_jsonl`] -- opens a path. The `_from` variant takes an already
+//! open reader and holds all the logic; the path form is a single
+//! `File::open` above it.
+//!
+//! So a caller that has bytes rather than a filename -- a fetched file, a
+//! decompressed stream, a browser upload, an embedder driving this as a
+//! library -- can use the `_from` variants and never touch the filesystem.
+//! [`records::smart_reader`] and [`records::smart_writer`] remain the
+//! command line's edge, where `-` means the standard streams.
+//! [`geojson::features_of`] goes one step further and takes an
+//! already-parsed document.
 
 use std::collections::HashMap;
 use std::fs::File;
@@ -28,10 +44,13 @@ pub mod records;
 pub mod scores;
 
 pub use aggregates::{aggregates_from_value, aggregates_to_value, scored_aggregates_to_value};
-pub use plans::{read_plan_csv, read_plan_jsonl, read_plans_jsonl, Assignments};
+pub use plans::{
+    read_plan_csv, read_plan_csv_from, read_plan_jsonl, read_plan_jsonl_from, read_plans_jsonl,
+    read_plans_jsonl_from, Assignments,
+};
 pub use extract::{extract_data, extract_graph};
-pub use geojson::load_geojson;
-pub use neighborhoods::{read_neighborhoods, write_neighborhoods};
+pub use geojson::{features_of, load_geojson, load_geojson_from};
+pub use neighborhoods::{read_neighborhoods_from, write_neighborhoods};
 pub use records::{smart_reader, smart_writer, write_record};
 pub use scores::{flatten_scores, format_score, scorecard_to_value, ScoresCsv};
 
@@ -189,11 +208,11 @@ impl InputData {
 
 /// Read an input-data JSONL file.
 pub fn load_input_data(path: impl AsRef<Path>) -> Result<InputData, LoadError> {
-    let reader = BufReader::new(File::open(path.as_ref())?);
-    load_from(reader)
+    load_input_data_from(BufReader::new(File::open(path.as_ref())?))
 }
 
-pub fn load_from(reader: impl BufRead) -> Result<InputData, LoadError> {
+/// Read input data from an open reader.
+pub fn load_input_data_from(reader: impl BufRead) -> Result<InputData, LoadError> {
     let mut metadata: Option<Value> = None;
     let mut keys: Option<DatasetKeys> = None;
     let mut election_fields: Vec<(String, String, String)> = Vec::new();
@@ -405,7 +424,15 @@ pub fn load_from(reader: impl BufRead) -> Result<InputData, LoadError> {
 /// data carries only geometry and counts -- so this is how the CLI supplies
 /// adjacency.
 pub fn load_graph(path: impl AsRef<Path>) -> Result<Vec<(String, Vec<String>)>, LoadError> {
-    let text = std::fs::read_to_string(path.as_ref())?;
+    load_graph_from(File::open(path.as_ref())?)
+}
+
+/// Read an adjacency graph from an open reader.
+pub fn load_graph_from(
+    mut reader: impl std::io::Read,
+) -> Result<Vec<(String, Vec<String>)>, LoadError> {
+    let mut text = String::new();
+    reader.read_to_string(&mut text)?;
     let v: Value = serde_json::from_str(&text)
         .map_err(|source| LoadError::Json { line: 0, source })?;
     let obj = v.as_object().ok_or(LoadError::Malformed {

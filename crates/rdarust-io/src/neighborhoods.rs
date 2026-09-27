@@ -157,7 +157,7 @@ pub fn write_neighborhoods(
 ///
 /// Returns them as precinct indices, paired with their seed, in file order --
 /// which the baseline sums over, so the order is preserved.
-pub fn read_neighborhoods(
+pub fn read_neighborhoods_from(
     reader: impl BufRead,
     ctx: &Context,
 ) -> Result<Vec<(u32, Vec<u32>)>, LoadError> {
