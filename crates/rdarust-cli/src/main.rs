@@ -14,6 +14,7 @@ mod baseline;
 mod extract;
 mod formats;
 mod fused;
+mod graphs;
 mod stages;
 
 use clap::{Parser, Subcommand};
@@ -115,6 +116,42 @@ enum Command {
         /// Always prefix a metric with its dataset.
         #[arg(long)]
         prefixes: bool,
+    },
+    /// Propose the fewest edges that would make a graph fully connected.
+    ///
+    /// Islands are joined at their closest pair of border precincts, chosen
+    /// by a minimum spanning tree so a chain of islands links along the
+    /// chain. Output is a CSV of proposed edges, for review before applying.
+    ContiguityMods {
+        #[arg(long)]
+        graph: String,
+        /// Precinct locations, as written by `extract-graph --locations`.
+        #[arg(long)]
+        locations: Option<String>,
+        /// A GeoJSON to take label coordinates from instead.
+        #[arg(long)]
+        geojson: Option<String>,
+        #[arg(long)]
+        output: Option<String>,
+    },
+    /// Add proposed edges to a graph and re-check it.
+    ApplyMods {
+        #[arg(long)]
+        graph: String,
+        /// The CSV written by `contiguity-mods`.
+        #[arg(long)]
+        mods: String,
+        #[arg(long)]
+        output: Option<String>,
+    },
+    /// Report whether a graph connects every precinct in the data.
+    CheckGraph {
+        #[arg(long)]
+        state: String,
+        #[arg(long)]
+        data: String,
+        #[arg(long)]
+        graph: String,
     },
     /// Grow a district-sized neighbourhood around every precinct.
     ///
@@ -315,6 +352,13 @@ fn main() {
         Command::Write { input, data, scores, by_district, prefixes } => {
             stages::write(input.as_deref(), &data, &scores, &by_district, prefixes)
         }
+        Command::ContiguityMods { graph, locations, geojson, output } => {
+            graphs::generate_mods(&graph, locations.as_deref(), geojson.as_deref(), output.as_deref())
+        }
+        Command::ApplyMods { graph, mods, output } => {
+            graphs::apply_mods(&graph, &mods, output.as_deref())
+        }
+        Command::CheckGraph { state, data, graph } => graphs::check_graph(&state, &data, &graph),
         Command::FindNeighborhoods { data, output, size, jobs } => {
             baseline::find_neighborhoods(&data, output.as_deref(), size, jobs)
         }

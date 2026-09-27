@@ -338,3 +338,41 @@ directly against rdapy's.
 With it, `from-json`, `from-csvs` and `sample` are byte-identical to rdapy's
 output. The by-district JSONL is identical but for last-ulp float differences
 arising from county-column accumulation order (deviation 11).
+
+---
+
+# Deviations added with the geographic baseline and contiguity repair
+
+## 23. The distance cache is gone
+
+rdapy keeps a `DistanceLedger` caching the squared distance between each pair
+of precincts. The quantity is a subtraction and two multiplications, so
+computing it costs less than looking it up. Dropped; results are unchanged,
+since it was a speed optimisation rather than a semantic one.
+
+## 24. The connectivity assertion is not re-run on every step
+
+`_nearest_connected_neighbor` asserts, on every precinct it yields, that the
+set yielded so far is connected. The set grows to a district's worth of
+precincts, and the check walks all of it, so the assertion dominates the run
+time -- rdapy takes 67s for North Carolina, or 4.8s under `python -O`, with
+identical output either way.
+
+The property it checks holds by construction: a precinct is only ever taken
+from the frontier of what has already been taken. It is not re-checked here.
+The neighbourhood output is byte-identical.
+
+## 25. Contiguity mods come out ordered by precinct
+
+rdapy reports its spanning-tree edges ordered by island number, and island
+numbers come from `connected_subsets`, which returns Python sets -- so the
+order varies. These are ordered by the precincts they name, so the file is
+stable and reviewable. The set of edges is identical; verified on a five-island
+test case.
+
+## 26. A mods row that is not an addition is rejected
+
+`apply_contiguity_mods.py` reads the operation column and then ignores it, so
+a row written as `-,a,b` adds the edge. Here only `+` (or an empty column) is
+accepted, and anything else is an error naming the line. Applying a mods file
+that only ever used `+` behaves identically.

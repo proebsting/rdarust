@@ -12,7 +12,7 @@ GeoJSON to a scores CSV, with no Python involved -- and the CSV is
 byte-identical to the one rdapy produces from the same input. Shape-based
 compactness, including the KIWYSI model, is in too.
 
-Not ported: the contiguity-repair tooling.
+Not ported: a handful of one-off experiment scripts and shell helpers.
 
 Ported: the five DRA ratings; the partisan suite (Nagle's method, bias,
 responsiveness); population deviation; county, district and COI splitting;
@@ -89,6 +89,22 @@ rdarust sample -k 100                                     # keep every 100th rec
 `from-json`, `from-csvs` and `sample` produce byte-identical output to
 rdapy's. `from-canonical` produces the same assignments, in a different key
 order -- see [KNOWN-DIFFERENCES.md](KNOWN-DIFFERENCES.md).
+
+## Repairing a graph
+
+A state's precincts are often not all connected to each other -- islands, and
+precincts reachable only across water. Scoring needs a connected graph:
+
+```bash
+rdarust check-graph      --state NC --data NC_input_data.jsonl --graph NC_graph.json
+rdarust contiguity-mods  --graph NC_graph.json --geojson NC.geojson --output mods.csv
+rdarust apply-mods       --graph NC_graph.json --mods mods.csv --output NC_graph.fixed.json
+```
+
+`contiguity-mods` proposes the fewest edges that would connect the state,
+joining islands at their closest pair of border precincts and choosing which
+islands to join with a minimum spanning tree. The output is a CSV meant to be
+reviewed before it is applied.
 
 ## The geographic baseline
 
