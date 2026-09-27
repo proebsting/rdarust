@@ -301,3 +301,120 @@ pub fn extract_data(
 
     Ok(records)
 }
+
+/// The field table `map_scoring_data.py` writes.
+///
+/// It names, for each kind of data, the logical field names scoring uses and
+/// the column each maps to inside a dataset. `DERIVED` marks a figure that is
+/// computed rather than read.
+fn field_table(ty: &str) -> Vec<(&'static str, &'static str)> {
+    match ty {
+        "census" => vec![("total_pop", "Total")],
+        "vap" => vec![
+            ("total_vap", "Total"), ("white_vap", "White"),
+            ("hispanic_vap", "Hispanic"), ("black_vap", "Black"),
+            ("native_vap", "Native"), ("asian_vap", "Asian"),
+            ("pacific_vap", "Pacific"), ("minority_vap", "DERIVED"),
+        ],
+        "cvap" => vec![
+            ("total_cvap", "Total"), ("white_cvap", "White"),
+            ("hispanic_cvap", "Hispanic"), ("black_cvap", "Black"),
+            ("native_cvap", "Native"), ("asian_cvap", "Asian"),
+            ("pacific_cvap", "Pacific"), ("minority_cvap", "DERIVED"),
+        ],
+        "election" => vec![
+            ("tot_votes", "Total"), ("dem_votes", "Dem"), ("rep_votes", "Rep"),
+        ],
+        "shapes" => vec![("geometry", "geometry")],
+        _ => vec![],
+    }
+}
+
+fn dataset_entry(ty: &str, datasets: &[String]) -> Value {
+    let mut fields = Map::new();
+    for (k, v) in field_table(ty) {
+        fields.insert(k.into(), json!(v));
+    }
+    let mut entry = Map::new();
+    entry.insert("fields".into(), Value::Object(fields));
+    entry.insert("datasets".into(), json!(datasets));
+    Value::Object(entry)
+}
+
+/// Which datasets a data map should name.
+pub struct DataMapSpec<'a> {
+    pub census: &'a str,
+    pub vap: &'a str,
+    pub cvap: &'a str,
+    /// Election datasets to score. A single `__all__` takes every election
+    /// the GeoJSON carries.
+    pub elections: &'a [String],
+    /// Also score the elections a composite averages, each on its own.
+    pub expand_composites: bool,
+    /// The GeoJSON version, recorded in the map.
+    pub version: Option<&'a str>,
+    /// How the GeoJSON is named in the map: its directory and file name.
+    pub directory: &'a str,
+    pub file: &'a str,
+}
+
+/// Build the data map naming which datasets and fields to extract.
+///
+/// Ports `scripts/data/map_scoring_data.py`. `doc` is the parsed GeoJSON,
+/// which is read only for its `datasets` object. Unknown election datasets
+/// are reported through `warnings` rather than printed, so a library caller
+/// decides how to surface them.
+pub fn map_data(
+    doc: &Value,
+    spec: &DataMapSpec<'_>,
+    warnings: &mut Vec<String>,
+) -> Result<Value, LoadError> {
+    let available = doc
+        .get("datasets")
+        .and_then(|d| d.as_object())
+        .ok_or(LoadError::Malformed {
+            line: 0,
+            what: "the GeoJSON has no datasets object".into(),
+        })?;
+
+    let mut implied: Vec<String> = Vec::new();
+    if spec.elections == ["__all__"] {
+        implied.extend(available.keys().filter(|k| k.starts_with("E_")).cloned());
+    } else {
+        implied.extend(spec.elections.iter().cloned());
+        for e in spec.elections {
+            let Some(entry) = available.get(e) else {
+                warnings.push(format!("election dataset {e} is not in the GeoJSON"));
+                continue;
+            };
+            // A composite election can be expanded into the elections it
+            // averages, so each can also be scored on its own.
+            if spec.expand_composites {
+                if let Some(members) = entry.get("members").and_then(|m| m.as_object()) {
+                    for v in members.values() {
+                        if let Some(name) = v.as_str() {
+                            if available.contains_key(name) {
+                                implied.push(name.to_string());
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    let mut map = Map::new();
+    map.insert("version".into(), match spec.version {
+        Some(v) => json!(v),
+        None => Value::Null,
+    });
+    map.insert("directory".into(), json!(spec.directory));
+    map.insert("file".into(), json!(spec.file));
+    map.insert("geoid".into(), json!("id"));
+    map.insert("census".into(), dataset_entry("census", &[spec.census.to_string()]));
+    map.insert("vap".into(), dataset_entry("vap", &[spec.vap.to_string()]));
+    map.insert("cvap".into(), dataset_entry("cvap", &[spec.cvap.to_string()]));
+    map.insert("election".into(), dataset_entry("election", &implied));
+    map.insert("shapes".into(), dataset_entry("shapes", &["S_20_DRA".to_string()]));
+    Ok(Value::Object(map))
+}

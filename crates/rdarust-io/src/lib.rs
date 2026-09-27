@@ -55,7 +55,7 @@ pub use plans::{
     read_plans_jsonl, read_plans_jsonl_from, Assignments,
 };
 pub use recom::{build_graph, district_shift, graph_geoids, RecomError, RecomGraph, RecomNames};
-pub use extract::{extract_data, extract_graph};
+pub use extract::{extract_data, extract_graph, map_data, DataMapSpec};
 pub use geojson::{features_of, load_geojson, load_geojson_from};
 pub use neighborhoods::{read_neighborhoods_from, write_neighborhoods};
 pub use records::write_record;

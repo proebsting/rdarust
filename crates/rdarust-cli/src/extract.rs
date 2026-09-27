@@ -157,45 +157,6 @@ pub fn extract_data(
     Ok(())
 }
 
-/// The field table `map_scoring_data.py` writes.
-///
-/// It names, for each kind of data, the logical field names scoring uses and
-/// the column each maps to inside a dataset. `DERIVED` marks a figure that is
-/// computed rather than read.
-fn field_table(ty: &str) -> Vec<(&'static str, &'static str)> {
-    match ty {
-        "census" => vec![("total_pop", "Total")],
-        "vap" => vec![
-            ("total_vap", "Total"), ("white_vap", "White"),
-            ("hispanic_vap", "Hispanic"), ("black_vap", "Black"),
-            ("native_vap", "Native"), ("asian_vap", "Asian"),
-            ("pacific_vap", "Pacific"), ("minority_vap", "DERIVED"),
-        ],
-        "cvap" => vec![
-            ("total_cvap", "Total"), ("white_cvap", "White"),
-            ("hispanic_cvap", "Hispanic"), ("black_cvap", "Black"),
-            ("native_cvap", "Native"), ("asian_cvap", "Asian"),
-            ("pacific_cvap", "Pacific"), ("minority_cvap", "DERIVED"),
-        ],
-        "election" => vec![
-            ("tot_votes", "Total"), ("dem_votes", "Dem"), ("rep_votes", "Rep"),
-        ],
-        "shapes" => vec![("geometry", "geometry")],
-        _ => vec![],
-    }
-}
-
-fn dataset_entry(ty: &str, datasets: &[String]) -> Value {
-    let mut fields = Map::new();
-    for (k, v) in field_table(ty) {
-        fields.insert(k.into(), json!(v));
-    }
-    let mut entry = Map::new();
-    entry.insert("fields".into(), Value::Object(fields));
-    entry.insert("datasets".into(), json!(datasets));
-    Value::Object(entry)
-}
-
 /// Write the data map naming which datasets and fields to extract.
 ///
 /// Ports `scripts/data/map_scoring_data.py`. Pass `__all__` as the election
@@ -215,60 +176,34 @@ pub fn map_data(
         .with_context(|| format!("reading {geojson_path}"))?;
     let doc: Value = serde_json::from_str(&text)
         .with_context(|| format!("parsing {geojson_path}"))?;
-    let available = doc
-        .get("datasets")
-        .and_then(|d| d.as_object())
-        .ok_or_else(|| anyhow!("{geojson_path} has no datasets object"))?;
-
-    let mut implied: Vec<String> = Vec::new();
-    if elections == ["__all__"] {
-        implied.extend(available.keys().filter(|k| k.starts_with("E_")).cloned());
-    } else {
-        implied.extend(elections.iter().cloned());
-        for e in elections {
-            let Some(entry) = available.get(e) else {
-                eprintln!("rdarust: WARNING: election dataset {e} is not in the GeoJSON");
-                continue;
-            };
-            // A composite election can be expanded into the elections it
-            // averages, so each can also be scored on its own.
-            if expand_composites {
-                if let Some(members) = entry.get("members").and_then(|m| m.as_object()) {
-                    for v in members.values() {
-                        if let Some(name) = v.as_str() {
-                            if available.contains_key(name) {
-                                implied.push(name.to_string());
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
 
     let path = std::path::Path::new(geojson_path);
-    let mut map = Map::new();
-    map.insert("version".into(), match version {
-        Some(v) => json!(v),
-        None => Value::Null,
-    });
-    map.insert(
-        "directory".into(),
-        json!(path.parent().map(|p| p.to_string_lossy().into_owned()).unwrap_or_default()),
-    );
-    map.insert(
-        "file".into(),
-        json!(path.file_name().map(|p| p.to_string_lossy().into_owned()).unwrap_or_default()),
-    );
-    map.insert("geoid".into(), json!("id"));
-    map.insert("census".into(), dataset_entry("census", &[census.to_string()]));
-    map.insert("vap".into(), dataset_entry("vap", &[vap.to_string()]));
-    map.insert("cvap".into(), dataset_entry("cvap", &[cvap.to_string()]));
-    map.insert("election".into(), dataset_entry("election", &implied));
-    map.insert("shapes".into(), dataset_entry("shapes", &["S_20_DRA".to_string()]));
+    let directory = path.parent().map(|p| p.to_string_lossy().into_owned()).unwrap_or_default();
+    let file = path.file_name().map(|p| p.to_string_lossy().into_owned()).unwrap_or_default();
 
-    write_json_pretty(out_path, &Value::Object(map))?;
-    eprintln!("rdarust: wrote a data map with {} election(s)", implied.len());
+    let mut warnings = Vec::new();
+    let map = rdarust_io::extract::map_data(
+        &doc,
+        &rdarust_io::extract::DataMapSpec {
+            census, vap, cvap, elections, expand_composites, version,
+            directory: &directory,
+            file: &file,
+        },
+        &mut warnings,
+    )
+    .map_err(|e| anyhow!("{e}"))
+    .with_context(|| format!("reading {geojson_path}"))?;
+    for w in &warnings {
+        eprintln!("rdarust: WARNING: {w}");
+    }
+
+    let n = map.get("election")
+        .and_then(|e| e.get("datasets"))
+        .and_then(|d| d.as_array())
+        .map(|a| a.len())
+        .unwrap_or(0);
+    write_json_pretty(out_path, &map)?;
+    eprintln!("rdarust: wrote a data map with {n} election(s)");
     Ok(())
 }
 
