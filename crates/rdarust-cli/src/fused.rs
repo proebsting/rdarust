@@ -79,11 +79,13 @@ pub fn score_all(
                 continue;
             }
             Some("plan") => {
-                let name = record
-                    .get("name")
-                    .and_then(|v| v.as_str())
-                    .unwrap_or("")
-                    .to_string();
+                // Canonical records name plans with an integer sample
+                // number, so a name is not necessarily a string.
+                let name = match record.get("name") {
+                    Some(serde_json::Value::String(s)) => s.clone(),
+                    Some(other) if !other.is_null() => other.to_string(),
+                    _ => format!("{:06}", incoming.len()),
+                };
                 incoming.push(Incoming {
                     name,
                     assignments: assignments_of(record.get("plan").unwrap_or(&Value::Null)),

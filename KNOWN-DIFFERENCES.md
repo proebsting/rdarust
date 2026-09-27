@@ -306,3 +306,35 @@ anywhere, and nothing links GEOS.
 The union is the only operation needing a clipping engine, and `i_overlay`
 (under `geo`) agrees with GEOS to 6e-9 relative on the symmetry features
 across all 53 test shapes.
+
+---
+
+# Deviations added with the format converters
+
+## 21. `from-canonical` keys assignments in precinct order
+
+rdapy's `canonical_to_assignments.py` builds each plan by grouping precincts
+into a `dict[int, set[int]]` by district and then flattening, so the output
+keys come out in an order CPython's set iteration decides -- roughly precinct
+index modulo the set's table size.
+
+This iterates the assignment list directly, giving precinct order. The
+assignments are identical: same geoids, same districts, same plan names,
+verified across all 101 canonical test plans. Only the key order in the JSONL
+differs, and nothing downstream reads it in order.
+
+Note that rdapy's script does not currently run at all against GerryChain
+1.0.0; see RDAPY-FINDINGS.md 1.2. The comparison above is against a corrected
+reference implementing what the script intends.
+
+## 22. Records are written with Python's JSON separators
+
+Not a deviation but worth recording, since it is deliberate and load-bearing:
+`json.dump` with no `indent` separates items with `", "` and keys from values
+with `": "`, where serde_json writes neither. `rdarust-io` supplies a
+formatter matching Python's, so the JSONL the stages exchange can be diffed
+directly against rdapy's.
+
+With it, `from-json`, `from-csvs` and `sample` are byte-identical to rdapy's
+output. The by-district JSONL is identical but for last-ulp float differences
+arising from county-column accumulation order (deviation 11).

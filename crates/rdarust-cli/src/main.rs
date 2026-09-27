@@ -11,6 +11,7 @@
 //! be diffed against Python stage by stage; `score-all` is what you run.
 
 mod extract;
+mod formats;
 mod fused;
 mod stages;
 
@@ -112,6 +113,50 @@ enum Command {
         /// Always prefix a metric with its dataset.
         #[arg(long)]
         prefixes: bool,
+    },
+    /// Convert a legacy single-JSON ensemble to tagged JSONL.
+    FromJson {
+        #[arg(long)]
+        input: String,
+        #[arg(long)]
+        output: Option<String>,
+    },
+    /// Build an ensemble from precinct-assignment CSVs, one plan per file.
+    FromCsvs {
+        /// Paths or glob patterns. Quote a pattern to let rdarust expand it,
+        /// which avoids the shell's argument limit on large ensembles.
+        #[arg(long, num_args = 1.., required = true)]
+        files: Vec<String>,
+        #[arg(long)]
+        output: Option<String>,
+        /// Recorded in the ensemble metadata.
+        #[arg(long)]
+        state: Option<String>,
+        #[arg(long = "plan-type")]
+        plan_type: Option<String>,
+    },
+    /// Convert GerryTools canonical output to geoid assignments.
+    FromCanonical {
+        /// The ReCom graph, which names the precincts canonical records index.
+        #[arg(long)]
+        graph: String,
+        #[arg(long)]
+        input: Option<String>,
+        #[arg(long)]
+        output: Option<String>,
+        /// The graph node property holding the geoid.
+        #[arg(long, default_value = "GEOID")]
+        geoid: String,
+    },
+    /// Keep every kth line, for subsampling an ensemble.
+    Sample {
+        #[arg(long)]
+        input: Option<String>,
+        #[arg(long)]
+        output: Option<String>,
+        /// Sample rate.
+        #[arg(short = 'k', long, default_value_t = 100)]
+        rate: usize,
     },
     /// Measure compactness from district shapes.
     ///
@@ -224,6 +269,18 @@ fn main() {
         ),
         Command::Write { input, data, scores, by_district, prefixes } => {
             stages::write(input.as_deref(), &data, &scores, &by_district, prefixes)
+        }
+        Command::FromJson { input, output } => {
+            formats::from_json(&input, output.as_deref())
+        }
+        Command::FromCsvs { files, output, state, plan_type } => formats::from_csvs(
+            &files, output.as_deref(), state.as_deref(), plan_type.as_deref(),
+        ),
+        Command::FromCanonical { graph, input, output, geoid } => {
+            formats::from_canonical(&graph, input.as_deref(), output.as_deref(), &geoid)
+        }
+        Command::Sample { input, output, rate } => {
+            formats::sample(input.as_deref(), output.as_deref(), rate)
         }
         Command::Compactness { geojson, output, no_kiwysi } => {
             extract::compactness(&geojson, output.as_deref(), !no_kiwysi)

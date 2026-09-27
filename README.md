@@ -12,8 +12,8 @@ GeoJSON to a scores CSV, with no Python involved -- and the CSV is
 byte-identical to the one rdapy produces from the same input. Shape-based
 compactness, including the KIWYSI model, is in too.
 
-Not ported: the geographic-baseline precomputation, the ensemble format
-converters, and the contiguity-repair tooling.
+Not ported: the geographic-baseline precomputation and the contiguity-repair
+tooling.
 
 Ported: the five DRA ratings; the partisan suite (Nagle's method, bias,
 responsiveness); population deviation; county, district and COI splitting;
@@ -74,6 +74,22 @@ separate command, and is the only way to get a KIWYSI rank:
 ```bash
 rdarust compactness --geojson NC_districts.geojson
 ```
+
+## Getting plans in
+
+Ensembles arrive in several shapes. Each converter writes the tagged JSONL
+that `aggregate` and `score-all` read:
+
+```bash
+rdarust from-json      --input plans.legacy.json          # one JSON, a `plans` list
+rdarust from-csvs      --files 'csvs/*.csv' --state NC    # one CSV per plan
+rdarust from-canonical --graph recom_graph.json           # GerryTools canonical
+rdarust sample -k 100                                     # keep every 100th record
+```
+
+`from-json`, `from-csvs` and `sample` produce byte-identical output to
+rdapy's. `from-canonical` produces the same assignments, in a different key
+order -- see [KNOWN-DIFFERENCES.md](KNOWN-DIFFERENCES.md).
 
 ## Using it as a library
 

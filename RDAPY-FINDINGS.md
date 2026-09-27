@@ -50,7 +50,28 @@ closed = np.vstack([hull_points, hull_points[:1]])
 edges = closed[1:] - closed[:-1]
 ```
 
-### 1.2 A missing adjacency graph yields an infinite Reock
+### 1.2 `canonical_to_assignments.py` is broken on GerryChain 1.0
+
+`scripts/formats/canonical_to_assignments.py:37`
+
+```python
+recom_graph.nodes[node].get(args.geoid) for node in list(recom_graph.nodes())
+```
+
+GerryChain 1.0.0 made `Graph.nodes` a property rather than a method, so
+calling it raises immediately:
+
+```
+TypeError: As of GerryChain version 1.0.0, `Graph.nodes` is a property, not a
+method. Use `graph.nodes` without parentheses; use `graph.node_data(node_id)`
+for node attributes.
+```
+
+`requirements.txt` pins nothing, so a fresh install gets 1.0.0 and the script
+cannot run at all. Dropping the parentheses fixes it. GerryChain is imported
+by this one script and nothing else, so nothing else is affected.
+
+### 1.3 A missing adjacency graph yields an infinite Reock
 
 Input files written for the scoring pipeline carry no `neighbors` key -- the
 graph is a separate file, which is good practice, since it can be corrected
@@ -210,6 +231,27 @@ published geodesic Reock.
 metric is not isotropic: north-south displacement counts more than east-west
 by about 1.2x at 35N, and the factor varies with latitude, which makes the
 figure not strictly comparable between states.
+
+### 4.3 Converted assignments come out in an order set iteration decides
+
+`scripts/formats/canonical_to_assignments.py:47`
+
+```python
+districts: dict[int, set[int]] = defaultdict(set)
+for precinct, district in enumerate(parsed_line["assignment"]):
+    districts[district].add(precinct)
+assignments = {geoids[index]: district
+               for district, precincts in districts.items()
+               for index in precincts}
+```
+
+Building an assignment map by grouping into sets and then flattening puts the
+output keys in an order determined by CPython's set iteration for integers --
+roughly, precinct index modulo the set's table size. Nothing downstream cares,
+since the pairs are the same, but it makes the output non-obvious to diff and
+ties the file's byte content to an implementation detail of the interpreter.
+Iterating the assignment list directly gives precinct order and the same
+result.
 
 ---
 

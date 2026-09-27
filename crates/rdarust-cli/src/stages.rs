@@ -74,7 +74,9 @@ struct PlanRecord {
 fn as_plan(record: &Value, index: usize) -> Option<PlanRecord> {
     match record.get("_tag_").and_then(|t| t.as_str()) {
         Some("plan") => Some(PlanRecord {
-            name: record.get("name")?.as_str()?.to_string(),
+            // Canonical records name plans with an integer sample number, so
+            // a name is not necessarily a string.
+            name: plan_name(record.get("name"))?,
             plan: record.get("plan")?.clone(),
         }),
         Some(_) => None,
@@ -88,6 +90,15 @@ fn as_plan(record: &Value, index: usize) -> Option<PlanRecord> {
                     plan: record.clone(),
                 })
         }
+    }
+}
+
+/// A plan's name, which may arrive as a string or a number.
+fn plan_name(v: Option<&Value>) -> Option<String> {
+    match v? {
+        Value::String(s) => Some(s.clone()),
+        Value::Null => None,
+        other => Some(other.to_string()),
     }
 }
 
