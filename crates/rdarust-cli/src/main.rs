@@ -117,6 +117,36 @@ enum Command {
         #[arg(long)]
         prefixes: bool,
     },
+    /// Write the dual graph GerryChain's ReCom consumes.
+    ///
+    /// Joins the adjacency graph to the precinct data, drops the virtual
+    /// state-border node, and writes networkx adjacency format. The graph
+    /// must be fully connected; use `contiguity-mods` first if it is not.
+    ToRecomGraph {
+        /// State abbreviation, e.g. NC.
+        #[arg(long)]
+        state: String,
+        /// Chamber. Not used by ReCom, which takes its district count from
+        /// the seed plan, but kept for consistency with the other commands.
+        #[arg(long = "plan-type", default_value = "congress")]
+        plan_type: String,
+        /// Precinct data, for the population figures.
+        #[arg(long)]
+        data: String,
+        #[arg(long)]
+        graph: String,
+        #[arg(long)]
+        output: Option<String>,
+        /// Name for the population attribute on each node.
+        #[arg(long = "pop-name", default_value = "TOTAL_POP")]
+        pop_name: String,
+        /// Name for the geoid attribute.
+        #[arg(long = "geoid-name", default_value = "GEOID")]
+        geoid_name: String,
+        /// Name for the county attribute.
+        #[arg(long = "county-name", default_value = "COUNTY")]
+        county_name: String,
+    },
     /// Propose the fewest edges that would make a graph fully connected.
     ///
     /// Islands are joined at their closest pair of border precincts, chosen
@@ -352,6 +382,12 @@ fn main() {
         Command::Write { input, data, scores, by_district, prefixes } => {
             stages::write(input.as_deref(), &data, &scores, &by_district, prefixes)
         }
+        Command::ToRecomGraph {
+            state, plan_type, data, graph, output, pop_name, geoid_name, county_name,
+        } => graphs::to_recom_graph(
+            &state, &plan_type, &data, &graph, output.as_deref(),
+            &pop_name, &geoid_name, &county_name,
+        ),
         Command::ContiguityMods { graph, locations, geojson, output } => {
             graphs::generate_mods(&graph, locations.as_deref(), geojson.as_deref(), output.as_deref())
         }

@@ -106,6 +106,40 @@ joining islands at their closest pair of border precincts and choosing which
 islands to join with a minimum spanning tree. The output is a CSV meant to be
 reviewed before it is applied.
 
+## Feeding GerryChain's ReCom
+
+rdapy keeps adjacency and precinct data in separate files, and represents the
+state border as a pseudo-node. GerryChain wants one file in networkx adjacency
+format, with integer node ids, a population on every node, and no border node
+-- it would otherwise be treated as a real unit adjacent to half the state.
+
+```bash
+rdarust to-recom-graph --state NC \
+    --data NC_input_data.jsonl --graph NC_graph.json \
+    --output NC_recom_graph.json
+```
+
+Each node carries `GEOID`, `COUNTY` and `TOTAL_POP`. ReCom itself reads only
+the population column; the geoid is what lets a plan that comes back as node
+indices be turned into precinct assignments, and the county code is there for
+region-aware ReCom. The graph must be fully connected, so the command refuses
+a disconnected one and points at `contiguity-mods`.
+
+No seed plan is written -- GerryChain's `recursive_tree_part` produces one in
+a line, and it is the reference implementation.
+
+Plans come back with `from-canonical`, which closes the loop:
+
+```bash
+rdarust from-canonical --graph NC_recom_graph.json --input chain.jsonl \
+  | rdarust score-all --state NC --plan-type congress \
+        --data NC_input_data.jsonl --graph NC_graph.json \
+        --plans - --scores scores.csv --by-district by-district.jsonl
+```
+
+`conformance/tools/check_recom_graph.py` loads a generated graph through
+GerryChain and runs a chain on it, which is the part a Rust test cannot check.
+
 ## The geographic baseline
 
 How many seats each party would win from geography alone, which

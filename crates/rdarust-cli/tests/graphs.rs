@@ -208,3 +208,101 @@ fn a_non_addition_row_is_rejected() {
         String::from_utf8_lossy(&out.stderr)
     );
 }
+
+/// The ReCom graph has to satisfy GerryChain's reader exactly: node-link
+/// shape, dense integer ids, symmetric adjacency, and a population on every
+/// node. That GerryChain *accepts* it is checked separately, by
+/// `conformance/tools/check_recom_graph.py`, which runs an actual chain.
+#[test]
+fn recom_graph_has_the_shape_gerrychain_reads() {
+    let dir = tempdir("recom");
+    let out = dir.join("recom.json");
+
+    run(&[
+        "to-recom-graph",
+        "--state", "NC",
+        "--data", &rdapy(DATA),
+        "--graph", &rdapy(GRAPH),
+        "--output", out.to_str().unwrap(),
+    ]);
+
+    let doc: Value = serde_json::from_str(&std::fs::read_to_string(&out).unwrap()).unwrap();
+    assert_eq!(doc["directed"], false);
+    assert_eq!(doc["multigraph"], false);
+
+    let nodes = doc["nodes"].as_array().expect("nodes");
+    let adjacency = doc["adjacency"].as_array().expect("adjacency");
+    assert_eq!(nodes.len(), adjacency.len(), "one adjacency list per node");
+    assert_eq!(nodes.len(), 2666, "every NC precinct, and no border node");
+
+    let mut total_pop: i64 = 0;
+    for (i, node) in nodes.iter().enumerate() {
+        assert_eq!(node["id"], i, "ids must be dense and in order");
+        let geoid = node["GEOID"].as_str().expect("every node needs a geoid");
+        assert_ne!(geoid, "OUT_OF_STATE", "the border node must not be present");
+        assert_eq!(
+            node["COUNTY"].as_str().unwrap(),
+            &geoid[..5],
+            "county is the five-character FIPS"
+        );
+        total_pop += node["TOTAL_POP"].as_i64().expect("every node needs a population");
+    }
+    assert_eq!(total_pop, 10_439_388, "population is conserved from the data file");
+
+    // Adjacency must be symmetric, or ReCom's spanning trees are wrong.
+    let neighbors: Vec<Vec<usize>> = adjacency
+        .iter()
+        .map(|list| {
+            list.as_array()
+                .unwrap()
+                .iter()
+                .map(|e| e["id"].as_u64().unwrap() as usize)
+                .collect()
+        })
+        .collect();
+    for (i, nbrs) in neighbors.iter().enumerate() {
+        for &j in nbrs {
+            assert!(neighbors[j].contains(&i), "edge {i}-{j} is not reciprocated");
+        }
+        assert!(nbrs.windows(2).all(|w| w[0] < w[1]), "node {i}: neighbours sorted and unique");
+    }
+
+    // Connected, which ReCom requires.
+    let mut seen = vec![false; neighbors.len()];
+    let mut stack = vec![0usize];
+    seen[0] = true;
+    let mut count = 1;
+    while let Some(n) = stack.pop() {
+        for &m in &neighbors[n] {
+            if !seen[m] {
+                seen[m] = true;
+                count += 1;
+                stack.push(m);
+            }
+        }
+    }
+    assert_eq!(count, neighbors.len(), "graph must be connected");
+}
+
+/// A disconnected graph is refused rather than written, since ReCom cannot
+/// reach every precinct on one.
+#[test]
+fn a_disconnected_graph_is_refused() {
+    let dir = tempdir("recom-broken");
+    let broken = dir.join("broken.json");
+    make_disconnected(&broken, 3);
+
+    let out = rdarust(&[
+        "to-recom-graph",
+        "--state", "NC",
+        "--data", &rdapy(DATA),
+        "--graph", broken.to_str().unwrap(),
+        "--output", dir.join("recom.json").to_str().unwrap(),
+    ]);
+    assert!(!out.status.success());
+    let stderr = String::from_utf8_lossy(&out.stderr);
+    assert!(
+        stderr.contains("not fully connected") && stderr.contains("contiguity-mods"),
+        "the error should say what to do about it, got: {stderr}"
+    );
+}

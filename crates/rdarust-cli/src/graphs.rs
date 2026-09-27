@@ -310,3 +310,119 @@ pub fn check_graph(state: &str, data: &str, graph_path: &str) -> Result<()> {
         Err(anyhow!("graph is not fully connected"))
     }
 }
+
+/// Write the dual graph GerryChain's ReCom consumes.
+///
+/// ReCom needs a connected dual graph with a population figure on every node;
+/// that is the whole of its requirement, and everything else here is to make
+/// the result usable afterwards. The geoid lets a plan that comes back as
+/// node indices be mapped to precincts, and the county code is there for
+/// region-aware ReCom.
+///
+/// rdapy keeps adjacency and precinct data in separate files and represents
+/// the state border as a pseudo-node. This joins the two and drops the border
+/// node, which ReCom would otherwise treat as a real unit adjacent to half
+/// the state.
+#[allow(clippy::too_many_arguments)]
+pub fn to_recom_graph(
+    state: &str,
+    plan_type: &str,
+    data: &str,
+    graph_path: &str,
+    output: Option<&str>,
+    pop_name: &str,
+    geoid_name: &str,
+    county_name: &str,
+) -> Result<()> {
+    let input = load_input_data(expand(data))
+        .map_err(|e| anyhow!("{e}"))
+        .with_context(|| format!("reading {data}"))?;
+    let graph = load_graph(expand(graph_path))
+        .map_err(|e| anyhow!("{e}"))
+        .with_context(|| format!("reading {graph_path}"))?;
+    let ctx = input
+        .with_graph(graph)
+        .into_context(state, plan_type, None)
+        .map_err(|e| anyhow!("{e}"))
+        .context("joining the precinct data to the graph")?;
+
+    // Node order is by geoid, so the file is reproducible.
+    let order = ctx.sorted_precinct_order();
+    let mut position = vec![u32::MAX; ctx.n_precincts()];
+    for (pos, &i) in order.iter().enumerate() {
+        position[i as usize] = pos as u32;
+    }
+
+    // ReCom walks the dual graph looking for balanced cuts; on a
+    // disconnected graph it cannot reach every precinct, so refuse rather
+    // than emit something that will misbehave quietly.
+    if !is_connected(&order, &ctx.adjacency, ctx.out_of_state) {
+        let pieces = islands(&order, &ctx.adjacency, ctx.out_of_state);
+        return Err(anyhow!(
+            "the graph is not fully connected ({} pieces); \
+             run `rdarust contiguity-mods` and `rdarust apply-mods` first",
+            pieces.len()
+        ));
+    }
+
+    let mut nodes = Vec::with_capacity(order.len());
+    let mut adjacency = Vec::with_capacity(order.len());
+    let mut total_pop: i64 = 0;
+    let mut edges = 0usize;
+
+    for (id, &i) in order.iter().enumerate() {
+        let geoid = &ctx.geoids[i as usize];
+        let mut node = Map::new();
+        node.insert(geoid_name.to_string(), json!(geoid));
+        // The full five-character county FIPS, as the ReCom graphs in
+        // circulation carry it.
+        node.insert(
+            county_name.to_string(),
+            json!(if geoid.len() >= 5 { &geoid[..5] } else { geoid.as_str() }),
+        );
+        node.insert(pop_name.to_string(), json!(ctx.pop[i as usize]));
+        node.insert("id".into(), json!(id));
+        nodes.push(Value::Object(node));
+        total_pop += ctx.pop[i as usize];
+
+        let mut nbrs: Vec<u32> = ctx.adjacency[i as usize]
+            .iter()
+            .filter(|&&nb| Some(nb) != ctx.out_of_state)
+            .map(|&nb| position[nb as usize])
+            .filter(|&p| p != u32::MAX)
+            .collect();
+        nbrs.sort_unstable();
+        nbrs.dedup();
+        edges += nbrs.len();
+
+        adjacency.push(Value::Array(
+            nbrs.into_iter()
+                .map(|p| {
+                    let mut e = Map::new();
+                    e.insert("id".into(), json!(p));
+                    Value::Object(e)
+                })
+                .collect(),
+        ));
+    }
+
+    let mut doc = Map::new();
+    doc.insert("directed".into(), json!(false));
+    doc.insert("multigraph".into(), json!(false));
+    doc.insert("graph".into(), json!([]));
+    doc.insert("nodes".into(), Value::Array(nodes));
+    doc.insert("adjacency".into(), Value::Array(adjacency));
+
+    // networkx writes this with Python's JSON separators and no trailing
+    // newline, so a file written here round-trips through its reader.
+    let mut out = smart_writer(output).context("opening output")?;
+    out.write_all(&rdarust_io::records::to_python_json(&Value::Object(doc))?)?;
+    out.flush()?;
+
+    eprintln!(
+        "rdarust: {} nodes, {} edges, total population {total_pop}",
+        order.len(),
+        edges / 2
+    );
+    Ok(())
+}

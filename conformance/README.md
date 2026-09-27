@@ -20,6 +20,7 @@ conformance/
     gen_rate.py            transcribes and verifies rdapy's rating tests
     trace_rdapy_tests.py   instruments rdapy and runs its pytest suite
     gen_supplement.py      covers what that suite leaves untouched
+    check_recom_graph.py   runs GerryChain on a generated ReCom graph
 ```
 
 ## Where the expected values come from
