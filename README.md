@@ -229,6 +229,14 @@ The scores CSV and the metadata JSON the CLI writes are **byte-identical** to
 rdapy's, checked by a test against golden files recorded from rdapy's own
 pipeline.
 
+Holding the two implementations to that bar surfaced a handful of things worth
+reporting back upstream -- a few that would move a number, several performance
+opportunities, and some notes on approximations that are easy to miss from the
+code. Those are collected in [RDAPY-FINDINGS.md](RDAPY-FINDINGS.md), also
+readable as a shareable page:
+
+<https://claude.ai/code/artifact/20fde9f4-9c4a-49ec-89b1-d7c75936767c>
+
 ## Performance
 
 Scoring the 101-plan NC congressional ensemble -- 2,666 precincts, 7 election
