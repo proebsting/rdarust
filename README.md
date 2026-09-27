@@ -329,3 +329,8 @@ cargo run --release -p rdarust-io --example score_ensemble -- \
     vendor/rdapy/testdata/plans/NC_congress_plans.tagged.jsonl \
     NC congress vendor/rdapy/testdata/examples/NC_graph.json
 ```
+
+## Licence
+
+MIT; see [LICENSE](LICENSE). rdapy is MIT too, and its notice is reproduced
+there, since this is a port of it.
