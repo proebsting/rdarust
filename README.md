@@ -162,6 +162,22 @@ so district identity survives it.
 `conformance/tools/check_rustrecom.sh` runs that whole loop and checks every
 plan from the chain comes out scored.
 
+`conformance/tools/check_pipeline.sh` goes further back: it starts from the
+one file DRA publishes and builds everything else -- data map, adjacency
+graph, precinct data, dual graph, seed plan, chain, scores, geographic
+baseline. It needs a seed generator as well as rustrecom:
+
+```sh
+PARTIGRAPH=~/work/partigraph-rust/target/release/partigraph-seedmap \
+RUSTRECOM=~/ext/rustrecom/target/release/rustrecom \
+  conformance/tools/check_pipeline.sh
+```
+
+Besides checking every plan is scored, it checks the district numbering comes
+back 1-based, that the chain actually moved, that the geographic baseline adds
+a column and disturbs nothing else, and that the staged path
+(`aggregate`/`score`/`write`) and the fused one produce byte-identical output.
+
 ### With GerryChain
 
 GerryChain reads the same graph, and seeds a chain itself:
