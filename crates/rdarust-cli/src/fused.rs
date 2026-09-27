@@ -11,11 +11,12 @@ use rayon::prelude::*;
 use rdarust_core::aggregate::Aggregates;
 use rdarust_core::score::{ModeOpt, ScoreOptions};
 use rdarust_io::{
-    records::{smart_reader, smart_writer, write_record_sorted},
-    scorecard_to_value, scored_aggregates_to_value, ScoresCsv,
+    assignments_of, records::write_record_sorted, scorecard_to_value,
+    scored_aggregates_to_value, ScoresCsv,
 };
 use serde_json::{json, Map, Value};
 
+use crate::files::{expand, smart_reader, smart_writer};
 use crate::stages::{build_context, load_geographic_baselines, parse_mode};
 use crate::{DataArgs, ResilienceArgs};
 
@@ -127,7 +128,7 @@ pub fn score_all(
         .collect();
 
     let mut csv = ScoresCsv::new(
-        std::fs::File::create(rdarust_io::records::expand(scores_path))
+        std::fs::File::create(expand(scores_path))
             .with_context(|| format!("creating {scores_path}"))?,
     );
     let mut by_district = smart_writer(Some(by_district_path))
@@ -174,15 +175,3 @@ fn ctx_metadata(args: &DataArgs) -> Result<Value> {
         .metadata)
 }
 
-fn assignments_of(plan: &Value) -> Vec<(String, u32)> {
-    plan.as_object()
-        .map(|o| {
-            o.iter()
-                .filter_map(|(k, v)| {
-                    let d = v.as_u64().or_else(|| v.as_str()?.parse().ok())?;
-                    Some((k.clone(), d as u32))
-                })
-                .collect()
-        })
-        .unwrap_or_default()
-}

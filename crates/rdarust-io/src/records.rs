@@ -1,40 +1,14 @@
-//! Tagged JSONL records, and stdin/stdout plumbing.
+//! Tagged JSONL records.
 //!
 //! The pipeline stages exchange one JSON object per line, each carrying a
 //! `_tag_` saying what it is. A stage passes `metadata` through untouched,
 //! acts on the records it understands, and ignores the rest -- so an ensemble
 //! file can carry an adjacency graph or provenance alongside its plans.
+//!
+//! Everything here writes to a `&mut dyn Write`. Turning a path into one is
+//! the caller's business.
 
-use std::fs::File;
-use std::io::{self, BufRead, BufReader, BufWriter, Write};
-use std::path::Path;
-
-/// Read from a file, or stdin when the path is absent or `-`.
-pub fn smart_reader(path: Option<&str>) -> io::Result<Box<dyn BufRead>> {
-    match path {
-        None | Some("-") => Ok(Box::new(BufReader::new(io::stdin()))),
-        Some(p) => Ok(Box::new(BufReader::new(File::open(expand(p))?))),
-    }
-}
-
-/// Write to a file, or stdout when the path is absent or `-`.
-pub fn smart_writer(path: Option<&str>) -> io::Result<Box<dyn Write>> {
-    match path {
-        None | Some("-") => Ok(Box::new(BufWriter::new(io::stdout()))),
-        Some(p) => Ok(Box::new(BufWriter::new(File::create(expand(p))?))),
-    }
-}
-
-/// Expand a leading `~`, which the shell will not have done for a path that
-/// arrived quoted.
-pub fn expand(path: &str) -> std::path::PathBuf {
-    if let Some(rest) = path.strip_prefix("~/") {
-        if let Some(home) = std::env::var_os("HOME") {
-            return Path::new(&home).join(rest);
-        }
-    }
-    Path::new(path).to_path_buf()
-}
+use std::io::{self, Write};
 
 /// Python's default JSON separators.
 ///

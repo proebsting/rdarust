@@ -100,19 +100,31 @@ fn for_each_plan_record(
     Ok(())
 }
 
+/// The geoid and district of every precinct in a plan object.
+///
+/// Districts written as strings are parsed, which rdapy accepts; anything
+/// that is neither a number nor a numeric string is skipped, as is anything
+/// at all when `plan` is not an object.
+pub fn assignments_of(plan: &Value) -> Vec<(String, u32)> {
+    plan.as_object()
+        .map(|o| {
+            o.iter()
+                .filter_map(|(k, v)| {
+                    let d = v.as_u64().or_else(|| v.as_str()?.parse().ok())?;
+                    Some((k.clone(), d as u32))
+                })
+                .collect()
+        })
+        .unwrap_or_default()
+}
+
 /// The assignments carried by one `plan` record.
 fn plan_of(line: usize, rec: &Value) -> Result<Assignments, LoadError> {
-    let obj = rec.get("plan").and_then(|p| p.as_object()).ok_or(LoadError::Malformed {
+    let obj = rec.get("plan").filter(|p| p.is_object()).ok_or(LoadError::Malformed {
         line,
         what: "plan record has no plan object".into(),
     })?;
-    Ok(obj
-        .iter()
-        .filter_map(|(k, v)| {
-            let d = v.as_u64().or_else(|| v.as_str()?.parse().ok())?;
-            Some((k.clone(), d as u32))
-        })
-        .collect())
+    Ok(assignments_of(obj).into_iter().collect())
 }
 
 /// Read the `n`th plan from a tagged JSONL ensemble file.

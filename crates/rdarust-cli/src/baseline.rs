@@ -13,10 +13,11 @@ use rdarust_core::context::Context;
 use rdarust_io::{
     load_graph, load_input_data,
     neighborhoods::{read_neighborhoods_from, write_neighborhoods},
-    records::{expand, smart_reader, smart_writer, write_record},
+    records::write_record,
 };
 use serde_json::{json, Map, Value};
 
+use crate::files::{expand, smart_reader, smart_writer};
 use crate::DataArgs;
 
 /// Build a context, with the graph optional.

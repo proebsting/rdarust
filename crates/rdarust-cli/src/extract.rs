@@ -9,9 +9,11 @@ use rdarust_geo::Geometry;
 use rdarust_io::{
     extract::{extract_data as do_extract, extract_graph as do_graph, OUT_OF_STATE},
     geojson::{load_geojson, Feature},
-    records::{expand, smart_writer, write_record},
+    records::write_record,
 };
 use serde_json::{json, Map, Value};
+
+use crate::files::{expand, smart_writer};
 
 fn geoids_of(features: &[Feature], field: &str) -> Vec<String> {
     features

@@ -12,6 +12,7 @@
 
 mod baseline;
 mod extract;
+mod files;
 mod formats;
 mod fused;
 mod graphs;

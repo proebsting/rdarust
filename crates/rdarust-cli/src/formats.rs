@@ -8,9 +8,12 @@ use std::io::{BufRead, Write};
 use std::path::Path;
 
 use anyhow::{anyhow, Context as _, Result};
-use rdarust_io::records::{expand, smart_reader, smart_writer, write_record, write_record_sorted};
+use rdarust_io::records::{write_record, write_record_sorted};
+use rdarust_io::{district_shift, graph_geoids, RecomError};
 use rdarust_io::read_plan_csv;
 use serde_json::{json, Map, Value};
+
+use crate::files::{expand, smart_reader, smart_writer};
 
 /// Convert a legacy single-JSON ensemble.
 ///
@@ -197,23 +200,15 @@ pub fn from_canonical(
     let graph: Value = serde_json::from_str(&text)
         .with_context(|| format!("parsing {graph_path}"))?;
 
-    let geoids: Vec<String> = graph
-        .get("nodes")
-        .and_then(|n| n.as_array())
-        .ok_or_else(|| anyhow!("{graph_path} has no `nodes` array"))?
-        .iter()
-        .map(|n| {
-            n.get(geoid_key)
-                .and_then(|g| g.as_str())
-                .unwrap_or_default()
-                .to_string()
-        })
-        .collect();
-    if geoids.iter().all(|g| g.is_empty()) {
-        return Err(anyhow!(
-            "no node in {graph_path} has a `{geoid_key}` property; try --geoid"
-        ));
-    }
+    // Both failures are about this particular file, so name it rather than
+    // wrapping the library's file-agnostic wording.
+    let geoids = graph_geoids(&graph, geoid_key).map_err(|e| match e {
+        RecomError::NoGeoids { key } => {
+            anyhow!("no node in {graph_path} has a `{key}` property; try --geoid")
+        }
+        RecomError::NoNodes => anyhow!("{graph_path} has no `nodes` array"),
+        other => anyhow!("{graph_path}: {other}"),
+    })?;
 
     let reader = smart_reader(input).context("opening the canonical stream")?;
     let mut out = smart_writer(output).context("opening output")?;
@@ -241,17 +236,12 @@ pub fn from_canonical(
             ));
         }
 
-        // rustrecom normalises district labels to 0-based internally, by
-        // subtracting the lowest, and writes them out that way whatever the
-        // seed used. Scoring numbers districts from 1, so shift them back.
-        // The shift preserves identity -- it is an offset, not a relabelling.
+        // Scoring numbers districts from 1 and rustrecom from 0; see
+        // `rdarust_io::district_shift` for why an offset is the right fix.
         let shift: i64 = if keep_district_numbers {
             0
         } else {
-            match assignment.iter().filter_map(|d| d.as_i64()).min() {
-                Some(lo) if lo < 1 => 1 - lo,
-                _ => 0,
-            }
+            district_shift(assignment.iter().filter_map(|d| d.as_i64()))
         };
         if shift != 0 && !shifted {
             eprintln!(

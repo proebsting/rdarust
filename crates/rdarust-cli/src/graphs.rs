@@ -14,10 +14,9 @@ use std::io::Write;
 use anyhow::{anyhow, Context as _, Result};
 use rdarust_core::context::OUT_OF_STATE;
 use rdarust_core::graph::{contiguity_mods, is_connected, is_consistent, islands};
-use rdarust_io::{
-    load_graph, load_input_data,
-    records::{expand, smart_writer},
-};
+use rdarust_io::{build_graph, load_graph, load_input_data, RecomError, RecomNames};
+
+use crate::files::{expand, smart_writer};
 use serde_json::{json, Map, Value};
 
 /// A graph with its geoids interned to indices.
@@ -359,120 +358,41 @@ pub fn to_recom_graph(
         .map_err(|e| anyhow!("{e}"))
         .context("joining the precinct data to the graph")?;
 
-    // Node order is by geoid, so the file is reproducible.
-    let order = ctx.sorted_precinct_order();
-    let mut position = vec![u32::MAX; ctx.n_precincts()];
-    for (pos, &i) in order.iter().enumerate() {
-        position[i as usize] = pos as u32;
-    }
-
-    // ReCom walks the dual graph looking for balanced cuts; on a
-    // disconnected graph it cannot reach every precinct, so refuse rather
-    // than emit something that will misbehave quietly.
-    if !is_connected(&order, &ctx.adjacency, ctx.out_of_state) {
-        let pieces = islands(&order, &ctx.adjacency, ctx.out_of_state);
-        return Err(anyhow!(
-            "the graph is not fully connected ({} pieces); \
-             run `rdarust contiguity-mods` and `rdarust apply-mods` first",
-            pieces.len()
-        ));
-    }
-
     // A chain needs somewhere to start. rustrecom takes its starting plan
     // from a node attribute (`--assignment-col`) and requires one, so a seed
     // plan is stamped on here rather than generated.
     let seed = assignment.map(read_seed_plan).transpose()?;
 
-    let mut nodes = Vec::with_capacity(order.len());
-    let mut adjacency = Vec::with_capacity(order.len());
-    let mut total_pop: i64 = 0;
-    let mut edges = 0usize;
-    let mut districts: std::collections::BTreeSet<u32> = Default::default();
-
-    for (id, &i) in order.iter().enumerate() {
-        let geoid = &ctx.geoids[i as usize];
-        let mut node = Map::new();
-        node.insert(geoid_name.to_string(), json!(geoid));
-        // The full five-character county FIPS, as the ReCom graphs in
-        // circulation carry it.
-        node.insert(
-            county_name.to_string(),
-            json!(if geoid.len() >= 5 { &geoid[..5] } else { geoid.as_str() }),
-        );
-        node.insert(pop_name.to_string(), json!(ctx.pop[i as usize]));
-        if let Some(seed) = &seed {
-            let d = *seed.get(geoid).ok_or_else(|| {
-                anyhow!(
-                    "the seed plan does not assign {geoid}; rustrecom needs every \
-                     node to carry an assignment"
-                )
-            })?;
-            districts.insert(d);
-            node.insert(assignment_name.to_string(), json!(d));
-        }
-        node.insert("id".into(), json!(id));
-        nodes.push(Value::Object(node));
-        total_pop += ctx.pop[i as usize];
-
-        let mut nbrs: Vec<u32> = ctx.adjacency[i as usize]
-            .iter()
-            .filter(|&&nb| Some(nb) != ctx.out_of_state)
-            .map(|&nb| position[nb as usize])
-            .filter(|&p| p != u32::MAX)
-            .collect();
-        nbrs.sort_unstable();
-        nbrs.dedup();
-        edges += nbrs.len();
-
-        adjacency.push(Value::Array(
-            nbrs.into_iter()
-                .map(|p| {
-                    let mut e = Map::new();
-                    e.insert("id".into(), json!(p));
-                    Value::Object(e)
-                })
-                .collect(),
-        ));
-    }
-
-    // rustrecom accepts a 0- or 1-indexed seed and rejects gaps, so catch
-    // both here where the message can say which plan is at fault.
-    if !districts.is_empty() {
-        let lo = *districts.iter().next().unwrap();
-        let hi = *districts.iter().next_back().unwrap();
-        if lo > 1 {
-            return Err(anyhow!(
-                "the seed plan's lowest district is {lo}; it must be numbered from 0 or 1"
-            ));
-        }
-        if districts.len() as u32 != hi - lo + 1 {
-            return Err(anyhow!(
-                "the seed plan numbers {} districts between {lo} and {hi}, leaving a gap; \
-                 every district in the range must have at least one precinct",
-                districts.len()
-            ));
-        }
-    }
-
-    let mut doc = Map::new();
-    doc.insert("directed".into(), json!(false));
-    doc.insert("multigraph".into(), json!(false));
-    doc.insert("graph".into(), json!([]));
-    doc.insert("nodes".into(), Value::Array(nodes));
-    doc.insert("adjacency".into(), Value::Array(adjacency));
+    let names = RecomNames {
+        geoid: geoid_name,
+        pop: pop_name,
+        county: county_name,
+        assignment: assignment_name,
+    };
+    // The library's wording is format-neutral; this command is specifically
+    // about rustrecom, so it can say what to do next.
+    let built = build_graph(&ctx, names, seed.as_ref()).map_err(|e| match e {
+        RecomError::Disconnected { .. } => anyhow!(
+            "{e}; run `rdarust contiguity-mods` and `rdarust apply-mods` first"
+        ),
+        RecomError::Unassigned { geoid } => anyhow!(
+            "the seed plan does not assign {geoid}; rustrecom needs every \
+             node to carry an assignment"
+        ),
+        other => anyhow!("{other}"),
+    })?;
 
     // networkx writes this with Python's JSON separators and no trailing
     // newline, so a file written here round-trips through its reader.
     let mut out = smart_writer(output).context("opening output")?;
-    out.write_all(&rdarust_io::records::to_python_json(&Value::Object(doc))?)?;
+    out.write_all(&rdarust_io::records::to_python_json(&built.doc)?)?;
     out.flush()?;
 
     eprintln!(
-        "rdarust: {} nodes, {} edges, total population {total_pop}",
-        order.len(),
-        edges / 2
+        "rdarust: {} nodes, {} edges, total population {}",
+        built.n_nodes, built.n_edges, built.total_pop
     );
-    match districts.len() {
+    match built.n_districts {
         0 => eprintln!(
             "rdarust: no seed plan; pass --assignment to write one, which \
              rustrecom's --assignment-col requires"

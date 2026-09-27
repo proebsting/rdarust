@@ -8,12 +8,13 @@ use rdarust_core::aggregate::{Aggregates, Mode};
 use rdarust_core::context::Context;
 use rdarust_core::score::{ModeOpt, ScoreOptions};
 use rdarust_io::{
-    aggregates_from_value, aggregates_to_value, load_graph, load_input_data,
-    records::{smart_reader, smart_writer, write_record, write_record_sorted},
+    aggregates_from_value, aggregates_to_value, assignments_of, load_graph, load_input_data,
+    records::{write_record, write_record_sorted},
     scorecard_to_value, scored_aggregates_to_value, ScoresCsv,
 };
 use serde_json::{json, Map, Value};
 
+use crate::files::{expand, smart_reader, smart_writer};
 use crate::{DataArgs, ResilienceArgs};
 
 pub fn parse_mode(s: &str) -> Mode {
@@ -49,7 +50,7 @@ pub fn load_geographic_baselines(path: Option<&str>) -> Result<HashMap<String, f
     let Some(path) = path else {
         return Ok(HashMap::new());
     };
-    let text = std::fs::read_to_string(rdarust_io::records::expand(path))
+    let text = std::fs::read_to_string(expand(path))
         .with_context(|| format!("reading precomputed values from {path}"))?;
     let v: Value = serde_json::from_str(&text)
         .with_context(|| format!("parsing {path}"))?;
@@ -103,19 +104,6 @@ fn plan_name(v: Option<&Value>) -> Option<String> {
         Value::Null => None,
         other => Some(other.to_string()),
     }
-}
-
-fn assignments_of(plan: &Value) -> Vec<(String, u32)> {
-    plan.as_object()
-        .map(|o| {
-            o.iter()
-                .filter_map(|(k, v)| {
-                    let d = v.as_u64().or_else(|| v.as_str()?.parse().ok())?;
-                    Some((k.clone(), d as u32))
-                })
-                .collect()
-        })
-        .unwrap_or_default()
 }
 
 fn is_metadata(record: &Value) -> bool {
@@ -268,7 +256,7 @@ pub fn write(
 
     let reader = smart_reader(input).context("opening input")?;
     let mut csv = ScoresCsv::new(
-        std::fs::File::create(rdarust_io::records::expand(scores_path))
+        std::fs::File::create(expand(scores_path))
             .with_context(|| format!("creating {scores_path}"))?,
     );
     let mut by_district = smart_writer(Some(by_district_path))
@@ -335,7 +323,7 @@ fn write_scores_metadata(scores_path: &str, record: &Value, data_map: &Value) ->
     let formatter = serde_json::ser::PrettyFormatter::with_indent(b"    ");
     let mut ser = serde_json::Serializer::with_formatter(&mut buf, formatter);
     serde::Serialize::serialize(&Value::Object(merged), &mut ser)?;
-    std::fs::write(rdarust_io::records::expand(&path), buf)
+    std::fs::write(expand(&path), buf)
         .with_context(|| format!("writing {path}"))?;
     Ok(())
 }

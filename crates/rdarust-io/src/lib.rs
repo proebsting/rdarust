@@ -20,10 +20,11 @@
 //! So a caller that has bytes rather than a filename -- a fetched file, a
 //! decompressed stream, a browser upload, an embedder driving this as a
 //! library -- can use the `_from` variants and never touch the filesystem.
-//! [`records::smart_reader`] and [`records::smart_writer`] remain the
-//! command line's edge, where `-` means the standard streams.
 //! [`geojson::features_of`] goes one step further and takes an
-//! already-parsed document.
+//! already-parsed document, and every writer here takes a `&mut dyn Write`.
+//! Turning a command-line argument into either is the caller's business:
+//! `-` for the standard streams and `~` for the home directory live in the
+//! CLI, not here.
 
 use std::collections::HashMap;
 use std::fs::File;
@@ -40,18 +41,20 @@ pub mod extract;
 pub mod geojson;
 pub mod neighborhoods;
 pub mod plans;
+pub mod recom;
 pub mod records;
 pub mod scores;
 
 pub use aggregates::{aggregates_from_value, aggregates_to_value, scored_aggregates_to_value};
 pub use plans::{
-    read_plan_csv, read_plan_csv_from, read_plan_jsonl, read_plan_jsonl_from, read_plans_jsonl,
-    read_plans_jsonl_from, Assignments,
+    assignments_of, read_plan_csv, read_plan_csv_from, read_plan_jsonl, read_plan_jsonl_from,
+    read_plans_jsonl, read_plans_jsonl_from, Assignments,
 };
+pub use recom::{build_graph, district_shift, graph_geoids, RecomError, RecomGraph, RecomNames};
 pub use extract::{extract_data, extract_graph};
 pub use geojson::{features_of, load_geojson, load_geojson_from};
 pub use neighborhoods::{read_neighborhoods_from, write_neighborhoods};
-pub use records::{smart_reader, smart_writer, write_record};
+pub use records::write_record;
 pub use scores::{flatten_scores, format_score, scorecard_to_value, ScoresCsv};
 
 #[derive(Debug)]

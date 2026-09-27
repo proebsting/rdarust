@@ -6,7 +6,7 @@ before being set aside, so picking one up does not mean starting from scratch.
 ## 1. Zipped JSONL input
 
 rdapy's `smart_read` transparently opens a `.zip` containing a `.jsonl`;
-`rdarust_io::records::smart_reader` handles only stdin and plain files.
+`rdarust-cli`'s `files::smart_reader` handles only stdin and plain files.
 
 Affects every stream command: `aggregate --input`, `score --input`,
 `score-all --plans`, `precompute-baselines --neighborhoods`,
