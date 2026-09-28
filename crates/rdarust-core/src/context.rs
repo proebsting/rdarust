@@ -67,6 +67,11 @@ pub enum ContextError {
     UnknownState { xx: String, plan_type: String },
     /// Per-precinct arrays disagree in length.
     LengthMismatch { what: &'static str, got: usize, want: usize },
+    /// The data mentions more counties than the state has. The
+    /// county-district matrix is sized from the statutory count, so this
+    /// would index past it; it almost always means the data and the state
+    /// abbreviation do not belong together.
+    TooManyCounties { xx: String, statutory: usize, found: usize },
 }
 
 impl std::fmt::Display for ContextError {
@@ -82,6 +87,11 @@ impl std::fmt::Display for ContextError {
             ContextError::LengthMismatch { what, got, want } => {
                 write!(f, "{what} has {got} entries, expected {want}")
             }
+            ContextError::TooManyCounties { xx, statutory, found } => write!(
+                f,
+                "the data covers {found} counties but {xx} has {statutory}; \
+                 check that the state abbreviation matches the data"
+            ),
         }
     }
 }
@@ -235,6 +245,16 @@ impl Context {
             .collect();
         counties.sort();
         counties.dedup();
+        // Sized from the statutory count, indexed by what the data holds, so
+        // more counties than the state has would run off the end of the
+        // county-district matrix during aggregation.
+        if counties.len() > n_counties {
+            return Err(ContextError::TooManyCounties {
+                xx: xx.to_string(),
+                statutory: n_counties,
+                found: counties.len(),
+            });
+        }
         let county_index: HashMap<&str, u32> = counties
             .iter()
             .enumerate()

@@ -324,3 +324,59 @@ fn report_agreement_margins() {
     eprintln!("MEC    worst relative error vs rdapy : {worst_mec:e}  (bar 1e-9)");
     eprintln!("MEC    bit-identical to rdapy        : {exact}/{total} cases");
 }
+
+
+/// One state's data scored as another runs off the end of the county-district
+/// matrix, which is sized from the statutory county count rather than from
+/// the data. Catch it while a message can still name the cause.
+#[test]
+fn more_counties_than_the_state_has_is_refused() {
+    use rdarust_core::context::{
+        Context, ContextError, DatasetKeys, Demographics, PrecinctInput,
+    };
+
+    // Delaware has three counties. Four distinct county FIPS in the data
+    // means the data is not Delaware's.
+    let precincts: Vec<PrecinctInput> = (0..4)
+        .map(|i| PrecinctInput {
+            geoid: format!("1000{i}000001"),
+            pop: 100,
+            center: (0.0, 0.0),
+            area: 1.0,
+            arcs: Vec::new(),
+            exterior: Vec::new(),
+            neighbors: Vec::new(),
+        })
+        .collect();
+
+    let built = Context::new(
+        "DE",
+        "congress",
+        precincts,
+        None,
+        Vec::new(),
+        Demographics { names: Vec::new(), counts: Vec::new() },
+        None,
+        DatasetKeys {
+            census: "c".into(),
+            vap: "v".into(),
+            cvap: None,
+            elections: Vec::new(),
+            shapes: "s".into(),
+        },
+        Some(2),
+    );
+    let err = match built {
+        Err(e) => e,
+        Ok(_) => panic!("four counties in a three-county state should be refused"),
+    };
+
+    assert_eq!(
+        err,
+        ContextError::TooManyCounties { xx: "DE".into(), statutory: 3, found: 4 }
+    );
+    assert!(
+        err.to_string().contains("check that the state abbreviation matches"),
+        "the message should point at the likely cause, got: {err}"
+    );
+}
