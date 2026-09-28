@@ -31,6 +31,10 @@ pub enum ScoreError {
     EmptyDistrict,
     /// The plan has no districts, or the aggregates are empty.
     NoDistricts,
+    /// Scoring one election failed. Which one matters: a run over twenty
+    /// elections is usually undone by one degenerate race, and the bare
+    /// message does not say which to drop.
+    Election { key: String, source: Box<ScoreError> },
 }
 
 macro_rules! from_err {
@@ -56,6 +60,7 @@ impl std::fmt::Display for ScoreError {
             ScoreError::CutScore(e) => write!(f, "{e}"),
             ScoreError::EmptyDistrict => write!(f, "a district has no population"),
             ScoreError::NoDistricts => write!(f, "the plan has no districts"),
+            ScoreError::Election { key, source } => write!(f, "election {key}: {source}"),
         }
     }
 }
@@ -248,12 +253,18 @@ impl Context {
 
         if mode.partisan() {
             for (e, election) in self.elections.iter().enumerate() {
-                card.elections.push(self.score_election(
-                    e,
-                    election,
-                    aggs,
-                    opts.geographic_baselines.get(&election.key).copied(),
-                )?);
+                card.elections.push(
+                    self.score_election(
+                        e,
+                        election,
+                        aggs,
+                        opts.geographic_baselines.get(&election.key).copied(),
+                    )
+                    .map_err(|source| ScoreError::Election {
+                        key: election.key.clone(),
+                        source: Box::new(source),
+                    })?,
+                );
             }
         }
 
