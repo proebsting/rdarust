@@ -196,12 +196,10 @@ impl Context {
                 }
             })?,
         } as usize;
-        let mut n_counties = crate::states::counties_by_state(xx).ok_or_else(|| {
-            ContextError::UnknownState {
-                xx: xx.to_string(),
-                plan_type: plan_type.to_string(),
-            }
-        })? as usize;
+        // Resolved once the data's counties are known, below: the table has
+        // no entry for DC or Puerto Rico, and the count only sizes a matrix
+        // that already tolerates being widened.
+        let statutory_counties = crate::states::counties_by_state(xx).map(|c| c as usize);
 
         // Intern geoids. The border node, if present, sits one past the end.
         let mut index: HashMap<String, u32> = HashMap::with_capacity(n + 1);
@@ -247,6 +245,16 @@ impl Context {
         // instead, which costs a column of zeros and is right whichever way
         // the mismatch arose. See KNOWN-DIFFERENCES.md.
         let mut warnings = Vec::new();
+        let mut n_counties = statutory_counties.unwrap_or_else(|| {
+            // DC and Puerto Rico are published by DRA but absent from
+            // rdapy's table. The data says how many county equivalents it
+            // covers, which is all this number is for.
+            warnings.push(format!(
+                "no statutory county count for {xx}; using the {} the data covers",
+                counties.len()
+            ));
+            counties.len()
+        });
         if counties.len() > n_counties {
             // Every geoid opens with its state's FIPS code, so the data can
             // say which state it is even though nothing here maps a FIPS
