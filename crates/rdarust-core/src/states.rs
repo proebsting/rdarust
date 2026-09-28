@@ -1,7 +1,22 @@
-//! Per-state constants, generated from `rdapy/base/constants.py`.
+//! Per-state constants, transcribed from `rdapy/base/constants.py`.
 //!
-//! District counts are for the 2020 cycle. A state with a single at-large
-//! seat, or no lower chamber, is represented accordingly.
+//! District counts are the 2020 apportionment, effective for elections from
+//! 2022; county counts are census county equivalents. Fifty states, no DC or
+//! territories, as rdapy has it.
+//!
+//! `tests/states_match_rdapy.rs` compares these against the submodule on
+//! every run, because a transcription cannot notice its source changing.
+//! Regenerate rather than edit.
+//!
+//! Two things worth knowing before trusting a number here:
+//!
+//! * `lower: None` means the chamber has no districts of its own, not that
+//!   the state has no lower house. Arizona, Idaho, New Jersey and Washington
+//!   elect theirs from the upper house's districts; Nebraska is unicameral.
+//! * County counts move off the decennial clock. Connecticut's eight
+//!   counties were replaced by nine planning regions as county equivalents
+//!   in the Census Bureau's 2022 vintage, and the count here is still eight.
+//!   Data built on the newer vintage will have more counties than this says.
 
 /// Districts in each chamber for a state.
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
