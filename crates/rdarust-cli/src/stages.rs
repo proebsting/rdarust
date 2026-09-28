@@ -38,11 +38,15 @@ pub fn build_context(args: &DataArgs) -> Result<Context> {
     let graph = load_graph(&args.graph)
         .map_err(|e| anyhow!("{e}"))
         .with_context(|| format!("reading adjacency graph from {}", args.graph))?;
-    input
+    let ctx = input
         .with_graph(graph)
         .into_context(&args.state, &args.plan_type, args.districts_override)
         .map_err(|e| anyhow!("{e}"))
-        .with_context(|| format!("building a context for {} {}", args.state, args.plan_type))
+        .with_context(|| format!("building a context for {} {}", args.state, args.plan_type))?;
+    for w in &ctx.warnings {
+        eprintln!("rdarust: WARNING: {w}");
+    }
+    Ok(ctx)
 }
 
 /// Whole seats per election from a precomputed geographic baseline.

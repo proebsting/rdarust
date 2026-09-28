@@ -67,11 +67,6 @@ pub enum ContextError {
     UnknownState { xx: String, plan_type: String },
     /// Per-precinct arrays disagree in length.
     LengthMismatch { what: &'static str, got: usize, want: usize },
-    /// The data mentions more counties than the state has. The
-    /// county-district matrix is sized from the statutory count, so this
-    /// would index past it; it almost always means the data and the state
-    /// abbreviation do not belong together.
-    TooManyCounties { xx: String, statutory: usize, found: usize },
 }
 
 impl std::fmt::Display for ContextError {
@@ -87,11 +82,6 @@ impl std::fmt::Display for ContextError {
             ContextError::LengthMismatch { what, got, want } => {
                 write!(f, "{what} has {got} entries, expected {want}")
             }
-            ContextError::TooManyCounties { xx, statutory, found } => write!(
-                f,
-                "the data covers {found} counties but {xx} has {statutory}; \
-                 check that the state abbreviation matches the data"
-            ),
         }
     }
 }
@@ -153,6 +143,11 @@ pub struct Context {
     pub vap: Demographics,
     pub cvap: Option<Demographics>,
     pub keys: DatasetKeys,
+
+    /// Things worth telling the user that are not errors. Construction has
+    /// no way to print, and a caller that ignores these still gets a usable
+    /// context, so they are carried rather than raised.
+    pub warnings: Vec<String>,
 }
 
 /// rdapy's lexical test for a water-only precinct.
@@ -201,7 +196,7 @@ impl Context {
                 }
             })?,
         } as usize;
-        let n_counties = crate::states::counties_by_state(xx).ok_or_else(|| {
+        let mut n_counties = crate::states::counties_by_state(xx).ok_or_else(|| {
             ContextError::UnknownState {
                 xx: xx.to_string(),
                 plan_type: plan_type.to_string(),
@@ -245,15 +240,37 @@ impl Context {
             .collect();
         counties.sort();
         counties.dedup();
-        // Sized from the statutory count, indexed by what the data holds, so
-        // more counties than the state has would run off the end of the
-        // county-district matrix during aggregation.
+
+        // The county-district matrix is sized from the statutory count but
+        // indexed by the counties the data holds, so more of the latter runs
+        // off the end. rdapy raises an IndexError here; widen the matrix
+        // instead, which costs a column of zeros and is right whichever way
+        // the mismatch arose. See KNOWN-DIFFERENCES.md.
+        let mut warnings = Vec::new();
         if counties.len() > n_counties {
-            return Err(ContextError::TooManyCounties {
-                xx: xx.to_string(),
-                statutory: n_counties,
-                found: counties.len(),
-            });
+            // Every geoid opens with its state's FIPS code, so the data can
+            // say which state it is even though nothing here maps a FIPS
+            // code back to an abbreviation. One prefix means the data is
+            // coherent and `xx` is probably wrong; several means the data is
+            // mixed.
+            let mut prefixes: Vec<&str> = precincts
+                .iter()
+                .filter_map(|p| p.geoid.get(..2))
+                .collect();
+            prefixes.sort_unstable();
+            prefixes.dedup();
+            let whose = match prefixes.as_slice() {
+                [one] => format!("every geoid is in state FIPS {one}"),
+                many => format!("the geoids span state FIPS {}", many.join(", ")),
+            };
+            warnings.push(format!(
+                "the data covers {} counties but {xx} has {n_counties}; {whose}. \
+                 Scoring {} counties. If {xx} is not this data's state the county \
+                 splitting scores will be meaningless.",
+                counties.len(),
+                counties.len()
+            ));
+            n_counties = counties.len();
         }
         let county_index: HashMap<&str, u32> = counties
             .iter()
@@ -346,6 +363,7 @@ impl Context {
             plan_type: plan_type.to_string(),
             n_districts,
             n_counties,
+            warnings,
             geoids,
             index,
             county_of,

@@ -376,3 +376,26 @@ test case.
 a row written as `-,a,b` adds the edge. Here only `+` (or an empty column) is
 accepted, and anything else is an error naming the line. Applying a mods file
 that only ever used `+` behaves identically.
+
+## 30. More counties in the data than the state is recorded as having
+
+**rdapy** (`base/data.py`) sizes the county-district matrix from
+`COUNTIES_BY_STATE[xx]` and indexes it by the counties it finds in the
+geoids. When the data holds more counties than the table says, the index
+runs past the end and numpy raises `IndexError`.
+
+**This port** widens the matrix to whatever the data holds and carries a
+warning on the `Context`, which both front ends print.
+
+**Why.** The mismatch has two causes and refusing serves neither. One is a
+wrong state abbreviation, where the right answer is a message naming the
+evidence -- every geoid opens with its state's FIPS code, so the data can
+say which state it is. The other is a county table that has gone stale:
+Connecticut's eight counties were replaced by nine planning regions as
+census county equivalents in the 2022 vintage, and `COUNTIES_BY_STATE`
+still says eight. That is legitimate data, and an error would block it.
+
+The extra columns cost nothing: a county with no precincts contributes
+zero to every splitting measure. On any input rdapy completes, the two
+agree exactly; this deviates only where rdapy raises.
+

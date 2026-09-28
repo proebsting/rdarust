@@ -326,17 +326,15 @@ fn report_agreement_margins() {
 }
 
 
-/// One state's data scored as another runs off the end of the county-district
-/// matrix, which is sized from the statutory county count rather than from
-/// the data. Catch it while a message can still name the cause.
+/// A state's data scored as another has more counties than the matrix is
+/// sized for. rdapy raises an IndexError; this widens the matrix and says so,
+/// because the same mismatch can mean a stale county table rather than a
+/// wrong state, and refusing would block legitimate data.
 #[test]
-fn more_counties_than_the_state_has_is_refused() {
-    use rdarust_core::context::{
-        Context, ContextError, DatasetKeys, Demographics, PrecinctInput,
-    };
+fn more_counties_than_the_state_has_widens_the_matrix() {
+    use rdarust_core::context::{Context, DatasetKeys, Demographics, PrecinctInput};
 
-    // Delaware has three counties. Four distinct county FIPS in the data
-    // means the data is not Delaware's.
+    // Delaware has three counties; four distinct FIPS codes in the data.
     let precincts: Vec<PrecinctInput> = (0..4)
         .map(|i| PrecinctInput {
             geoid: format!("1000{i}000001"),
@@ -349,7 +347,7 @@ fn more_counties_than_the_state_has_is_refused() {
         })
         .collect();
 
-    let built = Context::new(
+    let ctx = Context::new(
         "DE",
         "congress",
         precincts,
@@ -365,18 +363,14 @@ fn more_counties_than_the_state_has_is_refused() {
             shapes: "s".into(),
         },
         Some(2),
-    );
-    let err = match built {
-        Err(e) => e,
-        Ok(_) => panic!("four counties in a three-county state should be refused"),
-    };
+    )
+    .expect("a county count mismatch is a warning, not a refusal");
 
-    assert_eq!(
-        err,
-        ContextError::TooManyCounties { xx: "DE".into(), statutory: 3, found: 4 }
-    );
-    assert!(
-        err.to_string().contains("check that the state abbreviation matches"),
-        "the message should point at the likely cause, got: {err}"
-    );
+    assert_eq!(ctx.n_counties, 4, "the matrix should be sized for what the data holds");
+    assert_eq!(ctx.warnings.len(), 1, "the mismatch should be reported");
+    let w = &ctx.warnings[0];
+    assert!(w.contains("4 counties but DE has 3"), "should name both counts: {w}");
+    // Every geoid here opens with FIPS 10, which is the evidence a reader
+    // needs to tell a wrong --state from a stale table.
+    assert!(w.contains("state FIPS 10"), "should name the data's state: {w}");
 }
