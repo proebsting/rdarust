@@ -215,6 +215,18 @@ impl<W: std::io::Write> ScoresCsv<W> {
         }
     }
 
+    /// A writer that appends to a file which already has its header.
+    ///
+    /// Extending an ensemble continues an existing `scores.csv`, and a
+    /// second header in the middle of it would make the file unreadable.
+    pub fn appending(inner: W) -> Self {
+        let mut csv = ScoresCsv::new(inner);
+        // Non-empty means "the header is already out", which is the only
+        // thing this field is consulted for.
+        csv.columns = Some(Vec::new());
+        csv
+    }
+
     /// Write one plan's scores, emitting the header first.
     pub fn write(&mut self, name: &str, scores: &Value, prefixes: bool) -> csv::Result<()> {
         let flat = flatten_scores(scores, prefixes);
