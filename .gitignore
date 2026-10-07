@@ -3,3 +3,4 @@
 .DS_Store
 gui/src-tauri/target/
 gui/src-tauri/gen/
+dist/out/
