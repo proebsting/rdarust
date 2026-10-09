@@ -4,3 +4,13 @@
 gui/src-tauri/target/
 gui/src-tauri/gen/
 dist/out/
+
+# Ensemble output written into the repo by mistake. Runs belong in a scratch
+# directory; bi_800/ got committed in 1c23169 because a `cd` failed and the
+# run landed here instead. These names are unmistakable and nothing legitimate
+# sits one level down under them -- conformance's own CSVs are deeper.
+/*/scores.csv
+/*/plans.jsonl
+/*/plans.jsonl.xz
+/*/by_district.jsonl
+/*/diagnostics.json
