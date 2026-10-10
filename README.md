@@ -14,6 +14,13 @@ compactness, including the KIWYSI model, is in too.
 
 Not ported: a handful of one-off experiment scripts and shell helpers.
 
+**Generating ensembles lives elsewhere.** This repository scores plans it is
+given; it does not run Markov chains. The tool that does -- downloading a
+state from DRA, drawing a starting plan, running ReCom and scoring as it goes,
+from one command or from a window -- is
+[rda-ensemble](https://github.com/proebsting/rda-ensemble), which depends on
+these crates.
+
 Ported: the five DRA ratings; the partisan suite (Nagle's method, bias,
 responsiveness); population deviation; county, district and COI splitting;
 minority opportunity and majority-minority counts; the Reock and
@@ -250,6 +257,13 @@ vendor/rdapy/     rdapy pinned as a submodule, for test data and reference value
 git submodule update --init   # rdapy, for test data
 cargo test
 ```
+
+That first line is not optional, and skipping it fails in a way that does not
+point at itself: `vendor/rdapy` arrives empty from a plain `git clone`, and
+nineteen of the twenty test binaries then fail with `No such file or
+directory` against paths under it. `git clone --recurse-submodules` avoids
+the question. So does remembering that a `git bundle` never carries submodule
+contents either.
 
 ## How correctness is established
 
